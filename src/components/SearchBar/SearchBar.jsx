@@ -1,15 +1,24 @@
 import { useState } from "react";
-import "./searchBar.css";
+import {
+  StyledSearchBar,
+  StyledSearchInput,
+  SearchIcon,
+} from "./SearchBar.Styled";
 
 export default function SearchBar(props) {
-  const [search, setSearch] = useState({
-    search: "",
-  });
+  const [search, setSearch] = useState("");
 
   return (
-    <div className="searchBar">
-      <img src="#" alt="ICO" />
-      <input type="text" name="search" />
-    </div>
+    <StyledSearchBar className="searchBar">
+      <SearchIcon src="#" alt="ICO" className="search--icon" />
+      <StyledSearchInput
+        type="text"
+        placeholder="თუ ეძებ, იპოვი..."
+        className="search--input"
+        name="search"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+    </StyledSearchBar>
   );
 }

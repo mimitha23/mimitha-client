@@ -1,10 +1,12 @@
-import { LandingPage } from "./components/index.js"
 import React from "react";
-import './styles/App.css';
+// import { ThemeProvider } from "styled-components";
+import { LandingPage } from "./pages/index.js"
+import GlobalStyles from './styles/GlobalStyles';
 
 export default function App(props) {
   return (
     <div className="mainDiv">
+      <GlobalStyles />
       <LandingPage />
     </div>
   )
