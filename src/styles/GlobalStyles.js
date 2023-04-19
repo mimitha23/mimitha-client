@@ -24,7 +24,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  background-color: #5c5c5c;
+  background-color: ${({ theme }) => theme.colors.bg};
+  transition: ease-in-out;
 }
 
 code {

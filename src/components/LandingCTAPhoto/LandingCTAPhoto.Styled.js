@@ -7,15 +7,11 @@ export const StyledLandingCTAPhoto = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-
-  img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  }
+  
+  /* background-image: url("/images/image-not-uploaded.png"); */
 `
 export const LandingCTAContainer = styled.div`
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.text};
   width: 750px;
   height: 70px;
 
@@ -24,6 +20,7 @@ export const LandingCTAContainer = styled.div`
   justify-content: center;
 
   border-radius: 10px;
+  
 `
 
 export const LandingCTA = styled.div`
@@ -34,19 +31,19 @@ export const LandingCTA = styled.div`
   justify-content: space-between;
   align-items: flex-end;
 
-  color: white;
-  border: 1px solid white;
+  border: 1px solid ${({ theme }) => theme.colors.bg};
   border-radius: 10px;
 
   span {
+  color: ${({ theme }) => theme.colors.bg};
   font-size: 2rem;
   font-weight: 500;
   margin: 2.5px 0 2.5px 0;
   letter-spacing: 2px;
-  }
-
+  
   :nth-child(2) {
   font-size: 3rem;
   letter-spacing: 10px;
-}
+  }
+} 
 `

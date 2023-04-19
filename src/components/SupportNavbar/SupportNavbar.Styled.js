@@ -9,6 +9,7 @@ export const SupportNavbarContainer = styled.div`
 
   position: absolute;
   right: 0;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const SupportNavbarList = styled.ul`
@@ -29,14 +30,14 @@ export const SupportNavbarListItem = styled.li`
 
   padding: 0px 20px 0px 20px;
 
-  border-right: 2px solid black;
+  border-right: 2px solid ${({ theme }) => theme.colors.text};
 
   font-size: 0.75rem;
   font-weight: 500;
   cursor: pointer;
 
   :nth-child(1) {
-    border-left: 2px solid black;
+    border-left: 2px solid ${({ theme }) => theme.colors.text};
   }
 `;
 
@@ -48,7 +49,7 @@ export const LanguageSwitch = styled.div`
 
 export const LanguageSwitchItem = styled.span`
   padding: 5px;
-  border-right: 2px solid black;
+  border-right: 2px solid ${({ theme }) => theme.colors.text};
 `;
 
 export const SupportNavbarSocialNetworks = styled.div`

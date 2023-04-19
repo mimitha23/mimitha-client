@@ -8,11 +8,12 @@ export const StyledSearchBar = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.text};
 
   position: absolute;
   bottom: 0;
   right: 230px;
+  color: ${({ theme }) => theme.colors.text};
 `
 
 export const StyledSearchInput = styled.input`
@@ -21,6 +22,7 @@ export const StyledSearchInput = styled.input`
   height: 100%;
   border: 0;
 
+  background-color: ${({ theme }) => theme.colors.bg};
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
@@ -30,7 +32,7 @@ export const StyledSearchInput = styled.input`
   }
 
   ::placeholder {
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
   font-size: 1rem;
   font-weight: normal;
   letter-spacing: 0.8px;

@@ -14,7 +14,6 @@ export const StyledProfileIcon = styled.div`
   img {
   flex: 1.5;
   height: 100%;
-  background-color: black;
   border-radius: 50%;
   }
 `
@@ -25,14 +24,15 @@ export const ProfileIconText = styled.div`
 
   font-size: 1rem;
   font-weight: 500;
+  color: ${({ theme }) => theme.colors.text};
 `
 
 export const DarkModeSwitch = styled.div`
   width: fit-content;
   margin-top: 2px;
 
-  color: white;
-  background-color: black;
+  color: ${({ theme }) => theme.colors.bg};
+  background-color: ${({ theme }) => theme.colors.text};
 
   font-size: 0.75rem;
 

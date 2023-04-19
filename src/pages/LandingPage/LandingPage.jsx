@@ -19,7 +19,7 @@ export default function LandingPage(props) {
         <SupportNavbar />
         <CategoriesNavbar />
         <SearchBar />
-        <ProfileIcon />
+        <ProfileIcon themeChanger={props.themeChanger} />
       </StyledUpperPanel>
       <StyledDownPanel>
         <LandingCTAPhoto />

@@ -6,6 +6,7 @@ export const StyledCategoriesNavbar = styled.nav`
 
   position: absolute;
   bottom: 0;
+  color: ${({ theme }) => theme.colors.text};
 `
 
 export const CategoriesNavbarList = styled.ul`
@@ -25,14 +26,14 @@ export const CategoriesNavbarList = styled.ul`
 
 
   padding: 0px 20px 0px 20px;
-  border-right: 2px solid black;
+  border-right: 2px solid ${({ theme }) => theme.colors.text};
   font-size: 0.75rem;
   font-weight: 500;
   cursor: pointer;
   }
 
   :nth-child(1) {
-  border-left: 2px solid black;
+  border-left: 2px solid ${({ theme }) => theme.colors.text};
   }
 
   :nth-child(6) {
@@ -40,7 +41,7 @@ export const CategoriesNavbarList = styled.ul`
   }
 
   :nth-child(7) {
-  border: 2px solid black;
+  border: 2px solid ${({ theme }) => theme.colors.text};
   }
 
 `
