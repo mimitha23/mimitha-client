@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const StyledEditorStyler = styled.div`
-  width: fit-content;
   padding: 10px;
-  
   display: flex;
-
+  justify-content: space-between;
   border: 2px solid ${({ theme }) => theme.colors.text};
   background-color: lightgrey;
 `
@@ -13,7 +11,7 @@ export const StyledEditorLeftPanel = styled.div`
 
   h2 {
     color: ${({ theme }) => theme.colors.text};
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 500;
   }
 `
@@ -125,11 +123,11 @@ export const StyledEditorSizeChanger = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  font-size: 1.1rem;
   margin-top: 5px;
 
   div {
-    width: 40px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,8 +160,8 @@ export const StyledEditorRightPanel = styled.div`
 
   p {
     cursor: pointer;
-    letter-spacing: normal.8;
-    font-size: 1rem;
+    letter-spacing: .6px;
+    font-size: 1.2rem;
     font-weight: 500;
     color: ${({ theme }) => theme.colors.text};;
   }
@@ -173,6 +171,9 @@ export const StyledEditorRightPanel = styled.div`
 export const StyledEditorSuggestionBTN = styled.div`
   width: 280px;
   height: 50px;
+
+  margin: 20px;
+
   display: flex;
   align-items: center;
   justify-content: center;

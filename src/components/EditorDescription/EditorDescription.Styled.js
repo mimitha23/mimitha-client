@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledEditorDescription = styled.div`
-  width: 550px;
   letter-spacing: .5px;
   h2 {
     color: ${({ theme }) => theme.colors.text};
@@ -13,10 +12,11 @@ export const StyledEditorDescription = styled.div`
 export const StyledEditorDescriptionStyles = styled.div`
   display: flex;
   align-items: flex-end;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 
 
   color: ${({ theme }) => theme.colors.text};
+  font-size: 1.1rem;
   font-weight: 500;
 
   div {
@@ -41,7 +41,7 @@ export const StyledEditorSoldCounter = styled.span`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    width: 60px;
 
     color:  ${({ theme }) => theme.colors.bg};
     background-color: ${({ theme }) => theme.colors.text};

@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const StyledEditorTitle = styled.div`
+
+  margin: 20px 20px 0 0;
+
  h1 {
   padding-bottom: 10px;
 
@@ -12,6 +15,7 @@ export const StyledEditorTitle = styled.div`
 
 export const StyledPrice = styled.div`
   width: fit-content;
+  margin: 10px 0 10px 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
