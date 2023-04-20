@@ -30,7 +30,6 @@ export const CategoriesNavbarList = styled.ul`
   font-size: 0.75rem;
   font-weight: 500;
   cursor: pointer;
-  }
 
   :nth-child(1) {
   border-left: 2px solid ${({ theme }) => theme.colors.text};
@@ -41,7 +40,14 @@ export const CategoriesNavbarList = styled.ul`
   }
 
   :nth-child(7) {
-  border: 2px solid ${({ theme }) => theme.colors.text};
+  border: 1.75px solid ${({ theme }) => theme.colors.text};
   }
 
+  :hover{
+    background-color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.bg};
+    transition: 0.3s ease-in;
+  }
+
+  }
 `

@@ -9,12 +9,6 @@ export const StyledLandingPage = styled.main`
   align-items: center;
 `;
 
-export const StyledUpperPanel = styled.div`
-  position: relative;
-  width: 100%;
-  flex: 1;
-`;
-
 export const StyledDownPanel = styled.div`
   width: 100%;
   height: 100%;

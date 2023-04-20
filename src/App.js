@@ -11,13 +11,13 @@ export default function App(props) {
   const isDarkTheme = theme === "dark";
 
   const toggleTheme = () => setTheme(isDarkTheme ? "light" : "dark")
-  console.log(lightTheme, darkTheme);
+
   return (
     <>
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <GlobalStyles />
-        <LandingPage themeChanger={toggleTheme} />
-        {/* <Editor /> */}
+        {/* <LandingPage themeChanger={toggleTheme} /> */}
+        <Editor themeChanger={toggleTheme} />
       </ThemeProvider>
     </>
   )
