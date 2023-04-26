@@ -15,6 +15,9 @@ const GlobalStyles = createGlobalStyle`
 img {
   max-width: 100%;
 }
+/* html {
+  width: 100vw;
+} */
 
 body {
   margin: 0;

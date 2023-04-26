@@ -8,7 +8,7 @@ export const StyledProfileIcon = styled.div`
   align-items: flex-end;
 
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   right: 0;
 
   img {

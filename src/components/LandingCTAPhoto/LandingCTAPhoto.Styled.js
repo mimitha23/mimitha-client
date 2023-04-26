@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
 export const StyledLandingCTAPhoto = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 1920px;
+  margin-top: 180px;
+  height: 900px;
+  
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   
-  /* background-image: url("/images/image-not-uploaded.png"); */
+  a {
+    text-decoration: none;
+  }
+  background-image: url("/images/image-not-uploaded.png");
 `
 export const LandingCTAContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.text};

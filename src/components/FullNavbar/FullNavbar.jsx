@@ -1,4 +1,4 @@
-import { StyledFullNavbar } from "./FullNavbar.Styled";
+import { StyledFullNavbar, StyledNavbarLogo } from "./FullNavbar.Styled";
 import {
   CategoriesNavbar,
   SearchBar,
@@ -9,6 +9,7 @@ import {
 export default function FullNavbar(props) {
   return (
     <StyledFullNavbar>
+      <StyledNavbarLogo src="./images/image-not-uploaded.png" alt="" />
       <CategoriesNavbar />
       <SearchBar />
       <ProfileIcon themeChanger={props.themeChanger} />

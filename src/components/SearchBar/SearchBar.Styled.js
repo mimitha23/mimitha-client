@@ -11,7 +11,7 @@ export const StyledSearchBar = styled.div`
   border-bottom: 2px solid ${({ theme }) => theme.colors.text};
 
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   right: 230px;
   color: ${({ theme }) => theme.colors.text};
 `

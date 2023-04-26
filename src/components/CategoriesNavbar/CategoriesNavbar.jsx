@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   StyledCategoriesNavbar,
   CategoriesNavbarList,
@@ -7,7 +8,9 @@ export default function CategoriesNavbar(props) {
   return (
     <StyledCategoriesNavbar className="categoriesNavbar--container">
       <CategoriesNavbarList className="categoriesNavbar--list">
-        <li className="list--item">მამაკაცი</li>
+        <li className="list--item">
+          <Link to={"/"}>მამაკაცი</Link>
+        </li>
         <li className="list--item">ქალბატონი</li>
         <li className="list--item">მოზარდი</li>
         <li className="list--item">საოჯახო</li>

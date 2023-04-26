@@ -5,7 +5,8 @@ export const StyledCategoriesNavbar = styled.nav`
   height: 60px;
 
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
+  left: 308px;
   color: ${({ theme }) => theme.colors.text};
 `
 

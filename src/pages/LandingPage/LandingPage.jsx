@@ -1,14 +1,19 @@
-import { StyledLandingPage, StyledDownPanel } from "./LandingPage.Styled";
+import { StyledLandingPage } from "./LandingPage.Styled";
 
-import { LandingCTAPhoto, FullNavbar } from "../../components/index";
+import {
+  LandingCTAPhoto,
+  FullNavbar,
+  StyledLandingPageSection2,
+} from "../../components/index";
 
 export default function LandingPage(props) {
   return (
-    <StyledLandingPage>
+    <>
       <FullNavbar themeChanger={props.themeChanger} />
-      <StyledDownPanel>
+      <StyledLandingPage>
         <LandingCTAPhoto />
-      </StyledDownPanel>
-    </StyledLandingPage>
+        <StyledLandingPageSection2 />
+      </StyledLandingPage>
+    </>
   );
 }

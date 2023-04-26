@@ -2,7 +2,7 @@ import { StyledEditorShippingInfo } from "./EditorShippingInfo.Styled";
 
 export default function EditorShippingInfo(props) {
   return (
-    <StyledEditorShippingInfo>
+    <StyledEditorShippingInfo className="no_margin">
       <div>
         <p>მიწოდება საქართველოში</p>
         <p>

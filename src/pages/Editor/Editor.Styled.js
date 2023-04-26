@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const StyledEditor = styled.div`
   width: 100vw;
   height: 80vh;
+  margin-top: 200px;
   display: flex;
   align-items: center;
-  
+
   border-top: 2px solid ${({ theme }) => theme.colors.text};
   border-bottom: 2px solid ${({ theme }) => theme.colors.text};
 `
@@ -26,4 +27,8 @@ export const StyledEditorPanel = styled.div`
   flex-direction: column;
 
   gap: 20px;
+
+  .no_margin {
+    margin-top: -20px;
+  }
 `

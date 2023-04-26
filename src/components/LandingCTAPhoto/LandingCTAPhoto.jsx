@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   StyledLandingCTAPhoto,
   LandingCTAContainer,
@@ -7,13 +8,15 @@ import {
 export default function LandingCTAPhoto(props) {
   return (
     <StyledLandingCTAPhoto>
-      <LandingCTAContainer>
-        <LandingCTA>
-          <span>შექმენი</span>
-          <span>შენი</span>
-          <span>სტილი</span>
-        </LandingCTA>
-      </LandingCTAContainer>
+      <Link to={"/editor"}>
+        <LandingCTAContainer>
+          <LandingCTA>
+            <span>შექმენი</span>
+            <span>შენი</span>
+            <span>სტილი</span>
+          </LandingCTA>
+        </LandingCTAContainer>
+      </Link>
     </StyledLandingCTAPhoto>
   );
 }
