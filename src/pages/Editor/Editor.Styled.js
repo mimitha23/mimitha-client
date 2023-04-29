@@ -7,7 +7,7 @@ export const StyledEditor = styled.div`
   display: flex;
   align-items: center;
 
-  border-top: 2px solid ${({ theme }) => theme.colors.text};
+  /* border-top: 2px solid ${({ theme }) => theme.colors.text}; */
   border-bottom: 2px solid ${({ theme }) => theme.colors.text};
 `
 
