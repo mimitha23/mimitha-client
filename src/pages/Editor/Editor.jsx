@@ -4,17 +4,17 @@ import {
   EditorDescription,
   EditorStyler,
   EditorShippingInfo,
-} from "../../components";
+} from "components";
 import {
   StyledEditor,
   StyledEditorImg,
   StyledEditorPanel,
 } from "./Editor.Styled";
 
-export default function Editor(props) {
+export default function Editor() {
   return (
     <>
-      <FullNavbar themeChanger={props.themeChanger} />
+      <FullNavbar/>
       <StyledEditor>
         <StyledEditorImg src="./images/image-not-uploaded.png" alt="" />
         <StyledEditorImg src="./images/image-not-uploaded.png" alt="" />

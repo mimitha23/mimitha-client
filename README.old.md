@@ -1,2 +1,0 @@
-# mimitha
- MVP For Mimitha

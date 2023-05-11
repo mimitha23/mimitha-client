@@ -1,13 +1,19 @@
-export const lightTheme = {
-  colors: {
-    "bg": "#fff",
-    "text": "#000"
-  }
-}
+const BaseTheme = {
+  colors: {},
+};
 
-export const darkTheme = {
+export const LightTheme = {
+  ...BaseTheme,
   colors: {
-    "bg": "#000",
-    "text": "#fff"
-  }
-}
+    bg: "#fff",
+    text: "#000",
+  },
+};
+
+export const DarkTheme = {
+  ...BaseTheme,
+  colors: {
+    bg: "#000",
+    text: "#fff",
+  },
+};

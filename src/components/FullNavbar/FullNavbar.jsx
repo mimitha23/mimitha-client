@@ -4,15 +4,15 @@ import {
   SearchBar,
   ProfileIcon,
   SupportNavbar,
-} from "../index";
+} from "components";
 
-export default function FullNavbar(props) {
+export default function FullNavbar() {
   return (
     <StyledFullNavbar>
-      <StyledNavbarLogo src="./images/image-not-uploaded.png" alt="" />
+      <StyledNavbarLogo src="/assets/images/image-not-uploaded.png" alt="" />
       <CategoriesNavbar />
       <SearchBar />
-      <ProfileIcon themeChanger={props.themeChanger} />
+      <ProfileIcon/>
       <SupportNavbar />
     </StyledFullNavbar>
   );

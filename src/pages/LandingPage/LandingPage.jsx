@@ -4,12 +4,12 @@ import {
   LandingCTAPhoto,
   FullNavbar,
   StyledLandingPageSection2,
-} from "../../components/index";
+} from "components";
 
-export default function LandingPage(props) {
+export default function LandingPage() {
   return (
     <>
-      <FullNavbar themeChanger={props.themeChanger} />
+      <FullNavbar />
       <StyledLandingPage>
         <LandingCTAPhoto />
         <StyledLandingPageSection2 />
