@@ -1,30 +1,34 @@
 import {
-  FullNavbar,
+  Navigation,
   EditorTitle,
   EditorDescription,
   EditorStyler,
   EditorShippingInfo,
 } from "components";
-import {
-  StyledEditor,
-  StyledEditorImg,
-  StyledEditorPanel,
-} from "./Editor.Styled";
+import * as Styled from "./Editor.Styled";
 
 export default function Editor() {
   return (
     <>
-      <FullNavbar/>
-      <StyledEditor>
-        <StyledEditorImg src="./images/image-not-uploaded.png" alt="" />
-        <StyledEditorImg src="./images/image-not-uploaded.png" alt="" />
-        <StyledEditorPanel>
+      <Navigation />
+      <Styled.Editor>
+        <img
+          className="editorImg"
+          src="./images/image-not-uploaded.png"
+          alt=""
+        />
+        <img
+          className="editorImg"
+          src="./images/image-not-uploaded.png"
+          alt=""
+        />
+        <div className="editorPanel">
           <EditorTitle />
           <EditorDescription />
           <EditorStyler />
           <EditorShippingInfo />
-        </StyledEditorPanel>
-      </StyledEditor>
+        </div>
+      </Styled.Editor>
     </>
   );
 }

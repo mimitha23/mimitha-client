@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledLandingPage = styled.main`
+export const LandingPage = styled.main`
   width: 100%;
   height: fit-content;
 

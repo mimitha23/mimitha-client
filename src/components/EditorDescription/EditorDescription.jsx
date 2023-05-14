@@ -1,41 +1,36 @@
-import {
-  StyledEditorDescription,
-  StyledEditorDescriptionStyles,
-  StyledEditorPlaceHolder,
-  StyledEditorSoldCounter,
-} from "./EditorDescription.Styled";
+import * as Styled from "./EditorDescription.Styled";
 
 export default function EditorDescription(props) {
   return (
-    <StyledEditorDescription>
+    <Styled.EditorDescription>
       <h2>პროდუქტის აღწერა</h2>
-      <StyledEditorDescriptionStyles>
+      <div className="editorDescriptionStyles">
         <span>სტილი</span>
-        <StyledEditorPlaceHolder></StyledEditorPlaceHolder>
+        <div className="editorPlaceholder"></div>
         <div>
           <span>ყოველდღიური / </span>
           <span>სპორტული / </span>
           <span>მსუბუქი</span>
         </div>
-      </StyledEditorDescriptionStyles>
-      <StyledEditorDescriptionStyles>
+      </div>
+      <div className="editorDescriptionStyles">
         <span>სეზონი</span>
-        <StyledEditorPlaceHolder></StyledEditorPlaceHolder>
+        <div className="editorPlaceholder"></div>
         <div>
           <span>შემოდგომა / </span>
           <span>საზაფხულო</span>
         </div>
-      </StyledEditorDescriptionStyles>
-      <StyledEditorDescriptionStyles>
+      </div>
+      <div className="editorDescriptionStyles">
         <span>მასალა</span>
-        <StyledEditorPlaceHolder></StyledEditorPlaceHolder>
+        <div className="editorPlaceholder"></div>
         <div>
           <span>100% ბამბა</span>
         </div>
-      </StyledEditorDescriptionStyles>
-      <StyledEditorSoldCounter>
+      </div>
+      <span className="editorSoldCounter">
         გაყიდულია ჯამში <div>167</div> ერთეული
-      </StyledEditorSoldCounter>
-    </StyledEditorDescription>
+      </span>
+    </Styled.EditorDescription>
   );
 }

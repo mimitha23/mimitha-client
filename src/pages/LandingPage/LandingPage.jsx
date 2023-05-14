@@ -1,19 +1,19 @@
-import { StyledLandingPage } from "./LandingPage.Styled";
+import * as Styled from "./LandingPage.Styled";
 
 import {
   LandingCTAPhoto,
-  FullNavbar,
+  Navigation,
   StyledLandingPageSection2,
 } from "components";
 
 export default function LandingPage() {
   return (
     <>
-      <FullNavbar />
-      <StyledLandingPage>
+      <Navigation />
+      <Styled.LandingPage>
         <LandingCTAPhoto />
         <StyledLandingPageSection2 />
-      </StyledLandingPage>
+      </Styled.LandingPage>
     </>
   );
 }

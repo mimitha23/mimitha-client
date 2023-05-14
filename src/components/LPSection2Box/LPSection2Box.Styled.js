@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledLPSection2Box = styled.div`
+export const LPSection2Box = styled.div`
   background-color: red;
   width: 700px;
   height: 300px;
@@ -10,14 +10,14 @@ export const StyledLPSection2Box = styled.div`
   background-repeat: repeat;
 
   border: 2px solid ${({ theme }) => theme.colors.text};
-  
+
   div {
     width: 400px;
     height: 50px;
 
     background-color: ${({ theme }) => theme.colors.text};
     color: ${({ theme }) => theme.colors.bg};
-    
+
     position: absolute;
     right: 0;
     bottom: 0;
@@ -29,4 +29,4 @@ export const StyledLPSection2Box = styled.div`
     font-size: 1.75rem;
     font-weight: 400;
   }
-`
+`;

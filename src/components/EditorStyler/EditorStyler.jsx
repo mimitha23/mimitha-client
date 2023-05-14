@@ -1,40 +1,32 @@
-import {
-  StyledEditorStyler,
-  StyledEditorLeftPanel,
-  StyledEditorColorsChanger,
-  StyledEditorStyleChanger,
-  StyledEditorSizeChanger,
-  StyledEditorRightPanel,
-  StyledEditorSuggestionBTN,
-} from "./EditorStyler.Styled";
+import * as Styled from "./EditorStyler.Styled";
 
 export default function EditorStyler(props) {
   return (
-    <StyledEditorStyler>
-      <StyledEditorLeftPanel>
+    <Styled.EditorStyler>
+      <div className="editorLeftPanel">
         <div>
           <h2>ფერების არჩევანი</h2>
-          <StyledEditorColorsChanger>
+          <div className="editorColorsChanger">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
             <div></div>
-          </StyledEditorColorsChanger>
+          </div>
         </div>
         <div>
           <h2>სტილის არჩევანი</h2>
-          <StyledEditorStyleChanger>
+          <div className="editorStyleChanger">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
             <div></div>
-          </StyledEditorStyleChanger>
+          </div>
         </div>
         <div>
           <h2>ზომების არჩევანი</h2>
-          <StyledEditorSizeChanger>
+          <div className="editorSizeChanger">
             <div>XXS</div>
             <div>XS</div>
             <div>S</div>
@@ -42,16 +34,16 @@ export default function EditorStyler(props) {
             <div>L</div>
             <div>XL</div>
             <div>XXL</div>
-          </StyledEditorSizeChanger>
+          </div>
         </div>
-      </StyledEditorLeftPanel>
-      <StyledEditorRightPanel>
-        <StyledEditorSuggestionBTN>რას უხდება ?</StyledEditorSuggestionBTN>
+      </div>
+      <div className="editorRightPanel">
+        <div className="editorSuggestionBTN">რას უხდება ?</div>
         <div>
           <p>როგორ შევარჩიოთ ზომა ? </p>
           <p>მიუთითეთ თქვენი ზომები</p>
         </div>
-      </StyledEditorRightPanel>
-    </StyledEditorStyler>
+      </div>
+    </Styled.EditorStyler>
   );
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledEditorShippingInfo = styled.div`
+export const EditorShippingInfo = styled.div`
   display: flex;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.text};
@@ -17,4 +17,4 @@ export const StyledEditorShippingInfo = styled.div`
       }
     }
   }
-`
+`;

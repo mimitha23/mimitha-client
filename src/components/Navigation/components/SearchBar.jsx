@@ -1,17 +1,13 @@
 import { useState } from "react";
-import {
-  StyledSearchBar,
-  StyledSearchInput,
-  SearchIcon,
-} from "./SearchBar.Styled";
+import * as Styled from "./styles/SearchBar.Styled";
 
 export default function SearchBar(props) {
   const [search, setSearch] = useState("");
 
   return (
-    <StyledSearchBar className="searchBar">
-      <SearchIcon src="#" alt="ICO" className="search--icon" />
-      <StyledSearchInput
+    <Styled.SearchBar className="searchBar">
+      <img src="#" alt="ICO" className="search--icon" />
+      <input
         type="text"
         placeholder="თუ ეძებ, იპოვი..."
         className="search--input"
@@ -19,6 +15,6 @@ export default function SearchBar(props) {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-    </StyledSearchBar>
+    </Styled.SearchBar>
   );
 }

@@ -1,8 +1,8 @@
-import { StyledEditorShippingInfo } from "./EditorShippingInfo.Styled";
+import * as Styled from "./EditorShippingInfo.Styled";
 
 export default function EditorShippingInfo(props) {
   return (
-    <StyledEditorShippingInfo className="no_margin">
+    <Styled.EditorShippingInfo className="no_margin">
       <div>
         <p>მიწოდება საქართველოში</p>
         <p>
@@ -18,6 +18,6 @@ export default function EditorShippingInfo(props) {
           კომპანია <div></div> ფასი --- დღე
         </p>
       </div>
-    </StyledEditorShippingInfo>
+    </Styled.EditorShippingInfo>
   );
 }
