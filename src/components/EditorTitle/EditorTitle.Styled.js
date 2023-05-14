@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const StyledEditorTitle = styled.div`
-
   margin: 20px 20px 0 0;
 
- h1 {
-  padding-bottom: 10px;
+  h1 {
+    padding-bottom: 10px;
 
-  font-size: 1.35rem;
-  font-weight: 400;
-  color: ${({ theme }) => theme.colors.text};
- }
-`
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.text};
+  }
+`;
 
 export const StyledPrice = styled.div`
   width: fit-content;
@@ -23,13 +22,13 @@ export const StyledPrice = styled.div`
   div {
     padding: 5px;
     color: ${({ theme }) => theme.colors.text};
-    font-size: .85rem;
+    font-size: 0.85rem;
     font-weight: 500;
 
     border: 2px solid ${({ theme }) => theme.colors.text};
-    
+
     :first-child {
       margin-right: 2px;
     }
   }
-`
+`;

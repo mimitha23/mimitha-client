@@ -14,7 +14,7 @@ export const StyledSearchBar = styled.div`
   bottom: 5px;
   right: 230px;
   color: ${({ theme }) => theme.colors.text};
-`
+`;
 
 export const StyledSearchInput = styled.input`
   flex: 4;
@@ -28,17 +28,17 @@ export const StyledSearchInput = styled.input`
   font-weight: 500;
 
   :focus {
-  outline: none;
+    outline: none;
   }
 
   ::placeholder {
-  color: ${({ theme }) => theme.colors.text};
-  font-size: 1rem;
-  font-weight: normal;
-  letter-spacing: 0.8px;
-  text-align: center;
-}
-`
+    color: ${({ theme }) => theme.colors.text};
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 0.8px;
+    text-align: center;
+  }
+`;
 export const SearchIcon = styled.img`
   flex: 1;
-`
+`;

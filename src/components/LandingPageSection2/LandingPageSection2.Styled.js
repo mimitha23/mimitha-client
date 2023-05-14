@@ -11,18 +11,17 @@ export const StyledLandingPageSection2 = styled.div`
   align-items: center;
 
   border-top: 2px solid ${({ theme }) => theme.colors.text};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.text}; 
-
-`
+  border-bottom: 2px solid ${({ theme }) => theme.colors.text};
+`;
 
 export const StyledLPSection2BoxesContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 200px;
-  
+
   .kid2 {
-    div { 
+    div {
       left: 0;
       justify-content: flex-start;
     }
@@ -33,14 +32,14 @@ export const StyledLPSection2BoxesContainer = styled.div`
     }
   }
   .kid4 {
-    div { 
+    div {
       justify-content: flex-start;
       top: 0;
       left: 0;
 
       span {
-      font-size: 1rem;
+        font-size: 1rem;
       }
     }
   }
-`
+`;

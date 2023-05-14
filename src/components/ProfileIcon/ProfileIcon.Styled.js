@@ -12,11 +12,11 @@ export const StyledProfileIcon = styled.div`
   right: 0;
 
   img {
-  flex: 1.5;
-  height: 100%;
-  border-radius: 50%;
+    flex: 1.5;
+    height: 100%;
+    border-radius: 50%;
   }
-`
+`;
 
 export const ProfileIconText = styled.div`
   flex: 3;
@@ -25,7 +25,7 @@ export const ProfileIconText = styled.div`
   font-size: 1rem;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.text};
-`
+`;
 
 export const DarkModeSwitch = styled.div`
   width: fit-content;
@@ -38,4 +38,4 @@ export const DarkModeSwitch = styled.div`
 
   border-radius: 5px;
   cursor: pointer;
-`
+`;
