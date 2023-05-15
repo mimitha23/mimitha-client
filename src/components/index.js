@@ -1,11 +1,1 @@
-export { default as CategoriesNavbar } from "./CategoriesNavbar/CategoriesNavbar"
-export { default as SearchBar } from "./SearchBar/SearchBar"
-export { default as ProfileIcon } from "./ProfileIcon/ProfileIcon.jsx"
-export { default as SupportNavbar } from "./SupportNavbar/SupportNavbar"
-export { default as LandingCTAPhoto } from './LandingCTAPhoto/LandingCTAPhoto'
-export { default as FullNavbar } from "./FullNavbar/FullNavbar"
-export { default as EditorTitle } from "./EditorTitle/EditorTitle"
-export { default as EditorDescription } from "./EditorDescription/EditorDescription"
-export { default as EditorStyler } from "./EditorStyler/EditorStyler"
-export { default as EditorShippingInfo } from "./EditorShippingInfo/EditorShippingInfo"
-export { default as StyledLandingPageSection2 } from "./LandingPageSection2/LandingPageSection2"
+export { default as Navigation } from "./Navigation/Navigation";
