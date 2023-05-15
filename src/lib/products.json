@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "product-1",
+    "productType": "hood",
+    "developedProducts": [
+      "developed-product-1",
+      "developed-product-2",
+      "developed-product-3",
+      "developed-product-4"
+    ]
+  }
+]
