@@ -1,9 +1,9 @@
-import * as Styled from "./styles/EditorTitle.styled";
+import * as Styled from "./styles/EditorHeading.styled";
 import { FaDollarSign } from "react-icons/fa";
 
 export default function EditorHeading(props) {
   return (
-    <Styled.EditorTitle>
+    <Styled.EditorHeadingContainer>
       <h1>მამაკაცის გრძელმკლავიანი ჰუდი - 100% ბამბა</h1>
       <div className="price">
         <div>
@@ -13,6 +13,6 @@ export default function EditorHeading(props) {
           <FaDollarSign />
         </div>
       </div>
-    </Styled.EditorTitle>
+    </Styled.EditorHeadingContainer>
   );
 }

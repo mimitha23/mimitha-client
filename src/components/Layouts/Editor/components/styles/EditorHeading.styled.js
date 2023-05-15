@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const EditorTitle = styled.div`
+export const EditorHeadingContainer = styled.div`
   margin: 20px 20px 0 0;
 
   h1 {

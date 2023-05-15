@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const EditorContainer = styled.div`
-  margin-top: ${({ theme }) => theme.app.nav_h};
+  /* margin-top: ${({ theme }) => theme.app.nav_h}; */
   min-height: calc(100vh - ${({ theme }) => theme.app.nav_h});
   display: flex;
   gap: 4rem;
