@@ -1,4 +1,4 @@
-import * as Styled from "./EditorStyler.Styled";
+import * as Styled from "./styles/EditorStyler.styled";
 
 export default function EditorStyler(props) {
   return (

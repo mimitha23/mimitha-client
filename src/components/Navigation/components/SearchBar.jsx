@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as Styled from "./styles/SearchBar.Styled";
+import * as Styled from "./styles/SearchBar.styled";
 
 export default function SearchBar(props) {
   const [search, setSearch] = useState("");

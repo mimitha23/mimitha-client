@@ -1,4 +1,4 @@
-import * as Styled from "./EditorShippingInfo.Styled";
+import * as Styled from "./styles/EditorShippingInfo.styled";
 
 export default function EditorShippingInfo(props) {
   return (

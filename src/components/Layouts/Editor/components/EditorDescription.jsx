@@ -1,4 +1,4 @@
-import * as Styled from "./EditorDescription.Styled";
+import * as Styled from "./styles/EditorDescription.styled";
 
 export default function EditorDescription(props) {
   return (

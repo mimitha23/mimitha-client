@@ -1,19 +1,12 @@
-import * as Styled from "./LandingPage.Styled";
-
-import {
-  LandingCTAPhoto,
-  Navigation,
-  StyledLandingPageSection2,
-} from "components";
+import { LandingCTAPhoto, MimithaPackages } from "components/Landing";
+import { Navigation } from "components";
 
 export default function LandingPage() {
   return (
     <>
       <Navigation />
-      <Styled.LandingPage>
-        <LandingCTAPhoto />
-        <StyledLandingPageSection2 />
-      </Styled.LandingPage>
+      <LandingCTAPhoto />
+      <MimithaPackages />
     </>
   );
 }

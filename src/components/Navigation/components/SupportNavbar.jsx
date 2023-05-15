@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as Styled from "./styles/SupportNavbar.Styled";
+import * as Styled from "./styles/SupportNavbar.styled";
 
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 

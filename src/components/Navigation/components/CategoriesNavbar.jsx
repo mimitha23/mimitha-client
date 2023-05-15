@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import * as Styled from "./styles/CategoriesNavbar.Styled";
+import * as Styled from "./styles/CategoriesNavbar.styled";
 
 export default function CategoriesNavbar(props) {
   return (

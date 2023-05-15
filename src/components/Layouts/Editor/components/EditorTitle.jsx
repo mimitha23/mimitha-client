@@ -1,4 +1,4 @@
-import * as Styled from "./EditorTitle.Styled";
+import * as Styled from "./styles/EditorTitle.styled";
 import { FaDollarSign } from "react-icons/fa";
 
 export default function EditorTitle(props) {

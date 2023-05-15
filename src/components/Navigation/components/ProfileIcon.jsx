@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "Theme";
 
-import * as Styled from "./styles/ProfileIcon.Styled";
+import * as Styled from "./styles/ProfileIcon.styled";
 
 export default function ProfileIcon() {
   const { mode, setTheme } = useContext(ThemeContext);
