@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "variant-0",
+    "variantType": "pocket",
+    "icon": "/assets/icons/pocket.png",
+    "label": "without pocket",
+    "description": "some descsome desc"
+  },
+  {
+    "_id": "variant-1",
+    "variantType": "pocket",
+    "icon": "/assets/icons/pocket.png",
+    "label": "two pocket on sides",
+    "description": "some descsome desc"
+  },
+  {
+    "_id": "variant-2",
+    "variantType": "pocket",
+    "icon": "/assets/icons/pocket-2.png",
+    "label": "belly pocket",
+    "description": "some desc"
+  },
+  {
+    "_id": "variant-3",
+    "variantType": "cuff",
+    "icon": "/assets/icons/cuff.png",
+    "label": "with cuff",
+    "description": "some desc"
+  },
+  {
+    "_id": "variant-4",
+    "variantType": "cuff",
+    "icon": "/assets/icons/cuff-2.png",
+    "label": "withot cuff",
+    "description": "some desc"
+  },
+  {
+    "_id": "variant-5",
+    "variantType": "zipper",
+    "icon": "/assets/icons/zipper.png",
+    "label": "with zipper",
+    "description": "some desc"
+  },
+  {
+    "_id": "variant-6",
+    "variantType": "zipper",
+    "icon": "/assets/icons/zipper-2.png",
+    "label": "without ziper",
+    "description": "some desc"
+  },
+  {
+    "_id": "variant-7",
+    "variantType": "sticker",
+    "icon": "sticker-src",
+    "label": "sticker name",
+    "description": "some desc"
+  },
+  {
+    "_id": "variant-8",
+    "variantType": "sticker",
+    "icon": "sticker-src",
+    "label": "sticker name",
+    "description": "some desc"
+  }
+]
