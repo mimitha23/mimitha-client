@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BiSearchAlt } from "react-icons/bi";
 import * as Styled from "./styles/SearchBar.styled";
 
 export default function SearchBar(props) {
@@ -6,7 +7,9 @@ export default function SearchBar(props) {
 
   return (
     <Styled.SearchBar className="searchBar">
-      <img src="#" alt="ICO" className="search--icon" />
+      <span className="search-icon">
+        <BiSearchAlt />
+      </span>
       <input
         type="text"
         placeholder="თუ ეძებ, იპოვი..."

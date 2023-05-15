@@ -1,20 +1,29 @@
 import styled from "styled-components";
 
 export const Navigation = styled.nav`
-  width: 100%;
-  height: 180px;
-
-  position: fixed;
-  top: 0;
+  position: sticky;
   z-index: 999;
+  top: 0;
+  width: 100%;
+  height: 18rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 3rem;
   background-color: ${({ theme }) => theme.colors.bg};
   border-bottom: 2px solid ${({ theme }) => theme.colors.text};
 
-  .navbar-logo {
-    position: absolute;
-    left: 10px;
-    bottom: 5px;
-    width: 270px;
-    height: 150px;
+  .nav-actions {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .main-nav {
+    display: flex;
+    align-items: flex-end;
+    gap: 4rem;
   }
 `;

@@ -8,12 +8,24 @@ export default function CategoriesNavbar(props) {
         <li>
           <Link to={"/"}>მამაკაცი</Link>
         </li>
-        <li>ქალბატონი</li>
-        <li>მოზარდი</li>
-        <li>საოჯახო</li>
-        <li>კომბინაცია</li>
-        <li>ჩემი სტილი</li>
-        <li>ფასდაკლება</li>
+        <li>
+          <Link to="/">ქალბატონი</Link>
+        </li>
+        <li>
+          <Link to="/">მოზარდი</Link>
+        </li>
+        <li>
+          <Link to="/">საოჯახო</Link>
+        </li>
+        <li>
+          <Link to="/">კომბინაცია</Link>
+        </li>
+        <li>
+          <Link to="/">ჩემი სტილი</Link>
+        </li>
+        <li>
+          <Link to="/">ფასდაკლება</Link>
+        </li>
       </ul>
     </Styled.CategoriesNavbar>
   );

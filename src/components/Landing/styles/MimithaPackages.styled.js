@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 
 export const MimithaPackagesContainer = styled.div`
+  margin-top: 4rem;
+  padding: 4rem 0;
   border-top: 2px solid ${({ theme }) => theme.colors.text};
   border-bottom: 2px solid ${({ theme }) => theme.colors.text};
 
@@ -16,7 +18,6 @@ export const MimithaPackagesContainer = styled.div`
 export const PackageBox = styled.div`
   position: relative;
   width: 100%;
-  background-image: url("/assets/images/image-not-uploaded.png");
   background-repeat: no-repeat;
   background-size: 100%;
   border: 2px solid ${({ theme }) => theme.colors.text};
@@ -24,6 +25,8 @@ export const PackageBox = styled.div`
   ${({ position }) =>
     position === "bottom-right"
       ? css`
+          background-image: url("/assets/images/new-collection.jpg");
+
           p {
             right: 0;
             bottom: 0;
@@ -32,6 +35,8 @@ export const PackageBox = styled.div`
         `
       : position === "bottom-left"
       ? css`
+          background-image: url("/assets/images/choose-your-style.jpg");
+
           p {
             left: 0;
             bottom: 0;
@@ -39,6 +44,8 @@ export const PackageBox = styled.div`
         `
       : position === "top-right"
       ? css`
+          background-image: url("/assets/images/on-what.jpg");
+
           p {
             right: 0;
             top: 0;
@@ -47,6 +54,8 @@ export const PackageBox = styled.div`
         `
       : position === "top-left"
       ? css`
+          background-image: url("/assets/images/more-then-design.jpg");
+
           p {
             left: 0;
             top: 0;

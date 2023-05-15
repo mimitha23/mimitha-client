@@ -1,41 +1,32 @@
 import styled from "styled-components";
 
 export const SupportNavbarContainer = styled.div`
-  width: 500px;
-  height: 40px;
+  align-self: flex-end;
+  width: max-content;
+  height: 4rem;
   display: flex;
-  justify-content: space-between;
+  gap: 3rem;
   align-items: center;
-
-  position: absolute;
-  right: 0;
-  top: 0;
   color: ${({ theme }) => theme.colors.text};
 
-  ul {
-    width: 100%;
+  .support-nav__list {
     height: 100%;
     display: flex;
     align-items: center;
-    list-style-type: none;
+    font-size: ${({ theme }) => theme.fontSize.sm};
 
     li {
-      width: 100%;
-      height: 80%;
-
+      height: 100%;
+      width: max-content;
       display: flex;
       justify-content: center;
       align-items: center;
-
-      padding: 0px 20px 0px 20px;
-
+      padding: 0 2rem 0 2rem;
       border-right: 2px solid ${({ theme }) => theme.colors.text};
-
-      font-size: 0.75rem;
       font-weight: 500;
       cursor: pointer;
 
-      :nth-child(1) {
+      :first-child {
         border-left: 2px solid ${({ theme }) => theme.colors.text};
       }
     }
@@ -44,16 +35,21 @@ export const SupportNavbarContainer = styled.div`
   .language-switch {
     display: flex;
     align-items: center;
-    cursor: pointer;
+
+    .language-switch__btn {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+
+      :not(:last-child) {
+        border-right: 2px solid ${({ theme }) => theme.colors.text};
+      }
+    }
   }
 
-  .language-switch--item {
-    padding: 5px;
-    border-right: 2px solid ${({ theme }) => theme.colors.text};
-  }
-  .supportNavbarSocialNetworks {
+  .support-nav__social-networks {
     display: flex;
-    gap: 10px;
+    gap: 1rem;
     align-items: center;
+    font-size: ${({ theme }) => theme.fontSize.xl};
   }
 `;

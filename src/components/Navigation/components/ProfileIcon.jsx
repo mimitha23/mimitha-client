@@ -8,15 +8,13 @@ export default function ProfileIcon() {
 
   return (
     <Styled.ProfileIcon className="profileIcon">
-      <img
-        src="/assets/images/aleks_vasadze.jpg"
-        alt="ICO"
-        className="profileIcon--icon"
-      />
+      <figure className="user-fig">
+        <img src="/assets/images/aleks_vasadze.jpg" alt="ICO" />
+      </figure>
       <div className="profileIcon--text">
         <span>ჩემი პროფილი</span>
         <div className="darkMode--switch">
-          <span onClick={() => setTheme(!mode)}>Dark Mode</span>
+          <button onClick={() => setTheme(!mode)}>Dark Mode</button>
         </div>
       </div>
     </Styled.ProfileIcon>

@@ -4,20 +4,21 @@ import {
   SearchBar,
   ProfileIcon,
   SupportNavbar,
+  Logo,
 } from "./components";
 
 export default function Navigation() {
   return (
     <Styled.Navigation>
-      <img
-        className="navbar-logo"
-        src="/assets/images/image-not-uploaded.png"
-        alt=""
-      />
-      <CategoriesNavbar />
-      <SearchBar />
-      <ProfileIcon />
-      <SupportNavbar />
+      <Logo />
+      <div className="nav-actions">
+        <SupportNavbar />
+        <div className="main-nav">
+          <CategoriesNavbar />
+          <SearchBar />
+          <ProfileIcon />
+        </div>
+      </div>
     </Styled.Navigation>
   );
 }

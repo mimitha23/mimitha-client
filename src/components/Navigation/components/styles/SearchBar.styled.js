@@ -1,30 +1,30 @@
 import styled from "styled-components";
 
 export const SearchBar = styled.div`
-  width: 250px;
-  height: 50px;
-  display: flex;
   position: relative;
+  width: 25rem;
+  height: 5rem;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
-
+  gap: 1rem;
   border-bottom: 2px solid ${({ theme }) => theme.colors.text};
-
-  position: absolute;
-  bottom: 5px;
-  right: 230px;
   color: ${({ theme }) => theme.colors.text};
+  margin-left: auto;
+
+  .search-icon {
+    font-size: ${({ theme }) => theme.fontSize.xxl};
+    line-height: 1;
+  }
 
   .search--input {
-    flex: 4;
     width: 100%;
     height: 100%;
     border: 0;
-
-    background-color: ${({ theme }) => theme.colors.bg};
     text-align: center;
-    font-size: 1rem;
     font-weight: 500;
+    background: inherit;
+    color: inherit;
 
     :focus {
       outline: none;
@@ -32,14 +32,9 @@ export const SearchBar = styled.div`
 
     ::placeholder {
       color: ${({ theme }) => theme.colors.text};
-      font-size: 1rem;
       font-weight: normal;
       letter-spacing: 0.8px;
       text-align: center;
     }
-  }
-
-  .search--icon {
-    flex: 1;
   }
 `;
