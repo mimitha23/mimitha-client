@@ -1,6 +1,6 @@
 import * as Styled from "./styles/ProductStyler.styled";
 
-export default function EditorStyler(props) {
+export default function ProductStyler(props) {
   return (
     <Styled.ProductStyler>
       <div>

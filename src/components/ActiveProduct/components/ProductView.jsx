@@ -1,6 +1,6 @@
 import * as Styled from "./styles/ProductView.styled";
 
-function EditorView(props) {
+export default function ProductView(props) {
   return (
     <Styled.ProductView className="editor-view">
       <figure className="editor-fig">
@@ -12,5 +12,3 @@ function EditorView(props) {
     </Styled.ProductView>
   );
 }
-
-export default EditorView;

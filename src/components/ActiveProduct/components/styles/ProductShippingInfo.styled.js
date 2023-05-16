@@ -11,7 +11,7 @@ export const ProductShippingInfo = styled.div`
     p {
       font-size: ${({ theme }) => theme.fontSize.sm};
 
-      hr {
+      span {
         display: inline-block;
         width: 2rem;
         border-bottom: 1px solid ${({ theme }) => theme.colors.text};

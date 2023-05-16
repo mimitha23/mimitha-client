@@ -1,6 +1,6 @@
 import * as Styled from "./styles/ProductDescription.styled";
 
-export default function EditorDescription(props) {
+export default function ProductDescription(props) {
   return (
     <Styled.EditorDescription>
       <h2 className="product-description__title">პროდუქტის აღწერა</h2>

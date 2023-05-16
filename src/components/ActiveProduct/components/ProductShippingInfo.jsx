@@ -1,22 +1,22 @@
 import * as Styled from "./styles/ProductShippingInfo.styled";
 
-export default function EditorShippingInfo() {
+export default function ProductShippingInfo() {
   return (
     <Styled.ProductShippingInfo>
       <div>
         <p>მიწოდება საქართველოში</p>
         <p>
-          თბილისი <hr /> ფასი --- დღე
+          თბილისი <span /> ფასი --- დღე
         </p>
         <p>
-          რეგიონი <div></div> ფასი --- დღე
+          რეგიონი <span></span> ფასი --- დღე
         </p>
       </div>
 
       <div>
         <p>მიწოდება საზღვარგარეთ</p>
         <p>
-          კომპანია <hr /> ფასი --- დღე
+          კომპანია <span /> ფასი --- დღე
         </p>
       </div>
     </Styled.ProductShippingInfo>

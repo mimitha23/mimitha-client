@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import * as Styled from "./styles/ProductHeading.styled";
 import { FaDollarSign } from "react-icons/fa";
 
-export default function EditorHeading(props) {
+export default function ProductHeading(props) {
   return (
     <Styled.ProductHeadingContainer>
       <h1 className="product-title">
