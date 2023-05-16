@@ -10,42 +10,42 @@ function EditorActions() {
   return (
     <Styled.EditorActionsContainer>
       <EditorActionDropdown
-        name="pocket"
+        name="ჯიბე"
         variantType="pocket"
         activeDropdown={activeDropdown}
         setActiveDropdown={setActiveDropdown}
       />
 
       <EditorActionDropdown
-        name="zipper"
+        name="ელვა"
         variantType="zipper"
         activeDropdown={activeDropdown}
         setActiveDropdown={setActiveDropdown}
       />
 
       <EditorActionDropdown
-        name="button see"
+        name="ღილი"
         variantType="button"
         activeDropdown={activeDropdown}
         setActiveDropdown={setActiveDropdown}
       />
 
       <EditorActionDropdown
-        name="cuff"
+        name="მანჟეტი"
         variantType="cuff"
         activeDropdown={activeDropdown}
         setActiveDropdown={setActiveDropdown}
       />
 
       <EditorActionDropdown
-        name="collar"
+        name="საყელო"
         variantType="collar"
         activeDropdown={activeDropdown}
         setActiveDropdown={setActiveDropdown}
       />
 
       <Link to="/products/:productId" className="finish-btn">
-        Finish Editing
+        დაასრულეთ რედაქტირება
       </Link>
     </Styled.EditorActionsContainer>
   );

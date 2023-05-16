@@ -18,7 +18,7 @@ export default function ProductHeading(props) {
         </div>
 
         <Link to="/products/:productId/edit" className="edit-link">
-          edit
+          რედაქტირება
         </Link>
       </div>
     </Styled.ProductHeadingContainer>

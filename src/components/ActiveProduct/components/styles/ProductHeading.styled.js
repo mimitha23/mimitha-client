@@ -18,6 +18,7 @@ export const ProductHeadingContainer = styled.div`
 
   .edit-link {
     ${buttonPrimary};
+    padding: 1rem 4rem;
     text-transform: uppercase;
   }
 

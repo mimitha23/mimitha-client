@@ -14,7 +14,9 @@ export default function ProfileIcon() {
       <div className="profileIcon--text">
         <span>ჩემი პროფილი</span>
         <div className="darkMode--switch">
-          <button onClick={() => setTheme(!mode)}>Dark Mode</button>
+          <button onClick={() => setTheme(!mode)}>
+            {mode ? "ღამის რეჟიმი" : "დღის რეჟიმი"}
+          </button>
         </div>
       </div>
     </Styled.ProfileIcon>

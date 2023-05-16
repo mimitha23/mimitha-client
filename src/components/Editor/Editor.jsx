@@ -1,5 +1,6 @@
 import * as Styled from "./Editor.styled";
-import { EditorView, EditorActions, EditorFitButtons } from "./components";
+import { EditorView, EditorActions } from "./components";
+import { EditorFitButtons } from "components/Layouts";
 
 function Editor() {
   return (
