@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { buttonPrimary } from "styles/helpers";
 
 export const ProductStyler = styled.div`
   padding: 10px;
@@ -80,24 +81,13 @@ export const ProductStyler = styled.div`
   }
 
   .fit-btn {
-    width: 280px;
-    height: 50px;
+    ${buttonPrimary};
     margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: ${({ theme }) => theme.fontSize.lg};
     font-weight: 900;
-    color: ${({ theme }) => theme.colors.bg};
-    background-color: ${({ theme }) => theme.colors.text};
-    border-radius: 2.5rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
 
     :hover {
       color: ${({ theme }) => theme.colors.text};
       background-color: ${({ theme }) => theme.colors.bg};
-      box-shadow: ${({ theme }) => theme.shadow.bottom_right_md};
     }
   }
 `;
@@ -137,7 +127,7 @@ export const ColorPicker = styled.span`
       left: -0.2rem;
       top: -0.2rem;
       border-radius: inherit;
-      background: ${({ theme }) => theme.colors.light_grey};
+      background: ${({ theme }) => theme.colors.bg};
       width: 3.9rem;
       height: 3.9rem;
     }

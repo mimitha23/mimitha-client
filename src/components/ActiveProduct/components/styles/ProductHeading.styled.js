@@ -1,8 +1,7 @@
 import styled from "styled-components";
+import { buttonPrimary } from "styles/helpers";
 
 export const ProductHeadingContainer = styled.div`
-  margin: 20px 20px 0 0;
-
   .product-title {
     padding-bottom: 10px;
     font-size: ${({ theme }) => theme.fontSize.lg};
@@ -18,18 +17,8 @@ export const ProductHeadingContainer = styled.div`
   }
 
   .edit-link {
-    padding: 1rem 7rem;
-    font-size: ${({ theme }) => theme.fontSize.lg};
-    font-weight: 500;
+    ${buttonPrimary};
     text-transform: uppercase;
-    border-radius: 15rem;
-    background: ${({ theme }) => theme.colors.text};
-    color: ${({ theme }) => theme.colors.bg};
-    transition: all 0.2s ease;
-
-    :hover {
-      box-shadow: ${({ theme }) => theme.shadow.bottom_right_md};
-    }
   }
 
   .product-price {

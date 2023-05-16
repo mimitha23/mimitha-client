@@ -10,12 +10,14 @@ import * as Styled from "./ActiveProduct.styled";
 export default function Editor() {
   return (
     <Styled.ActiveProductContainer>
-      <ProductView />
-      <div className="product-info">
-        <ProductHeading />
-        <ProductDescription />
-        <ProductStyler />
-        <ProductShippingInfo />
+      <div className="product-main">
+        <ProductView />
+        <div className="product-info">
+          <ProductHeading />
+          <ProductDescription />
+          <ProductStyler />
+          <ProductShippingInfo />
+        </div>
       </div>
     </Styled.ActiveProductContainer>
   );

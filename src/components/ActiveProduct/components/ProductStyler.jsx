@@ -49,7 +49,7 @@ export default function EditorStyler(props) {
       </div>
 
       <div className="fit-and-questions__container">
-        <div className="fit-btn">რას უხდება ?</div>
+        <button className="fit-btn">რას უხდება ?</button>
 
         <div>
           <p>როგორ შევარჩიოთ ზომა ? </p>

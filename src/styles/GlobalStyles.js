@@ -21,6 +21,7 @@ export const GlobalStyles = createGlobalStyle`
   html body {
     margin: 0;
     font-size: ${({ theme }) => theme.fontSize.base};
+    color: ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.bg};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",

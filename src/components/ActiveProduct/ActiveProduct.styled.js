@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const ActiveProductContainer = styled.div`
-  /* margin-top: ${({ theme }) => theme.app.nav_h}; */
   min-height: calc(100vh - ${({ theme }) => theme.app.nav_h});
-  display: flex;
-  gap: 4rem;
   border-bottom: 2px solid ${({ theme }) => theme.colors.text};
+  padding: 4rem 3rem 5rem 3rem;
+
+  .product-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+  }
 
   .product-info {
     flex: 1;

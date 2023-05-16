@@ -6,9 +6,9 @@ function EditorView(props) {
       <figure className="editor-fig">
         <img src="/assets/images/hoodie_front.jpg" alt="hoodie" />
       </figure>
-      <figure className="editor-fig">
+      {/* <figure className="editor-fig">
         <img src="/assets/images/hoodie_back.jpg" alt="hoodie" />
-      </figure>
+      </figure> */}
     </Styled.ProductView>
   );
 }

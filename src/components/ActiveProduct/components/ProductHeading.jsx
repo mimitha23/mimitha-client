@@ -17,7 +17,7 @@ export default function EditorHeading(props) {
           </span>
         </div>
 
-        <Link to="" className="edit-link">
+        <Link to="/products/:productId/edit" className="edit-link">
           edit
         </Link>
       </div>
