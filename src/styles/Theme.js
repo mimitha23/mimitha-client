@@ -1,5 +1,7 @@
 const BaseTheme = {
-  colors: {},
+  colors: {
+    light_grey: "lightgrey",
+  },
   app: {
     container: "1280px",
     nav_h: "18rem",
@@ -12,11 +14,15 @@ const BaseTheme = {
     xxl: "2.2rem",
     h3: "3rem",
   },
+  shadow: {
+    bottom_right_md: "3px 3px 9px 0px rgba(0, 0, 0, 0.75)",
+  },
 };
 
 export const LightTheme = {
   ...BaseTheme,
   colors: {
+    ...BaseTheme.colors,
     bg: "#fff",
     text: "#000",
   },
@@ -25,6 +31,7 @@ export const LightTheme = {
 export const DarkTheme = {
   ...BaseTheme,
   colors: {
+    ...BaseTheme.colors,
     bg: "#000",
     text: "#fff",
   },

@@ -1,11 +1,11 @@
 import { Navigation } from "components";
-import { Editor as AppEditor } from "components/Layouts";
+import ActiveProduct from "components/ActiveProoduct/ActiveProduct";
 
 export default function EditorPage() {
   return (
     <>
       <Navigation />
-      <AppEditor />
+      <ActiveProduct />
     </>
   );
 }
