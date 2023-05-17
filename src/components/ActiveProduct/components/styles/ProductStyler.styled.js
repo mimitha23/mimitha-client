@@ -6,12 +6,14 @@ export const ProductStyler = styled.div`
   display: flex;
   justify-content: space-between;
   border: 2px solid ${({ theme }) => theme.colors.text};
-  background-color: ${({ theme }) => theme.colors.light_grey};
+  background-color: ${({ theme }) =>
+    theme.mode === "light" ? theme.colors.gray_tint : theme.colors.gray_shade};
+  border-radius: 0.5rem;
 
   .product-styler__box-title {
     font-size: ${({ theme }) => theme.fontSize.lg};
     font-weight: 500;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.black};
   }
 
   .product-styler__colorizer-box__colors-container {
@@ -44,14 +46,14 @@ export const ProductStyler = styled.div`
       align-items: center;
       justify-content: center;
       font-weight: 500;
-      color: ${({ theme }) => theme.colors.text};
-      border-right: 2px solid ${({ theme }) => theme.colors.text};
+      color: ${({ theme }) => theme.colors.black};
+      border-right: 2px solid ${({ theme }) => theme.colors.black};
       cursor: pointer;
       transition: all 0.2s ease;
 
       &.active-size {
-        color: ${({ theme }) => theme.colors.bg};
-        background-color: ${({ theme }) => theme.colors.text};
+        color: ${({ theme }) => theme.colors.white};
+        background-color: ${({ theme }) => theme.colors.black};
       }
 
       :last-child {
@@ -84,11 +86,6 @@ export const ProductStyler = styled.div`
     ${buttonPrimary};
     margin: 20px;
     font-weight: 900;
-
-    :hover {
-      color: ${({ theme }) => theme.colors.text};
-      background-color: ${({ theme }) => theme.colors.bg};
-    }
   }
 `;
 
@@ -127,7 +124,10 @@ export const ColorPicker = styled.span`
       left: -0.2rem;
       top: -0.2rem;
       border-radius: inherit;
-      background: ${({ theme }) => theme.colors.bg};
+      background: ${({ theme }) =>
+        theme.mode === "light"
+          ? theme.colors.gray_tint
+          : theme.colors.gray_shade};
       width: 3.9rem;
       height: 3.9rem;
     }

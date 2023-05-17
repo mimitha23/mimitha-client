@@ -1,6 +1,5 @@
 import * as Styled from "./styles/SupportNavbar.styled";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
-
+import { FacebookIcon, InstagramIcon } from "components/Layouts/Icons";
 export default function SupportNavbar(props) {
   return (
     <Styled.SupportNavbarContainer>
@@ -16,8 +15,8 @@ export default function SupportNavbar(props) {
       </div>
 
       <div className="support-nav__social-networks">
-        <FaFacebook />
-        <FaInstagram />
+        <FacebookIcon />
+        <InstagramIcon />
       </div>
     </Styled.SupportNavbarContainer>
   );

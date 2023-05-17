@@ -14,5 +14,7 @@ export const buttonPrimary = () => css`
       theme.mode === "light"
         ? theme.shadow.bottom_right_md_dark
         : theme.shadow.bottom_right_md_light};
+    color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.bg};
   }
 `;

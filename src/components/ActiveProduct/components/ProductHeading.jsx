@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+
+import { DollarIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ProductHeading.styled";
-import { FaDollarSign } from "react-icons/fa";
 
 export default function ProductHeading(props) {
   return (
@@ -13,7 +14,7 @@ export default function ProductHeading(props) {
         <div className="product-price">
           <span>ფასი: 100 ლარი</span>
           <span>
-            <FaDollarSign />
+            <DollarIcon />
           </span>
         </div>
 

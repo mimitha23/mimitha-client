@@ -12,4 +12,25 @@ export const EditorFitButtonsContainer = styled.div`
     ${buttonPrimary};
     text-transform: capitalize;
   }
+
+  .fit-product__modal-box {
+    min-width: 5rem;
+    min-height: 5rem;
+    max-width: 50rem;
+    max-height: 30vw;
+    padding-top: 3.5rem;
+
+    &--fig {
+      width: 100%;
+      max-height: calc(30vw - 3.5rem);
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
 `;

@@ -1,0 +1,36 @@
+import styled from "styled-components";
+
+export const RelatedProductsContainer = styled.div`
+  margin-top: 10rem;
+
+  .related-products__section-title {
+    font-size: ${({ theme }) => theme.fontSize.xxl};
+    font-weight: 500;
+  }
+
+  [data-multiple-slider] {
+    margin-top: 5rem;
+
+    .related-products__slider-item {
+      max-width: 30rem;
+      height: 40rem;
+      border: 1px solid ${({ theme }) => theme.colors.gray_tint};
+      border-radius: 0.5rem;
+      box-shadow: ${({ theme }) =>
+        theme.mode === "light"
+          ? theme.shadow.radial_sm_dark_fade
+          : theme.shadow.radial_sm_light_fade};
+
+      .related-products__slider-item--fig {
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+`;
