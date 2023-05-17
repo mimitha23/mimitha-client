@@ -1,4 +1,8 @@
-import { LandingCTAPhoto, MimithaPackages } from "components/Landing";
+import {
+  LandingCTAPhoto,
+  MimithaPackages,
+  PopularProducts,
+} from "components/Landing";
 import { Navigation } from "components";
 
 export default function LandingPage() {
@@ -7,6 +11,7 @@ export default function LandingPage() {
       <Navigation />
       <LandingCTAPhoto />
       <MimithaPackages />
+      <PopularProducts />
     </>
   );
 }
