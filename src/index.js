@@ -1,17 +1,23 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+
+import { store, persistore } from "./store";
+
 import App from "./App";
 import AppThemeProvider from "./Theme";
-import store from "store";
-import { Provider } from "react-redux";
 
 createRoot(document.getElementById("root")).render(
-  <AppThemeProvider>
-    <Provider store={store}>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistore}>
       <BrowserRouter>
-        <App />
+        <AppThemeProvider>
+          <App />
+        </AppThemeProvider>
       </BrowserRouter>
-    </Provider>
-  </AppThemeProvider>
+    </PersistGate>
+  </Provider>
 );

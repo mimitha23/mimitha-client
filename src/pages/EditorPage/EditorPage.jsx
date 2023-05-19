@@ -1,11 +1,13 @@
 import { Navigation } from "components";
-import { Editor as AppEditor } from "components/Layouts";
+import Editor from "components/Editor/Editor";
 
-export default function EditorPage() {
+function EditorPage() {
   return (
     <>
       <Navigation />
-      <AppEditor />
+      <Editor />
     </>
   );
 }
+
+export default EditorPage;

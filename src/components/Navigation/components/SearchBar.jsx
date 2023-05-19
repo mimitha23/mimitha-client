@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BiSearchAlt } from "react-icons/bi";
+import { SearchIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/SearchBar.styled";
 
 export default function SearchBar(props) {
@@ -8,7 +8,7 @@ export default function SearchBar(props) {
   return (
     <Styled.SearchBar className="searchBar">
       <span className="search-icon">
-        <BiSearchAlt />
+        <SearchIcon />
       </span>
       <input
         type="text"
