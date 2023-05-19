@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const ProductView = styled.div`
-  flex: 1;
+  width: 100%;
   height: 30vw;
   display: flex;
   gap: 0.5rem;
+  background: ${({ theme }) => theme.colors.bg};
   border: 1px solid ${({ theme }) => theme.colors.gray_shade};
 
   .editor-fig {

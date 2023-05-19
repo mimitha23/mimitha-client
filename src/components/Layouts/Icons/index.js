@@ -4,7 +4,13 @@ import {
 } from "react-icons/md";
 import { BsFillHandbagFill } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
-import { FaFacebook, FaInstagram, FaDollarSign } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaDollarSign,
+  FaEuroSign,
+} from "react-icons/fa";
+import { AiOutlineMinus } from "react-icons/ai";
 
 const ArrowLeftIcon = MdOutlineArrowBackIosNew;
 const ArrowRightIcon = MdOutlineArrowForwardIos;
@@ -13,6 +19,8 @@ const SearchIcon = BiSearchAlt;
 const FacebookIcon = FaFacebook;
 const InstagramIcon = FaInstagram;
 const DollarIcon = FaDollarSign;
+const EuroIcon = FaEuroSign;
+const MinusIcon = AiOutlineMinus;
 
 export {
   ArrowLeftIcon,
@@ -22,4 +30,6 @@ export {
   FacebookIcon,
   InstagramIcon,
   DollarIcon,
+  EuroIcon,
+  MinusIcon,
 };

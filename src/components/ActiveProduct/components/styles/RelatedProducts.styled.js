@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const RelatedProductsContainer = styled.div`
-  margin-top: 10rem;
+  padding-top: 4rem;
 
   .related-products__section-title {
     font-size: ${({ theme }) => theme.fontSize.xxl};
