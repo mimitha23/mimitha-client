@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as Styled from "./styles/ProductStyler.styled";
 
 export default function ProductStyler(props) {
@@ -49,7 +50,9 @@ export default function ProductStyler(props) {
       </div>
 
       <div className="fit-and-questions__container">
-        <button className="fit-btn">რას უხდება ?</button>
+        <Link to="/products/:productId/fit" className="fit-btn">
+          რას უხდება ?
+        </Link>
 
         <div>
           <p>როგორ შევარჩიოთ ზომა ? </p>

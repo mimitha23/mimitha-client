@@ -1,3 +1,5 @@
+import { useFitProduct } from "hooks/layoutBase";
+
 import {
   ProductHeading,
   ProductDescription,
@@ -5,14 +7,21 @@ import {
   ProductShippingInfo,
   ProductView,
   ProductFooter,
+  RelatedProducts,
 } from "./components";
 import { EditorFitButtons } from "components/Layouts";
 import * as Styled from "./ActiveProduct.styled";
 
 export default function ActiveProduct() {
+  const { handleFitMannequin, handleFitModel, activeFit } = useFitProduct();
+
   return (
     <Styled.ActiveProductContainer>
-      <EditorFitButtons />
+      <EditorFitButtons
+        activeFit={activeFit}
+        onModel={handleFitModel}
+        onMannequin={handleFitMannequin}
+      />
 
       <div className="product-main">
         <ProductView />
@@ -25,6 +34,8 @@ export default function ActiveProduct() {
           <ProductFooter />
         </div>
       </div>
+
+      <RelatedProducts />
     </Styled.ActiveProductContainer>
   );
 }

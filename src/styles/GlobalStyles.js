@@ -23,11 +23,21 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${({ theme }) => theme.fontSize.base};
     color: ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.bg};
+    overflow-x: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  html body:has(.active-modal){
+    overflow: hidden;
+  }
+  
+  html body:not(:has(.active-modal)){
+    overflow: scroll;
+    overflow-x: hidden;
   }
 
   ul {

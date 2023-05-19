@@ -1,5 +1,5 @@
+import { BagIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ProductFooter.styled";
-import { BsFillHandbagFill } from "react-icons/bs";
 
 function ProductFooter(props) {
   return (
@@ -11,7 +11,7 @@ function ProductFooter(props) {
       <button className="product-footer__btn">
         <span className="product-footer__btn-caption">დაამატეთ კალათაში</span>
         <span className="bag-icon">
-          <BsFillHandbagFill />
+          <BagIcon />
         </span>
       </button>
     </Styled.ProductFooterContainer>
