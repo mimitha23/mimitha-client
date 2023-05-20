@@ -6,9 +6,9 @@ export const FitListContainer = styled.div`
 
   .fit-list__filter-box {
     padding-bottom: 2.5rem;
-    ${animateMoveBottom({ duration: "0.4s" })};
-    position: relative;
-    z-index: 9;
+    ${animateMoveBottom({
+      duration: ({ theme }) => theme.app.section_animation_duration,
+    })};
 
     [data-filter-container] {
       column-gap: 4rem;
@@ -23,7 +23,9 @@ export const FitListContainer = styled.div`
     padding: 0.5rem;
     max-height: calc(100vh - ${({ theme }) => theme.app.nav_h} - 4rem - 10rem);
     overflow: auto;
-    ${animateMoveTop({ duration: "0.4s" })};
+    ${animateMoveTop({
+      duration: ({ theme }) => theme.app.section_animation_duration,
+    })};
 
     &::-webkit-scrollbar {
       display: none;

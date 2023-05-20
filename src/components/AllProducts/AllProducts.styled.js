@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { animateMoveLeft, animateMoveRight } from "styles/helpers";
 
 export const AllProductsContainer = styled.div`
   .wrapper-container {
@@ -10,6 +11,9 @@ export const AllProductsContainer = styled.div`
     top: ${({ theme }) => theme.app.nav_h};
     padding: 4rem 0 2rem;
     background: ${({ theme }) => theme.colors.bg};
+    ${animateMoveRight({
+      duration: ({ theme }) => theme.app.section_animation_duration,
+    })};
   }
 
   .products-list {
@@ -18,5 +22,8 @@ export const AllProductsContainer = styled.div`
     gap: 6rem 4rem;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 58rem;
+    ${animateMoveLeft({
+      duration: ({ theme }) => theme.app.section_animation_duration,
+    })};
   }
 `;

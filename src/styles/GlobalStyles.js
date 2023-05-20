@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { scrollBar } from "./helpers";
 
 export const GlobalStyles = createGlobalStyle`
   *,
@@ -29,6 +30,7 @@ export const GlobalStyles = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    ${scrollBar({ width: "1.25rem" })};
   }
 
   html body:has(.active-modal){

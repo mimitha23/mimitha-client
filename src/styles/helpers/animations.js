@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
-export const animateMoveBottom = ({ diff = "-2rem", duration = "0.2s" }) => css`
-  animation: moveBottom ${duration} ease forwards;
+export const animateMoveBottom = ({ diff = "-1rem", duration = "0.2s" }) => css`
+  animation: moveBottom ${duration} none;
 
   @keyframes moveBottom {
     0% {
@@ -15,8 +15,8 @@ export const animateMoveBottom = ({ diff = "-2rem", duration = "0.2s" }) => css`
   }
 `;
 
-export const animateMoveTop = ({ diff = "2rem", duration = "0.2s" }) => css`
-  animation: moveTop ${duration} ease forwards;
+export const animateMoveTop = ({ diff = "1rem", duration = "0.2s" }) => css`
+  animation: moveTop ${duration} none;
 
   @keyframes moveTop {
     0% {
@@ -30,8 +30,8 @@ export const animateMoveTop = ({ diff = "2rem", duration = "0.2s" }) => css`
   }
 `;
 
-export const animateMoveRight = ({ diff = "-2rem", duration = "0.2s" }) => css`
-  animation: moveRight ${duration} ease forwards;
+export const animateMoveRight = ({ diff = "-1rem", duration = "0.2s" }) => css`
+  animation: moveRight ${duration} none;
 
   @keyframes moveRight {
     0% {
@@ -45,8 +45,8 @@ export const animateMoveRight = ({ diff = "-2rem", duration = "0.2s" }) => css`
   }
 `;
 
-export const animateMoveLeft = ({ diff = "2rem", duration = "0.2s" }) => css`
-  animation: moveLeft ${duration} ease forwards;
+export const animateMoveLeft = ({ diff = "1rem", duration = "0.2s" }) => css`
+  animation: moveLeft ${duration} none;
 
   @keyframes moveLeft {
     0% {
@@ -60,7 +60,7 @@ export const animateMoveLeft = ({ diff = "2rem", duration = "0.2s" }) => css`
   }
 `;
 
-export const animatePopUpAndScale = ({ duration = "0.4s" }) => css`
+export const animatePopUpAndScale = ({ duration = "0.2s" }) => css`
   animation: popUpAndScale ${duration} ease forwards;
 
   @keyframes popUpAndScale {
@@ -68,11 +68,8 @@ export const animatePopUpAndScale = ({ duration = "0.4s" }) => css`
       opacity: 0;
       transform: scale(0.5);
     }
-    60% {
-      opacity: 1;
-      transform: scale(1.25);
-    }
     100% {
+      opacity: 1;
       transform: scale(1);
     }
   }

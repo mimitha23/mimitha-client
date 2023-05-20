@@ -1,6 +1,6 @@
 import FitCombinationFigure from "./FitCombinationFigure";
 import FitCombinationActions from "./FitCombinationActions";
-import * as Styled from "./styles/FitView.styled";
+import * as Styled from "./styles/FitCombination.styled";
 
 export default function FitCombinationBox() {
   return (

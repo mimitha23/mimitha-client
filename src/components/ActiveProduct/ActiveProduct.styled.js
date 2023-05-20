@@ -7,10 +7,9 @@ import {
 
 export const ActiveProductContainer = styled.div`
   div.active-product__fit-buttons--box {
-    /* ${animateMoveBottom({
-      diff: "-2rem",
-      duration: "0.5s",
-    })}; */
+    ${animateMoveBottom({
+      duration: ({ theme }) => theme.app.section_animation_duration,
+    })};
   }
 
   .product-main {
@@ -22,7 +21,9 @@ export const ActiveProductContainer = styled.div`
 
     &__product-view {
       flex: 1;
-      ${animateMoveRight({ duration: "0.4s" })};
+      ${animateMoveRight({
+        duration: ({ theme }) => theme.app.section_animation_duration,
+      })};
     }
 
     &__product-info {
@@ -31,7 +32,9 @@ export const ActiveProductContainer = styled.div`
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      ${animateMoveLeft({ duration: "0.4s" })}
+      ${animateMoveLeft({
+        duration: ({ theme }) => theme.app.section_animation_duration,
+      })}
     }
   }
 `;

@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { buttonPrimary, animateMoveRight } from "styles/helpers";
+import {
+  buttonPrimary,
+  animateMoveRight,
+  animatePopUpAndScale,
+} from "styles/helpers";
 
 export const FitCombinationContainer = styled.div`
   flex: 1;
@@ -14,7 +18,9 @@ export const FitCombinationContainer = styled.div`
     display: flex;
     gap: 2rem;
     border-radius: 0.3rem;
-    ${animateMoveRight({ duration: "0.4s" })};
+    ${animateMoveRight({
+      duration: ({ theme }) => theme.app.section_animation_duration,
+    })};
   }
 
   .fit-view__fig-box {
@@ -77,6 +83,9 @@ export const FitCombinationContainer = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    ${animatePopUpAndScale({
+      duration: ({ theme }) => theme.app.section_animation_duration,
+    })};
 
     .fit-view__action-btn {
       font-weight: 600;
