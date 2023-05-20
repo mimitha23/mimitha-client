@@ -1,30 +1,51 @@
+import { Link } from "react-router-dom";
+import { DollarIcon, BagIcon, EuroIcon } from "../Icons";
 import * as Styled from "./ProductCard.styled";
-import { FaShoppingCart } from "react-icons/fa";
-import { CgDollar, CgEuro } from "react-icons/cg";
 
-export default function ProductCard(props) {
+export default function ProductCard() {
   return (
     <Styled.ProductCard>
-      <div className="imageContainer">
-        <img src="/assets/images/womans-dress-black.jpg" alt="" />
-      </div>
-      <div className="productDescription">
-        <h2>ჰუდი</h2>
-        <div>
-          <p>
-            ფასი: <span>100</span> ლარი
-          </p>
-          <div className="add-to-cart">
-            დაამატე კალათაში <FaShoppingCart className="cart-ico" />
-          </div>
+      <figure className="product-fig">
+        <Link to="/products/:productId">
+          <img src="/assets/images/womans-dress-black.jpg" alt="" />
+        </Link>
+      </figure>
+
+      <div className="product-content">
+        <h2 className="product-title">
+          <Link to="/products/:productId">ჰუდი</Link>
+        </h2>
+
+        <p className="product-price">
+          ფასი: <span>100</span> ლარი
+        </p>
+
+        <button className="add-to-cart__btn">
+          <span>დაამატე კალათაში</span>
+          <span>
+            <BagIcon />
+          </span>
+        </button>
+
+        <hr className="product-content__devider" />
+
+        <div className="valute-switch__box">
+          <button>
+            <EuroIcon />
+          </button>
+          <button>
+            <DollarIcon />
+          </button>
         </div>
-      </div>
-      <div className="last-line">
-        <div className="currency-switch">
-          <CgEuro className="currency" />
-          <CgDollar className="currency" />
+
+        <div className="product__edit-and--fit__box">
+          <button className="edit-btn">
+            <Link to="/products/:productId/fit">რას უხდება ?</Link>
+          </button>
+          <button className="edit-btn">
+            <Link to="/products/:productId/edit">გარდაქმნა</Link>{" "}
+          </button>
         </div>
-        <div className="edit-btn">გარდაქმნა</div>
       </div>
     </Styled.ProductCard>
   );

@@ -1,24 +1,34 @@
-import * as Styled from "./styles/MimithaPackages.styled";
-import { Container } from "components/Layouts";
+import { Link } from "react-router-dom";
 
-export default function MimithaPackages(props) {
+import { Container } from "components/Layouts";
+import * as Styled from "./styles/MimithaPackages.styled";
+
+export default function MimithaPackages() {
   return (
     <Styled.MimithaPackagesContainer>
       <Container>
         <div className="packages-wrapper">
           <Styled.PackageBox position="bottom-right">
-            <p>ახალი კოლექცია</p>
+            <Link to="/products">
+              <p>ახალი კოლექცია</p>
+            </Link>
           </Styled.PackageBox>
           <Styled.PackageBox position="bottom-left">
-            <p>შეარჩიე შენი სტილი</p>
+            <Link to="/products">
+              <p>შეარჩიე შენი სტილი</p>
+            </Link>
           </Styled.PackageBox>
           <Styled.PackageBox position="top-right">
-            <p>რას უხედება ?</p>
+            <Link to="/products">
+              <p>რას უხედება ?</p>
+            </Link>
           </Styled.PackageBox>
           <Styled.PackageBox position="top-left">
-            <p>
-              უფრო მეტი <small>ვიდრე</small> დიზაინი
-            </p>
+            <Link to="/products">
+              <p>
+                უფრო მეტი <small>ვიდრე</small> დიზაინი
+              </p>
+            </Link>
           </Styled.PackageBox>
         </div>
       </Container>

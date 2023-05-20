@@ -1,15 +1,17 @@
 import { useScrollToTop } from "hooks/domBase";
 
 import { Navigation } from "components";
-import ActiveProduct from "components/ActiveProduct/ActiveProduct";
+import AllProducts from "components/AllProducts/AllProducts";
 
-export default function EditorPage() {
+function AllProductsPage() {
   useScrollToTop();
 
   return (
     <>
       <Navigation />
-      <ActiveProduct />
+      <AllProducts />
     </>
   );
 }
+
+export default AllProductsPage;

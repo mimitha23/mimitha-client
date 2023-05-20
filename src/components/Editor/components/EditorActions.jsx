@@ -9,40 +9,42 @@ function EditorActions() {
 
   return (
     <Styled.EditorActionsContainer>
-      <EditorActionDropdown
-        name="ჯიბე"
-        variantType="pocket"
-        activeDropdown={activeDropdown}
-        setActiveDropdown={setActiveDropdown}
-      />
+      <div className="editor-actions__list">
+        <EditorActionDropdown
+          name="ჯიბე"
+          variantType="pocket"
+          activeDropdown={activeDropdown}
+          setActiveDropdown={setActiveDropdown}
+        />
 
-      <EditorActionDropdown
-        name="ელვა"
-        variantType="zipper"
-        activeDropdown={activeDropdown}
-        setActiveDropdown={setActiveDropdown}
-      />
+        <EditorActionDropdown
+          name="ელვა"
+          variantType="zipper"
+          activeDropdown={activeDropdown}
+          setActiveDropdown={setActiveDropdown}
+        />
 
-      <EditorActionDropdown
-        name="ღილი"
-        variantType="button"
-        activeDropdown={activeDropdown}
-        setActiveDropdown={setActiveDropdown}
-      />
+        <EditorActionDropdown
+          name="ღილი"
+          variantType="button"
+          activeDropdown={activeDropdown}
+          setActiveDropdown={setActiveDropdown}
+        />
 
-      <EditorActionDropdown
-        name="მანჟეტი"
-        variantType="cuff"
-        activeDropdown={activeDropdown}
-        setActiveDropdown={setActiveDropdown}
-      />
+        <EditorActionDropdown
+          name="მანჟეტი"
+          variantType="cuff"
+          activeDropdown={activeDropdown}
+          setActiveDropdown={setActiveDropdown}
+        />
 
-      <EditorActionDropdown
-        name="საყელო"
-        variantType="collar"
-        activeDropdown={activeDropdown}
-        setActiveDropdown={setActiveDropdown}
-      />
+        <EditorActionDropdown
+          name="საყელო"
+          variantType="collar"
+          activeDropdown={activeDropdown}
+          setActiveDropdown={setActiveDropdown}
+        />
+      </div>
 
       <Link to="/products/:productId" className="finish-btn">
         დაასრულეთ რედაქტირება
