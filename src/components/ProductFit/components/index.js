@@ -1,2 +1,2 @@
-export { default as FitView } from "./FitView";
+export { default as FitCombinationBox } from "./FitCombinationBox";
 export { default as FitList } from "./FitList";

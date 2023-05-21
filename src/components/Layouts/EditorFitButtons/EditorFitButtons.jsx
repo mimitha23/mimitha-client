@@ -20,7 +20,7 @@ function EditorFitButtons({ onModel, onMannequin, activeFit }) {
   }
 
   return (
-    <Styled.EditorFitButtonsContainer>
+    <Styled.EditorFitButtonsContainer data-editor-fit-buttons>
       <button
         className="fit-btn"
         onClick={() => {

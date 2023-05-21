@@ -1,17 +1,14 @@
 import styled, { css } from "styled-components";
 
 export const MimithaPackagesContainer = styled.div`
-  margin-top: 4rem;
-  padding: 4rem 0;
-  border-top: 2px solid ${({ theme }) => theme.colors.text};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.text};
+  padding: 8rem 0 4rem;
 
   .packages-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 300px);
+    grid-template-rows: repeat(2, 30rem);
     justify-content: space-between;
-    gap: 200px;
+    gap: 15rem 20rem;
   }
 `;
 
@@ -21,6 +18,8 @@ export const PackageBox = styled.div`
   background-repeat: no-repeat;
   background-size: 100%;
   border: 2px solid ${({ theme }) => theme.colors.text};
+  border-radius: 0.3rem;
+  overflow: hidden;
 
   ${({ position }) =>
     position === "bottom-right"
@@ -62,6 +61,12 @@ export const PackageBox = styled.div`
           }
         `
       : ""}
+
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
 
   p {
     position: absolute;

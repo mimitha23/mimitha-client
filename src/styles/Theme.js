@@ -9,6 +9,7 @@ const BaseTheme = {
   app: {
     container: "1280px",
     nav_h: "18rem",
+    section_animation_duration: "0.3s",
   },
   fontSize: {
     sm: "1.2rem",
@@ -49,4 +50,3 @@ export const DarkTheme = {
     text: "#fff",
   },
 };
- 

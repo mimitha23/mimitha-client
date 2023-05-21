@@ -1,12 +1,15 @@
-import { FitList, FitView } from "./components";
+import { ContainerFull } from "components/Layouts";
+import { FitList, FitCombinationBox } from "./components";
 import * as Styled from "./ProductFit.styled";
 
 function ProductFit() {
   return (
-    <Styled.ProductFitContainer>
-      <FitView />
-      <FitList />
-    </Styled.ProductFitContainer>
+    <ContainerFull>
+      <Styled.ProductFitContainer>
+        <FitCombinationBox />
+        <FitList />
+      </Styled.ProductFitContainer>
+    </ContainerFull>
   );
 }
 
