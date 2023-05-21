@@ -37,7 +37,7 @@ export const ProductStyler = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: ${({ theme }) => theme.fontSize.sm};
+    font-size: 1.4rem;
     text-transform: uppercase;
 
     .size {
@@ -76,7 +76,7 @@ export const ProductStyler = styled.div`
     p {
       cursor: pointer;
       letter-spacing: 0.6px;
-      font-size: 1.2rem;
+      font-size: ${({ theme }) => theme.fontSize.base};
       font-weight: 500;
       color: ${({ theme }) => theme.colors.text};
     }

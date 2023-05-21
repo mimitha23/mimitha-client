@@ -5,7 +5,7 @@ export const EditorDescription = styled.div`
 
   .product-description__title {
     color: ${({ theme }) => theme.colors.text};
-    font-size: 1.25rem;
+    font-size: ${({ theme }) => theme.fontSize.lg};
     font-weight: 500;
   }
 

@@ -19,7 +19,7 @@ export default function ProductStyler(props) {
           </div>
         </div>
 
-        <div className="product-styler__style-box">
+        {/* <div className="product-styler__style-box">
           <h2 className="product-styler__box-title">სტილის არჩევანი</h2>
 
           <div className="product-styler__style-box__styles-container">
@@ -31,7 +31,7 @@ export default function ProductStyler(props) {
               />
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="product-styler__size-box">
           <h2 className="product-styler__box-title">ზომების არჩევანი</h2>

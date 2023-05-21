@@ -7,7 +7,7 @@ export default function ProductHeading(props) {
   return (
     <Styled.ProductHeadingContainer>
       <h1 className="product-title">
-        მამაკაცის გრძელმკლავიანი ჰუდი - 100% ბამბა
+        <strong>მამაკაცის გრძელმკლავიანი ჰუდი - 100% ბამბა</strong>
       </h1>
 
       <div className="price-and-edit__container">

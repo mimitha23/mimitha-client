@@ -8,8 +8,9 @@ export const ProductShippingInfo = styled.div`
   margin-top: -2rem;
 
   div {
+    margin: 10px 0 10px 0;
     p {
-      font-size: ${({ theme }) => theme.fontSize.sm};
+      font-size: ${({ theme }) => theme.fontSize.base};
 
       span {
         display: inline-block;
