@@ -7,6 +7,7 @@ import { DarkTheme, LightTheme } from "styles/Theme";
 export const ThemeContext = createContext({
   mode: true,
   setTheme: (mode) => {},
+  changeNavHeight: (partial) => {},
 });
 
 export default function AppThemeProvider({ children }) {
@@ -23,6 +24,21 @@ export default function AppThemeProvider({ children }) {
     }));
 
     localStorage.setItem("mimitha_theme", JSON.stringify(mode));
+  }
+
+  function changeNavHeight(partial) {
+    setAppTheme((prev) => ({
+      ...prev,
+      theme: {
+        ...prev.theme,
+        app: {
+          ...prev.theme.app,
+          nav_h: partial
+            ? prev.theme.app.nav_h_partial
+            : prev.theme.app.nav_h_full,
+        },
+      },
+    }));
   }
 
   // set locally saved theme on mount
@@ -49,7 +65,13 @@ export default function AppThemeProvider({ children }) {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ mode: appTheme.lightMode, setTheme }}>
+    <ThemeContext.Provider
+      value={{
+        mode: appTheme.lightMode,
+        setTheme,
+        changeNavHeight,
+      }}
+    >
       <ThemeProvider theme={appTheme.theme}>
         <GlobalStyles />
         {children}

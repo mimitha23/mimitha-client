@@ -8,7 +8,9 @@ const BaseTheme = {
   },
   app: {
     container: "1280px",
-    nav_h: "18rem",
+    nav_h: "15rem",
+    nav_h_full: "15rem",
+    nav_h_partial: "7.5rem",
     section_animation_duration: "0.3s",
   },
   fontSize: {

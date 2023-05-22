@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { animateMoveLeft, animateMoveRight } from "styles/helpers";
 
 export const AllProductsContainer = styled.div`
+  padding-top: ${({ theme }) => theme.app.nav_h_full};
+
   .wrapper-container {
     padding-top: 0;
   }

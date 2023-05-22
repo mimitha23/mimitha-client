@@ -1,6 +1,7 @@
 import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos,
+  MdOutlineWbSunny,
 } from "react-icons/md";
 import { BsFillHandbagFill } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
@@ -9,6 +10,7 @@ import {
   FaInstagram,
   FaDollarSign,
   FaEuroSign,
+  FaMoon,
 } from "react-icons/fa";
 import { AiOutlineMinus } from "react-icons/ai";
 
@@ -21,6 +23,8 @@ const InstagramIcon = FaInstagram;
 const DollarIcon = FaDollarSign;
 const EuroIcon = FaEuroSign;
 const MinusIcon = AiOutlineMinus;
+const SunIcon = MdOutlineWbSunny;
+const MoonIcon = FaMoon;
 
 export {
   ArrowLeftIcon,
@@ -32,4 +36,6 @@ export {
   DollarIcon,
   EuroIcon,
   MinusIcon,
+  SunIcon,
+  MoonIcon,
 };

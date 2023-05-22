@@ -6,6 +6,8 @@ import {
 } from "styles/helpers";
 
 export const ActiveProductContainer = styled.div`
+  padding-top: ${({ theme }) => theme.app.nav_h_full};
+
   div.active-product__fit-buttons--box {
     ${animateMoveBottom({
       duration: ({ theme }) => theme.app.section_animation_duration,
