@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const LandingCTAPhoto = styled.div`
+  margin-top: ${({ theme }) => theme.app.nav_h_full};
   position: relative;
   display: flex;
   justify-content: center;

@@ -37,7 +37,8 @@ export const CategoriesNavbar = styled.nav`
       }
 
       :last-child {
-        border: 1.75px solid ${({ theme }) => theme.colors.text};
+        border: 2px solid ${({ theme }) => theme.colors.text};
+        border-left: none;
       }
     }
   }

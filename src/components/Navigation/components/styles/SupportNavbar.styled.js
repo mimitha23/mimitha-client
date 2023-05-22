@@ -1,4 +1,24 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const animateHideSupportNav = keyframes`
+  0%{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  } 100%{
+    transform: translateY(-200%) scale(0.5);
+    opacity: 0;
+  }
+`;
+
+const animateShowSupportNav = keyframes`
+  0%{
+    transform: translateY(-200%) scale(0.5);
+    opacity: 0;
+  } 100%{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+`;
 
 export const SupportNavbarContainer = styled.div`
   align-self: flex-end;
@@ -9,26 +29,20 @@ export const SupportNavbarContainer = styled.div`
   align-items: center;
   color: ${({ theme }) => theme.colors.text};
 
-  .support-nav__list {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    font-size: ${({ theme }) => theme.fontSize.sm};
+  ${({ partialNav }) =>
+    partialNav
+      ? css`
+          animation: ${animateHideSupportNav} 0.2s forwards;
+        `
+      : css`
+          animation: ${animateShowSupportNav} 0.2s forwards;
+        `};
 
-    li {
-      height: 100%;
-      width: max-content;
+  .darkMode--switch {
+    button {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 2rem 0 2rem;
-      border-right: 2px solid ${({ theme }) => theme.colors.text};
-      font-weight: 500;
-      cursor: pointer;
-
-      :first-child {
-        border-left: 2px solid ${({ theme }) => theme.colors.text};
-      }
     }
   }
 

@@ -1,13 +1,24 @@
+import { useContext } from "react";
+import { ThemeContext } from "Theme";
+
 import * as Styled from "./styles/SupportNavbar.styled";
-import { FacebookIcon, InstagramIcon } from "components/Layouts/Icons";
-export default function SupportNavbar(props) {
+import {
+  FacebookIcon,
+  InstagramIcon,
+  SunIcon,
+  MoonIcon,
+} from "components/Layouts/Icons";
+
+export default function SupportNavbar({ partialNav }) {
+  const { setTheme, mode } = useContext(ThemeContext);
+
   return (
-    <Styled.SupportNavbarContainer>
-      <ul className="support-nav__list">
-        <li>ჩვენს შესახებ</li>
-        <li>კონტაქტი</li>
-        <li>დახმარება</li>
-      </ul>
+    <Styled.SupportNavbarContainer partialNav={partialNav}>
+      <div className="darkMode--switch">
+        <button onClick={() => setTheme(!mode)}>
+          {mode ? <MoonIcon /> : <SunIcon />}
+        </button>
+      </div>
 
       <div className="language-switch">
         <button className="language-switch__btn">GE</button>

@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const LogoContainer = styled.figure`
-  width: 27rem;
-  height: 15rem;
+  ${({ partialNav }) =>
+    partialNav
+      ? css`
+          height: 5rem;
+          align-self: flex-start;
+        `
+      : css`
+          height: 15rem;
+        `};
+
+  transition: all 0.2s ease;
 
   a {
     display: inline-block;
@@ -18,9 +27,9 @@ const LogoContainer = styled.figure`
   }
 `;
 
-function Logo() {
+function Logo({ partialNav }) {
   return (
-    <LogoContainer>
+    <LogoContainer partialNav={partialNav}>
       <Link to="/">
         <img src="/assets/images/image-not-uploaded.png" alt="mimitha" />
       </Link>
