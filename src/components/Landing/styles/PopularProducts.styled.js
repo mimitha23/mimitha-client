@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const PopularProducts = styled.div`
-  padding: 8rem 0 4rem;
+  margin: 8rem 0 4rem;
   display: grid;
-  gap: 4rem;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 58rem;
-  justify-content: space-evenly;
+  gap: 10rem;
+  grid-template-columns: 50rem 50rem;
+  grid-template-rows: 65rem 65rem;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
 `;
