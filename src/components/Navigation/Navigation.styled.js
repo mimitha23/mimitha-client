@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const Navigation = styled.nav`
   position: fixed;
-  z-index: 999;
+  z-index: 99;
   top: 0;
   width: 100%;
   height: ${({ theme }) => theme.app.nav_h};

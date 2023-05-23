@@ -61,7 +61,7 @@ export const animateMoveLeft = ({ diff = "1rem", duration = "0.2s" }) => css`
 `;
 
 export const animatePopUpAndScale = ({ duration = "0.2s" }) => css`
-  animation: popUpAndScale ${duration} ease forwards;
+  animation: popUpAndScale ${duration} ease none;
 
   @keyframes popUpAndScale {
     0% {
