@@ -13,7 +13,7 @@ import {
   FaMoon,
   FaShoppingCart,
 } from "react-icons/fa";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineMinus, AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
 
 const ArrowLeftIcon = MdOutlineArrowBackIosNew;
 const ArrowRightIcon = MdOutlineArrowForwardIos;
@@ -28,6 +28,7 @@ const PlusIcon = AiOutlinePlus;
 const SunIcon = MdOutlineWbSunny;
 const MoonIcon = FaMoon;
 const ShoppingCartIcon = FaShoppingCart;
+const CloseXIcon = AiOutlineClose;
 
 export {
   ArrowLeftIcon,
@@ -43,4 +44,5 @@ export {
   SunIcon,
   MoonIcon,
   ShoppingCartIcon,
+  CloseXIcon,
 };

@@ -1,5 +1,5 @@
 import * as Styled from "./ModalWindow.styled";
-import { AiOutlineClose } from "react-icons/ai";
+import { CloseXIcon } from "../Icons/index";
 
 function ModalWindow({ children, backdrop = true, activeModal, closeModal }) {
   return (
@@ -11,7 +11,7 @@ function ModalWindow({ children, backdrop = true, activeModal, closeModal }) {
       >
         <div className="content-box" onClick={(e) => e.stopPropagation()}>
           <button className="close-modal__btn" onClick={closeModal}>
-            <AiOutlineClose />
+            <CloseXIcon />
           </button>
           {children}
         </div>

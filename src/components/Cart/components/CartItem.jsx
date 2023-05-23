@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import CartItemDetailsBoxContainer from "./CartItemDetailsBoxContainer";
 import CartItemDetailsControllProductAmount from "./CartItemDetailsControllProductAmount";
+import { CloseXIcon } from "components/Layouts/Icons/index";
 import * as Styled from "./styles/CartItem.styled";
 
 function CartItem() {
@@ -41,7 +42,9 @@ function CartItem() {
           <span className="cart-item__details-box--content__size">S</span>
         </CartItemDetailsBoxContainer>
       </div>
-      <button className="cart-item__remove-btn">X</button>
+      <button className="cart-item__remove-btn">
+        <CloseXIcon />
+      </button>
     </Styled.CartItemContainer>
   );
 }
