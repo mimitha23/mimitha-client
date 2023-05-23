@@ -11,8 +11,9 @@ import {
   FaDollarSign,
   FaEuroSign,
   FaMoon,
+  FaShoppingCart,
 } from "react-icons/fa";
-import { AiOutlineMinus } from "react-icons/ai";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const ArrowLeftIcon = MdOutlineArrowBackIosNew;
 const ArrowRightIcon = MdOutlineArrowForwardIos;
@@ -23,8 +24,10 @@ const InstagramIcon = FaInstagram;
 const DollarIcon = FaDollarSign;
 const EuroIcon = FaEuroSign;
 const MinusIcon = AiOutlineMinus;
+const PlusIcon = AiOutlinePlus;
 const SunIcon = MdOutlineWbSunny;
 const MoonIcon = FaMoon;
+const ShoppingCartIcon = FaShoppingCart;
 
 export {
   ArrowLeftIcon,
@@ -36,6 +39,8 @@ export {
   DollarIcon,
   EuroIcon,
   MinusIcon,
+  PlusIcon,
   SunIcon,
   MoonIcon,
+  ShoppingCartIcon,
 };

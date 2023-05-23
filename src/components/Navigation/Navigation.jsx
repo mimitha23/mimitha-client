@@ -1,7 +1,13 @@
 import { useHideNavOnScroll } from "hooks/domBase";
 
 import * as Styled from "./Navigation.styled";
-import { CategoriesNavbar, SearchBar, SupportNavbar, Logo } from "./components";
+import {
+  CategoriesNavbar,
+  SearchBar,
+  SupportNavbar,
+  Logo,
+  ShoppingCard,
+} from "./components";
 
 export default function Navigation() {
   const { partialNav } = useHideNavOnScroll();
@@ -14,6 +20,7 @@ export default function Navigation() {
         <div className="main-nav">
           <CategoriesNavbar />
           <SearchBar />
+          <ShoppingCard />
         </div>
       </div>
     </Styled.Navigation>
