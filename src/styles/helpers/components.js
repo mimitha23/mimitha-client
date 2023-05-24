@@ -1,9 +1,10 @@
 import { css } from "styled-components";
+import { media } from "./media";
 
 export const buttonPrimary = () => css`
   padding: 1rem 7rem;
   font-size: ${({ theme }) => theme.fontSize.lg};
-  font-weight: 500;
+  font-weight: 400;
   border-radius: 15rem;
   background: ${({ theme }) => theme.colors.text};
   color: ${({ theme }) => theme.colors.bg};
@@ -17,6 +18,11 @@ export const buttonPrimary = () => css`
     color: ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.bg};
   }
+
+  ${media.mobileLarge`
+    padding: 1rem 2rem;
+    font-size: ${({ theme }) => theme.fontSize.base};
+  `}
 `;
 
 export const dropdownRectingle = ({

@@ -1,17 +1,28 @@
 import styled from "styled-components";
-import { animateMoveBottom, animateMoveTop } from "styles/helpers";
+import { animateMoveBottom, animateMoveTop, media } from "styles/helpers";
 
 export const FitListContainer = styled.div`
   flex: 2;
+  height: 100%;
+  display: grid;
+  grid-template: repeat(1, max-content 1fr) / repeat() 1, 1fr;
+  row-gap: 2.5rem;
 
   .fit-list__filter-box {
-    padding-bottom: 2.5rem;
+    width: calc(100% - 4rem);
     ${animateMoveBottom({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};
 
     [data-filter-container] {
       column-gap: 4rem;
+      display: grid;
+      grid-template: repeat(2, max-content) / repeat(3, 1fr);
+
+      [data-filter-dropdown],
+      [data-filter-dropdown] > * {
+        width: 100%;
+      }
     }
   }
 
@@ -21,7 +32,8 @@ export const FitListContainer = styled.div`
     grid-auto-rows: 30rem;
     gap: 2rem;
     padding: 0.5rem;
-    max-height: calc(100vh - ${({ theme }) => theme.app.nav_h} - 4rem - 10rem);
+    height: 100%;
+    max-height: 100%;
     overflow: auto;
     ${animateMoveTop({
       duration: ({ theme }) => theme.app.section_animation_duration,
@@ -31,6 +43,30 @@ export const FitListContainer = styled.div`
       display: none;
     }
   }
+
+  ${media.desktopLarge`
+    .fit-list__products {
+      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+      grid-auto-rows: 25rem;
+    }
+  `}
+
+  ${media.mobileLarge`
+   .fit-list__filter-box{
+      [data-filter-container] {
+        grid-template: repeat(3, max-content) / repeat(2, 1fr);
+      }
+    }
+  `}
+
+  ${media.mobile`
+   .fit-list__filter-box{
+      [data-filter-container] {
+        grid-template-rows:auto;
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  `}
 `;
 
 export const FitListCardContainer = styled.div`

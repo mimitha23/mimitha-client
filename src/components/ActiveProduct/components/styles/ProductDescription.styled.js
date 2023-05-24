@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "styles/helpers";
 
 export const EditorDescription = styled.div`
   letter-spacing: 0.5px;
@@ -19,9 +20,8 @@ export const EditorDescription = styled.div`
   }
 
   .product-description__info-devider {
-    width: 90px;
-    margin: 5px;
-
+    width: 9rem;
+    margin: 0.5rem;
     border: 1px solid ${({ theme }) => theme.colors.text};
   }
 
@@ -38,4 +38,19 @@ export const EditorDescription = styled.div`
       background-color: ${({ theme }) => theme.colors.text};
     }
   }
+
+  ${media.mobile`
+    .product-description__box{
+      display: grid;
+      grid-template:repeat(1,max-content)/repeat(1,max-content max-content 1fr);
+      align-items:start;
+      margin-top:1rem;
+    }
+
+    .product-description__info-devider{
+      width: 4rem;
+      transform: translateY(1rem);
+
+    }
+  `}
 `;

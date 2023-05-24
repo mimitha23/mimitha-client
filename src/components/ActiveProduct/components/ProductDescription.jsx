@@ -3,9 +3,7 @@ import * as Styled from "./styles/ProductDescription.styled";
 export default function ProductDescription(props) {
   return (
     <Styled.EditorDescription>
-      <h2 className="product-description__title">
-        <strong>პროდუქტის აღწერა</strong>
-      </h2>
+      <h2 className="product-description__title">პროდუქტის აღწერა</h2>
 
       <div className="product-description__box">
         <span>სტილი</span>

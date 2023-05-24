@@ -2,7 +2,7 @@ import * as Styled from "./Filter.styled";
 
 function Dropdown({ dropdownType, activateFilter, isActive, data, caption }) {
   return (
-    <Styled.DropdownContainer>
+    <Styled.DropdownContainer data-filter-dropdown>
       <button
         onClick={() => activateFilter({ filterType: dropdownType })}
         className={`filter-dropdown__trigger-btn ${

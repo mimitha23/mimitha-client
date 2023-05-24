@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { buttonPrimary } from "styles/helpers";
+import { buttonPrimary, media } from "styles/helpers";
 
 export const EditorFitButtonsContainer = styled.div`
   margin-bottom: 4rem;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,12 +18,12 @@ export const EditorFitButtonsContainer = styled.div`
     min-width: 5rem;
     min-height: 5rem;
     max-width: 50rem;
-    max-height: 30vw;
+    max-height: 90vh;
     padding-top: 3.5rem;
 
     &--fig {
       width: 100%;
-      max-height: calc(30vw - 3.5rem);
+      max-height: calc(90vh - 3.5rem);
       border-radius: 0.5rem;
       overflow: hidden;
 
@@ -33,4 +34,19 @@ export const EditorFitButtonsContainer = styled.div`
       }
     }
   }
+
+  ${media.mobileLarge`
+    .fit-product__modal-box {
+      max-width:48rem;
+    }
+  `}
+
+  ${media.mobileLarge`
+    justify-content:space-between;
+    gap:1rem;   
+
+    .fit-product__modal-box {
+      max-width:calc(100vw - 2rem);
+    }
+  `}
 `;

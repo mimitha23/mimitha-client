@@ -3,6 +3,7 @@ import {
   animateMoveRight,
   animateMoveLeft,
   animateMoveBottom,
+  media,
 } from "styles/helpers";
 
 export const ActiveProductContainer = styled.div`
@@ -36,7 +37,20 @@ export const ActiveProductContainer = styled.div`
       gap: 2rem;
       ${animateMoveLeft({
         duration: ({ theme }) => theme.app.section_animation_duration,
-      })}
+      })};
     }
+
+    ${media.desktop`
+      flex-direction:column;
+
+        &__product-view {
+          width: 100%;
+        };
+        
+        &__product-info {
+          max-width: 100%;
+          width: 100%;
+        };
+    `}
   }
 `;
