@@ -14,9 +14,17 @@ export const Footer = styled.footer`
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20rem;
-    padding: 2rem;
+    padding: 10rem;
   }
+
+  .footer-upper-left-panel {
+    display: flex;
+    align-items: center;
+    gap: 20rem;
+  }
+
   .footer-learn-more {
     &__figure {
       cursor: pointer;
@@ -44,6 +52,30 @@ export const Footer = styled.footer`
       flex-direction: column;
       gap: 1rem;
       color: ${({ theme }) => theme.colors.text};
+    }
+  }
+
+  .footer-social-container {
+    justify-self: flex-end;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    p {
+      text-align: center;
+      font-weight: 500;
+      font-size: ${({ theme }) => theme.fontSize.xl};
+    }
+
+    .icons-container {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    &__icons {
+      width: 5rem;
+      height: 5rem;
     }
   }
 
