@@ -1,11 +1,12 @@
 import { useScrollToTop } from "hooks/domBase";
 
+import { Footer } from "components/index";
 import {
   LandingCTAPhoto,
   MimithaPackages,
   PopularProducts,
 } from "components/Landing";
-import { ContainerFull } from "components/Layouts";
+import { Container } from "components/Layouts";
 import { Navigation } from "components";
 
 export default function LandingPage() {
@@ -15,10 +16,11 @@ export default function LandingPage() {
     <>
       <Navigation />
       <LandingCTAPhoto />
-      <ContainerFull>
+      <Container>
         <MimithaPackages />
         <PopularProducts />
-      </ContainerFull>
+      </Container>
+      <Footer />
     </>
   );
 }

@@ -6,5 +6,9 @@ const AppContainer = styled.div`
 `;
 
 export default function Container({ children, className }) {
-  return <AppContainer className={className || ""}>{children}</AppContainer>;
+  return (
+    <AppContainer data-container className={className || ""}>
+      {children}
+    </AppContainer>
+  );
 }

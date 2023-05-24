@@ -3,9 +3,16 @@ import * as Styled from "./styles/PopularProducts.styled";
 import { popularProductsData } from "lib";
 
 export default function PopularProducts() {
-  const productsRenderList = popularProductsData.map((el) => (
-    <ProductCard key={`${el}`} />
-  ));
-
-  return <Styled.PopularProducts>{productsRenderList}</Styled.PopularProducts>;
+  return (
+    <Styled.PopularProducts>
+      <div className="popular-products-header">
+        <p>ყველაზე პოპულარული</p>
+      </div>
+      <div className="popular-products__container">
+        {popularProductsData.map((el) => (
+          <ProductCard key={`${el}`} />
+        ))}
+      </div>
+    </Styled.PopularProducts>
+  );
 }

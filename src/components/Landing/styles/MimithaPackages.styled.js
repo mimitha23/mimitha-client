@@ -4,6 +4,7 @@ export const MimithaPackagesContainer = styled.div`
   padding: 8rem 0 4rem;
 
   .packages-wrapper {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 30rem);
@@ -70,7 +71,7 @@ export const PackageBox = styled.div`
 
   p {
     position: absolute;
-    width: 400px;
+    width: 40rem;
     padding: 0.5rem;
     height: max-content;
     font-size: 1.75rem;
