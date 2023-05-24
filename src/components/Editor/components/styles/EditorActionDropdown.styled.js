@@ -10,6 +10,7 @@ export const EditorActionDropdownContainer = styled.div`
     font-weight: 500;
     text-transform: capitalize;
     border: 1px solid ${({ theme }) => theme.colors.gray_shade};
+    border-right: none;
     background: ${({ theme }) => theme.colors.bg};
     border-radius: 0.5rem;
     transition: all 0.2s ease;
@@ -36,5 +37,27 @@ export const EditorActionDropdownContainer = styled.div`
     background: ${({ theme }) => theme.colors.white};
     border: 1px solid ${({ theme }) => theme.colors.gray_shade};
     ${animateMoveBottom};
+  }
+
+  @media (max-width: 105em) {
+    .dropdown-trigger__btn {
+      ${dropdownRectingle({
+        buttonWidth: "98%",
+        buttonBorderWidth: "2px",
+        rectingleHeight: "4.5rem",
+        rectingleBorderWidth: "2px",
+      })}
+    }
+  }
+
+  @media (max-width: 30em) {
+    .dropdown-trigger__btn {
+      ${dropdownRectingle({
+        buttonWidth: "95%",
+        buttonBorderWidth: "2px",
+        rectingleHeight: "4.5rem",
+        rectingleBorderWidth: "2px",
+      })}
+    }
   }
 `;

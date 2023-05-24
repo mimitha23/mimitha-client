@@ -57,7 +57,7 @@ function MultipleSlider({ children, media = {} }) {
         infinite={true}
         customLeftArrow={<SliderButton direction="left" />}
         customRightArrow={<SliderButton direction="right" />}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
+        // removeArrowOnDeviceType={["tablet", "mobile"]}
         containerClass="multi-slider__container"
         sliderClass="multi-slider__slides-list"
       >

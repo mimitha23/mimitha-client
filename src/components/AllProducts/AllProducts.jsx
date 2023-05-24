@@ -5,8 +5,10 @@ function AllProducts() {
   return (
     <Styled.AllProductsContainer>
       <ContainerFull className="wrapper-container">
-        <div className="filter-box">
-          <Filter />
+        <div className="filter-box__wrapper">
+          <div className="filter-box">
+            <Filter />
+          </div>
         </div>
 
         <div className="products-list">

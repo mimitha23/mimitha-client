@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { scrollBar } from "styles/helpers/components";
+import { scrollBar, media } from "styles/helpers";
 
 export const CartBodyContainer = styled.main`
   margin: 2rem 0;
@@ -10,4 +10,10 @@ export const CartBodyContainer = styled.main`
   ${scrollBar};
   padding-right: 2rem;
   scroll-behavior: smooth;
+
+  ${media.tablet`
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(29rem,1fr));
+    grid-template-rows:auto;
+  `}
 `;

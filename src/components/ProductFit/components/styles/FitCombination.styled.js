@@ -3,11 +3,12 @@ import {
   buttonPrimary,
   animateMoveRight,
   animatePopUpAndScale,
+  media,
 } from "styles/helpers";
 
 export const FitCombinationContainer = styled.div`
   flex: 1;
-  min-width: 40rem;
+  min-width: 55rem;
   height: 100%;
 
   .fit-view__figs-box {
@@ -106,4 +107,24 @@ export const FitCombinationContainer = styled.div`
       }
     }
   }
+
+  ${media.desktop`
+    .fit-view__figs-box{
+      height: 40vh;
+    }
+  `}
+
+  ${media.mobileLarge`
+    min-width:100%;
+  `}
+
+  ${media.mobile`
+    .fit-view__actions-box{
+      flex-direction:column;
+
+      .fit-view__action-btn{
+        justify-content:center;
+      }
+    }
+  `}
 `;

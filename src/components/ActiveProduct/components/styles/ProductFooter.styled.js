@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "styles/helpers/media";
 
 export const ProductFooterContainer = styled.div`
   display: flex;
@@ -60,4 +61,21 @@ export const ProductFooterContainer = styled.div`
     font-size: 3.2rem;
     transform: translateY(0.25rem);
   }
+
+  ${media.mobileLarge`
+    align-self: flex-start;
+    align-items:flex-start;
+
+    button > span:first-child{
+      order:2;
+    }
+
+    button > span:last-child{
+      order:1;
+    }
+
+    .polygonal-btn{
+      transform: translateY(0.2rem);
+    }
+  `}
 `;

@@ -4,12 +4,12 @@ import * as Styled from "./ProductFit.styled";
 
 function ProductFit() {
   return (
-    <ContainerFull>
-      <Styled.ProductFitContainer>
+    <Styled.ProductFitContainer>
+      <ContainerFull>
         <FitCombinationBox />
         <FitList />
-      </Styled.ProductFitContainer>
-    </ContainerFull>
+      </ContainerFull>
+    </Styled.ProductFitContainer>
   );
 }
 

@@ -19,11 +19,17 @@ function CartItem() {
         <img src="/assets/products/hood-belly-pocket-green.webp" alt="" />
       </figure>
       <div className="cart-item__details">
-        <CartItemDetailsBoxContainer title="სათაური">
+        <CartItemDetailsBoxContainer
+          title="სათაური"
+          className="cart-item__details-box__title-box"
+        >
           <span>ჰუდი</span>
         </CartItemDetailsBoxContainer>
 
-        <CartItemDetailsBoxContainer title="რაოდენობა">
+        <CartItemDetailsBoxContainer
+          title="რაოდენობა"
+          className="cart-item__details-box__amount-box"
+        >
           <CartItemDetailsControllProductAmount
             productAmount={productAmount}
             handleProductAmount={handleProductAmount}
@@ -38,7 +44,10 @@ function CartItem() {
           <span>40₾</span>
         </CartItemDetailsBoxContainer>
 
-        <CartItemDetailsBoxContainer title="ზომა">
+        <CartItemDetailsBoxContainer
+          title="ზომა"
+          className="cart-item__details-box__size-box"
+        >
           <span className="cart-item__details-box--content__size">S</span>
         </CartItemDetailsBoxContainer>
       </div>

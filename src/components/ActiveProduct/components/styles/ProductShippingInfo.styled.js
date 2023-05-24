@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "styles/helpers/media";
 
 export const ProductShippingInfo = styled.div`
   display: flex;
@@ -8,7 +9,8 @@ export const ProductShippingInfo = styled.div`
   margin-top: -2rem;
 
   div {
-    margin: 10px 0 10px 0;
+    margin: 1rem 0 1rem 0;
+
     p {
       font-size: ${({ theme }) => theme.fontSize.base};
 
@@ -19,4 +21,8 @@ export const ProductShippingInfo = styled.div`
       }
     }
   }
+
+  ${media.mobileLarge`
+    flex-direction:column;
+  `}
 `;

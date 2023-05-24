@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { animatePopUpAndScale } from "styles/helpers/animations";
+import { animatePopUpAndScale, media } from "styles/helpers";
 
 export const CartContainer = styled.div`
   padding-top: ${({ theme }) => theme.app.nav_h_full};
@@ -12,8 +12,8 @@ export const CartContainer = styled.div`
   ${animatePopUpAndScale};
 
   .cart {
-    width: min(120rem, 100%);
-    height: 35vw;
+    width: min(128rem, 100%);
+    height: 70vh;
     box-shadow: ${({ theme }) => theme.shadow.radial_sm_dark};
     border-radius: 0.5rem;
     padding: 1rem;
@@ -28,4 +28,14 @@ export const CartContainer = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  ${media.desktop`
+    align-items:flex-start;
+
+    .cart{
+      height:100%;
+      border-radius:none;
+      box-shadow:none;
+    }
+  `}
 `;

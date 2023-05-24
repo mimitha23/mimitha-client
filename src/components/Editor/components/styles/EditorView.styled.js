@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { animateMoveRight } from "styles/helpers";
+import { animateMoveRight, media } from "styles/helpers";
 
 export const EditorViewContainer = styled.div`
   flex: 1;
   height: 30vw;
   border: 1px solid ${({ theme }) => theme.colors.gray_shade};
-  border-radius: 0%.5rem;
+  border-radius: 0.5rem;
   ${animateMoveRight({
     duration: ({ theme }) => theme.app.section_animation_duration,
   })}
@@ -20,4 +20,10 @@ export const EditorViewContainer = styled.div`
       object-fit: contain;
     }
   }
+
+  ${media.tablet`
+    flex: unset;
+    height: 45vh;
+    width:100%;
+  `}
 `;

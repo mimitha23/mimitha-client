@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { buttonPrimary } from "styles/helpers";
+import { buttonPrimary, media } from "styles/helpers";
 
 export const ProductStyler = styled.div`
   padding: 10px;
@@ -9,6 +9,11 @@ export const ProductStyler = styled.div`
   background-color: ${({ theme }) =>
     theme.mode === "light" ? theme.colors.gray_tint : theme.colors.gray_shade};
   border-radius: 0.5rem;
+
+  .moderators__container,
+  .fit-and-questions__container {
+    flex: 1;
+  }
 
   .product-styler__box-title {
     font-size: ${({ theme }) => theme.fontSize.lg};
@@ -24,19 +29,11 @@ export const ProductStyler = styled.div`
     z-index: 10;
   }
 
-  .product-styler__style-box__styles-container {
-    display: flex;
-    gap: 1rem;
-    margin: 10px 10px 10px 0;
-    position: relative;
-    z-index: 10;
-  }
-
   .product-styler__size-box__sizes-container {
-    margin-top: 5px;
+    margin-top: 0.5rem;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
     font-size: 1.4rem;
     text-transform: uppercase;
 
@@ -71,7 +68,7 @@ export const ProductStyler = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 
     p {
       cursor: pointer;
@@ -84,9 +81,25 @@ export const ProductStyler = styled.div`
 
   .fit-btn {
     ${buttonPrimary};
-    margin: 20px;
+    margin: 2rem 0;
     font-weight: 900;
+
+    ${media.desktopLarge`
+      padding: 1rem 4rem;
+    `}
   }
+
+  ${media.mobileLarge`
+    flex-direction: column;
+
+    .fit-and-questions__container {
+      align-items:flex-start; 
+    }
+
+    .fit-btn{
+      padding: 1rem 2rem;
+    }
+  `}
 `;
 
 export const ColorPicker = styled.span`
@@ -132,4 +145,21 @@ export const ColorPicker = styled.span`
       height: 3.9rem;
     }
   }
+
+  ${media.mobile`
+    width: 3rem;
+    height: 3rem;
+
+    &.active-color{
+      ::after{
+        width: 3.6rem;
+        height: 3.6rem;
+      }
+
+      ::before{
+        width: 3.4rem;
+        height: 3.4rem;
+      }
+    }
+  `}
 `;
