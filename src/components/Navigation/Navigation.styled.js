@@ -1,4 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { media } from "styles/helpers/media";
 
 export const Navigation = styled.nav`
   position: fixed;
@@ -6,17 +7,20 @@ export const Navigation = styled.nav`
   top: 0;
   width: 100%;
   height: ${({ theme }) => theme.app.nav_h};
-  overflow: hidden;
   display: flex;
   align-items: center;
   gap: 3rem;
   padding: 1rem 3rem;
   background-color: ${({ theme }) => theme.colors.bg};
   border-bottom: 2px solid ${({ theme }) => theme.colors.text};
-  transition: height 0.2s ease;
+  transition: height 0.2s linear;
+
+  .burger-btn {
+    font-size: 3rem;
+    display: none;
+  }
 
   .nav-actions {
-    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -25,18 +29,16 @@ export const Navigation = styled.nav`
   }
 
   .main-nav {
-    position: absolute;
     width: 100%;
     display: flex;
     align-items: flex-end;
     gap: 4rem;
-    transition: position 0.2s ease;
-
-    ${({ partialNav }) =>
-      partialNav
-        ? ""
-        : css`
-            bottom: 1rem;
-          `};
+    margin-top: auto;
   }
+
+  ${media.desktop`
+    .burger-btn{
+      display: block;
+    }
+  `}
 `;

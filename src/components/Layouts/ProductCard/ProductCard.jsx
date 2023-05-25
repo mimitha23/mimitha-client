@@ -7,7 +7,7 @@ import {
 
 export default function ProductCard({ cardType = "withActions" }) {
   return (
-    <Styled.ProductCard>
+    <Styled.ProductCard data-product-card>
       <figure className="product-fig">
         <Link to="/products/:productId">
           <img src="/assets/images/womans-dress-black.jpg" alt="" />

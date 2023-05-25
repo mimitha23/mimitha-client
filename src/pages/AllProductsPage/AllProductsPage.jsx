@@ -1,6 +1,6 @@
 import { useScrollToTop } from "hooks/domBase";
 
-import { Navigation } from "components";
+import { Navigation, Footer } from "components/index";
 import AllProducts from "components/AllProducts/AllProducts";
 
 function AllProductsPage() {
@@ -10,6 +10,7 @@ function AllProductsPage() {
     <>
       <Navigation />
       <AllProducts />
+      <Footer />
     </>
   );
 }

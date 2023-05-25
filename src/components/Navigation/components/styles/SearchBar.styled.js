@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "styles/helpers/media";
 
 export const SearchBar = styled.div`
   position: relative;
@@ -37,4 +38,8 @@ export const SearchBar = styled.div`
       text-align: center;
     }
   }
+
+  ${media.desktop`
+    margin-left:unset;
+  `}
 `;

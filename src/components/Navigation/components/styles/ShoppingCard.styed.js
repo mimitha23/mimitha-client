@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "styles/helpers/media";
 
 export const ShoppingCardContainer = styled.button`
   .cart-link {
@@ -40,4 +41,8 @@ export const ShoppingCardContainer = styled.button`
     grid-row: 2;
     font-weight: 600;
   }
+
+  ${media.desktop`
+    margin-left:auto;
+  `}
 `;

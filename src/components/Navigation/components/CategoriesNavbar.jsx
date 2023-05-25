@@ -4,7 +4,7 @@ import * as Styled from "./styles/CategoriesNavbar.styled";
 export default function CategoriesNavbar(props) {
   return (
     <Styled.CategoriesNavbar>
-      <ul className="categoriesNavbar--list">
+      <ul className="categories-nav__list">
         <li>
           <Link to={"/"}>მამაკაცი</Link>
         </li>

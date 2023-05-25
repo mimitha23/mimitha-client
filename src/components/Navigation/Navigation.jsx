@@ -7,6 +7,7 @@ import {
   SupportNavbar,
   Logo,
   ShoppingCard,
+  BurgerButton,
 } from "./components";
 
 export default function Navigation() {
@@ -17,10 +18,12 @@ export default function Navigation() {
       <Logo partialNav={partialNav} />
       <div className="nav-actions">
         <SupportNavbar partialNav={partialNav} />
+
         <div className="main-nav">
           <CategoriesNavbar />
           <SearchBar />
           <ShoppingCard />
+          <BurgerButton />
         </div>
       </div>
     </Styled.Navigation>

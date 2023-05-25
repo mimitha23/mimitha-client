@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "styles/helpers/media";
 
 export const LandingCTAPhoto = styled.div`
   margin-top: ${({ theme }) => theme.app.nav_h_full};
@@ -11,13 +12,17 @@ export const LandingCTAPhoto = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 
-  a {
+  .cta-link {
     background: ${({ theme }) => theme.colors.text};
     display: inline-block;
     width: 75rem;
     height: 7rem;
     padding: 1rem 0.8rem;
     border-radius: 1rem;
+    font-size: ${({ theme }) => theme.fontSize.xl};
+    color: ${({ theme }) => theme.colors.bg};
+    font-weight: 500;
+    letter-spacing: 2px;
   }
 
   .landingCTA {
@@ -31,11 +36,7 @@ export const LandingCTAPhoto = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.bg};
 
     span {
-      color: ${({ theme }) => theme.colors.bg};
-      font-size: ${({ theme }) => theme.fontSize.xl};
-      font-weight: 500;
       margin: 2.5px 0 2.5px 0;
-      letter-spacing: 2px;
 
       :nth-child(2) {
         font-size: ${({ theme }) => theme.fontSize.h3};
@@ -43,4 +44,25 @@ export const LandingCTAPhoto = styled.div`
       }
     }
   }
+
+  ${media.tablet`
+    height:55vw;
+
+    .cta-link{
+      width: 80%;
+    }
+  `}
+
+  ${media.mobile`
+    height:40vh;
+
+    .cta-link{
+      width:90%;
+      font-size: 1.8rem;
+
+      .landingCTA span:nth-child(2){
+        font-size:2.6rem;
+      }
+    }
+  `}
 `;
