@@ -1,10 +1,17 @@
+import { BiSearchAlt } from "react-icons/bi";
+
+import { BsFillHandbagFill } from "react-icons/bs";
+
+import { AiOutlineMinus, AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
+
 import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos,
   MdOutlineWbSunny,
+  MdOutlineFilterListOff,
+  MdOutlineFilterList,
 } from "react-icons/md";
-import { BsFillHandbagFill } from "react-icons/bs";
-import { BiSearchAlt } from "react-icons/bi";
+
 import {
   FaFacebook,
   FaInstagram,
@@ -13,36 +20,39 @@ import {
   FaMoon,
   FaShoppingCart,
 } from "react-icons/fa";
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
 
 const ArrowLeftIcon = MdOutlineArrowBackIosNew;
 const ArrowRightIcon = MdOutlineArrowForwardIos;
 const BagIcon = BsFillHandbagFill;
-const SearchIcon = BiSearchAlt;
-const FacebookIcon = FaFacebook;
-const InstagramIcon = FaInstagram;
+const CloseXIcon = AiOutlineClose;
 const DollarIcon = FaDollarSign;
 const EuroIcon = FaEuroSign;
+const FacebookIcon = FaFacebook;
+const FilterIcon = MdOutlineFilterList;
+const FilterOffIcon = MdOutlineFilterListOff;
+const InstagramIcon = FaInstagram;
+const MoonIcon = FaMoon;
 const MinusIcon = AiOutlineMinus;
 const PlusIcon = AiOutlinePlus;
+const SearchIcon = BiSearchAlt;
 const SunIcon = MdOutlineWbSunny;
-const MoonIcon = FaMoon;
 const ShoppingCartIcon = FaShoppingCart;
-const CloseXIcon = AiOutlineClose;
 
 export {
   ArrowLeftIcon,
   ArrowRightIcon,
   BagIcon,
-  SearchIcon,
-  FacebookIcon,
-  InstagramIcon,
+  CloseXIcon,
   DollarIcon,
   EuroIcon,
+  FacebookIcon,
+  FilterIcon,
+  FilterOffIcon,
+  InstagramIcon,
+  MoonIcon,
   MinusIcon,
   PlusIcon,
+  SearchIcon,
   SunIcon,
-  MoonIcon,
   ShoppingCartIcon,
-  CloseXIcon,
 };

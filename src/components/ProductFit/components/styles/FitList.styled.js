@@ -9,7 +9,6 @@ export const FitListContainer = styled.div`
   row-gap: 2.5rem;
 
   .fit-list__filter-box {
-    width: calc(100% - 4rem);
     ${animateMoveBottom({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};
@@ -53,6 +52,8 @@ export const FitListContainer = styled.div`
 
   ${media.mobileLarge`
    .fit-list__filter-box{
+      animation:none;
+      
       [data-filter-container] {
         grid-template: repeat(3, max-content) / repeat(2, 1fr);
       }

@@ -5,19 +5,18 @@ export const AllProductsContainer = styled.div`
   padding-top: ${({ theme }) => theme.app.nav_h_full};
 
   .wrapper-container {
-    padding-top: 0;
+    padding: 0;
   }
 
   .filter-box__wrapper {
     position: sticky;
     top: ${({ theme }) => theme.app.nav_h};
-    padding: 4rem 0 2rem;
+    padding: 3rem;
     width: 100%;
     background: ${({ theme }) => theme.colors.bg};
   }
 
   .filter-box {
-    width: calc(100% - 4rem);
     background: ${({ theme }) => theme.colors.bg};
     ${animateMoveRight({
       duration: ({ theme }) => theme.app.section_animation_duration,
@@ -37,7 +36,8 @@ export const AllProductsContainer = styled.div`
   }
 
   .products-list {
-    margin-top: 3rem;
+    margin-top: 1rem;
+    padding: 0 3rem 3rem;
     display: grid;
     gap: 6rem 4rem;
     grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
@@ -51,5 +51,11 @@ export const AllProductsContainer = styled.div`
       .products-list{
         grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
       }
+  `}
+
+  ${media.mobileLarge`
+    .filter-box{
+      animation:none;
+    }
   `}
 `;

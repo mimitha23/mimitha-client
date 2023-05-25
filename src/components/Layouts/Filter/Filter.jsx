@@ -1,3 +1,4 @@
+import { useState } from "react";
 // import { useSelector } from "react-redux";
 
 import { useFilter } from "hooks/layoutBase";
@@ -5,53 +6,65 @@ import { useFilter } from "hooks/layoutBase";
 import { filter } from "lib";
 
 import Dropdown from "./Dropdown";
+import FilterToggle from "./FilterToggle";
 import * as Styled from "./Filter.styled";
 
 function Filter() {
   const { activeFilterDropdown, activateFilter } = useFilter();
   // const { productType, season, style, texture } = useSelector(selectFilters);
 
+  const [openFilter, setOpenFilter] = useState(false);
+
   return (
-    <Styled.FilterContainer data-filter-container>
-      <Dropdown
-        dropdownType="SORT"
-        activateFilter={activateFilter}
-        isActive={activeFilterDropdown === "SORT"}
-        caption="დალაგება"
-        data={filter.sort}
-      />
+    <Styled.FilterContainer>
+      <FilterToggle openFilter={openFilter} setOpenFilter={setOpenFilter} />
 
-      <Dropdown
-        dropdownType="PRODUCT_TYPE"
-        activateFilter={activateFilter}
-        isActive={activeFilterDropdown === "PRODUCT_TYPE"}
-        caption="პროდუქტის ტიპი"
-        data={filter.productType}
-      />
+      <div
+        className={`filter-dropdowns__wrapper ${
+          openFilter ? "visible" : "hidden"
+        }`}
+        data-filter-container
+      >
+        <Dropdown
+          dropdownType="SORT"
+          activateFilter={activateFilter}
+          isActive={activeFilterDropdown === "SORT"}
+          caption="დალაგება"
+          data={filter.sort}
+        />
 
-      <Dropdown
-        dropdownType="SEASON"
-        activateFilter={activateFilter}
-        isActive={activeFilterDropdown === "SEASON"}
-        caption="სეზონი"
-        data={filter.season}
-      />
+        <Dropdown
+          dropdownType="PRODUCT_TYPE"
+          activateFilter={activateFilter}
+          isActive={activeFilterDropdown === "PRODUCT_TYPE"}
+          caption="პროდუქტის ტიპი"
+          data={filter.productType}
+        />
 
-      <Dropdown
-        dropdownType="TEXTURE"
-        activateFilter={activateFilter}
-        isActive={activeFilterDropdown === "TEXTURE"}
-        caption="მასალა"
-        data={filter.texture}
-      />
+        <Dropdown
+          dropdownType="SEASON"
+          activateFilter={activateFilter}
+          isActive={activeFilterDropdown === "SEASON"}
+          caption="სეზონი"
+          data={filter.season}
+        />
 
-      <Dropdown
-        dropdownType="STYLE"
-        activateFilter={activateFilter}
-        isActive={activeFilterDropdown === "STYLE"}
-        caption="სტილი"
-        data={filter.style}
-      />
+        <Dropdown
+          dropdownType="TEXTURE"
+          activateFilter={activateFilter}
+          isActive={activeFilterDropdown === "TEXTURE"}
+          caption="მასალა"
+          data={filter.texture}
+        />
+
+        <Dropdown
+          dropdownType="STYLE"
+          activateFilter={activateFilter}
+          isActive={activeFilterDropdown === "STYLE"}
+          caption="სტილი"
+          data={filter.style}
+        />
+      </div>
     </Styled.FilterContainer>
   );
 }

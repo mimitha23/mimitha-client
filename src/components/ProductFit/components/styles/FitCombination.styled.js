@@ -89,7 +89,6 @@ export const FitCombinationContainer = styled.div`
     })};
 
     .fit-view__action-btn {
-      font-weight: 600;
       ${buttonPrimary};
       display: flex;
       align-items: center;
@@ -116,6 +115,10 @@ export const FitCombinationContainer = styled.div`
 
   ${media.mobileLarge`
     min-width:100%;
+
+    .fit-view__actions-box .fit-view__action-btn{
+      padding: 1.5rem 3rem;
+    }  
   `}
 
   ${media.mobile`

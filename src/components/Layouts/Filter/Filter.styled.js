@@ -1,12 +1,72 @@
 import styled from "styled-components";
-import { dropdownRectingle, animateMoveBottom } from "styles/helpers";
+import {
+  dropdownRectingle,
+  animateMoveBottom,
+  media,
+  buttonPrimary,
+} from "styles/helpers";
 
 export const FilterContainer = styled.div`
-  display: flex;
-  align-items: center;
-  column-gap: 6rem;
-  row-gap: 2rem;
-  flex-wrap: wrap;
+  width: 100%;
+
+  .filter-dropdowns__wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 6rem;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+    width: calc(100% - 4rem);
+  }
+
+  .filter__expand-box {
+    display: none;
+    font-size: ${({ theme }) => theme.fontSize.lg};
+
+    .toggle-filter__btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      text-transform: capitalize;
+      transition: all 0.2s ease;
+
+      span:last-child {
+        line-height: 1;
+        font-size: 2.5rem;
+
+        svg {
+          transform: translateY(0.25rem);
+        }
+      }
+
+      &.hide-btn {
+        text-decoration: underline;
+      }
+
+      &.show-btn {
+        ${buttonPrimary};
+      }
+    }
+  }
+
+  ${media.mobileLarge`
+    .filter__expand-box{
+      display:flex;
+    }
+
+    .filter-dropdowns__wrapper.hidden{
+      display: none;
+    }
+
+    .filter-dropdowns__wrapper.visible{
+      display:flex;
+    }
+
+    &:has(.filter-dropdowns__wrapper.visible) > .filter__expand-box{
+      padding-bottom:2rem;
+    }
+  `}
 `;
 
 export const DropdownContainer = styled.div`
@@ -22,7 +82,7 @@ export const DropdownContainer = styled.div`
     ${dropdownRectingle({
       buttonWidth: "22rem",
       buttonBorderWidth: "1px",
-      rectingleHeight: "3rem",
+      rectingleHeight: "3.6rem",
       rectingleBorderWidth: "1px",
     })}
   }
