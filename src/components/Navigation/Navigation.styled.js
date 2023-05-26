@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "styles/helpers/media";
 
 export const Navigation = styled.nav`
   position: fixed;
@@ -36,9 +35,14 @@ export const Navigation = styled.nav`
     margin-top: auto;
   }
 
-  ${media.desktop`
-    .burger-btn{
-      display: block;
+  @media (${({ theme }) => theme.media.desktop}) {
+    .burger-btn {
+      display: flex;
     }
-  `}
+  }
+
+  @media (${({ theme }) => theme.media.tablet_sm}) {
+    padding: 1rem;
+    gap: 2rem;
+  }
 `;

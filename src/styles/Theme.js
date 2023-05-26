@@ -21,8 +21,12 @@ const BaseTheme = {
     xxl: "2.2rem",
     h3: "3rem",
   },
-  breakPoints: {
+  media: {
+    desktop_lg: "max-width:105em",
     desktop: "max-width:80em",
+    tablet: "max-width:60em",
+    tablet_sm: "max-width:42.5em",
+    mobile: "max-width:30em",
   },
   shadow: {
     bottom_right_md_dark: "3px 3px 9px 0px rgba(0, 0, 0, 0.75)",

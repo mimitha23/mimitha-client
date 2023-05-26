@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { buttonPrimary, media } from "styles/helpers";
+import { buttonPrimary } from "styles/helpers";
 
 export const ProductStyler = styled.div`
   padding: 10px;
@@ -83,23 +83,25 @@ export const ProductStyler = styled.div`
     ${buttonPrimary};
     margin: 2rem 0;
     font-weight: 900;
-
-    ${media.desktopLarge`
-      padding: 1rem 4rem;
-    `}
   }
 
-  ${media.mobileLarge`
+  @media (${({ theme }) => theme.media.desktop_lg}) {
+    .fit-btn {
+      padding: 1rem 4rem;
+    }
+  }
+
+  @media (${({ theme }) => theme.media.tablet_sm}) {
     flex-direction: column;
 
     .fit-and-questions__container {
-      align-items:flex-start; 
+      align-items: flex-start;
     }
 
-    .fit-btn{
+    .fit-btn {
       padding: 1rem 2rem;
     }
-  `}
+  }
 `;
 
 export const ColorPicker = styled.span`
@@ -146,20 +148,20 @@ export const ColorPicker = styled.span`
     }
   }
 
-  ${media.mobile`
+  @media (${({ theme }) => theme.media.mobile}) {
     width: 3rem;
     height: 3rem;
 
-    &.active-color{
-      ::after{
+    &.active-color {
+      ::after {
         width: 3.6rem;
         height: 3.6rem;
       }
 
-      ::before{
+      ::before {
         width: 3.4rem;
         height: 3.4rem;
       }
     }
-  `}
+  }
 `;

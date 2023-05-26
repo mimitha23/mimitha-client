@@ -1,7 +1,7 @@
-export default function Price(props) {
+export default function Price() {
   return (
     <p className="product-price">
-      ფასი: <span>100</span> ლარი
+      ფასი:&nbsp;<span>100</span>&nbsp;₾
     </p>
   );
 }

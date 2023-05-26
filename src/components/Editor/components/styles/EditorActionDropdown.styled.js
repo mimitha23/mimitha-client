@@ -39,7 +39,7 @@ export const EditorActionDropdownContainer = styled.div`
     ${animateMoveBottom};
   }
 
-  @media (max-width: 105em) {
+  @media (${({ theme }) => theme.media.desktop_lg}) {
     .dropdown-trigger__btn {
       ${dropdownRectingle({
         buttonWidth: "98%",
@@ -50,7 +50,7 @@ export const EditorActionDropdownContainer = styled.div`
     }
   }
 
-  @media (max-width: 30em) {
+  @media (${({ theme }) => theme.media.mobile}) {
     .dropdown-trigger__btn {
       ${dropdownRectingle({
         buttonWidth: "95%",

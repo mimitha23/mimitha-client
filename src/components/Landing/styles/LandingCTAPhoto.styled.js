@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "styles/helpers/media";
 
 export const LandingCTAPhoto = styled.div`
   margin-top: ${({ theme }) => theme.app.nav_h_full};
@@ -45,24 +44,24 @@ export const LandingCTAPhoto = styled.div`
     }
   }
 
-  ${media.tablet`
-    height:55vw;
+  @media (${({ theme }) => theme.media.tablet}) {
+    height: 55vw;
 
-    .cta-link{
+    .cta-link {
       width: 80%;
     }
-  `}
+  }
 
-  ${media.mobile`
-    height:40vh;
+  @media (${({ theme }) => theme.media.mobile}) {
+    height: 40vh;
 
-    .cta-link{
-      width:90%;
+    .cta-link {
+      width: 90%;
       font-size: 1.8rem;
 
-      .landingCTA span:nth-child(2){
-        font-size:2.6rem;
+      .landingCTA span:nth-child(2) {
+        font-size: 2.6rem;
       }
     }
-  `}
+  }
 `;

@@ -1,5 +1,4 @@
 import { css } from "styled-components";
-import { media } from "./media";
 
 export const buttonPrimary = () => css`
   padding: 1rem 7rem;
@@ -19,10 +18,10 @@ export const buttonPrimary = () => css`
     background-color: ${({ theme }) => theme.colors.bg};
   }
 
-  ${media.mobileLarge`
+  @media (${({ theme }) => theme.media.tablet_sm}) {
     padding: 1rem 2rem;
     font-size: ${({ theme }) => theme.fontSize.base};
-  `}
+  }
 `;
 
 export const dropdownRectingle = ({

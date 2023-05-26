@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "styles/helpers/media";
 
 export const Footer = styled.footer`
   width: 100%;
@@ -76,6 +75,7 @@ export const Footer = styled.footer`
     border-top: 2px solid ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.text};
     color: ${({ theme }) => theme.colors.bg};
+    font-size: ${({ theme }) => theme.fontSize.sm};
 
     p {
       padding-left: 2rem;
@@ -83,37 +83,33 @@ export const Footer = styled.footer`
     }
   }
 
-  ${media.desktop`
-    .footer__content-wrapper{
-      column-gap:6rem;
+  @media (${({ theme }) => theme.media.desktop}) {
+    .footer__content-wrapper {
+      column-gap: 6rem;
     }
-  `}
+  }
 
-  ${media.tablet`
-    .footer__content-wrapper{
-      grid-template-columns:repeat(1,1fr);
-      column-gap:5rem;
-      row-gap:5rem;
+  @media (${({ theme }) => theme.media.tablet}) {
+    .footer__content-wrapper {
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: 5rem;
+      row-gap: 5rem;
     }
 
-    .footer__social-networks{
-      justify-self:start;
+    .footer__social-networks {
+      justify-self: start;
 
-      p{
-        text-align:start;
+      p {
+        text-align: start;
       }
     }
-  `}
+  }
 
-  ${media.mobile`
-    .copyright{
-      font-size:1.2rem;
-      
-      p{
-        width:100%;
-        padding:0;
-        text-align:center;
-      }
+  @media (${({ theme }) => theme.media.mobile}) {
+    .copyrightp {
+      width: 100%;
+      padding: 0;
+      text-align: center;
     }
-  `}
+  }
 `;

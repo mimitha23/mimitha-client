@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { buttonPrimary, media } from "styles/helpers";
+import { buttonPrimary } from "styles/helpers";
 
 export const CartFooterContainer = styled.footer`
   margin-top: auto;
@@ -29,10 +29,10 @@ export const CartFooterContainer = styled.footer`
     ${buttonPrimary};
   }
 
-  ${media.tablet`
-    .footer__summary-box{
-      flex-direction:column;
-      padding:0;
+  @media (${({ theme }) => theme.media.tablet}) {
+    .footer__summary-box {
+      flex-direction: column;
+      padding: 0;
     }
-  `}
+  }
 `;

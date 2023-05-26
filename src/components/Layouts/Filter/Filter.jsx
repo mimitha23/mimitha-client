@@ -16,15 +16,12 @@ function Filter() {
   const [openFilter, setOpenFilter] = useState(false);
 
   return (
-    <Styled.FilterContainer>
+    <Styled.FilterContainer
+      className={openFilter ? "visible_filter" : "hidden_filter"}
+    >
       <FilterToggle openFilter={openFilter} setOpenFilter={setOpenFilter} />
 
-      <div
-        className={`filter-dropdowns__wrapper ${
-          openFilter ? "visible" : "hidden"
-        }`}
-        data-filter-container
-      >
+      <div className="filter-dropdowns__wrapper" data-filter-container>
         <Dropdown
           dropdownType="SORT"
           activateFilter={activateFilter}

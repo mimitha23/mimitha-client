@@ -10,7 +10,7 @@ export default function PopularProducts() {
       </div>
       <div className="popular-products__container">
         {popularProductsData.map((el) => (
-          <ProductCard key={`${el}`} />
+          <ProductCard key={`${el}`} cardType="descriptive" />
         ))}
       </div>
     </Styled.PopularProducts>

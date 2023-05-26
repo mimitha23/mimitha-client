@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { buttonPrimary, media } from "styles/helpers";
+import { buttonPrimary } from "styles/helpers";
 
 export const EditorFitButtonsContainer = styled.div`
   margin-bottom: 4rem;
@@ -35,18 +35,18 @@ export const EditorFitButtonsContainer = styled.div`
     }
   }
 
-  ${media.mobileLarge`
+  @media (${({ theme }) => theme.media.tablet_sm}) {
     .fit-product__modal-box {
-      max-width:48rem;
+      max-width: 48rem;
     }
-  `}
+  }
 
-  ${media.mobileLarge`
-    justify-content:space-between;
-    gap:1rem;   
+  @media (${({ theme }) => theme.media.mobile}) {
+    justify-content: space-between;
+    gap: 1rem;
 
     .fit-product__modal-box {
-      max-width:calc(100vw - 2rem);
+      max-width: calc(100vw - 2rem);
     }
-  `}
+  }
 `;

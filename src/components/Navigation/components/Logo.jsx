@@ -3,6 +3,8 @@ import styled, { css } from "styled-components";
 
 const LogoContainer = styled.figure`
   height: 100%;
+  display: flex;
+  align-items: center;
   transition: all 0.2s linear;
 
   ${({ partialNav }) =>
@@ -12,6 +14,10 @@ const LogoContainer = styled.figure`
         `
       : css`
           width: 10rem;
+
+          @media (${({ theme }) => theme.media.tablet_sm}) ) {
+            width: 8rem;
+          }
         `};
 
   a {

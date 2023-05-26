@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ProductCard = styled.div`
   height: 100%;
@@ -36,7 +36,7 @@ export const ProductCard = styled.div`
 
   .product-content {
     width: 100%;
-    height: 18rem;
+    max-height: 18rem;
     display: grid;
     grid-template: repeat(4, max-contnet) / repeat(2, 1fr);
     align-items: center;
@@ -60,7 +60,7 @@ export const ProductCard = styled.div`
 
     span {
       font-weight: 700;
-      font-size: 2rem;
+      font-size: ${({ theme }) => theme.fontSize.base};
     }
   }
 
@@ -94,11 +94,20 @@ export const ProductCard = styled.div`
 
   .valute-switch__box {
     align-self: self-end;
-    grid-row: 4;
-    grid-column: 1;
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    ${({ cardType }) =>
+      cardType === "withActions"
+        ? css`
+            grid-row: 4;
+            grid-column: 1;
+          `
+        : css`
+            grid-row: 2;
+            grid-column: 2;
+          `}
 
     svg {
       width: 2.5rem;
@@ -117,6 +126,7 @@ export const ProductCard = styled.div`
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    padding-top: 0.5rem;
   }
 
   .edit-btn {

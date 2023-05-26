@@ -2,7 +2,6 @@ import styled from "styled-components";
 import {
   dropdownRectingle,
   animateMoveBottom,
-  media,
   buttonPrimary,
 } from "styles/helpers";
 
@@ -50,23 +49,23 @@ export const FilterContainer = styled.div`
     }
   }
 
-  ${media.mobileLarge`
-    .filter__expand-box{
-      display:flex;
+  @media (${({ theme }) => theme.media.tablet_sm}) {
+    .filter__expand-box {
+      display: flex;
     }
 
-    .filter-dropdowns__wrapper.hidden{
-      display: none;
+    .filter-dropdowns__wrapper {
+      display: none !important;
     }
 
-    .filter-dropdowns__wrapper.visible{
-      display:flex;
+    &.visible_filter .filter-dropdowns__wrapper {
+      display: flex !important;
     }
 
-    &:has(.filter-dropdowns__wrapper.visible) > .filter__expand-box{
-      padding-bottom:2rem;
+    &.visible_filter .filter__expand-box {
+      padding-bottom: 2rem;
     }
-  `}
+  }
 `;
 
 export const DropdownContainer = styled.div`

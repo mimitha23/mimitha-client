@@ -1,8 +1,11 @@
 import { BurgerIcon } from "components/Layouts/Icons/index";
 
-function BurgerButton(props) {
+function BurgerButton({ setActiveBurgerNav }) {
   return (
-    <button className="burger-btn">
+    <button
+      className="burger-btn"
+      onClick={() => setActiveBurgerNav((prev) => !prev)}
+    >
       <BurgerIcon />
     </button>
   );

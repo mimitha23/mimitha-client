@@ -3,7 +3,6 @@ import {
   buttonPrimary,
   animateMoveRight,
   animatePopUpAndScale,
-  media,
 } from "styles/helpers";
 
 export const FitCombinationContainer = styled.div`
@@ -107,27 +106,27 @@ export const FitCombinationContainer = styled.div`
     }
   }
 
-  ${media.desktop`
-    .fit-view__figs-box{
+  @media (${({ theme }) => theme.media.desktop}) {
+    .fit-view__figs-box {
       height: 40vh;
     }
-  `}
+  }
 
-  ${media.mobileLarge`
-    min-width:100%;
+  @media (${({ theme }) => theme.media.tablet_sm}) {
+    min-width: 100%;
 
-    .fit-view__actions-box .fit-view__action-btn{
+    .fit-view__actions-box .fit-view__action-btn {
       padding: 1.5rem 3rem;
-    }  
-  `}
+    }
+  }
 
-  ${media.mobile`
-    .fit-view__actions-box{
-      flex-direction:column;
+  @media (${({ theme }) => theme.media.mobile}) {
+    .fit-view__actions-box {
+      flex-direction: column;
 
-      .fit-view__action-btn{
-        justify-content:center;
+      .fit-view__action-btn {
+        justify-content: center;
       }
     }
-  `}
+  }
 `;

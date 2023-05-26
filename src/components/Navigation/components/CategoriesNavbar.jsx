@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import * as Styled from "./styles/CategoriesNavbar.styled";
 
-export default function CategoriesNavbar(props) {
+export default function CategoriesNavbar({ activeBurgerNav }) {
   return (
-    <Styled.CategoriesNavbar>
+    <Styled.CategoriesNavbar
+      className={activeBurgerNav ? "active-burger--nav active-modal" : ""}
+    >
       <ul className="categories-nav__list">
         <li>
           <Link to={"/"}>მამაკაცი</Link>

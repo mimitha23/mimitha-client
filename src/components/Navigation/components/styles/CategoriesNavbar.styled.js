@@ -45,18 +45,30 @@ export const CategoriesNavbar = styled.nav`
     }
   }
 
-  @media (${({ theme }) => theme.breakPoints.desktop}) {
-    /* display:none; */
+  @media (${({ theme }) => theme.media.desktop}) {
     position: absolute;
     top: calc(100% + 2px);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    left: -6rem;
+    width: 5rem;
+    height: 5rem;
+    border-bottom-right-radius: 100%;
     background: rgba(0, 0, 0, 0.5);
-    height: calc(100vh - ${({ theme }) => theme.app.nav_h});
     font-size: 1.6rem;
-    backdrop-filter: blur(5px);
+    overflow: hidden;
+    transition: all 0.3s linear;
+    transition-delay: 0.1s;
+
+    &.active-burger--nav {
+      display: block;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+      width: 100%;
+      height: calc(100vh - ${({ theme }) => theme.app.nav_h});
+      backdrop-filter: blur(5px);
+      transition: all 0.3s linear;
+    }
 
     .categories-nav__list {
       flex-direction: column;
@@ -64,6 +76,9 @@ export const CategoriesNavbar = styled.nav`
       gap: 0.5rem;
       width: 30rem;
       box-shadow: 10px 0 5px rgba(0, 0, 0, 0.4);
+      height: 0;
+      overflow: hidden;
+      transition: all 0.3s linear;
 
       li,
       li:first-child,
@@ -79,6 +94,17 @@ export const CategoriesNavbar = styled.nav`
           padding: 2rem;
           justify-content: flex-start;
         }
+      }
+    }
+
+    &.active-burger--nav .categories-nav__list {
+      height: 100%;
+      overflow: auto;
+      transition: all 0.3s linear;
+      transition-delay: 0.1s;
+
+      ::-webkit-scrollbar {
+        display: none;
       }
     }
   }

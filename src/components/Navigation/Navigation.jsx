@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useHideNavOnScroll } from "hooks/domBase";
 
 import * as Styled from "./Navigation.styled";
@@ -12,6 +13,7 @@ import {
 
 export default function Navigation() {
   const { partialNav } = useHideNavOnScroll();
+  const [activeBurgerNav, setActiveBurgerNav] = useState(false);
 
   return (
     <Styled.Navigation partialNav={partialNav}>
@@ -20,10 +22,10 @@ export default function Navigation() {
         <SupportNavbar partialNav={partialNav} />
 
         <div className="main-nav">
-          <CategoriesNavbar />
+          <CategoriesNavbar activeBurgerNav={activeBurgerNav} />
           <SearchBar />
           <ShoppingCard />
-          <BurgerButton />
+          <BurgerButton setActiveBurgerNav={setActiveBurgerNav} />
         </div>
       </div>
     </Styled.Navigation>

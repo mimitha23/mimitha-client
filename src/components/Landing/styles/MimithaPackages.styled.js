@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { media } from "styles/helpers/media";
 
 export const MimithaPackagesContainer = styled.div`
   padding: 8rem 0 4rem;
@@ -34,19 +33,19 @@ export const MimithaPackagesContainer = styled.div`
     }
   }
 
-  ${media.tablet`
-    .packages-wrapper{
-      grid-template-rows:4;
-      grid-auto-rows:30rem;
-      grid-template-columns:repeat(1,1fr);
-      column-gap:0;
-      row-gap:8rem;
+  @media (${({ theme }) => theme.media.tablet}) {
+    .packages-wrapper {
+      grid-template-rows: 4;
+      grid-auto-rows: 30rem;
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: 0;
+      row-gap: 8rem;
     }
 
-    .packages-logo{
-      display:none;
+    .packages-logo {
+      display: none;
     }
-  `}
+  }
 `;
 
 export const PackageBox = styled.div`
