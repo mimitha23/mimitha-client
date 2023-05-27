@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useHideNavOnScroll } from "hooks/domBase";
+import { useState, useEffect } from "react";
+import { useHideNavOnScroll, useWindowDimention } from "hooks/domBase/index";
 
 import * as Styled from "./Navigation.styled";
 import {
@@ -13,7 +13,14 @@ import {
 
 export default function Navigation() {
   const { partialNav } = useHideNavOnScroll();
-  const [activeBurgerNav, setActiveBurgerNav] = useState(false);
+
+  const { width } = useWindowDimention();
+  const [activeBurgerNav, setActiveBurgerNav] = useState(null);
+
+  useEffect(() => {
+    if (width > 1280 && typeof activeBurgerNav === "boolean")
+      setActiveBurgerNav(null);
+  }, [width, activeBurgerNav]);
 
   return (
     <Styled.Navigation partialNav={partialNav}>
@@ -22,7 +29,10 @@ export default function Navigation() {
         <SupportNavbar partialNav={partialNav} />
 
         <div className="main-nav">
-          <CategoriesNavbar activeBurgerNav={activeBurgerNav} />
+          <CategoriesNavbar
+            activeBurgerNav={activeBurgerNav}
+            onBurgerClose={() => setActiveBurgerNav(false)}
+          />
           <SearchBar />
           <ShoppingCard />
           <BurgerButton setActiveBurgerNav={setActiveBurgerNav} />

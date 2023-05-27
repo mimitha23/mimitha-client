@@ -22,7 +22,7 @@ export default function SearchBar() {
         onSearchClose={onSearchClose}
       />
 
-      {activeResults && <SearchBarResults />}
+      {activeResults && <SearchBarResults onSearchClose={onSearchClose} />}
     </Styled.SearchBar>
   );
 }

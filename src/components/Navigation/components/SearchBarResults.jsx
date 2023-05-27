@@ -1,20 +1,21 @@
 import * as Styled from "./styles/SearchBar.styled";
 import { ProductCard } from "components/Layouts/index";
 
-function SearchBarResults() {
+function SearchBarResults({ onSearchClose }) {
   return (
     <Styled.SearchBarResults className="search-bar__result-box active-modal">
-      <div className="search-bar__result-box__content">
-        <div className="search-bar__result-box__content-head">
-          <span>6 search results</span>
+      <div className="search-bar__result-box__content" onClick={onSearchClose}>
+        <div
+          className="search-bar__result-box__content-head"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <span>2 search results</span>
         </div>
 
-        <div className="search-bar__result-box__content-list">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+        <div
+          className="search-bar__result-box__content-list"
+          onClick={(e) => e.stopPropagation()}
+        >
           <ProductCard />
           <ProductCard />
         </div>

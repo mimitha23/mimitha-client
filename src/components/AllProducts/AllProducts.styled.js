@@ -11,6 +11,7 @@ export const AllProductsContainer = styled.div`
   .filter-box__wrapper {
     position: sticky;
     top: ${({ theme }) => theme.app.nav_h};
+    transition: all 0.2s linear;
     padding: 3rem;
     width: 100%;
     background: ${({ theme }) => theme.colors.bg};

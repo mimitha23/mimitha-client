@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { animateMoveTop, animateMoveBottom } from "styles/helpers/animations";
 
 export const SearchBar = styled.div`
   width: 25rem;
@@ -110,14 +111,13 @@ export const SearchBarResults = styled.div`
   bottom: 0;
   width: 100%;
   height: calc(100vh - ${({ theme }) => theme.app.nav_h});
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
 
   .search-bar__result-box__content {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background: ${({ theme }) => theme.colors.bg};
+    background: ${({ theme }) => theme.colors.black_tr_05};
+    backdrop-filter: blur(5px);
   }
 
   .search-bar__result-box__content-head {
@@ -127,21 +127,26 @@ export const SearchBarResults = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    box-shadow: 0 0.8rem 0.5rem rgba(0, 0, 0, 0.2);
+    background: ${({ theme }) => theme.colors.bg};
+    box-shadow: 0 0.8rem 0.5rem ${({ theme }) => theme.colors.black_tr_02};
+    ${animateMoveBottom};
   }
 
   .search-bar__result-box__content-list {
     width: 100%;
-    margin-top: 5rem;
+    margin-top: 4rem;
     max-height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(35rem, max-content));
     grid-auto-rows: 45rem;
     gap: 4rem;
-    padding: 2rem 1rem;
+    justify-content: center;
+    padding: 3rem 1rem;
     overflow: auto;
-    box-shadow: 0 1rem 0.5rem rgba(0, 0, 0, 0.5);
+    background: ${({ theme }) => theme.colors.bg};
+    box-shadow: 0 1rem 0.5rem ${({ theme }) => theme.colors.black_tr_05};
     transition: height 0.3s ease;
+    /* ${animateMoveTop}; */
 
     ::-webkit-scrollbar {
       display: none;
