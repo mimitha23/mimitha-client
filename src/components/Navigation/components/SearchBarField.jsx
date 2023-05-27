@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import * as Styled from "./styles/SearchBar.styled";
 import { SearchIcon, CloseXIcon } from "components/Layouts/Icons";
 
@@ -7,6 +8,8 @@ function SearchBarField({
   setActiveResults,
   onSearchClose,
 }) {
+  const { t } = useTranslation();
+
   return (
     <Styled.SearchBarField className="search-bar__inp-field">
       <label
@@ -17,7 +20,7 @@ function SearchBarField({
       </label>
       <input
         type="text"
-        placeholder="თუ ეძებ, იპოვი..."
+        placeholder={t("navigation.searchbar.placeholder")}
         className="search--input"
         name="search"
         value={search}

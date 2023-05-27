@@ -1,16 +1,17 @@
-import { useContext } from "react";
-import { ThemeContext } from "Theme";
+import { useThemeContext } from "Theme";
+import { useTranslationContext } from "I18nextProvider";
 
-import * as Styled from "./styles/SupportNavbar.styled";
 import {
   FacebookIcon,
   InstagramIcon,
   SunIcon,
   MoonIcon,
 } from "components/Layouts/Icons";
+import * as Styled from "./styles/SupportNavbar.styled";
 
 export default function SupportNavbar({ partialNav }) {
-  const { setTheme, mode } = useContext(ThemeContext);
+  const { setTheme, mode } = useThemeContext();
+  const { changeLocale } = useTranslationContext();
 
   return (
     <Styled.SupportNavbarContainer partialNav={partialNav}>
@@ -21,8 +22,18 @@ export default function SupportNavbar({ partialNav }) {
       </div>
 
       <div className="language-switch">
-        <button className="language-switch__btn">GE</button>
-        <button className="language-switch__btn">EN</button>
+        <button
+          className="language-switch__btn"
+          onClick={() => changeLocale("ka")}
+        >
+          GE
+        </button>
+        <button
+          className="language-switch__btn"
+          onClick={() => changeLocale("en")}
+        >
+          EN
+        </button>
       </div>
 
       <div className="support-nav__social-networks">

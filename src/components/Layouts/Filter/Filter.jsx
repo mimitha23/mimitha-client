@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 // import { useSelector } from "react-redux";
 
 import { useFilter } from "hooks/layoutBase";
@@ -10,6 +11,8 @@ import FilterToggle from "./FilterToggle";
 import * as Styled from "./Filter.styled";
 
 function Filter() {
+  const { t } = useTranslation();
+
   const { activeFilterDropdown, activateFilter } = useFilter();
   // const { productType, season, style, texture } = useSelector(selectFilters);
 
@@ -26,7 +29,7 @@ function Filter() {
           dropdownType="SORT"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "SORT"}
-          caption="დალაგება"
+          caption={t("crossover.sort")}
           data={filter.sort}
         />
 
@@ -34,7 +37,7 @@ function Filter() {
           dropdownType="PRODUCT_TYPE"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "PRODUCT_TYPE"}
-          caption="პროდუქტის ტიპი"
+          caption={t("crossover.product_type")}
           data={filter.productType}
         />
 
@@ -42,7 +45,7 @@ function Filter() {
           dropdownType="SEASON"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "SEASON"}
-          caption="სეზონი"
+          caption={t("crossover.season")}
           data={filter.season}
         />
 
@@ -50,7 +53,7 @@ function Filter() {
           dropdownType="TEXTURE"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "TEXTURE"}
-          caption="მასალა"
+          caption={t("crossover.texture")}
           data={filter.texture}
         />
 
@@ -58,7 +61,7 @@ function Filter() {
           dropdownType="STYLE"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "STYLE"}
-          caption="სტილი"
+          caption={t("crossover.style")}
           data={filter.style}
         />
       </div>

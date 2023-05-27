@@ -13,6 +13,7 @@ export const CategoriesNavbar = styled.nav`
     align-items: center;
     font-weight: 500;
     background: ${({ theme }) => theme.colors.bg};
+    text-transform: uppercase;
 
     li {
       height: 100%;

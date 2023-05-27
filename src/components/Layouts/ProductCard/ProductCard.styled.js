@@ -57,6 +57,7 @@ export const ProductCard = styled.div`
     align-self: self-end;
     padding-bottom: 0.5rem;
     font-size: 1.75rem;
+    text-transform: capitalize;
 
     span {
       font-weight: 700;
@@ -75,6 +76,7 @@ export const ProductCard = styled.div`
     gap: 0.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors.text};
+    text-transform: capitalize;
 
     svg {
       width: 30px;
@@ -133,6 +135,7 @@ export const ProductCard = styled.div`
     width: max-content;
     border: 2px solid ${({ theme }) => theme.colors.text};
     border-radius: 0.25rem;
+    text-transform: uppercase;
 
     a {
       display: inline-block;

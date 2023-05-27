@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "styles/GlobalStyles";
 import { DarkTheme, LightTheme } from "styles/Theme";
 
-export const ThemeContext = createContext({
+const ThemeContext = createContext({
   mode: true,
   setTheme: (mode) => {},
   changeNavHeight: (partial) => {},
@@ -79,3 +79,5 @@ export default function AppThemeProvider({ children }) {
     </ThemeContext.Provider>
   );
 }
+
+export const useThemeContext = () => useContext(ThemeContext);

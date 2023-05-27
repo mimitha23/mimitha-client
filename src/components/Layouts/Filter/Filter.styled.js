@@ -77,6 +77,7 @@ export const DropdownContainer = styled.div`
     background: ${({ theme }) => theme.colors.bg};
     border: 1px solid ${({ theme }) => theme.colors.gray_shade};
     border-radius: 0.5rem;
+    text-transform: uppercase;
 
     ${dropdownRectingle({
       buttonWidth: "22rem",

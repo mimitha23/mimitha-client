@@ -81,7 +81,20 @@
       "query": "atlas"
     }
   ],
-  "style": [],
+  "style": [
+    {
+      "label": "ყოველდღიური",
+      "query": "everyday"
+    },
+    {
+      "label": "სპორტული",
+      "query": "sports"
+    },
+    {
+      "label": "მსუბუქი",
+      "query": "air"
+    }
+  ],
   "sort": [
     {
       "label": "უახლესი",
