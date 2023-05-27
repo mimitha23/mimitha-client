@@ -1,0 +1,20 @@
+{
+  "create_your_style": {
+    "create": "შექმენი",
+    "your": "შენი",
+    "style": "სტილი"
+  },
+  "mimitha_packages": {
+    "new_collection": "ახალი კოლექცია",
+    "choose_your_style": "შეარჩიე შენი სტილი",
+    "goes_well": "რას უხდება ?",
+    "more_than_design": {
+      "more": "უფრო მეტი",
+      "than": "ვიდრე",
+      "design": "დიზაინი"
+    }
+  },
+  "popular_products": {
+    "section_title": "ყველაზე პოპულარული"
+  }
+}

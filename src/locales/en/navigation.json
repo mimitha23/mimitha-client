@@ -1,0 +1,14 @@
+{
+  "main": {
+    "men": "men",
+    "women": "women",
+    "adult": "adult",
+    "family": "family",
+    "combo": "combo",
+    "my_style": "my style",
+    "sale": "sale"
+  },
+  "searchbar": {
+    "placeholder": "If you search, you'll find"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "create_your_style": {
+    "create": "Create",
+    "your": "YOUR",
+    "style": "Style"
+  },
+  "mimitha_packages": {
+    "new_collection": "New Collection",
+    "choose_your_style": "Choose Your Style",
+    "goes_well": "What Does It Goes Well With",
+    "more_than_design": {
+      "more": "The More",
+      "than": "than",
+      "design": "Design"
+    }
+  },
+  "popular_products": {
+    "section_title": "The Most Popular"
+  }
+}
