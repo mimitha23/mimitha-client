@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "styles/helpers/media";
 
 export const CartItemContainer = styled.div`
   display: flex;
@@ -100,66 +99,66 @@ export const CartItemContainer = styled.div`
     font-size: 2rem;
   }
 
-  ${media.tablet`
-    flex-direction:column;
-    justify-content:flex-start;
-    padding-right:1rem;
+  @media (${({ theme }) => theme.media.tablet}) {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 1rem;
 
-    .cart-item__fig{
-      width:100%;
+    .cart-item__fig {
+      width: 100%;
       height: 40rem;
       display: flex;
-      justify-content:center;
+      justify-content: center;
 
-      img{
-        height:100%;
-        object-fit:contain;
+      img {
+        height: 100%;
+        object-fit: contain;
       }
     }
 
-    .cart-item__details{
-      width:100%;
+    .cart-item__details {
+      width: 100%;
       height: max-content;
-      border:none;
+      border: none;
       display: grid;
-      grid-template:repeat(5,max-content)/repeat(2,1fr);
+      grid-template: repeat(5, max-content) / repeat(2, 1fr);
 
-      &-box{
-        width:100%;
-        border:none !important;
-        flex-direction:row;
-        align-items:center;
-        grid-column:span 2;
+      &-box {
+        width: 100%;
+        border: none !important;
+        flex-direction: row;
+        align-items: center;
+        grid-column: span 2;
 
-        &__title-box{
+        &__title-box {
           grid-row: 1;
-          flex-direction:column;
-          align-items:flex-start;
+          flex-direction: column;
+          align-items: flex-start;
         }
 
-        &__amount-box{
-          grid-row:5;
+        &__amount-box {
+          grid-row: 5;
         }
 
-        &__size-box{
-          grid-row:2;
+        &__size-box {
+          grid-row: 2;
         }
 
-        &--head{
-          border:none;
-          text-align:start;
+        &--head {
+          border: none;
+          text-align: start;
         }
 
-        &--content{
-          justify-content:flex-start;
+        &--content {
+          justify-content: flex-start;
         }
       }
     }
-  `}
+  }
 
-  ${media.mobileLarge`
-    .cart-item__fig{
+  @media (${({ theme }) => theme.media.tablet_sm}) {
+    .cart-item__fig {
       height: 25rem;
     }
-  `}
+  }
 `;

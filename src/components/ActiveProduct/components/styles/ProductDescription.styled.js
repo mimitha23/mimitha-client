@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "styles/helpers";
 
 export const EditorDescription = styled.div`
   letter-spacing: 0.5px;
@@ -39,18 +38,20 @@ export const EditorDescription = styled.div`
     }
   }
 
-  ${media.mobile`
-    .product-description__box{
+  @media (${({ theme }) => theme.media.mobile}) {
+    .product-description__box {
       display: grid;
-      grid-template:repeat(1,max-content)/repeat(1,max-content max-content 1fr);
-      align-items:start;
-      margin-top:1rem;
+      grid-template: repeat(1, max-content) / repeat(
+          1,
+          max-content max-content 1fr
+        );
+      align-items: start;
+      margin-top: 1rem;
     }
 
-    .product-description__info-devider{
+    .product-description__info-devider {
       width: 4rem;
       transform: translateY(1rem);
-
     }
-  `}
+  }
 `;

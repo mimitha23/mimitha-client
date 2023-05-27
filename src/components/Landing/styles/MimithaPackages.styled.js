@@ -10,6 +10,41 @@ export const MimithaPackagesContainer = styled.div`
     grid-template-rows: repeat(2, 30rem);
     justify-content: space-between;
     gap: 15rem 20rem;
+    position: relative;
+  }
+
+  .packages-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem;
+    height: 10rem;
+
+    figure {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  @media (${({ theme }) => theme.media.tablet}) {
+    .packages-wrapper {
+      grid-template-rows: 4;
+      grid-auto-rows: 30rem;
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: 0;
+      row-gap: 8rem;
+    }
+
+    .packages-logo {
+      display: none;
+    }
   }
 `;
 
@@ -17,7 +52,7 @@ export const PackageBox = styled.div`
   position: relative;
   width: 100%;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   border: 2px solid ${({ theme }) => theme.colors.text};
   border-radius: 0.3rem;
   overflow: hidden;

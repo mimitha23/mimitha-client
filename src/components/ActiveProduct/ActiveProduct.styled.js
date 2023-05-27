@@ -3,7 +3,6 @@ import {
   animateMoveRight,
   animateMoveLeft,
   animateMoveBottom,
-  media,
 } from "styles/helpers";
 
 export const ActiveProductContainer = styled.div`
@@ -40,17 +39,17 @@ export const ActiveProductContainer = styled.div`
       })};
     }
 
-    ${media.desktop`
-      flex-direction:column;
+    @media (${({ theme }) => theme.media.desktop}) {
+      flex-direction: column;
 
-        &__product-view {
-          width: 100%;
-        };
-        
-        &__product-info {
-          max-width: 100%;
-          width: 100%;
-        };
-    `}
+      &__product-view {
+        width: 100%;
+      }
+
+      &__product-info {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
   }
 `;

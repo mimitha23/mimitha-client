@@ -2,51 +2,41 @@ import styled from "styled-components";
 
 export const Footer = styled.footer`
   width: 100%;
-  height: 25rem;
-  .footer__container-full {
+  border-top: 2px solid ${({ theme }) => theme.colors.text};
+
+  .footer__content-wrapper {
     height: 100%;
-
-    border-top: 2px solid ${({ theme }) => theme.colors.text};
-    padding: 0;
-    min-height: unset;
-  }
-  .footer-upper {
-    height: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10rem;
     align-items: center;
-    justify-content: space-between;
-    gap: 20rem;
-    padding: 10rem;
+    justify-content: flex-start;
+    padding: 5rem 2rem;
   }
 
-  .footer-upper-left-panel {
-    display: flex;
-    align-items: center;
-    gap: 20rem;
-  }
-
-  .footer-learn-more {
+  .footer__learn-more {
     &__figure {
       cursor: pointer;
-      width: 15rem;
       height: 5rem;
+      width: max-content;
 
       img {
-        width: 100%;
         height: 100%;
-        /* object-fit: contain; */
+        object-fit: contain;
       }
     }
+
     p {
-      width: 25rem;
+      max-width: 25rem;
     }
   }
 
-  .footer-support-list {
+  .footer__extra-info {
     h2 {
       margin-bottom: 2rem;
       font-size: ${({ theme }) => theme.fontSize.lg};
     }
+
     ul {
       display: flex;
       flex-direction: column;
@@ -55,9 +45,8 @@ export const Footer = styled.footer`
     }
   }
 
-  .footer-social-container {
-    justify-self: flex-end;
-
+  .footer__social-networks {
+    justify-self: end;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -82,12 +71,45 @@ export const Footer = styled.footer`
   .copyright {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 4rem;
     border-top: 2px solid ${({ theme }) => theme.colors.text};
+    background: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.bg};
+    font-size: ${({ theme }) => theme.fontSize.sm};
 
     p {
-      font-weight: 300;
       padding-left: 2rem;
+      font-weight: 300;
+    }
+  }
+
+  @media (${({ theme }) => theme.media.desktop}) {
+    .footer__content-wrapper {
+      column-gap: 6rem;
+    }
+  }
+
+  @media (${({ theme }) => theme.media.tablet}) {
+    .footer__content-wrapper {
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: 5rem;
+      row-gap: 5rem;
+    }
+
+    .footer__social-networks {
+      justify-self: start;
+
+      p {
+        text-align: start;
+      }
+    }
+  }
+
+  @media (${({ theme }) => theme.media.mobile}) {
+    .copyrightp {
+      width: 100%;
+      padding: 0;
+      text-align: center;
     }
   }
 `;

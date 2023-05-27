@@ -1,6 +1,6 @@
 import { CurrencySwitch, Price, ProductTitle } from "./";
 
-export default function CardContentDescriptive(props) {
+export default function CardContentDescriptive() {
   return (
     <>
       <ProductTitle />

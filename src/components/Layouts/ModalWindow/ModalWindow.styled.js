@@ -15,7 +15,7 @@ export const ModalWindowContainer = styled.div`
   ${({ backdrop }) =>
     backdrop
       ? css`
-          background: rgba(0, 0, 0, 0.5);
+          background: ${({ theme }) => theme.gradients.backdrop_gradient};
           backdrop-filter: blur(3px);
         `
       : ""}

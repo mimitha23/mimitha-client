@@ -40,4 +40,8 @@ export const ShoppingCardContainer = styled.button`
     grid-row: 2;
     font-weight: 600;
   }
+
+  @media (${({ theme }) => theme.media.desktop}) {
+    margin-left: auto;
+  }
 `;

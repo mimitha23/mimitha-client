@@ -1,6 +1,6 @@
 import { useScrollToTop } from "hooks/domBase";
 
-import { Navigation } from "components";
+import { Navigation, Footer } from "components/index";
 import ActiveProduct from "components/ActiveProduct/ActiveProduct";
 
 export default function EditorPage() {
@@ -10,6 +10,7 @@ export default function EditorPage() {
     <>
       <Navigation />
       <ActiveProduct />
+      <Footer />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { animateMoveRight, media } from "styles/helpers";
+import { animateMoveRight } from "styles/helpers";
 
 export const EditorViewContainer = styled.div`
   flex: 1;
@@ -21,9 +21,9 @@ export const EditorViewContainer = styled.div`
     }
   }
 
-  ${media.tablet`
+  @media (${({ theme }) => theme.media.tablet}) {
     flex: unset;
     height: 45vh;
-    width:100%;
-  `}
+    width: 100%;
+  }
 `;

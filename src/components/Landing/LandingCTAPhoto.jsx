@@ -4,7 +4,7 @@ import * as Styled from "./styles/LandingCTAPhoto.styled";
 export default function LandingCTAPhoto(props) {
   return (
     <Styled.LandingCTAPhoto>
-      <Link to={"/products/:productId"}>
+      <Link to={"/products/:productId"} className="cta-link">
         <div className="landingCTA">
           <span>შექმენი</span>
           <span>შენი</span>

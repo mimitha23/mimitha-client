@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "styles/helpers/media";
 
 export const ProductShippingInfo = styled.div`
   display: flex;
@@ -22,7 +21,7 @@ export const ProductShippingInfo = styled.div`
     }
   }
 
-  ${media.mobileLarge`
-    flex-direction:column;
-  `}
+  @media (${({ theme }) => theme.media.tablet_sm}) {
+    flex-direction: column;
+  }
 `;

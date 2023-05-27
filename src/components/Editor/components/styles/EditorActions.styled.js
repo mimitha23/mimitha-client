@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import {
-  buttonPrimary,
-  animateMoveLeft,
-  animateMoveTop,
-  media,
-} from "styles/helpers";
+import { buttonPrimary, animateMoveLeft, animateMoveTop } from "styles/helpers";
 
 export const EditorActionsContainer = styled.div`
   flex: 1;
@@ -29,19 +24,19 @@ export const EditorActionsContainer = styled.div`
     })}
   }
 
-  ${media.tablet`
-    flex:unset;
-    width:100%;
+  @media (${({ theme }) => theme.media.tablet}) {
+    flex: unset;
+    width: 100%;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
 
-    .finish-btn{
-      position:relative;
+    .finish-btn {
+      position: relative;
       bottom: 0;
       right: 0;
       display: inline-block;
-      margin-top:4rem;
-      align-self:flex-end;
+      margin-top: 4rem;
+      align-self: flex-end;
     }
-  `}
+  }
 `;

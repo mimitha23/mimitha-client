@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { animateMoveBottom, animateMoveTop, media } from "styles/helpers";
+import { animateMoveBottom, animateMoveTop } from "styles/helpers";
 
 export const FitListContainer = styled.div`
   flex: 2;
@@ -43,31 +43,31 @@ export const FitListContainer = styled.div`
     }
   }
 
-  ${media.desktopLarge`
+  @media (${({ theme }) => theme.media.desktop_lg}) {
     .fit-list__products {
       grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
       grid-auto-rows: 25rem;
     }
-  `}
+  }
 
-  ${media.mobileLarge`
-   .fit-list__filter-box{
-      animation:none;
-      
+  @media (${({ theme }) => theme.media.tablet_sm}) {
+    .fit-list__filter-box {
+      animation: none;
+
       [data-filter-container] {
         grid-template: repeat(3, max-content) / repeat(2, 1fr);
       }
     }
-  `}
+  }
 
-  ${media.mobile`
-   .fit-list__filter-box{
+  @media (${({ theme }) => theme.media.mobile}) {
+    .fit-list__filter-box {
       [data-filter-container] {
-        grid-template-rows:auto;
+        grid-template-rows: auto;
         grid-template-columns: repeat(1, 1fr);
       }
     }
-  `}
+  }
 `;
 
 export const FitListCardContainer = styled.div`

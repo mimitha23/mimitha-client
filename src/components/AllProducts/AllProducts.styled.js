@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { animateMoveLeft, animateMoveRight, media } from "styles/helpers";
+import { animateMoveLeft, animateMoveRight } from "styles/helpers";
 
 export const AllProductsContainer = styled.div`
   padding-top: ${({ theme }) => theme.app.nav_h_full};
@@ -11,6 +11,7 @@ export const AllProductsContainer = styled.div`
   .filter-box__wrapper {
     position: sticky;
     top: ${({ theme }) => theme.app.nav_h};
+    transition: all 0.2s linear;
     padding: 3rem;
     width: 100%;
     background: ${({ theme }) => theme.colors.bg};
@@ -47,15 +48,15 @@ export const AllProductsContainer = styled.div`
     })};
   }
 
-  ${media.tablet`
-      .products-list{
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-      }
-  `}
-
-  ${media.mobileLarge`
-    .filter-box{
-      animation:none;
+  @media (${({ theme }) => theme.media.tablet}) {
+    .products-list {
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     }
-  `}
+  }
+
+  @media (${({ theme }) => theme.media.tablet_sm}) {
+    .filter-box {
+      animation: none;
+    }
+  }
 `;

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "styles/helpers/media";
 
 export const RelatedProductsContainer = styled.div`
   padding-top: 4rem;
@@ -13,7 +12,6 @@ export const RelatedProductsContainer = styled.div`
     margin-top: 5rem;
 
     .related-products__slider-item {
-      /* max-width: 30rem; */
       max-width: 100%;
       height: 40rem;
       border: 1px solid ${({ theme }) => theme.colors.gray_tint};

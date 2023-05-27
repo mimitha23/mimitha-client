@@ -37,11 +37,15 @@ function CartItem() {
         </CartItemDetailsBoxContainer>
 
         <CartItemDetailsBoxContainer title="ფასი ცალად">
-          <span>20₾</span>
+          <span>
+            <strong>20₾</strong>
+          </span>
         </CartItemDetailsBoxContainer>
 
         <CartItemDetailsBoxContainer title="ფასი ჯამში">
-          <span>40₾</span>
+          <span>
+            <strong>40₾</strong>
+          </span>
         </CartItemDetailsBoxContainer>
 
         <CartItemDetailsBoxContainer

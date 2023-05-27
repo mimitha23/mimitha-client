@@ -1,41 +1,40 @@
 import styled, { css, keyframes } from "styled-components";
 
-const animateHideSupportNav = keyframes`
-  0%{
+const animateShowSupportNav = keyframes`
+  to{
     transform: translateY(0) scale(1);
     opacity: 1;
-  } 100%{
-    transform: translateY(-200%) scale(0.5);
-    opacity: 0;
-  }
+    height: 4rem;
+  } 
 `;
 
-const animateShowSupportNav = keyframes`
-  0%{
+const animateHideSupportNav = keyframes` 
+  to {
     transform: translateY(-200%) scale(0.5);
     opacity: 0;
-  } 100%{
-    transform: translateY(0) scale(1);
-    opacity: 1;
   }
 `;
 
 export const SupportNavbarContainer = styled.div`
   align-self: flex-end;
+  margin-bottom: auto;
   width: max-content;
-  height: 4rem;
   display: flex;
-  gap: 3rem;
   align-items: center;
+  gap: 3rem;
   color: ${({ theme }) => theme.colors.text};
+  height: 0;
+  transform: translateY(-200%) scale(0.5);
+  opacity: 0;
 
   ${({ partialNav }) =>
     partialNav
       ? css`
-          animation: ${animateHideSupportNav} 0.2s forwards;
+          position: absolute;
+          animation: ${animateHideSupportNav} 0.2s linear forwards;
         `
       : css`
-          animation: ${animateShowSupportNav} 0.2s forwards;
+          animation: ${animateShowSupportNav} 0.2s linear forwards;
         `};
 
   .darkMode--switch {

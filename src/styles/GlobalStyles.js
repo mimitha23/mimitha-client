@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { scrollBar, media } from "./helpers";
+import { scrollBar } from "./helpers";
 
 export const GlobalStyles = createGlobalStyle`
   *,
@@ -18,9 +18,9 @@ export const GlobalStyles = createGlobalStyle`
   html {
     font-size:62.5%;
 
-    ${media.mobileLarge`
+    @media (${({ theme }) => theme.media.tablet_sm}){
       font-size:56.25%;
-    `}
+    }
   }
 
   html body {

@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import * as Styled from "./styles/CategoriesNavbar.styled";
 
-export default function CategoriesNavbar(props) {
+export default function CategoriesNavbar({ activeBurgerNav, onBurgerClose }) {
   return (
-    <Styled.CategoriesNavbar>
-      <ul className="categoriesNavbar--list">
+    <Styled.CategoriesNavbar
+      onClick={onBurgerClose}
+      className={`${typeof activeBurgerNav === "boolean" ? "burger-nav" : ""} ${
+        activeBurgerNav ? "active-burger--nav active-modal" : ""
+      }`}
+    >
+      <ul className="categories-nav__list" onClick={(e) => e.stopPropagation()}>
         <li>
           <Link to={"/"}>მამაკაცი</Link>
         </li>

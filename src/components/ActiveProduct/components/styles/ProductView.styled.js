@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "styles/helpers/media";
 
 export const ProductView = styled.div`
   width: 100%;
@@ -9,13 +8,13 @@ export const ProductView = styled.div`
   background: ${({ theme }) => theme.colors.bg};
   border: 1px solid ${({ theme }) => theme.colors.gray_shade};
 
-  ${media.tablet`
+  @media (${({ theme }) => theme.media.tablet}) {
     height: 38vw;
-  `}
+  }
 
-  ${media.mobile`
+  @media (${({ theme }) => theme.media.mobile}) {
     height: 35vh;
-  `}
+  }
 
   .editor-fig {
     flex: 1;

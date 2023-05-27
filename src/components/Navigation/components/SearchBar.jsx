@@ -1,23 +1,28 @@
 import { useState } from "react";
-import { SearchIcon } from "components/Layouts/Icons";
+
+import SearchBarField from "./SearchBarField";
+import SearchBarResults from "./SearchBarResults";
 import * as Styled from "./styles/SearchBar.styled";
 
-export default function SearchBar(props) {
+export default function SearchBar() {
   const [search, setSearch] = useState("");
+  const [activeResults, setActiveResults] = useState(false);
+
+  function onSearchClose() {
+    setSearch("");
+    setActiveResults(false);
+  }
 
   return (
-    <Styled.SearchBar className="searchBar">
-      <span className="search-icon">
-        <SearchIcon />
-      </span>
-      <input
-        type="text"
-        placeholder="თუ ეძებ, იპოვი..."
-        className="search--input"
-        name="search"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+    <Styled.SearchBar className={activeResults ? "active_bar" : "toto"}>
+      <SearchBarField
+        search={search}
+        setSearch={setSearch}
+        setActiveResults={setActiveResults}
+        onSearchClose={onSearchClose}
       />
+
+      {activeResults && <SearchBarResults onSearchClose={onSearchClose} />}
     </Styled.SearchBar>
   );
 }
