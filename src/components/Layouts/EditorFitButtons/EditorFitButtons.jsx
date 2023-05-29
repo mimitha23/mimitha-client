@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { ModalWindow } from "..";
 import * as Styled from "./EditorFitButtons.styled";
 
 function EditorFitButtons({ onModel, onMannequin, activeFit }) {
+  const { t } = useTranslation();
+
   const [activeFitModal, setActiveFitModal] = useState({
     name: "",
     isOpen: false,
@@ -31,7 +34,7 @@ function EditorFitButtons({ onModel, onMannequin, activeFit }) {
           });
         }}
       >
-        მოარგეთ მანეკენს
+        {t("crossover.fit_mannequin")}
       </button>
 
       <button
@@ -44,7 +47,7 @@ function EditorFitButtons({ onModel, onMannequin, activeFit }) {
           });
         }}
       >
-        მოარგეთ მოდელს
+        {t("crossover.fit_model")}
       </button>
 
       <ModalWindow

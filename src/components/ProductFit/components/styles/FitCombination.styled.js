@@ -3,24 +3,39 @@ import {
   buttonPrimary,
   animateMoveRight,
   animatePopUpAndScale,
+  scrollBar,
 } from "styles/helpers";
 
 export const FitCombinationContainer = styled.div`
   flex: 1;
   min-width: 55rem;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3rem;
+  overflow: hidden;
 
-  .fit-view__figs-box {
-    height: 30vw;
-    width: 100%;
-    padding: 1.5rem;
+  .fit-view__figs-box--wrapper {
     border: 1px solid ${({ theme }) => theme.colors.text};
-    display: flex;
-    gap: 2rem;
     border-radius: 0.3rem;
+    padding-right: 0.5rem;
+    height: 100%;
+    max-height: 30vw;
     ${animateMoveRight({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};
+  }
+
+  .fit-view__figs-box {
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1.5rem;
+    ${scrollBar({ marginBlockTop: "0.5rem", marginBlockBottom: "0.5rem" })}
   }
 
   .fit-view__fig-box {
@@ -79,7 +94,6 @@ export const FitCombinationContainer = styled.div`
   }
 
   .fit-view__actions-box {
-    margin-top: 3rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
@@ -102,13 +116,14 @@ export const FitCombinationContainer = styled.div`
         line-height: 1;
         display: flex;
         align-items: center;
+        text-transform: capitalize;
       }
     }
   }
 
   @media (${({ theme }) => theme.media.desktop}) {
     .fit-view__figs-box {
-      height: 40vh;
+      max-height: 50vh;
     }
   }
 

@@ -19,6 +19,7 @@ export const ProductStyler = styled.div`
     font-size: ${({ theme }) => theme.fontSize.lg};
     font-weight: 500;
     color: ${({ theme }) => theme.colors.black};
+    text-transform: capitalize;
   }
 
   .product-styler__colorizer-box__colors-container {
@@ -76,6 +77,10 @@ export const ProductStyler = styled.div`
       font-size: ${({ theme }) => theme.fontSize.base};
       font-weight: 500;
       color: ${({ theme }) => theme.colors.text};
+
+      ::first-letter {
+        text-transform: capitalize;
+      }
     }
   }
 

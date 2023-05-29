@@ -23,10 +23,12 @@ export const CartFooterContainer = styled.footer`
 
   .delivery-price {
     font-weight: 500;
+    text-transform: capitalize;
   }
 
   .cart-footer__btn {
     ${buttonPrimary};
+    text-transform: capitalize;
   }
 
   @media (${({ theme }) => theme.media.tablet}) {

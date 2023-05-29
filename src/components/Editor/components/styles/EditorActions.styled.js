@@ -18,6 +18,7 @@ export const EditorActionsContainer = styled.div`
     position: absolute;
     right: 4rem;
     bottom: 3rem;
+    text-transform: capitalize;
     ${buttonPrimary};
     ${animateMoveTop({
       duration: ({ theme }) => theme.app.section_animation_duration,

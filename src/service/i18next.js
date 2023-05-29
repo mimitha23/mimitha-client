@@ -22,7 +22,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: true,
+    debug: false,
     lng: "ka",
     fallbackLng: "ka",
     interpolation: { escapeValue: false },

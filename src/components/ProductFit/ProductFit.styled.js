@@ -14,6 +14,7 @@ export const ProductFitContainer = styled.div`
   @media (${({ theme }) => theme.media.desktop}) {
     [data-container-full] {
       flex-direction: column;
+      height: auto;
     }
   }
 `;

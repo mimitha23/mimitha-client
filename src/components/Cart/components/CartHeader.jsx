@@ -1,8 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 import * as Styled from "./styles/CartHeader.styled";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCartIcon } from "components/Layouts/Icons/index";
 
-function CartHeader(props) {
+function CartHeader() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
@@ -11,11 +14,11 @@ function CartHeader(props) {
         <span className="cart-header__title-icon">
           <ShoppingCartIcon />
         </span>
-        <span>კალათა</span>
+        <span>{t("crossover.basket")}</span>
       </span>
 
       <button onClick={() => navigate(-1)} className="cart-header__back-btn">
-        უკან დაბრუნება
+        {t("crossover.go_back")}
       </button>
     </Styled.CartHeaderContainer>
   );

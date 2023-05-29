@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import * as Styled from "./styles/EditorActions.styled";
 import EditorActionDropdown from "./EditorActionDropdown";
 
 function EditorActions() {
+  const { t } = useTranslation();
+
   const [activeDropdown, setActiveDropdown] = useState(false);
 
   return (
@@ -47,7 +50,7 @@ function EditorActions() {
       </div>
 
       <Link to="/products/:productId" className="finish-btn">
-        დაასრულეთ რედაქტირება
+        {t("crossover.finish_edit")}
       </Link>
     </Styled.EditorActionsContainer>
   );

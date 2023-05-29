@@ -1,9 +1,12 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import { DollarIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ProductHeading.styled";
 
-export default function ProductHeading(props) {
+export default function ProductHeading() {
+  const { t } = useTranslation();
+
   return (
     <Styled.ProductHeadingContainer>
       <h1 className="product-title">
@@ -12,14 +15,14 @@ export default function ProductHeading(props) {
 
       <div className="price-and-edit__container">
         <div className="product-price">
-          <span>ფასი: 100 ლარი</span>
+          <span>{t("crossover.price")}: 100 ₾</span>
           <span>
             <DollarIcon />
           </span>
         </div>
 
         <Link to="/products/:productId/edit" className="edit-link">
-          რედაქტირება
+          {t("crossover.edit")}
         </Link>
       </div>
     </Styled.ProductHeadingContainer>

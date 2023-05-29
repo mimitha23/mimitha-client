@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import { ArrowLeftIcon, BagIcon } from "components/Layouts/Icons";
 
 function FitCombinationActions() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
@@ -13,11 +16,11 @@ function FitCombinationActions() {
         <span>
           <ArrowLeftIcon />
         </span>
-        <span>დაბრუნდით უკან</span>
+        <span>{t("crossover.go_back")}</span>
       </button>
 
       <button className="fit-view__action-btn">
-        <span>დაამატეთ კალათაში</span>
+        <span>{t("crossover.add_to_card")}</span>
         <span>
           <BagIcon />
         </span>
