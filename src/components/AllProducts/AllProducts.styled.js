@@ -41,17 +41,11 @@ export const AllProductsContainer = styled.div`
     padding: 0 3rem 3rem;
     display: grid;
     gap: 6rem 4rem;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-    grid-auto-rows: 58rem;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); //35
+    grid-auto-rows: 45rem;
     ${animateMoveLeft({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};
-  }
-
-  @media (${({ theme }) => theme.media.tablet}) {
-    .products-list {
-      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    }
   }
 
   @media (${({ theme }) => theme.media.tablet_sm}) {
