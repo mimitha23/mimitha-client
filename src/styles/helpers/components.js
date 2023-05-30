@@ -4,7 +4,8 @@ export const buttonPrimary = () => css`
   padding: 1rem 7rem;
   font-size: ${({ theme }) => theme.fontSize.lg};
   font-weight: 400;
-  border-radius: 15rem;
+  /* border-radius: 15rem; */
+  border-radius: 0.5rem;
   background: ${({ theme }) => theme.colors.text};
   color: ${({ theme }) => theme.colors.bg};
   transition: all 0.2s ease;

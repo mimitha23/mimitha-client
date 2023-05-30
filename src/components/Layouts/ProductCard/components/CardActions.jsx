@@ -5,7 +5,7 @@ export default function CardActions() {
   const { t } = useTranslation();
 
   return (
-    <div className="product__edit-and--fit__box">
+    <div className="product-edit__and__fit-box">
       <button className="edit-btn">
         <Link to="/products/:productId/fit">{t("crossover.goes_on")}</Link>
       </button>

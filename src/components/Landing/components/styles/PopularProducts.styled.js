@@ -5,14 +5,14 @@ export const PopularProducts = styled.div`
   width: 100%;
 
   .popular-products__header {
-    padding: 3.5rem 1.5rem;
+    padding: 2rem 5rem;
     width: max-content;
     font-size: ${({ theme }) => theme.fontSize.xxl};
     color: ${({ theme }) => theme.colors.bg};
     background-color: ${({ theme }) => theme.colors.text};
     display: flex;
     align-items: center;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
 
     p {
       width: 100%;
@@ -21,11 +21,11 @@ export const PopularProducts = styled.div`
   }
 
   .popular-products__container {
-    margin: 8rem 0 4rem;
+    margin: 4rem 0;
     display: grid;
-    gap: 10rem;
-    grid-template-columns: repeat(auto-fit, minmax(34rem, max-content));
-    grid-auto-rows: 45rem;
+    gap: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, max-content));
+    grid-auto-rows: 36rem;
     justify-content: space-between;
     align-items: center;
   }

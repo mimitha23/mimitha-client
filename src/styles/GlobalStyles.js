@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     font-size:62.5%;
+    scroll-behavior: smooth;
 
     @media (${({ theme }) => theme.media.tablet_sm}){
       font-size:56.25%;

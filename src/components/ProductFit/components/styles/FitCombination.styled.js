@@ -15,6 +15,7 @@ export const FitCombinationContainer = styled.div`
   justify-content: flex-start;
   gap: 3rem;
   overflow: hidden;
+  padding-bottom: 1rem;
 
   .fit-view__figs-box {
     border: 1px solid ${({ theme }) => theme.colors.text};
@@ -91,8 +92,9 @@ export const FitCombinationContainer = styled.div`
   .fit-view__actions-box {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 4rem;
     padding: 0 1rem;
+
     ${animatePopUpAndScale({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};
@@ -100,13 +102,12 @@ export const FitCombinationContainer = styled.div`
     .fit-view__action-btn {
       ${buttonPrimary};
       display: flex;
-      align-items: center;
       gap: 1rem;
-      padding: 1.5rem 3rem;
-
-      &--back span:has(svg) {
-        transform: translateY(0.25rem);
-      }
+      align-items: center;
+      justify-content: center;
+      height: 5rem;
+      padding: 0;
+      width: 100%;
 
       span {
         line-height: 1;

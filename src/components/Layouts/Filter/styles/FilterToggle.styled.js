@@ -29,6 +29,7 @@ export const FilterToggle = styled.div`
 
     &.show-btn {
       ${buttonPrimary};
+      border-radius: 0.5rem;
     }
   }
 `;

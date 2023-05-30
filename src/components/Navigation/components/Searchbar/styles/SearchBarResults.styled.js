@@ -44,8 +44,8 @@ export const SearchBarResults = styled.div`
     margin-top: 4rem;
     max-height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, max-content));
-    grid-auto-rows: 45rem;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, max-content));
+    grid-auto-rows: 40rem;
     gap: 4rem;
     justify-content: center;
     padding: 3rem 1rem;

@@ -12,7 +12,7 @@ export default function PopularProducts() {
         <p>{t("landing.popular_products.section_title")}</p>
       </div>
       <div className="popular-products__container">
-        {[1, 2, 3, 4, 5, 6].map((el) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((el) => (
           <ProductCard key={`${el}`} cardType="descriptive" />
         ))}
       </div>
