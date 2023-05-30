@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { ArrowLeftIcon, BagIcon } from "components/Layouts/Icons";
 
-function FitCombinationActions() {
+export default function FitCombinationActions() {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -28,5 +28,3 @@ function FitCombinationActions() {
     </div>
   );
 }
-
-export default FitCombinationActions;

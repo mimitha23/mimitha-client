@@ -1,24 +1,20 @@
-import { Link } from "react-router-dom";
-
 import {
+  CardFig,
   CardContentWithActions,
   CardContentDescriptive,
 } from "./components/index";
 import * as Styled from "./ProductCard.styled";
+import { CardContent } from "./components/styles/CardContent.styled";
 
 export default function ProductCard({ cardType = "withActions" }) {
   return (
-    <Styled.ProductCard data-product-card cardType={cardType}>
-      <figure className="product-fig">
-        <Link to="/products/:productId">
-          <img src="/assets/images/womans-dress-black.jpg" alt="" />
-        </Link>
-      </figure>
+    <Styled.ProductCard data-product-card>
+      <CardFig />
 
-      <div className="product-content">
+      <CardContent cardType={cardType}>
         {cardType === "withActions" && <CardContentWithActions />}
         {cardType === "descriptive" && <CardContentDescriptive />}
-      </div>
+      </CardContent>
     </Styled.ProductCard>
   );
 }

@@ -2,15 +2,13 @@ import { ContainerFull } from "components/Layouts";
 import { FitList, FitCombinationBox } from "./components";
 import * as Styled from "./ProductFit.styled";
 
-function ProductFit() {
+export default function ProductFit() {
   return (
-    <Styled.ProductFitContainer>
+    <Styled.ProductFit>
       <ContainerFull>
         <FitCombinationBox />
         <FitList />
       </ContainerFull>
-    </Styled.ProductFitContainer>
+    </Styled.ProductFit>
   );
 }
-
-export default ProductFit;

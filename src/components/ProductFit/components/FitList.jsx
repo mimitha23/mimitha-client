@@ -4,7 +4,7 @@ import FitListCard from "./FitListCard";
 import * as Styled from "./styles/FitList.styled";
 import { Filter } from "components/Layouts";
 
-function FitList() {
+export default function FitList() {
   return (
     <Styled.FitListContainer>
       <div className="fit-list__filter-box">
@@ -18,5 +18,3 @@ function FitList() {
     </Styled.FitListContainer>
   );
 }
-
-export default FitList;

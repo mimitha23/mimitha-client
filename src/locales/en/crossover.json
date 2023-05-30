@@ -35,5 +35,7 @@
   "delivery_price": "delivery price",
   "clean_basket": "clean up basket",
   "buy": "buy",
-  "basket": "basket"
+  "basket": "basket",
+  "show_filter": "show filter",
+  "hide_filter": "hide filter"
 }

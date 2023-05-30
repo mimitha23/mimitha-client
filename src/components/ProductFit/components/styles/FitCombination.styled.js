@@ -16,19 +16,11 @@ export const FitCombinationContainer = styled.div`
   gap: 3rem;
   overflow: hidden;
 
-  .fit-view__figs-box--wrapper {
+  .fit-view__figs-box {
     border: 1px solid ${({ theme }) => theme.colors.text};
     border-radius: 0.3rem;
-    padding-right: 0.5rem;
     height: 100%;
-    max-height: 30vw;
-    ${animateMoveRight({
-      duration: ({ theme }) => theme.app.section_animation_duration,
-    })};
-  }
-
-  .fit-view__figs-box {
-    height: 100%;
+    max-height: 45rem;
     overflow: auto;
     width: 100%;
     display: flex;
@@ -36,6 +28,9 @@ export const FitCombinationContainer = styled.div`
     gap: 2rem;
     padding: 1.5rem;
     ${scrollBar({ marginBlockTop: "0.5rem", marginBlockBottom: "0.5rem" })}
+    ${animateMoveRight({
+      duration: ({ theme }) => theme.app.section_animation_duration,
+    })};
   }
 
   .fit-view__fig-box {
@@ -97,6 +92,7 @@ export const FitCombinationContainer = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    padding: 0 1rem;
     ${animatePopUpAndScale({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};
@@ -123,7 +119,7 @@ export const FitCombinationContainer = styled.div`
 
   @media (${({ theme }) => theme.media.desktop}) {
     .fit-view__figs-box {
-      max-height: 50vh;
+      max-height: 45vh;
     }
   }
 
@@ -136,6 +132,10 @@ export const FitCombinationContainer = styled.div`
   }
 
   @media (${({ theme }) => theme.media.mobile}) {
+    .fit-view__figs-box {
+      max-height: 36vh;
+    }
+
     .fit-view__actions-box {
       flex-direction: column;
 

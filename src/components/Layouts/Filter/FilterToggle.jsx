@@ -1,7 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 import { FilterIcon, FilterOffIcon } from "components/Layouts/Icons/index";
 import * as Styled from "./styles/FilterToggle.styled";
 
 export default function FilterToggle({ openFilter, setOpenFilter }) {
+  const { t } = useTranslation();
+
   return (
     <Styled.FilterToggle className="filter__expand-box" data-toggle-filter>
       <button
@@ -10,14 +14,14 @@ export default function FilterToggle({ openFilter, setOpenFilter }) {
       >
         {openFilter ? (
           <>
-            <span>დამალეთ ფილტრი</span>
+            <span>{t("crossover.hide_filter")}</span>
             <span>
               <FilterOffIcon />
             </span>
           </>
         ) : (
           <>
-            <span>ფილტრის ჩვენება</span>
+            <span>{t("crossover.show_filter")}</span>
             <span>
               <FilterIcon />
             </span>
