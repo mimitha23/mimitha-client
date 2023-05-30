@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CategoriesNavbar = styled.nav`
+export const MainNavList = styled.nav`
   width: min(100%, 84rem);
   height: 100%;
   color: ${({ theme }) => theme.colors.text};
@@ -13,6 +13,7 @@ export const CategoriesNavbar = styled.nav`
     align-items: center;
     font-weight: 500;
     background: ${({ theme }) => theme.colors.bg};
+    text-transform: uppercase;
 
     li {
       height: 100%;

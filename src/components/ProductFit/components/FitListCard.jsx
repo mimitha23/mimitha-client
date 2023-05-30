@@ -1,6 +1,6 @@
 import * as Styled from "./styles/FitList.styled";
 
-function FitListCard({ product }) {
+export default function FitListCard({ product }) {
   return (
     <Styled.FitListCardContainer>
       <figure className="fit-list--card__fig">
@@ -9,5 +9,3 @@ function FitListCard({ product }) {
     </Styled.FitListCardContainer>
   );
 }
-
-export default FitListCard;

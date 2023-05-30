@@ -46,6 +46,7 @@ export const CartItemContainer = styled.div`
         font-weight: 500;
         padding-bottom: 0.5rem;
         border-bottom: 1px solid ${({ theme }) => theme.colors.gray_shade};
+        text-transform: capitalize;
       }
 
       &--content {

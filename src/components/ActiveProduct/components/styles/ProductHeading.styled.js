@@ -29,6 +29,7 @@ export const ProductHeadingContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     gap: 0.5rem;
+    text-transform: capitalize;
 
     span {
       padding: 0.5rem;

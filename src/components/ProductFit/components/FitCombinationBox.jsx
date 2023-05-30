@@ -8,6 +8,17 @@ export default function FitCombinationBox() {
       <div className="fit-view__figs-box">
         <FitCombinationFigure />
         <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
+        <FitCombinationFigure />
       </div>
 
       <FitCombinationActions />

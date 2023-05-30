@@ -1,8 +1,14 @@
-import * as Styled from "./Filter.styled";
+import * as Styled from "./styles/Dropdown.styled";
 
-function Dropdown({ dropdownType, activateFilter, isActive, data, caption }) {
+export default function Dropdown({
+  dropdownType,
+  activateFilter,
+  isActive,
+  data,
+  caption,
+}) {
   return (
-    <Styled.DropdownContainer data-filter-dropdown>
+    <Styled.Dropdown data-filter-dropdown>
       <button
         onClick={() => activateFilter({ filterType: dropdownType })}
         className={`filter-dropdown__trigger-btn ${
@@ -21,8 +27,6 @@ function Dropdown({ dropdownType, activateFilter, isActive, data, caption }) {
           ))}
         </ul>
       )}
-    </Styled.DropdownContainer>
+    </Styled.Dropdown>
   );
 }
-
-export default Dropdown;

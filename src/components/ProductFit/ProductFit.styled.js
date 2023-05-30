@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProductFitContainer = styled.div`
+export const ProductFit = styled.div`
   padding-top: ${({ theme }) => theme.app.nav_h_full};
   height: 100vh;
 
@@ -14,6 +14,7 @@ export const ProductFitContainer = styled.div`
   @media (${({ theme }) => theme.media.desktop}) {
     [data-container-full] {
       flex-direction: column;
+      height: auto;
     }
   }
 `;

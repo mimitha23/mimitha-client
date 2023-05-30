@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ShoppingCartIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ShoppingCard.styed";
 
-function ShoppingCard() {
+export default function ShoppingCardButton() {
   return (
     <Styled.ShoppingCardContainer>
       <Link to="/cart" className="cart-link">
@@ -17,5 +17,3 @@ function ShoppingCard() {
     </Styled.ShoppingCardContainer>
   );
 }
-
-export default ShoppingCard;

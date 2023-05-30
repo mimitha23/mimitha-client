@@ -1,12 +1,10 @@
-import {
-  CardActions,
-  AddToCart,
-  CurrencySwitch,
-  Price,
-  ProductTitle,
-} from "./";
+import CardActions from "./CardActions";
+import AddToCart from "./AddToCart";
+import CurrencySwitch from "./CurrencySwitch";
+import Price from "./Price";
+import ProductTitle from "./ProductTitle";
 
-export default function CardContentWithActions(props) {
+export default function CardContentWithActions() {
   return (
     <>
       <ProductTitle />

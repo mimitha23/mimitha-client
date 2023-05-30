@@ -3,21 +3,31 @@ import {
   buttonPrimary,
   animateMoveRight,
   animatePopUpAndScale,
+  scrollBar,
 } from "styles/helpers";
 
 export const FitCombinationContainer = styled.div`
   flex: 1;
   min-width: 55rem;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3rem;
+  overflow: hidden;
 
   .fit-view__figs-box {
-    height: 30vw;
-    width: 100%;
-    padding: 1.5rem;
     border: 1px solid ${({ theme }) => theme.colors.text};
-    display: flex;
-    gap: 2rem;
     border-radius: 0.3rem;
+    height: 100%;
+    max-height: 45rem;
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1.5rem;
+    ${scrollBar({ marginBlockTop: "0.5rem", marginBlockBottom: "0.5rem" })}
     ${animateMoveRight({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};
@@ -79,10 +89,10 @@ export const FitCombinationContainer = styled.div`
   }
 
   .fit-view__actions-box {
-    margin-top: 3rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    padding: 0 1rem;
     ${animatePopUpAndScale({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};
@@ -102,13 +112,14 @@ export const FitCombinationContainer = styled.div`
         line-height: 1;
         display: flex;
         align-items: center;
+        text-transform: capitalize;
       }
     }
   }
 
   @media (${({ theme }) => theme.media.desktop}) {
     .fit-view__figs-box {
-      height: 40vh;
+      max-height: 45vh;
     }
   }
 
@@ -121,6 +132,10 @@ export const FitCombinationContainer = styled.div`
   }
 
   @media (${({ theme }) => theme.media.mobile}) {
+    .fit-view__figs-box {
+      max-height: 36vh;
+    }
+
     .fit-view__actions-box {
       flex-direction: column;
 

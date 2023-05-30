@@ -9,12 +9,10 @@ const ContainerFullEl = styled.div`
   }
 `;
 
-function ContainerFull({ children, className }) {
+export default function ContainerFull({ children, className }) {
   return (
     <ContainerFullEl data-container-full className={className || ""}>
       {children}
     </ContainerFullEl>
   );
 }
-
-export default ContainerFull;

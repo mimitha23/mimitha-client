@@ -1,7 +1,7 @@
 import * as Styled from "./AllProducts.styled";
 import { ContainerFull, ProductCard, Filter } from "components/Layouts";
 
-function AllProducts() {
+export default function AllProducts() {
   return (
     <Styled.AllProductsContainer>
       <ContainerFull className="wrapper-container">
@@ -20,5 +20,3 @@ function AllProducts() {
     </Styled.AllProductsContainer>
   );
 }
-
-export default AllProducts;

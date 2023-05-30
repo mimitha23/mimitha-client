@@ -9,6 +9,7 @@ export const CartHeaderContainer = styled.header`
 
   .cart-header__back-btn {
     text-decoration: underline;
+    text-transform: capitalize;
   }
 
   .cart-header__title {
@@ -17,6 +18,7 @@ export const CartHeaderContainer = styled.header`
     display: flex;
     align-items: flex-end;
     gap: 1rem;
+    text-transform: capitalize;
 
     &-icon {
       line-height: 1;

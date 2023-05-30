@@ -1,6 +1,6 @@
 import { MinusIcon } from "components/Layouts/Icons";
 
-function FitCombinationFigure() {
+export default function FitCombinationFigure() {
   return (
     <div className="fit-view__fig-box">
       <figure className="fit-view__fig">
@@ -14,5 +14,3 @@ function FitCombinationFigure() {
     </div>
   );
 }
-
-export default FitCombinationFigure;

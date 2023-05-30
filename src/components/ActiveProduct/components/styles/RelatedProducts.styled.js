@@ -6,6 +6,7 @@ export const RelatedProductsContainer = styled.div`
   .related-products__section-title {
     font-size: ${({ theme }) => theme.fontSize.xxl};
     font-weight: 500;
+    text-transform: capitalize;
   }
 
   [data-multiple-slider] {

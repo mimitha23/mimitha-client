@@ -1,12 +1,18 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
 import * as Styled from "./styles/ProductStyler.styled";
 
-export default function ProductStyler(props) {
+export default function ProductStyler() {
+  const { t } = useTranslation();
+
   return (
     <Styled.ProductStyler>
       <div className="moderators__container">
         <div className="product-styler__colorizer-box">
-          <h2 className="product-styler__box-title">ფერების არჩევანი</h2>
+          <h2 className="product-styler__box-title">
+            {t("crossover.color_range")}
+          </h2>
 
           <div className="product-styler__colorizer-box__colors-container">
             {["black", "grey", "orange", "purple", "white"].map((color) => (
@@ -20,7 +26,9 @@ export default function ProductStyler(props) {
         </div>
 
         <div className="product-styler__size-box">
-          <h2 className="product-styler__box-title">ზომების არჩევანი</h2>
+          <h2 className="product-styler__box-title">
+            {t("crossover.size_range")}
+          </h2>
 
           <div className="product-styler__size-box__sizes-container">
             {["xxs", "xs", "s", "m", "l", "xl", "xxl"].map((size) => (
@@ -37,12 +45,12 @@ export default function ProductStyler(props) {
 
       <div className="fit-and-questions__container">
         <Link to="/products/:productId/fit" className="fit-btn">
-          რას უხდება ?
+          {t("crossover.goes_on")}
         </Link>
 
         <div>
-          <p>როგორ შევარჩიოთ ზომა ? </p>
-          <p>მიუთითეთ თქვენი ზომები</p>
+          <p>{t("crossover.how_choose_right_size")}</p>
+          <p>{t("crossover.indicate_your_size")}</p>
         </div>
       </div>
     </Styled.ProductStyler>

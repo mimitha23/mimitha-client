@@ -1,6 +1,6 @@
 import { BurgerIcon } from "components/Layouts/Icons/index";
 
-function BurgerButton({ setActiveBurgerNav }) {
+export default function BurgerButton({ setActiveBurgerNav }) {
   return (
     <button
       className="burger-btn"
@@ -14,5 +14,3 @@ function BurgerButton({ setActiveBurgerNav }) {
     </button>
   );
 }
-
-export default BurgerButton;

@@ -1,12 +1,17 @@
+import { useTranslation } from "react-i18next";
 import * as Styled from "./styles/ProductDescription.styled";
 
-export default function ProductDescription(props) {
+export default function ProductDescription() {
+  const { t } = useTranslation();
+
   return (
     <Styled.EditorDescription>
-      <h2 className="product-description__title">პროდუქტის აღწერა</h2>
+      <h2 className="product-description__title">
+        {t("crossover.product_description")}
+      </h2>
 
       <div className="product-description__box">
-        <span>სტილი</span>
+        <span>{t("crossover.style")}</span>
 
         <hr className="product-description__info-devider"></hr>
 
@@ -18,7 +23,7 @@ export default function ProductDescription(props) {
       </div>
 
       <div className="product-description__box">
-        <span>სეზონი</span>
+        <span>{t("crossover.season")}</span>
 
         <hr className="product-description__info-devider"></hr>
 
@@ -29,7 +34,7 @@ export default function ProductDescription(props) {
       </div>
 
       <div className="product-description__box">
-        <span>მასალა</span>
+        <span>{t("crossover.texture")}</span>
 
         <hr className="product-description__info-devider"></hr>
 
@@ -37,7 +42,9 @@ export default function ProductDescription(props) {
       </div>
 
       <div className="product-description__sold">
-        გაყიდულია ჯამში <span>167</span> ერთეული
+        <span>{t("crossover.items_sold_out")}</span>
+        &nbsp;
+        <span>167</span>
       </div>
     </Styled.EditorDescription>
   );

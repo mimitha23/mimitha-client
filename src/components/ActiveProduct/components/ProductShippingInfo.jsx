@@ -1,22 +1,28 @@
+import { useTranslation } from "react-i18next";
 import * as Styled from "./styles/ProductShippingInfo.styled";
 
 export default function ProductShippingInfo() {
+  const { t } = useTranslation();
+
   return (
     <Styled.ProductShippingInfo>
       <div>
-        <p>მიწოდება საქართველოში</p>
+        <p>{t("crossover.trans_in_georgia")}</p>
         <p>
-          თბილისი <span /> ფასი --- დღე
+          {t("crossover.tbilisi")} <span /> {t("crossover.price")} &mdash;
+          {t("crossover.day")}
         </p>
         <p>
-          რეგიონი <span></span> ფასი --- დღე
+          {t("crossover.region")} <span></span> {t("crossover.price")} &mdash;
+          {t("crossover.day")}
         </p>
       </div>
 
       <div>
-        <p>მიწოდება საზღვარგარეთ</p>
+        <p>{t("crossover.trans_in_abroad")}</p>
         <p>
-          კომპანია <span /> ფასი --- დღე
+          {t("crossover.company")} <span /> {t("crossover.price")} &mdash;
+          {t("crossover.day")}
         </p>
       </div>
     </Styled.ProductShippingInfo>

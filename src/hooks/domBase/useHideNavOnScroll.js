@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import { useContext } from "react";
-import { ThemeContext } from "Theme";
+import { useThemeContext } from "Theme";
 
 export default function useHideNavOnScroll() {
-  let { changeNavHeight } = useContext(ThemeContext);
+  let { changeNavHeight } = useThemeContext();
   const [partialNav, setPartialNav] = useState(false);
 
   let isVisible = true;

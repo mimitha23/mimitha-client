@@ -7,6 +7,7 @@ export const EditorDescription = styled.div`
     color: ${({ theme }) => theme.colors.text};
     font-size: ${({ theme }) => theme.fontSize.lg};
     font-weight: 500;
+    text-transform: capitalize;
   }
 
   .product-description__box {
@@ -16,6 +17,10 @@ export const EditorDescription = styled.div`
     font-size: ${({ theme }) => theme.fontSize.base};
     font-weight: 500;
     color: ${({ theme }) => theme.colors.text};
+
+    span:first-child {
+      text-transform: capitalize;
+    }
   }
 
   .product-description__info-devider {
@@ -28,7 +33,14 @@ export const EditorDescription = styled.div`
     color: ${({ theme }) => theme.colors.text};
     font-weight: 500;
 
-    span {
+    span:first-child {
+      display: inline-block;
+      :first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    span:last-child {
       display: inline-flex;
       justify-content: center;
       align-items: center;

@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import CartItemDetailsBoxContainer from "./CartItemDetailsBoxContainer";
 import CartItemDetailsControllProductAmount from "./CartItemDetailsControllProductAmount";
 import { CloseXIcon } from "components/Layouts/Icons/index";
 import * as Styled from "./styles/CartItem.styled";
 
-function CartItem() {
+export default function CartItem() {
+  const { t } = useTranslation();
   const [productAmount, setProductAmount] = useState(1);
 
   function handleProductAmount(val) {
@@ -20,14 +22,14 @@ function CartItem() {
       </figure>
       <div className="cart-item__details">
         <CartItemDetailsBoxContainer
-          title="სათაური"
+          title={t("crossover.title")}
           className="cart-item__details-box__title-box"
         >
           <span>ჰუდი</span>
         </CartItemDetailsBoxContainer>
 
         <CartItemDetailsBoxContainer
-          title="რაოდენობა"
+          title={t("crossover.amount")}
           className="cart-item__details-box__amount-box"
         >
           <CartItemDetailsControllProductAmount
@@ -36,20 +38,20 @@ function CartItem() {
           />
         </CartItemDetailsBoxContainer>
 
-        <CartItemDetailsBoxContainer title="ფასი ცალად">
+        <CartItemDetailsBoxContainer title={t("crossover.price")}>
           <span>
             <strong>20₾</strong>
           </span>
         </CartItemDetailsBoxContainer>
 
-        <CartItemDetailsBoxContainer title="ფასი ჯამში">
+        <CartItemDetailsBoxContainer title={t("crossover.total_price")}>
           <span>
             <strong>40₾</strong>
           </span>
         </CartItemDetailsBoxContainer>
 
         <CartItemDetailsBoxContainer
-          title="ზომა"
+          title={t("crossover.size")}
           className="cart-item__details-box__size-box"
         >
           <span className="cart-item__details-box--content__size">S</span>
@@ -61,5 +63,3 @@ function CartItem() {
     </Styled.CartItemContainer>
   );
 }
-
-export default CartItem;

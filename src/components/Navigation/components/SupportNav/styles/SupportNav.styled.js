@@ -15,7 +15,7 @@ const animateHideSupportNav = keyframes`
   }
 `;
 
-export const SupportNavbarContainer = styled.div`
+export const SupportNav = styled.div`
   align-self: flex-end;
   margin-bottom: auto;
   width: max-content;
@@ -36,33 +36,4 @@ export const SupportNavbarContainer = styled.div`
       : css`
           animation: ${animateShowSupportNav} 0.2s linear forwards;
         `};
-
-  .darkMode--switch {
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  .language-switch {
-    display: flex;
-    align-items: center;
-
-    .language-switch__btn {
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-
-      :not(:last-child) {
-        border-right: 2px solid ${({ theme }) => theme.colors.text};
-      }
-    }
-  }
-
-  .support-nav__social-networks {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    font-size: ${({ theme }) => theme.fontSize.xl};
-  }
 `;

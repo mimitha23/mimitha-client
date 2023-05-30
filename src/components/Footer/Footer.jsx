@@ -1,11 +1,10 @@
-import * as Styled from "./Footer.styled";
-
 import Copyright from "./Copyright";
 import SocialIcons from "./SocialIcons";
 import LearnMore from "./LearnMore";
 import ExtraInformation from "./ExtraInformation";
+import * as Styled from "./Footer.styled";
 
-export default function Footer(props) {
+export default function Footer() {
   return (
     <Styled.Footer>
       <div className="footer__content-wrapper">

@@ -1,8 +1,7 @@
+import CartItem from "./CartItem";
 import * as Styled from "./styles/CartBody.styled";
 
-import CartItem from "./CartItem";
-
-function CartBody(props) {
+export default function CartBody() {
   return (
     <Styled.CartBodyContainer>
       <CartItem />
@@ -14,5 +13,3 @@ function CartBody(props) {
     </Styled.CartBodyContainer>
   );
 }
-
-export default CartBody;
