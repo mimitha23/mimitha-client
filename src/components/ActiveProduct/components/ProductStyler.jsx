@@ -45,7 +45,7 @@ export default function ProductStyler() {
 
       <div className="fit-and-questions__container">
         <Link to="/products/:productId/fit" className="fit-btn">
-          რას უხდება ?
+          {t("crossover.goes_on")}
         </Link>
 
         <div>

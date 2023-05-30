@@ -4,7 +4,7 @@ import { EditorFitButtons, ContainerFull } from "components/Layouts";
 import { EditorView, EditorActions } from "./components";
 import * as Styled from "./Editor.styled";
 
-function Editor() {
+export default function Editor() {
   const { handleFitMannequin, handleFitModel, activeFit } = useFitProduct();
 
   return (
@@ -24,5 +24,3 @@ function Editor() {
     </ContainerFull>
   );
 }
-
-export default Editor;

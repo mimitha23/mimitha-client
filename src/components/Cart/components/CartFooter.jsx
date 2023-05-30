@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import * as Styled from "./styles/CartFooter.styled";
 
-function CartFooter({ onBuy }) {
+export default function CartFooter({ onBuy }) {
   const { t } = useTranslation();
 
   return (
@@ -29,5 +29,3 @@ function CartFooter({ onBuy }) {
     </Styled.CartFooterContainer>
   );
 }
-
-export default CartFooter;

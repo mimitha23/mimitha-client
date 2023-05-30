@@ -1,4 +1,4 @@
-function Copyright(props) {
+export default function Copyright() {
   return (
     <div className="copyright">
       <p>
@@ -8,5 +8,3 @@ function Copyright(props) {
     </div>
   );
 }
-
-export default Copyright;

@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next";
-import * as Styled from "./styles/SearchBar.styled";
-import { SearchIcon, CloseXIcon } from "components/Layouts/Icons";
 
-function SearchBarField({
+import { SearchIcon, CloseXIcon } from "components/Layouts/Icons";
+import * as Styled from "./styles/SearchbarField.styled";
+
+export default function SearchBarField({
   search,
   setSearch,
   setActiveResults,
@@ -33,5 +34,3 @@ function SearchBarField({
     </Styled.SearchBarField>
   );
 }
-
-export default SearchBarField;

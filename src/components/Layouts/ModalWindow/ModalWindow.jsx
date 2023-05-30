@@ -1,7 +1,12 @@
 import * as Styled from "./ModalWindow.styled";
 import { CloseXIcon } from "../Icons/index";
 
-function ModalWindow({ children, backdrop = true, activeModal, closeModal }) {
+export default function ModalWindow({
+  children,
+  backdrop = true,
+  activeModal,
+  closeModal,
+}) {
   return (
     activeModal && (
       <Styled.ModalWindowContainer
@@ -19,5 +24,3 @@ function ModalWindow({ children, backdrop = true, activeModal, closeModal }) {
     )
   );
 }
-
-export default ModalWindow;

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ModalWindow } from "..";
 import * as Styled from "./EditorFitButtons.styled";
 
-function EditorFitButtons({ onModel, onMannequin, activeFit }) {
+export default function EditorFitButtons({ onModel, onMannequin, activeFit }) {
   const { t } = useTranslation();
 
   const [activeFitModal, setActiveFitModal] = useState({
@@ -63,5 +63,3 @@ function EditorFitButtons({ onModel, onMannequin, activeFit }) {
     </Styled.EditorFitButtonsContainer>
   );
 }
-
-export default EditorFitButtons;

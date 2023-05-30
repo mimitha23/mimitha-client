@@ -1,6 +1,6 @@
 import { FacebookIcon, InstagramIcon } from "components/Layouts/Icons/index";
 
-function SocialIcons() {
+export default function SocialIcons() {
   return (
     <div className="footer__social-networks">
       <p>Follow Us</p>
@@ -11,5 +11,3 @@ function SocialIcons() {
     </div>
   );
 }
-
-export default SocialIcons;

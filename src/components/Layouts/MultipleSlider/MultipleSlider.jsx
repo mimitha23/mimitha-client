@@ -48,7 +48,7 @@ const responsive = {
   },
 };
 
-function MultipleSlider({ children, media = {} }) {
+export default function MultipleSlider({ children, media = {} }) {
   return (
     <MultiSliderContainer data-multiple-slider>
       <Carousel
@@ -66,5 +66,3 @@ function MultipleSlider({ children, media = {} }) {
     </MultiSliderContainer>
   );
 }
-
-export default MultipleSlider;

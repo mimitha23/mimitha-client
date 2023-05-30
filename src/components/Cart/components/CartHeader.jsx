@@ -4,7 +4,7 @@ import * as Styled from "./styles/CartHeader.styled";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCartIcon } from "components/Layouts/Icons/index";
 
-function CartHeader() {
+export default function CartHeader() {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -23,5 +23,3 @@ function CartHeader() {
     </Styled.CartHeaderContainer>
   );
 }
-
-export default CartHeader;

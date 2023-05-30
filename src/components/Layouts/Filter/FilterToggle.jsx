@@ -1,8 +1,9 @@
 import { FilterIcon, FilterOffIcon } from "components/Layouts/Icons/index";
+import * as Styled from "./styles/FilterToggle.styled";
 
-function FilterToggle({ openFilter, setOpenFilter }) {
+export default function FilterToggle({ openFilter, setOpenFilter }) {
   return (
-    <div className="filter__expand-box" data-toggle-filter>
+    <Styled.FilterToggle className="filter__expand-box" data-toggle-filter>
       <button
         className={`toggle-filter__btn ${openFilter ? "hide-btn" : "show-btn"}`}
         onClick={() => setOpenFilter((prev) => !prev)}
@@ -23,8 +24,6 @@ function FilterToggle({ openFilter, setOpenFilter }) {
           </>
         )}
       </button>
-    </div>
+    </Styled.FilterToggle>
   );
 }
-
-export default FilterToggle;

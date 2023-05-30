@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
+
 import { useHideNavOnScroll, useWindowDimention } from "hooks/domBase/index";
 
-import * as Styled from "./Navigation.styled";
 import {
-  CategoriesNavbar,
-  SearchBar,
-  SupportNavbar,
   Logo,
-  ShoppingCard,
+  SupportNav,
+  MainNav,
+  SearchBar,
+  ShoppingCardButton,
   BurgerButton,
 } from "./components";
+import * as Styled from "./Navigation.styled";
 
 export default function Navigation() {
   const { partialNav } = useHideNavOnScroll();
@@ -26,15 +27,15 @@ export default function Navigation() {
     <Styled.Navigation partialNav={partialNav}>
       <Logo partialNav={partialNav} />
       <div className="nav-actions">
-        <SupportNavbar partialNav={partialNav} />
+        <SupportNav partialNav={partialNav} />
 
         <div className="main-nav">
-          <CategoriesNavbar
+          <MainNav
             activeBurgerNav={activeBurgerNav}
             onBurgerClose={() => setActiveBurgerNav(false)}
           />
           <SearchBar />
-          <ShoppingCard />
+          <ShoppingCardButton />
           <BurgerButton setActiveBurgerNav={setActiveBurgerNav} />
         </div>
       </div>

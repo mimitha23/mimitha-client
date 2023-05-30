@@ -1,4 +1,4 @@
-function LearnMore() {
+export default function LearnMore() {
   return (
     <div className="footer__learn-more">
       <figure
@@ -15,5 +15,3 @@ function LearnMore() {
     </div>
   );
 }
-
-export default LearnMore;

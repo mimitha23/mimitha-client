@@ -4,7 +4,6 @@ import LanguageDetector from "i18next-browser-languagedetector";
 
 import {
   navigation_en,
-  active_product_en,
   crossover_en,
   landing_en,
   footer_en,
@@ -12,7 +11,6 @@ import {
 
 import {
   navigation_ka,
-  active_product_ka,
   crossover_ka,
   landing_ka,
   footer_ka,
@@ -31,7 +29,6 @@ i18n
         translation: {
           navigation: navigation_en,
           landing: landing_en,
-          active_product: active_product_en,
           crossover: crossover_en,
           footer: footer_en,
         },
@@ -40,7 +37,6 @@ i18n
         translation: {
           navigation: navigation_ka,
           landing: landing_ka,
-          active_product: active_product_ka,
           crossover: crossover_ka,
           footer: footer_ka,
         },

@@ -8,9 +8,9 @@ import { filter } from "lib";
 
 import Dropdown from "./Dropdown";
 import FilterToggle from "./FilterToggle";
-import * as Styled from "./Filter.styled";
+import * as Styled from "./styles/Filter.styled";
 
-function Filter() {
+export default function Filter() {
   const { t } = useTranslation();
 
   const { activeFilterDropdown, activateFilter } = useFilter();
@@ -68,5 +68,3 @@ function Filter() {
     </Styled.FilterContainer>
   );
 }
-
-export default Filter;

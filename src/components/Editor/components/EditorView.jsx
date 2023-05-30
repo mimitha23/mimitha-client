@@ -1,6 +1,6 @@
 import * as Styled from "./styles/EditorView.styled";
 
-function EditorView(props) {
+export default function EditorView() {
   return (
     <Styled.EditorViewContainer>
       <figure className="editor-fig">
@@ -9,5 +9,3 @@ function EditorView(props) {
     </Styled.EditorViewContainer>
   );
 }
-
-export default EditorView;

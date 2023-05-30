@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import * as Styled from "./styles/EditorActions.styled";
 import EditorActionDropdown from "./EditorActionDropdown";
+import * as Styled from "./styles/EditorActions.styled";
 
-function EditorActions() {
+export default function EditorActions() {
   const { t } = useTranslation();
 
   const [activeDropdown, setActiveDropdown] = useState(false);
@@ -55,5 +55,3 @@ function EditorActions() {
     </Styled.EditorActionsContainer>
   );
 }
-
-export default EditorActions;

@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-function ExtraInformation() {
+export default function ExtraInformation() {
   const { t } = useTranslation();
 
   return (
@@ -14,5 +14,3 @@ function ExtraInformation() {
     </div>
   );
 }
-
-export default ExtraInformation;

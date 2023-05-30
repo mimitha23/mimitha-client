@@ -6,7 +6,7 @@ import CartItemDetailsControllProductAmount from "./CartItemDetailsControllProdu
 import { CloseXIcon } from "components/Layouts/Icons/index";
 import * as Styled from "./styles/CartItem.styled";
 
-function CartItem() {
+export default function CartItem() {
   const { t } = useTranslation();
   const [productAmount, setProductAmount] = useState(1);
 
@@ -63,5 +63,3 @@ function CartItem() {
     </Styled.CartItemContainer>
   );
 }
-
-export default CartItem;

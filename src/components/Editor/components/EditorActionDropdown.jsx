@@ -1,6 +1,6 @@
 import * as Styled from "./styles/EditorActionDropdown.styled";
 
-function EditorActionDropdown({
+export default function EditorActionDropdown({
   variantType,
   setActiveDropdown,
   activeDropdown,
@@ -36,5 +36,3 @@ function EditorActionDropdown({
     </Styled.EditorActionDropdownContainer>
   );
 }
-
-export default EditorActionDropdown;

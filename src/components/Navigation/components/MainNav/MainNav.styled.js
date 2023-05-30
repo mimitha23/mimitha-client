@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CategoriesNavbar = styled.nav`
+export const MainNavList = styled.nav`
   width: min(100%, 84rem);
   height: 100%;
   color: ${({ theme }) => theme.colors.text};

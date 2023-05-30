@@ -6,7 +6,7 @@ import CartHeader from "./components/CartHeader";
 import { ModalWindow } from "components/Layouts/index";
 import * as Styled from "./Cart.styled";
 
-function Cart() {
+export default function Cart() {
   const [activeBankinModal, setActiveBankinModal] = useState(false);
   return (
     <Styled.CartContainer>
@@ -24,5 +24,3 @@ function Cart() {
     </Styled.CartContainer>
   );
 }
-
-export default Cart;

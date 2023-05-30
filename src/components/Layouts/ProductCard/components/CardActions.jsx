@@ -7,7 +7,7 @@ export default function CardActions() {
   return (
     <div className="product__edit-and--fit__box">
       <button className="edit-btn">
-        <Link to="/products/:productId/fit">რას უხდება ?</Link>
+        <Link to="/products/:productId/fit">{t("crossover.goes_on")}</Link>
       </button>
       <button className="edit-btn">
         <Link to="/products/:productId/edit">{t("crossover.edit")}</Link>

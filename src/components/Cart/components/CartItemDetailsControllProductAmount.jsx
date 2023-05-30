@@ -1,6 +1,6 @@
 import { MinusIcon, PlusIcon } from "components/Layouts/Icons/index";
 
-function CartItemDetailsControllProductAmount({
+export default function CartItemDetailsControllProductAmount({
   productAmount,
   handleProductAmount,
 }) {
@@ -27,5 +27,3 @@ function CartItemDetailsControllProductAmount({
     </div>
   );
 }
-
-export default CartItemDetailsControllProductAmount;
