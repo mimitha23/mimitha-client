@@ -15,23 +15,29 @@ export const MainNavList = styled.nav`
     background: ${({ theme }) => theme.colors.bg};
     text-transform: uppercase;
 
-    li {
+    &-item {
       height: 100%;
       border-right: 2px solid ${({ theme }) => theme.colors.text};
+      position: relative;
 
-      a {
+      &--caption-box {
         width: 100%;
         height: 100%;
         padding: 0 2rem 0 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
         transition: all 0.2s ease-in;
 
-        :hover {
-          background-color: ${({ theme }) => theme.colors.text};
-          color: ${({ theme }) => theme.colors.bg};
+        &__icon {
+          display: none;
         }
+      }
+
+      &.active-item .categories-nav__list-item--caption-box {
+        background-color: ${({ theme }) => theme.colors.text};
+        color: ${({ theme }) => theme.colors.bg};
       }
 
       :first-child {
@@ -91,7 +97,7 @@ export const MainNavList = styled.nav`
       flex-direction: column;
       align-items: flex-start;
       gap: 0.5rem;
-      width: 30rem;
+      width: 36rem;
       height: 0;
       overflow: hidden;
       opacity: 0;
@@ -99,19 +105,32 @@ export const MainNavList = styled.nav`
       pointer-events: none;
       box-shadow: 1rem 0 0.5rem ${({ theme }) => theme.colors.black_tr_05};
 
-      li,
-      li:first-child,
-      li:last-child {
+      &-item,
+      &-item:first-child,
+      &-item:last-child {
         border: none;
       }
 
-      li {
+      &-item {
         height: auto;
         width: 100%;
 
-        a {
+        &--caption-box {
+          height: max-content;
           padding: 2rem;
           justify-content: flex-start;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          &__icon {
+            display: block;
+            line-height: 1;
+          }
+
+          &__icon svg {
+            font-size: 2.5rem;
+          }
         }
       }
     }

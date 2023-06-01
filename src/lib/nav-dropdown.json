@@ -1,0 +1,394 @@
+{
+  "nav": [
+    {
+      "title": {
+        "ka": "",
+        "en": ""
+      },
+      "routes": [
+        {
+          "label": {
+            "ka": "ფასდაკლება",
+            "en": "sale"
+          },
+          "query": ""
+        }
+      ]
+    },
+    {
+      "title": {
+        "ka": "",
+        "en": ""
+      },
+      "routes": [
+        {
+          "label": {
+            "ka": "ყველაზე პოპულარული",
+            "en": "the most popular"
+          },
+          "query": ""
+        }
+      ]
+    },
+    {
+      "title": {
+        "ka": "ტოპი",
+        "en": "top"
+      },
+      "routes": [
+        {
+          "label": {
+            "ka": "შემოსაცმელი",
+            "en": "to wear"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ჟილეტი",
+            "en": "gilet"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "პალტო",
+            "en": "coat"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ჟაკეტი",
+            "en": "jacket"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "პულოვერი",
+            "en": "pullover"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "მაისური",
+            "en": "t-shirt"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "პოლო",
+            "en": "polo"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "პერანგი",
+            "en": "shirt"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ჰუდი",
+            "en": "hood"
+          },
+          "query": ""
+        }
+      ]
+    },
+    {
+      "title": {
+        "ka": "ბოთომი",
+        "en": "bottom"
+      },
+      "routes": [
+        {
+          "label": {
+            "ka": "ნაჭრის შარვალი",
+            "en": "fabric trousers"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "სპორტული შარვალი",
+            "en": "sport trousers"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "კარგო შარვალი",
+            "en": "cargo trousers"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ჯინსის შარვალი",
+            "en": "jeans"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ვილვეტის შარვალი",
+            "en": "velvet trousers"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ჩაჩები",
+            "en": "chachi"
+          },
+          "query": ""
+        }
+      ]
+    },
+    {
+      "title": {
+        "ka": "ჩანთები",
+        "en": "bags"
+      },
+      "routes": [
+        {
+          "label": {
+            "ka": "წელის ჩანთა",
+            "en": "waist bag"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ხელჩანთა",
+            "en": "handbag"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "რუგზაკი",
+            "en": "backpack"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "მესენჯერი",
+            "en": "messenger"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "კლასიკური",
+            "en": "classic"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ყოველდღიური",
+            "en": "everyday"
+          },
+          "query": ""
+        }
+      ]
+    },
+    {
+      "title": {
+        "ka": "საცვლები",
+        "en": "pants"
+      },
+      "routes": [
+        {
+          "label": {
+            "ka": "თბილი წინდები",
+            "en": "warm socks"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "სტანდარტული წინდები",
+            "en": "regullar socks"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "კლასიკური წინდები",
+            "en": "classic socks"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "დაბალყელიანი წინდები",
+            "en": "short socks"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "მაღალყელიანი წინდები",
+            "en": "long socks"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "შიდა მაისური მკლავებით",
+            "en": "undershirt with sleeves"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "შიდა მაისური მკლავების გარეშე",
+            "en": "Undershirt without sleeves"
+          },
+          "query": ""
+        }
+      ]
+    },
+    {
+      "title": {
+        "ka": "აქსესუარები",
+        "en": ""
+      },
+      "routes": [
+        {
+          "label": {
+            "ka": "სამკაულები",
+            "en": "accessories"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "აჭიმები",
+            "en": "stretch"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "სათვალე",
+            "en": "glasses"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ქამარი",
+            "en": "belt"
+          },
+          "query": ""
+        }
+      ]
+    },
+    {
+      "title": {
+        "ka": "კომბინაცია",
+        "en": "combo"
+      },
+      "routes": [
+        {
+          "label": {
+            "ka": "სპორტული ორეული",
+            "en": "sports double"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ნაჭრის კლასიკური ორეული",
+            "en": "fabric classic double"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ჟილეტი და სპორტული",
+            "en": "gilet and sportwear"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ტოპი და ხელჩანთა",
+            "en": "top and bag"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ბოთომი და ხელჩანთა",
+            "en": "bottom and bag"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "პოლო და ნაჭრის შარვალი",
+            "en": "polo and fabtic trousers"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "პერანგი და ნაჭრის შარვალი",
+            "en": "t-shirt and fabric trousers"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "შემოსაცმელი და შარვალი",
+            "en": "to wear and trousers"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ტოპი და წელის ჩანთა",
+            "en": "top and waist bag"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ბოთომი და წელის ჩანთა",
+            "en": "bottom and waist bag"
+          },
+          "query": ""
+        },
+        {
+          "label": {
+            "ka": "ქამარი და წელის ჩანთა",
+            "en": "belt and waist bag"
+          },
+          "query": ""
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "media": "/assets/products/hood-black.webp"
+    },
+    {
+      "media": "/assets/products/hood-green.webp"
+    },
+    {
+      "media": "/assets/products/hood-red.webp"
+    }
+  ]
+}
