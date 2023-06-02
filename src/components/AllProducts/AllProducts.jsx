@@ -1,11 +1,17 @@
+import {
+  ContainerFull,
+  ProductCard,
+  Filter,
+  Path,
+} from "components/Layouts/index";
 import * as Styled from "./AllProducts.styled";
-import { ContainerFull, ProductCard, Filter } from "components/Layouts";
 
 export default function AllProducts() {
   return (
     <Styled.AllProductsContainer>
       <ContainerFull className="wrapper-container">
         <div className="filter-box__wrapper">
+          <Path />
           <div className="filter-box">
             <Filter />
           </div>

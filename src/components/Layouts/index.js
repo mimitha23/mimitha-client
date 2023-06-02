@@ -5,3 +5,4 @@ export { default as MultipleSlider } from "./MultipleSlider/MultipleSlider";
 export { default as ModalWindow } from "./ModalWindow/ModalWindow";
 export { default as ContainerFull } from "./ContainerFull/ContainerFull";
 export { default as Filter } from "./Filter/Filter";
+export { default as Path } from "./Path/Path";

@@ -9,12 +9,16 @@ export const AllProductsContainer = styled.div`
   }
 
   .filter-box__wrapper {
+    width: 100%;
     position: sticky;
     top: ${({ theme }) => theme.app.nav_h};
-    transition: all 0.2s linear;
-    padding: 3rem;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 3rem 2rem 3rem;
     background: ${({ theme }) => theme.colors.bg};
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+    transition: all 0.2s linear;
   }
 
   .filter-box {
@@ -37,7 +41,7 @@ export const AllProductsContainer = styled.div`
   }
 
   .products-list {
-    margin-top: 1rem;
+    margin-top: 4rem;
     padding: 0 3rem 3rem;
     display: grid;
     gap: 6rem 4rem;
