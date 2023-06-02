@@ -6,10 +6,10 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { store, persistore } from "./store";
-import I18nextProvier from "I18nextProvider";
+import AppThemeProvider from "Providers/Theme";
+import I18nextProvier from "Providers/I18nextProvider";
 
 import App from "./App";
-import AppThemeProvider from "./Theme";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import { useThemeContext } from "Theme";
+import { useThemeContext } from "Providers/Theme";
 
 export default function useHideNavOnScroll() {
   let { changeNavHeight } = useThemeContext();

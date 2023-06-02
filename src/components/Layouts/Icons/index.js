@@ -9,6 +9,7 @@ import { AiOutlineMinus, AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
 import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos,
+  MdOutlineKeyboardArrowDown,
   MdOutlineWbSunny,
   MdOutlineFilterListOff,
   MdOutlineFilterList,
@@ -25,6 +26,7 @@ import {
 
 const ArrowLeftIcon = MdOutlineArrowBackIosNew;
 const ArrowRightIcon = MdOutlineArrowForwardIos;
+const ArrowBottomIcon = MdOutlineKeyboardArrowDown;
 const BagIcon = BsFillHandbagFill;
 const BurgerIcon = GiHamburgerMenu;
 const CloseXIcon = AiOutlineClose;
@@ -44,6 +46,7 @@ const ShoppingCartIcon = FaShoppingCart;
 export {
   ArrowLeftIcon,
   ArrowRightIcon,
+  ArrowBottomIcon,
   BagIcon,
   BurgerIcon,
   CloseXIcon,
