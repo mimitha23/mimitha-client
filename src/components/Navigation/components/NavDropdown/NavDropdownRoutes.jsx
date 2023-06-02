@@ -1,10 +1,10 @@
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
-import { useTranslationContext } from "I18nextProvider";
+import { useTranslationContext } from "Providers/I18nextProvider.js";
 
 import * as Styled from "./NavDropdown.styled";
 
-export default function NavDropdownRoutes({ routesLength, nav }) {
+export default function NavDropdownRoutes({ nav, activeDropDown }) {
   const { currentLocale } = useTranslationContext();
 
   return (
@@ -26,7 +26,15 @@ export default function NavDropdownRoutes({ routesLength, nav }) {
           <ul className="dropdown-nav__routes-list">
             {block.routes.map((route) => (
               <li key={uuid()} className="dropdown-nav__routes-list--item">
-                <Link to="">{route.label[currentLocale]}</Link>
+                <Link
+                  to="/products"
+                  state={{
+                    search_for: activeDropDown,
+                    query: route.query,
+                  }}
+                >
+                  {route.label[currentLocale]}
+                </Link>
               </li>
             ))}
           </ul>

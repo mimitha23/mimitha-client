@@ -3,7 +3,7 @@ import NavDropdownRoutes from "./NavDropdownRoutes";
 import NavDropdownProducts from "./NavDropdownProducts";
 import * as Styled from "./NavDropdown.styled";
 
-export default function NavDropdown() {
+export default function NavDropdown({ activeDropDown }) {
   return (
     <Styled.NavDropdown className="active-modal nav-dropdown--backdrop">
       <div
@@ -11,7 +11,10 @@ export default function NavDropdown() {
         onClick={(e) => e.stopPropagation()}
         onMouseOver={(e) => e.stopPropagation()}
       >
-        <NavDropdownRoutes nav={navDropdownData.nav} />
+        <NavDropdownRoutes
+          nav={navDropdownData.nav}
+          activeDropDown={activeDropDown}
+        />
 
         <NavDropdownProducts products={navDropdownData.products} />
       </div>

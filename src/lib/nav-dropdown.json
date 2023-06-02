@@ -11,7 +11,7 @@
             "ka": "ფასდაკლება",
             "en": "sale"
           },
-          "query": ""
+          "query": "sale"
         }
       ]
     },
@@ -26,7 +26,7 @@
             "ka": "ყველაზე პოპულარული",
             "en": "the most popular"
           },
-          "query": ""
+          "query": "popular"
         }
       ]
     },
@@ -41,63 +41,63 @@
             "ka": "შემოსაცმელი",
             "en": "to wear"
           },
-          "query": ""
+          "query": "wear"
         },
         {
           "label": {
             "ka": "ჟილეტი",
             "en": "gilet"
           },
-          "query": ""
+          "query": "gilet"
         },
         {
           "label": {
             "ka": "პალტო",
             "en": "coat"
           },
-          "query": ""
+          "query": "coat"
         },
         {
           "label": {
             "ka": "ჟაკეტი",
             "en": "jacket"
           },
-          "query": ""
+          "query": "jacket"
         },
         {
           "label": {
             "ka": "პულოვერი",
             "en": "pullover"
           },
-          "query": ""
+          "query": "pullover"
         },
         {
           "label": {
             "ka": "მაისური",
             "en": "t-shirt"
           },
-          "query": ""
+          "query": "t-shirt"
         },
         {
           "label": {
             "ka": "პოლო",
             "en": "polo"
           },
-          "query": ""
+          "query": "polo"
         },
         {
           "label": {
             "ka": "პერანგი",
             "en": "shirt"
           },
-          "query": ""
+          "query": "shirt"
         },
         {
           "label": {
             "ka": "ჰუდი",
             "en": "hood"
           },
-          "query": ""
+          "query": "hood"
         }
       ]
     },
@@ -112,42 +112,42 @@
             "ka": "ნაჭრის შარვალი",
             "en": "fabric trousers"
           },
-          "query": ""
+          "query": "fabric-trousers"
         },
         {
           "label": {
             "ka": "სპორტული შარვალი",
             "en": "sport trousers"
           },
-          "query": ""
+          "query": "sport-trousers"
         },
         {
           "label": {
             "ka": "კარგო შარვალი",
             "en": "cargo trousers"
           },
-          "query": ""
+          "query": "cargo-trousers"
         },
         {
           "label": {
             "ka": "ჯინსის შარვალი",
             "en": "jeans"
           },
-          "query": ""
+          "query": "jeans"
         },
         {
           "label": {
             "ka": "ვილვეტის შარვალი",
             "en": "velvet trousers"
           },
-          "query": ""
+          "query": "velvet-trousers"
         },
         {
           "label": {
             "ka": "ჩაჩები",
             "en": "chachi"
           },
-          "query": ""
+          "query": "chachi"
         }
       ]
     },
@@ -162,42 +162,42 @@
             "ka": "წელის ჩანთა",
             "en": "waist bag"
           },
-          "query": ""
+          "query": "waist-bag"
         },
         {
           "label": {
             "ka": "ხელჩანთა",
             "en": "handbag"
           },
-          "query": ""
+          "query": "handbag"
         },
         {
           "label": {
             "ka": "რუგზაკი",
             "en": "backpack"
           },
-          "query": ""
+          "query": "backpack"
         },
         {
           "label": {
             "ka": "მესენჯერი",
             "en": "messenger"
           },
-          "query": ""
+          "query": "messenger"
         },
         {
           "label": {
             "ka": "კლასიკური",
             "en": "classic"
           },
-          "query": ""
+          "query": "classic"
         },
         {
           "label": {
             "ka": "ყოველდღიური",
             "en": "everyday"
           },
-          "query": ""
+          "query": "everyday"
         }
       ]
     },
@@ -212,49 +212,49 @@
             "ka": "თბილი წინდები",
             "en": "warm socks"
           },
-          "query": ""
+          "query": "warm-socks"
         },
         {
           "label": {
             "ka": "სტანდარტული წინდები",
             "en": "regullar socks"
           },
-          "query": ""
+          "query": "regullar-socks"
         },
         {
           "label": {
             "ka": "კლასიკური წინდები",
             "en": "classic socks"
           },
-          "query": ""
+          "query": "classic-socks"
         },
         {
           "label": {
             "ka": "დაბალყელიანი წინდები",
             "en": "short socks"
           },
-          "query": ""
+          "query": "short-socks"
         },
         {
           "label": {
             "ka": "მაღალყელიანი წინდები",
             "en": "long socks"
           },
-          "query": ""
+          "query": "long-socks"
         },
         {
           "label": {
             "ka": "შიდა მაისური მკლავებით",
             "en": "undershirt with sleeves"
           },
-          "query": ""
+          "query": "undershirt-with-sleeves"
         },
         {
           "label": {
             "ka": "შიდა მაისური მკლავების გარეშე",
             "en": "Undershirt without sleeves"
           },
-          "query": ""
+          "query": "undershirt-without-sleeves"
         }
       ]
     },
@@ -269,28 +269,28 @@
             "ka": "სამკაულები",
             "en": "accessories"
           },
-          "query": ""
+          "query": "accessories"
         },
         {
           "label": {
             "ka": "აჭიმები",
             "en": "stretch"
           },
-          "query": ""
+          "query": "stretch"
         },
         {
           "label": {
             "ka": "სათვალე",
             "en": "glasses"
           },
-          "query": ""
+          "query": "glasses"
         },
         {
           "label": {
             "ka": "ქამარი",
             "en": "belt"
           },
-          "query": ""
+          "query": "belt"
         }
       ]
     },
@@ -305,77 +305,77 @@
             "ka": "სპორტული ორეული",
             "en": "sports double"
           },
-          "query": ""
+          "query": "sports,double"
         },
         {
           "label": {
             "ka": "ნაჭრის კლასიკური ორეული",
             "en": "fabric classic double"
           },
-          "query": ""
+          "query": "fabric,double"
         },
         {
           "label": {
             "ka": "ჟილეტი და სპორტული",
             "en": "gilet and sportwear"
           },
-          "query": ""
+          "query": "gilet,sportwear"
         },
         {
           "label": {
             "ka": "ტოპი და ხელჩანთა",
             "en": "top and bag"
           },
-          "query": ""
+          "query": "top,bag"
         },
         {
           "label": {
             "ka": "ბოთომი და ხელჩანთა",
             "en": "bottom and bag"
           },
-          "query": ""
+          "query": "bottom,bag"
         },
         {
           "label": {
             "ka": "პოლო და ნაჭრის შარვალი",
-            "en": "polo and fabtic trousers"
+            "en": "polo and fabric trousers"
           },
-          "query": ""
+          "query": "polo,fabric-trousers"
         },
         {
           "label": {
             "ka": "პერანგი და ნაჭრის შარვალი",
             "en": "t-shirt and fabric trousers"
           },
-          "query": ""
+          "query": "t-shirt,fabric-trousers"
         },
         {
           "label": {
             "ka": "შემოსაცმელი და შარვალი",
             "en": "to wear and trousers"
           },
-          "query": ""
+          "query": "tp-wear,trousers"
         },
         {
           "label": {
             "ka": "ტოპი და წელის ჩანთა",
             "en": "top and waist bag"
           },
-          "query": ""
+          "query": "top,waist-bag"
         },
         {
           "label": {
             "ka": "ბოთომი და წელის ჩანთა",
             "en": "bottom and waist bag"
           },
-          "query": ""
+          "query": "bottom,waist-bag"
         },
         {
           "label": {
             "ka": "ქამარი და წელის ჩანთა",
             "en": "belt and waist bag"
           },
-          "query": ""
+          "query": "belt,waist-bag"
         }
       ]
     }
