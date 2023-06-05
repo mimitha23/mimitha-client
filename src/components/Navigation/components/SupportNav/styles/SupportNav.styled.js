@@ -17,6 +17,7 @@ const animateHideSupportNav = keyframes`
 
 export const SupportNav = styled.div`
   align-self: flex-end;
+  padding-top: 1rem;
   margin-bottom: auto;
   width: max-content;
   display: flex;
