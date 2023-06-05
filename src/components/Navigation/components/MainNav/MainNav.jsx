@@ -1,35 +1,36 @@
 import { v4 as uuid } from "uuid";
 
 import { MAIN_NAV_ROUTES } from "config/consts";
-import useWindowDimention from "hooks/domBase/useWindowDimention";
+import { useNavigationDropdown } from "hooks/layoutBase/index";
 
 import NavDropdown from "../NavDropdown/NavDropdown";
 import MainNavRouteCaption from "./MainNavRouteCaption";
 import * as Styled from "./MainNav.styled";
 
-export default function MainNav({
-  activeBurgerNav,
-  onBurgerClose,
-  activeDropDown,
-  setActiveDropDown,
-}) {
-  const { width } = useWindowDimention();
-
-  const handleNavDropdownOnClick = (e, route) => {
-    setActiveDropDown((prev) => (prev === route ? "" : route));
-
-    const listEl = document.querySelector(".categories-nav__list");
-    listEl.scrollTop = 0;
-  };
+export default function MainNav({ onBurgerClose, activeBurgerNav }) {
+  const {
+    width,
+    handleNavDropdownOnMouseOver,
+    handleNavDropdownOnMouseLeave,
+    handleNavDropdownOnClick,
+    activeDropDown,
+  } = useNavigationDropdown({ activeBurgerNav });
 
   return (
     <Styled.MainNavList
       onClick={onBurgerClose}
-      className={`${
-        typeof activeBurgerNav === "boolean" ? "burger-nav" : "main-nav--list"
-      } ${activeBurgerNav ? "active-burger--nav active-modal" : ""}`}
+      className={`${typeof activeBurgerNav === "boolean" ? "burger-nav" : ""} ${
+        activeBurgerNav ? "active-burger--nav active-modal" : ""
+      }`}
     >
-      <ul className="categories-nav__list" onClick={(e) => e.stopPropagation()}>
+      <ul
+        className="categories-nav__list"
+        onClick={(e) => e.stopPropagation()}
+        {...(width > 1280 && {
+          onMouseOver: handleNavDropdownOnMouseOver,
+          onMouseLeave: handleNavDropdownOnMouseLeave,
+        })}
+      >
         {MAIN_NAV_ROUTES.map((route) => (
           <li
             key={uuid()}

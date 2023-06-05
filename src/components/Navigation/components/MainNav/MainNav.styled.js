@@ -14,6 +14,7 @@ export const MainNavList = styled.nav`
     font-weight: 500;
     background: ${({ theme }) => theme.colors.bg};
     text-transform: uppercase;
+    padding-bottom: 1rem;
 
     &-item {
       height: 100%;
@@ -32,6 +33,11 @@ export const MainNavList = styled.nav`
 
         &__icon {
           display: none;
+        }
+
+        :hover {
+          background: ${({ theme }) => theme.colors.text};
+          color: ${({ theme }) => theme.colors.bg};
         }
       }
 

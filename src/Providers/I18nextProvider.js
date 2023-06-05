@@ -25,6 +25,7 @@ export default function I18nextProvier({ children }) {
       setCurrentLocale(i18next.language);
     }
   }, []);
+
   return (
     <i18nextContext.Provider value={{ changeLocale, currentLocale }}>
       {children}

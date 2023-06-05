@@ -9,7 +9,11 @@ import {
   ProductFooter,
   RelatedProducts,
 } from "./components";
-import { EditorFitButtons, ContainerFull } from "components/Layouts";
+import {
+  EditorFitButtons,
+  ContainerFull,
+  Path,
+} from "components/Layouts/index";
 import * as Styled from "./ActiveProduct.styled";
 
 export default function ActiveProduct() {
@@ -18,6 +22,8 @@ export default function ActiveProduct() {
   return (
     <ContainerFull>
       <Styled.ActiveProductContainer>
+        <Path />
+
         <div className="active-product__fit-buttons--box">
           <EditorFitButtons
             activeFit={activeFit}
