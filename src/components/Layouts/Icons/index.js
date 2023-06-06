@@ -13,6 +13,8 @@ import {
   MdOutlineWbSunny,
   MdOutlineFilterListOff,
   MdOutlineFilterList,
+  MdOpenWith,
+  MdOpenInNew,
 } from "react-icons/md";
 
 import {
@@ -38,6 +40,8 @@ const FilterOffIcon = MdOutlineFilterListOff;
 const InstagramIcon = FaInstagram;
 const MoonIcon = FaMoon;
 const MinusIcon = AiOutlineMinus;
+const OpenIcon = MdOpenWith;
+const OpenInNewIcon = MdOpenInNew;
 const PlusIcon = AiOutlinePlus;
 const SearchIcon = BiSearchAlt;
 const SunIcon = MdOutlineWbSunny;
@@ -58,6 +62,8 @@ export {
   InstagramIcon,
   MoonIcon,
   MinusIcon,
+  OpenIcon,
+  OpenInNewIcon,
   PlusIcon,
   SearchIcon,
   SunIcon,

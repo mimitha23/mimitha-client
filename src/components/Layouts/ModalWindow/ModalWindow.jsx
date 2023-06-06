@@ -15,9 +15,11 @@ export default function ModalWindow({
         onClick={closeModal}
       >
         <div className="content-box" onClick={(e) => e.stopPropagation()}>
-          <button className="close-modal__btn" onClick={closeModal}>
-            <CloseXIcon />
-          </button>
+          <div className="close-modal__btn-box">
+            <button className="close-modal__btn" onClick={closeModal}>
+              <CloseXIcon />
+            </button>
+          </div>
           {children}
         </div>
       </Styled.ModalWindowContainer>

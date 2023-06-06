@@ -1,4 +1,4 @@
-import { useTranslationContext } from "Providers/I18nextProvider.js";
+import { useTranslationContext } from "providers/I18nextProvider";
 
 import * as Styled from "./styles/LanguageSwitch";
 

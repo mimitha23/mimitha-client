@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
 
-import { useTranslationContext } from "Providers/I18nextProvider.js";
+import { useTranslationContext } from "providers/I18nextProvider";
 import { useLocationState } from "hooks/utils/index";
 
 import * as Styled from "./NavDropdown.styled";

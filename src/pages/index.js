@@ -4,3 +4,4 @@ export { default as EditorPage } from "./EditorPage/EditorPage";
 export { default as ProductFitPage } from "./ProductFitPage/ProductFitPage";
 export { default as AllProductsPage } from "./AllProductsPage/AllProductsPage";
 export { default as CartPage } from "./Cart/CartPage";
+export { default as GalleryPage } from "./GalleryPage/GalleryPage";

@@ -8,12 +8,14 @@ import {
   ProductFitPage,
   AllProductsPage,
   CartPage,
-} from "pages";
+  GalleryPage,
+} from "pages/index";
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/products" element={<AllProductsPage />} />
       <Route path="/products/:productId" element={<ActiveProductPage />} />

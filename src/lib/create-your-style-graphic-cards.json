@@ -1,0 +1,47 @@
+[
+  {
+    "src": "/assets/graphic-cards/bag.webp",
+    "route": "/products/:productId/edit",
+    "title": "bag"
+  },
+  {
+    "src": "/assets/graphic-cards/belt.webp",
+    "route": "/products/:productId/edit",
+    "title": "belt"
+  },
+  {
+    "src": "/assets/graphic-cards/coat.webp",
+    "route": "/products/:productId/edit",
+    "title": "coat"
+  },
+  {
+    "src": "/assets/graphic-cards/glasses.webp",
+    "route": "/products/:productId/edit",
+    "title": "glasses"
+  },
+  {
+    "src": "/assets/graphic-cards/hoody.webp",
+    "route": "/products/:productId/edit",
+    "title": "hoody"
+  },
+  {
+    "src": "/assets/graphic-cards/jacket.webp",
+    "route": "/products/:productId/edit",
+    "title": "jacket"
+  },
+  {
+    "src": "/assets/graphic-cards/polo.webp",
+    "route": "/products/:productId/edit",
+    "title": "polo"
+  },
+  {
+    "src": "/assets/graphic-cards/trousers.webp",
+    "route": "/products/:productId/edit",
+    "title": "trousers"
+  },
+  {
+    "src": "/assets/graphic-cards/t-shirt.webp",
+    "route": "/products/:productId/edit",
+    "title": "t-shirt"
+  }
+]

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import { useLocationState } from "hooks/utils/index";
-import { useTranslationContext } from "Providers/I18nextProvider";
+import { useTranslationContext } from "providers/I18nextProvider";
 
 import * as Styled from "./Path.styled";
 

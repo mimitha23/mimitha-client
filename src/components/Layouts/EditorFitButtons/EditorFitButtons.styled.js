@@ -19,7 +19,7 @@ export const EditorFitButtonsContainer = styled.div`
     min-height: 5rem;
     max-width: 50rem;
     max-height: 90vh;
-    padding-top: 3.5rem;
+    padding-top: 1rem;
 
     &--fig {
       width: 100%;
