@@ -1,65 +1,49 @@
-import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import FigActions from "./FigActions";
-import * as Styled from "./styles/SliderModal.styled";
-import { ArrowLeftIcon, ArrowRightIcon } from "components/Layouts/Icons/index";
+import {
+  setGallerySliderActiveImageIndex,
+  closeGallerySlider,
+} from "store/reducers/gallerySlice";
+import { selectGalleryState } from "store/selectors/gallerySelector";
+
 import { ModalWindow } from "components/Layouts/index";
 
-export default function SliderModal({ gallery, openImage, setOpenImage }) {
-  const [activeImageIndex, setActiveImageIndex] = useState(NaN);
+import FigActions from "./FigActions";
+import SliderButtons from "./SliderButtons";
+import * as Styled from "./styles/SliderModal.styled";
 
-  function handleSlider(index) {
-    if (index < 0) {
-      setActiveImageIndex(gallery.length - 1);
-    } else if (index > gallery.length - 1) {
-      setActiveImageIndex(0);
-    } else {
-      setActiveImageIndex(index);
-    }
-  }
+export default function SliderModal() {
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!openImage) return setActiveImageIndex(NaN);
-    const activeIndex = gallery.findIndex((item) => item.img === openImage);
-    if (activeIndex >= 0) setActiveImageIndex(activeIndex);
-  }, [openImage, gallery]);
+  const { galleryModalIsActive, activeImageIndex, activeImage } =
+    useSelector(selectGalleryState);
+
+  const handleSlider = (index) =>
+    dispatch(setGallerySliderActiveImageIndex(index));
 
   return (
     <ModalWindow
-      activeModal={openImage !== "" ? true : false}
-      closeModal={() => setOpenImage("")}
+      activeModal={galleryModalIsActive}
+      closeModal={() => dispatch(closeGallerySlider())}
     >
       <Styled.SliderModal>
-        <figure className="gallery-modal__fig">
-          {gallery.map((item, itemIndex) => (
-            <img
-              className={`gallery-modal__img ${
-                itemIndex === activeImageIndex
-                  ? "gallery-modal__img-active"
-                  : "gallery-modal__img-inactive"
-              }`}
-              src={item.img}
-              alt={item.img}
-              key={`gallery-slider--${item.productId}`}
-            />
-          ))}
+        <div className="gallery-modal__fig-box">
           <FigActions showOpenImageBtn={false} />
-        </figure>
-
-        <div className="gallery-modal__slider-btn--box">
-          <button
-            className="gallery-modal__slider-btn--box__btn"
-            onClick={() => handleSlider(activeImageIndex + 1)}
-          >
-            <ArrowLeftIcon />
-          </button>
-          <button
-            className="gallery-modal__slider-btn--box__btn"
-            onClick={() => handleSlider(activeImageIndex - 1)}
-          >
-            <ArrowRightIcon />
-          </button>
+          {activeImage && (
+            <figure className="gallery-modal__fig">
+              <img
+                className="gallery-modal__img"
+                src={activeImage.img}
+                alt={activeImage.img}
+              />
+            </figure>
+          )}
         </div>
+
+        <SliderButtons
+          activeImageIndex={activeImageIndex}
+          handleSlider={handleSlider}
+        />
       </Styled.SliderModal>
     </ModalWindow>
   );

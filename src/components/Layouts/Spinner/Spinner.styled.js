@@ -14,6 +14,7 @@ export const Spinner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5rem;
 
   .spinner-box {
     display: block;

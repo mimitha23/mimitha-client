@@ -13,6 +13,12 @@ export const SliderModal = styled.div`
   border-radius: 0.5rem;
   background: ${({ theme }) => theme.gradients.backdrop_gradient};
 
+  .gallery-modal__fig-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
   .gallery-modal__fig {
     width: 100%;
     height: 100%;
@@ -20,7 +26,6 @@ export const SliderModal = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
   }
 
   .gallery-modal__img {
@@ -30,20 +35,6 @@ export const SliderModal = styled.div`
     object-fit: contain;
     position: absolute;
     pointer-events: none;
-
-    &-inactive {
-      opacity: 0;
-      /* transform: scale(0.85); */
-      /* transition: all 0.4s ease; */
-    }
-
-    &-active {
-      opacity: 1;
-      /* transform: scale(1); */
-      transition: opacity 0.6s ease;
-      /*
-      transition-delay: 0.2s; */
-    }
   }
 
   .gallery-modal__slider-btn--box {

@@ -1,39 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-import { gallery } from "lib/index";
+import { resetGallery } from "store/reducers/gallerySlice";
 import calcImageDimention from "functions/calcImageDimention";
 
-import FigActions from "./components/FigActions";
-import GalleryFig from "./components/GalleryFig";
 import SliderModal from "./components/SliderModal";
-import { Spinner } from "components/Layouts/index";
+import GalleryList from "./components/GalleryList";
 import * as Styled from "./Gallery.styled";
 
 export default function Gallery() {
-  const [openImage, setOpenImage] = useState("");
-  const [imagesAreLoaded, setImagesAreLoaded] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    calcImageDimention(() => setImagesAreLoaded(true));
-  }, []);
+    calcImageDimention();
+
+    return () => {
+      dispatch(resetGallery());
+    };
+  }, [dispatch]);
 
   return (
-    <Styled.Gallery className={imagesAreLoaded ? "loaded-content" : ""}>
-      {!imagesAreLoaded && <Spinner />}
-
-      <div className="gallery-list">
-        {gallery.map((item) => (
-          <GalleryFig key={item.productId} img={item.img}>
-            <FigActions setOpenImage={setOpenImage} img={item.img} />
-          </GalleryFig>
-        ))}
-      </div>
-
-      <SliderModal
-        gallery={gallery}
-        openImage={openImage}
-        setOpenImage={setOpenImage}
-      />
+    <Styled.Gallery>
+      <GalleryList />
+      <SliderModal />
     </Styled.Gallery>
   );
 }

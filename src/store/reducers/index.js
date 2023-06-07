@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 
 import editorReducer from "./editorSlice";
 import filterReducer from "./filterSlice";
+import galleryReducer from "./gallerySlice";
 
 const persistedEditorReducer = persistReducer(
   { key: "editor", storage },
@@ -18,6 +19,7 @@ const persistedFilterReducer = persistReducer(
 const rootReducer = combineReducers({
   editor: persistedEditorReducer,
   filter: persistedFilterReducer,
+  gallery: galleryReducer,
 });
 
 export default rootReducer;

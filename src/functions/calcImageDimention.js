@@ -1,43 +1,39 @@
 function calcImageDimention(finishAlert) {
   const galleryImageFigures = Array.from(
-    document.querySelectorAll(".gallery-fig")
+    document.querySelectorAll(".gallery-list__item")
   );
 
   let imagesToLoad = galleryImageFigures.length;
 
-  galleryImageFigures[0] &&
-    galleryImageFigures.forEach((figure) => {
-      const imgNode = figure.querySelector("img");
+  function onIteation({ imgNode, figure }) {
+    imagesToLoad -= 1;
+    addClassname({ imgNode, figure });
 
-      if (imgNode.complete) imagesToLoad -= 1;
-      else {
-        imgNode.addEventListener("load", function (e) {
-          imagesToLoad -= 1;
-          if (imagesToLoad === 0) {
-            generateClassname(galleryImageFigures);
-            finishAlert();
-          }
-        });
-      }
+    if (finishAlert && imagesToLoad === 0) finishAlert();
+  }
 
-      if (imagesToLoad === 0) {
-        generateClassname(galleryImageFigures);
-        finishAlert();
-      }
-    });
+  if (!imagesToLoad) return;
+
+  galleryImageFigures.forEach((figure) => {
+    const imgNode = figure.querySelector("img");
+
+    if (imgNode.complete) onIteation({ imgNode, figure });
+    else
+      imgNode.addEventListener("load", function () {
+        onIteation({ imgNode, figure });
+      });
+  });
 }
 
 export default calcImageDimention;
 
-function generateClassname(figures) {
-  figures.forEach((figure) => {
-    const imgNode = figure.querySelector("img");
-    const { naturalWidth: width, naturalHeight: height } = imgNode;
+function addClassname({ imgNode, figure }) {
+  const { naturalWidth: width, naturalHeight: height } = imgNode;
+  figure.classList.add(generateClassname(width, height));
+}
 
-    if (height > width) figure.classList.add("gallery-img--portrate");
-    else if (width / height < 1.7)
-      figure.classList.add("gallery-img--landscape");
-    else if (width / height > 1.7)
-      figure.classList.add("gallery-img--landscapeLarge");
-  });
+function generateClassname(width, height) {
+  if (height > width) return "gallery-img--portrate";
+  else if (width / height < 1.7) return "gallery-img--landscape";
+  else if (width / height > 1.7) return "gallery-img--landscapeLarge";
 }
