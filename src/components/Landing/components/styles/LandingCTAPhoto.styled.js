@@ -43,6 +43,54 @@ export const LandingCTAPhoto = styled.div`
     }
   }
 
+  .graphic-cards__modal {
+    max-width: 80vw;
+    height: 40vw;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-auto-rows: 15rem;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+
+    .graphic-cards__link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 100%;
+      border: 1px solid ${({ theme }) => theme.colors.gray_shade};
+      padding: 1rem;
+    }
+
+    .graphic-cards__link {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      border-radius: 100%;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.25s ease;
+        transform: scale(0.85);
+      }
+
+      :hover {
+        img {
+          transform: scale(1);
+        }
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   @media (${({ theme }) => theme.media.tablet}) {
     height: 55vw;
 

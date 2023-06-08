@@ -32,6 +32,11 @@ export const ModalWindowContainer = styled.div`
     position: relative;
     ${animatePopUpAndScale};
 
+    .close-modal__btn-box {
+      width: 100%;
+      height: 3rem;
+    }
+
     .close-modal__btn {
       position: absolute;
       right: 0.75rem;

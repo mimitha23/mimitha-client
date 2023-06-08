@@ -6,8 +6,8 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { store, persistore } from "./store";
-import AppThemeProvider from "Providers/Theme";
-import I18nextProvier from "Providers/I18nextProvider";
+import AppThemeProvider from "providers/Theme";
+import I18nextProvier from "providers/I18nextProvider";
 
 import App from "./App";
 

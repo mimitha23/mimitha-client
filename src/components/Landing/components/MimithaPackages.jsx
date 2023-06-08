@@ -33,7 +33,7 @@ export default function MimithaPackages() {
         </Styled.PackageBox>
 
         <Styled.PackageBox position="top-left">
-          <Link to="/products">
+          <Link to="/gallery">
             <p>
               {t("landing.mimitha_packages.more_than_design.more")}{" "}
               <small>

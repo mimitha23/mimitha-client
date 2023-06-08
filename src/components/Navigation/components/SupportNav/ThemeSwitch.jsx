@@ -1,4 +1,4 @@
-import { useThemeContext } from "Providers/Theme.js";
+import { useThemeContext } from "providers/Theme";
 
 import { MoonIcon, SunIcon } from "components/Layouts/Icons/index";
 import * as Styled from "./styles/ThemeSwitch.styled";
