@@ -5,6 +5,7 @@ import {
   Path,
 } from "components/Layouts/index";
 import * as Styled from "./AllProducts.styled";
+import { developedProducts } from "lib";
 
 export default function AllProducts() {
   return (
@@ -18,11 +19,9 @@ export default function AllProducts() {
         </div>
 
         <div className="products-list">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
-            (product) => (
-              <ProductCard key={`product-card--${product}`} />
-            )
-          )}
+          {developedProducts.map((product) => (
+            <ProductCard key={`product-card--${product}`} product={product} />
+          ))}
         </div>
       </ContainerFull>
     </Styled.AllProductsContainer>

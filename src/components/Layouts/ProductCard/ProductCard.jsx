@@ -6,14 +6,26 @@ import {
 import * as Styled from "./ProductCard.styled";
 import { CardContent } from "./components/styles/CardContent.styled";
 
-export default function ProductCard({ cardType = "withActions" }) {
+export default function ProductCard({ cardType = "withActions", product }) {
   return (
     <Styled.ProductCard data-product-card>
-      <CardFig />
+      <CardFig
+        productId={product._id}
+        img={product.assets[0].imageSrc}
+        title={product.title}
+      />
 
       <CardContent cardType={cardType}>
-        {cardType === "withActions" && <CardContentWithActions />}
-        {cardType === "descriptive" && <CardContentDescriptive />}
+        {cardType === "withActions" && (
+          <CardContentWithActions title={product.title} price={product.price} />
+        )}
+        {cardType === "descriptive" && (
+          <CardContentDescriptive
+            title={product.title}
+            price={product.price}
+            soldout={product.soldout}
+          />
+        )}
       </CardContent>
     </Styled.ProductCard>
   );

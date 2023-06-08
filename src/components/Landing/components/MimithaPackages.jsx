@@ -27,7 +27,7 @@ export default function MimithaPackages() {
         </Styled.PackageBox>
 
         <Styled.PackageBox position="top-right">
-          <Link to="/products">
+          <Link to="/goes-on">
             <p>{t("landing.mimitha_packages.goes_well")}</p>
           </Link>
         </Styled.PackageBox>

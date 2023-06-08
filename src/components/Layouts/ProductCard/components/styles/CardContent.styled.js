@@ -8,7 +8,7 @@ export const CardContent = styled.div`
   grid-template: repeat(5, max-contnet) / repeat(2, 1fr);
   align-items: center;
   justify-content: space-between;
-  column-gap: 0.5rem;
+  gap: 0.5rem;
   padding: 0.5rem;
 
   .product-title {
@@ -16,6 +16,14 @@ export const CardContent = styled.div`
     grid-column: span 2;
     font-weight: 500;
     font-size: ${({ theme }) => theme.fontSize.lg};
+
+    .product-content__title-link {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-clamp: 1;
+      -webkit-line-clamp: 1;
+    }
   }
 
   .product-price {
@@ -31,6 +39,31 @@ export const CardContent = styled.div`
       font-weight: 700;
       font-size: ${({ theme }) => theme.fontSize.base};
     }
+  }
+
+  .valute-switch__box {
+    align-self: self-end;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    grid-row: 2;
+    grid-column: 2;
+
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0.25rem;
+      border: 1px solid ${({ theme }) => theme.colors.text};
+      border-radius: 0.25rem;
+    }
+  }
+
+  .product__sold-out {
+    grid-row: 3;
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
   }
 
   .add-to-cart__btn {
@@ -66,24 +99,6 @@ export const CardContent = styled.div`
     width: 100%;
     height: 2px;
     background: ${({ theme }) => theme.colors.text};
-  }
-
-  .valute-switch__box {
-    align-self: self-end;
-    justify-self: end;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    grid-row: 2;
-    grid-column: 2;
-
-    svg {
-      width: 2.5rem;
-      height: 2.5rem;
-      padding: 0.25rem;
-      border: 1px solid ${({ theme }) => theme.colors.text};
-      border-radius: 0.25rem;
-    }
   }
 
   .product-edit__and__fit-box {

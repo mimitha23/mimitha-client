@@ -2,6 +2,12 @@
   {
     "_id": "developed-product-1",
     "product": "product-1",
+    "title": {
+      "en": "hoody",
+      "ka": "ჰუდი"
+    },
+    "price": 30,
+    "soldout": 20,
     "variants": [
       "variant-0",
       "variant-3"
@@ -15,8 +21,8 @@
     ],
     "assets": [
       {
-        "color": "color-5",
-        "imageSrc": "/assets/products/hood-black.webp",
+        "color": "color-2",
+        "imageSrc": "/assets/products/hood-green.webp",
         "videoSrc": "video-src"
       },
       {
@@ -30,8 +36,8 @@
         "videoSrc": "video-src"
       },
       {
-        "color": "color-2",
-        "imageSrc": "/assets/products/hood-green.webp",
+        "color": "color-5",
+        "imageSrc": "/assets/products/hood-black.webp",
         "videoSrc": "video-src"
       },
       {
@@ -44,6 +50,12 @@
   {
     "_id": "developed-product-2",
     "product": "product-1",
+    "title": {
+      "en": "hoody with zipper and side pockets",
+      "ka": "ჰუდი ელვა შესაკრავით და გვედრდით ჯიბეებით"
+    },
+    "price": 35,
+    "soldout": 14,
     "variants": [
       "variant-1",
       "variant-3",
@@ -58,13 +70,13 @@
     ],
     "assets": [
       {
-        "color": "color-5",
-        "imageSrc": "/assets/products/hood-zipper-black.webp",
+        "color": "color-4",
+        "imageSrc": "/assets/products/hood-zipper-blue.webp",
         "videoSrc": "video-src"
       },
       {
-        "color": "color-4",
-        "imageSrc": "/assets/products/hood-zipper-blue.webp",
+        "color": "color-5",
+        "imageSrc": "/assets/products/hood-zipper-black.webp",
         "videoSrc": "video-src"
       },
       {
@@ -87,6 +99,12 @@
   {
     "_id": "developed-product-3",
     "product": "product-1",
+    "title": {
+      "en": "hoody with belly pocket",
+      "ka": "ჰოდუ მუცელზე საერთო ჯიბით"
+    },
+    "price": 50,
+    "soldout": 36,
     "variants": [
       "variant-3",
       "variant-2"
@@ -100,8 +118,8 @@
     ],
     "assets": [
       {
-        "color": "color-5",
-        "imageSrc": "/assets/products/hood-belly-pocket-black.webp",
+        "color": "color-1",
+        "imageSrc": "/assets/products/hood-belly-pocket-red.webp",
         "videoSrc": "video-src"
       },
       {
@@ -120,8 +138,8 @@
         "videoSrc": "video-src"
       },
       {
-        "color": "color-1",
-        "imageSrc": "/assets/products/hood-belly-pocket-red.webp",
+        "color": "color-5",
+        "imageSrc": "/assets/products/hood-belly-pocket-black.webp",
         "videoSrc": "video-src"
       }
     ]
@@ -129,6 +147,12 @@
   {
     "_id": "developed-product-4",
     "product": "product-1",
+    "title": {
+      "en": "sportwear hoody",
+      "ka": "სპორტული ჰუდი"
+    },
+    "price": 75,
+    "soldout": 8,
     "variants": [
       "variant-0",
       "variant-4"

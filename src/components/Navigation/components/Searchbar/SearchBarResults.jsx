@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import { ProductCard } from "components/Layouts/index";
 import * as Styled from "./styles/SearchBarResults.styled";
+import { developedProducts } from "lib";
 
 export default function SearchBarResults({ onSearchClose }) {
   return (
@@ -19,8 +20,9 @@ export default function SearchBarResults({ onSearchClose }) {
           className="search-bar__result-box__content-list"
           onClick={(e) => e.stopPropagation()}
         >
-          <ProductCard />
-          <ProductCard />
+          {developedProducts.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
         </div>
       </div>
     </Styled.SearchBarResults>
