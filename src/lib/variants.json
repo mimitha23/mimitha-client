@@ -28,24 +28,10 @@
     "description": "some desc"
   },
   {
-    "_id": "variant-4",
-    "variantType": "cuff",
-    "icon": "/assets/icons/cuff-2.png",
-    "label": "withot cuff",
-    "description": "some desc"
-  },
-  {
     "_id": "variant-5",
     "variantType": "zipper",
     "icon": "/assets/icons/zipper.png",
     "label": "with zipper",
-    "description": "some desc"
-  },
-  {
-    "_id": "variant-6",
-    "variantType": "zipper",
-    "icon": "/assets/icons/zipper-2.png",
-    "label": "without ziper",
     "description": "some desc"
   },
   {

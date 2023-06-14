@@ -1,195 +1,236 @@
 [
   {
-    "_id": "developed-product-1",
-    "product": "product-1",
+    "_id": "product-1",
+    "productType": "hood",
     "title": {
-      "en": "hoody",
-      "ka": "ჰუდი"
+      "en": "black hoody with belly pocket",
+      "ka": "შავი ჰუდი საერთო ჯიბით მუცელზე"
     },
     "price": 30,
     "soldout": 20,
+    "color": "color-5",
+    "assets": {
+      "images": [
+        "/assets/products/hood-belly-pocket-black.webp"
+      ],
+      "video": "video-src"
+    },
     "variants": [
-      "variant-0",
+      "variant-2",
       "variant-3"
     ],
-    "availableColors": [
-      "color-1",
-      "color-2",
-      "color-3",
-      "color-4",
-      "color-5"
-    ],
-    "assets": [
-      {
-        "color": "color-2",
-        "imageSrc": "/assets/products/hood-green.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-4",
-        "imageSrc": "/assets/products/hood-blue.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-3",
-        "imageSrc": "/assets/products/hood-yellow.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-5",
-        "imageSrc": "/assets/products/hood-black.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-1",
-        "imageSrc": "/assets/products/hood-red.webp",
-        "videoSrc": "video-src"
-      }
-    ]
+    "variantId": "variant-1"
   },
   {
-    "_id": "developed-product-2",
-    "product": "product-1",
+    "_id": "product-2",
+    "productType": "hood",
     "title": {
-      "en": "hoody with zipper and side pockets",
-      "ka": "ჰუდი ელვა შესაკრავით და გვედრდით ჯიბეებით"
+      "en": "blue hoody with belly pocket",
+      "ka": "ლურჯი ჰუდი საერთო ჯიბით მუცელზე"
     },
-    "price": 35,
-    "soldout": 14,
+    "price": 30,
+    "soldout": 20,
+    "color": "color-4",
+    "assets": {
+      "images": [
+        "/assets/products/hood-belly-pocket-blue.webp"
+      ],
+      "video": "video-src"
+    },
     "variants": [
-      "variant-1",
-      "variant-3",
-      "variant-5"
+      "variant-2",
+      "variant-3"
     ],
-    "availableColors": [
-      "color-1",
-      "color-2",
-      "color-3",
-      "color-4",
-      "color-5"
-    ],
-    "assets": [
-      {
-        "color": "color-4",
-        "imageSrc": "/assets/products/hood-zipper-blue.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-5",
-        "imageSrc": "/assets/products/hood-zipper-black.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-3",
-        "imageSrc": "/assets/products/hood-zipper-yellow.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-2",
-        "imageSrc": "/assets/products/hood-zipper-green.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-1",
-        "imageSrc": "/assets/products/hood-zipper-red.webp",
-        "videoSrc": "video-src"
-      }
-    ]
+    "variantId": "variant-1"
   },
   {
-    "_id": "developed-product-3",
-    "product": "product-1",
+    "_id": "product-3",
+    "productType": "hood",
     "title": {
-      "en": "hoody with belly pocket",
-      "ka": "ჰოდუ მუცელზე საერთო ჯიბით"
+      "en": "green hoody with belly pocket",
+      "ka": "მწვანე ჰუდი საერთო ჯიბით მუცელზე"
     },
-    "price": 50,
-    "soldout": 36,
+    "price": 30,
+    "soldout": 20,
+    "color": "color-2",
+    "assets": {
+      "images": [
+        "/assets/products/hood-belly-pocket-green.webp"
+      ],
+      "video": "video-src"
+    },
     "variants": [
-      "variant-3",
-      "variant-2"
+      "variant-2",
+      "variant-3"
     ],
-    "availableColors": [
-      "color-1",
-      "color-2",
-      "color-3",
-      "color-4",
-      "color-5"
-    ],
-    "assets": [
-      {
-        "color": "color-1",
-        "imageSrc": "/assets/products/hood-belly-pocket-red.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-4",
-        "imageSrc": "/assets/products/hood-belly-pocket-blue.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-3",
-        "imageSrc": "/assets/products/hood-belly-pocket-yellow.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-2",
-        "imageSrc": "/assets/products/hood-belly-pocket-green.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-5",
-        "imageSrc": "/assets/products/hood-belly-pocket-black.webp",
-        "videoSrc": "video-src"
-      }
-    ]
+    "variantId": "variant-1"
   },
   {
-    "_id": "developed-product-4",
-    "product": "product-1",
+    "_id": "product-4",
+    "productType": "hood",
     "title": {
-      "en": "sportwear hoody",
-      "ka": "სპორტული ჰუდი"
+      "en": "red hoody with belly pocket",
+      "ka": "წითელი ჰუდი საერთო ჯიბით მუცელზე"
     },
-    "price": 75,
-    "soldout": 8,
+    "price": 30,
+    "soldout": 20,
+    "color": "color-1",
+    "assets": {
+      "images": [
+        "/assets/products/hood-belly-pocket-red.webp"
+      ],
+      "video": "video-src"
+    },
     "variants": [
-      "variant-0",
-      "variant-4"
+      "variant-2",
+      "variant-3"
     ],
-    "availableColors": [
-      "color-1",
-      "color-2",
-      "color-3",
-      "color-4",
-      "color-5"
+    "variantId": "variant-1"
+  },
+  {
+    "_id": "product-5",
+    "productType": "hood",
+    "title": {
+      "en": "yellow hoody with belly pocket",
+      "ka": "ყვითელი ჰუდი საერთო ჯიბით მუცელზე"
+    },
+    "price": 30,
+    "soldout": 20,
+    "color": "color-5",
+    "assets": {
+      "images": [
+        "/assets/products/hood-belly-pocket-yellow.webp"
+      ],
+      "video": "video-src"
+    },
+    "variants": [
+      "variant-2",
+      "variant-3"
     ],
-    "assets": [
-      {
-        "color": "color-5",
-        "imageSrc": "/assets/products/hood-cuff-none-black.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-4",
-        "imageSrc": "/assets/products/hood-cuff-none-blue.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-3",
-        "imageSrc": "/assets/products/hood-cuff-none-yellow.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-2",
-        "imageSrc": "/assets/products/hood-cuff-none-green.webp",
-        "videoSrc": "video-src"
-      },
-      {
-        "color": "color-1",
-        "imageSrc": "/assets/products/hood-cuff-none-red.webp",
-        "videoSrc": "video-src"
-      }
-    ]
+    "variantId": "variant-1"
+  },
+  {
+    "_id": "product-6",
+    "productType": "hood",
+    "title": {
+      "en": "blue hoody",
+      "ka": "ლურჯი ჰუდი"
+    },
+    "price": 20,
+    "soldout": 10,
+    "color": "color-4",
+    "assets": {
+      "images": [
+        "/assets/products/hood-blue.webp"
+      ],
+      "video": "video-src"
+    },
+    "variants": [
+      "variant-3"
+    ],
+    "variantId": "variant-2"
+  },
+  {
+    "_id": "product-7",
+    "productType": "hood",
+    "title": {
+      "en": "green hoody",
+      "ka": "მწვანე ჰუდი"
+    },
+    "price": 20,
+    "soldout": 10,
+    "color": "color-2",
+    "assets": {
+      "images": [
+        "/assets/products/hood-green.webp"
+      ],
+      "video": "video-src"
+    },
+    "variants": [
+      "variant-3"
+    ],
+    "variantId": "variant-2"
+  },
+  {
+    "_id": "product-8",
+    "productType": "hood",
+    "title": {
+      "en": "red hoody with belly pocket",
+      "ka": "წითელი ჰუდი"
+    },
+    "price": 20,
+    "soldout": 10,
+    "color": "color-1",
+    "assets": {
+      "images": [
+        "/assets/products/hood-red.webp"
+      ],
+      "video": "video-src"
+    },
+    "variants": [
+      "variant-3"
+    ],
+    "variantId": "variant-2"
+  },
+  {
+    "_id": "product-9",
+    "productType": "hood",
+    "title": {
+      "en": "yellow hoody",
+      "ka": "ყვითელი ჰუდი"
+    },
+    "price": 20,
+    "soldout": 10,
+    "color": "color-3",
+    "assets": {
+      "images": [
+        "/assets/products/hood-yellow.webp"
+      ],
+      "video": "video-src"
+    },
+    "variants": [
+      "variant-3"
+    ],
+    "variantId": "variant-2"
+  },
+  {
+    "_id": "product-10",
+    "productType": "hood",
+    "title": {
+      "en": "black hoody",
+      "ka": "შავი ჰუდი"
+    },
+    "price": 20,
+    "soldout": 10,
+    "color": "color-5",
+    "assets": {
+      "images": [
+        "/assets/products/hood-black.webp"
+      ],
+      "video": "video-src"
+    },
+    "variants": [
+      "variant-3"
+    ],
+    "variantId": "variant-2"
+  },
+  {
+    "_id": "product-11",
+    "productType": "hood",
+    "variantId": "variant-3",
+    "title": {
+      "en": "black training hoody",
+      "ka": "შავი სავარჯიშო ჰუდი"
+    },
+    "price": 20,
+    "soldout": 10,
+    "color": "color-5",
+    "assets": {
+      "images": [
+        "/assets/products/hood-cuff-none-black.webp"
+      ],
+      "video": "video-src"
+    },
+    "variants": []
   }
 ]

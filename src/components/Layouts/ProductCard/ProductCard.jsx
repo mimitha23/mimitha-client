@@ -11,7 +11,7 @@ export default function ProductCard({ cardType = "withActions", product }) {
     <Styled.ProductCard data-product-card>
       <CardFig
         productId={product._id}
-        img={product.assets[0].imageSrc}
+        img={product.assets.images[0]}
         title={product.title}
       />
 
