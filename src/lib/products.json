@@ -2,6 +2,17 @@
   {
     "_id": "product-1",
     "productType": "hood",
+    "editable": true,
+    "material": [
+      {
+        "name": "cotton",
+        "percentage": "90%"
+      },
+      {
+        "name": "synthetic",
+        "percentage": "10%"
+      }
+    ],
     "developedProducts": [
       "developed-product-1",
       "developed-product-2",

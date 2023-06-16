@@ -37,5 +37,6 @@
   "buy": "buy",
   "basket": "basket",
   "show_filter": "show filter",
-  "hide_filter": "hide filter"
+  "hide_filter": "hide filter",
+  "soldout": "soldout"
 }

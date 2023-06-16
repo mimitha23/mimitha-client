@@ -15,6 +15,10 @@ const AllProductsPage = lazy(() =>
 );
 const CartPage = lazy(() => import("pages/Cart/CartPage"));
 const GalleryPage = lazy(() => import("pages/GalleryPage/GalleryPage"));
+const GoesOnPage = lazy(() => import("pages/GoesOnPage/GoesOnPage"));
+const GoesOnTutorialPage = lazy(() =>
+  import("pages/GoesOnTutorialPage/GoesOnTutorialPage")
+);
 
 export default function App() {
   return (
@@ -22,6 +26,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/goes-on" element={<GoesOnPage />} />
+        <Route path="/goes-on/tutorial" element={<GoesOnTutorialPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/products" element={<AllProductsPage />} />
         <Route path="/products/:productId" element={<ActiveProductPage />} />
