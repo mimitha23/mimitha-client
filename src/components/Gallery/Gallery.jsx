@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { resetGallery } from "store/reducers/gallerySlice";
+import { galleryActions } from "store/reducers/galleryReducer";
 import calcImageDimention from "functions/calcImageDimention";
 
 import SliderModal from "./components/SliderModal";
@@ -15,7 +15,7 @@ export default function Gallery() {
     calcImageDimention();
 
     return () => {
-      dispatch(resetGallery());
+      dispatch(galleryActions.resetGallery());
     };
   }, [dispatch]);
 

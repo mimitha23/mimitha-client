@@ -11,7 +11,7 @@ export default function ProductCard({ cardType = "withActions", product }) {
     <Styled.ProductCard data-product-card>
       <CardFig
         productId={product._id}
-        img={product.assets.images[0]}
+        img={product.assets[0]}
         title={product.title}
       />
 
@@ -23,7 +23,7 @@ export default function ProductCard({ cardType = "withActions", product }) {
           <CardContentDescriptive
             title={product.title}
             price={product.price}
-            soldout={product.soldout}
+            soldout={product.soldOut}
           />
         )}
       </CardContent>

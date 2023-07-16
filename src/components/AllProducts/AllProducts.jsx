@@ -20,7 +20,10 @@ export default function AllProducts() {
 
         <div className="products-list">
           {developedProducts.map((product) => (
-            <ProductCard key={`product-card--${product}`} product={product} />
+            <ProductCard
+              key={`product-card--${product._id}`}
+              product={product}
+            />
           ))}
         </div>
       </ContainerFull>

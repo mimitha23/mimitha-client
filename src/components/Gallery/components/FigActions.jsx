@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { openGalleryImage } from "store/reducers/gallerySlice";
+import { galleryActions } from "store/reducers/galleryReducer";
 import { PATHS } from "config/routes";
 
 import { OpenIcon, OpenInNewIcon } from "components/Layouts/Icons/index";
@@ -16,7 +16,7 @@ export default function FigActions({ img, showOpenImageBtn = true }) {
       {showOpenImageBtn && (
         <button
           className="gallery-fig__actions-btn"
-          onClick={() => dispatch(openGalleryImage(img))}
+          onClick={() => dispatch(galleryActions.openGalleryImage(img))}
         >
           <OpenIcon />
         </button>

@@ -45,9 +45,4 @@ const gallerySlice = createSlice({
 });
 
 export default gallerySlice.reducer;
-export const {
-  openGalleryImage,
-  setGallerySliderActiveImageIndex,
-  closeGallerySlider,
-  resetGallery,
-} = gallerySlice.actions;
+export const galleryActions = gallerySlice.actions;

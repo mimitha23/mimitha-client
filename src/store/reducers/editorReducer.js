@@ -7,4 +7,4 @@ const editorSlice = createSlice({
 });
 
 export default editorSlice.reducer;
-// export const {} = editorSlice.actions;
+export const editorActions = editorSlice.actions;

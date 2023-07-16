@@ -29,4 +29,4 @@ const filterSlice = createSlice({
 });
 
 export default filterSlice.reducer;
-export const { setActiveFilter } = filterSlice.actions;
+export const filterActions = filterSlice.actions;

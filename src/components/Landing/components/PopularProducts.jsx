@@ -1,11 +1,15 @@
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+
+import { selectLandingPopularProducts } from "store/selectors/landingSelectors";
 
 import { ProductCard } from "components/Layouts";
 import * as Styled from "./styles/PopularProducts.styled";
-import { developedProducts } from "lib";
 
 export default function PopularProducts() {
   const { t } = useTranslation();
+
+  const products = useSelector(selectLandingPopularProducts);
 
   return (
     <Styled.PopularProducts>
@@ -13,7 +17,7 @@ export default function PopularProducts() {
         <p>{t("landing.popular_products.section_title")}</p>
       </div>
       <div className="popular-products__container">
-        {developedProducts.map((product) => (
+        {products.map((product) => (
           <ProductCard
             key={product._id}
             cardType="descriptive"
