@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { PATHS } from "config/routes";
 
 import * as Styled from "./styles/ProductStyler.styled";
 
@@ -44,7 +45,7 @@ export default function ProductStyler() {
       </div>
 
       <div className="fit-and-questions__container">
-        <Link to="/products/:productId/fit" className="fit-btn">
+        <Link to={PATHS.fit_products.fullPath({})} className="fit-btn">
           {t("crossover.goes_on")}
         </Link>
 

@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
+import { PATHS } from "config/routes";
+
 import { ShoppingCartIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ShoppingCard.styed";
 
 export default function ShoppingCardButton() {
   return (
     <Styled.ShoppingCardContainer>
-      <Link to="/cart" className="cart-link">
+      <Link to={PATHS.cart.fullPath} className="cart-link">
         <span className="cart-icon">
           <ShoppingCartIcon />
         </span>

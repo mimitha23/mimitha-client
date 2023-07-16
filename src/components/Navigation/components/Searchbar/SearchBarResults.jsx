@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { PATHS } from "config/routes";
 
 import { ProductCard } from "components/Layouts/index";
 import * as Styled from "./styles/SearchBarResults.styled";
@@ -13,7 +14,7 @@ export default function SearchBarResults({ onSearchClose }) {
           onClick={(e) => e.stopPropagation()}
         >
           <span>2 search results</span>
-          <Link to="/products">view all</Link>
+          <Link to={PATHS.products.fullPath}>view all</Link>
         </div>
 
         <div

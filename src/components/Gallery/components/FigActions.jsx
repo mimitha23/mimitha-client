@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { openGalleryImage } from "store/reducers/gallerySlice";
+import { PATHS } from "config/routes";
 
 import { OpenIcon, OpenInNewIcon } from "components/Layouts/Icons/index";
 import * as Styled from "./styles/FigActions.styled";
@@ -22,7 +23,7 @@ export default function FigActions({ img, showOpenImageBtn = true }) {
       )}
       <button
         className="gallery-fig__actions-btn"
-        onClick={() => navigate("/products/:productId")}
+        onClick={() => navigate(PATHS.active_product.fullPath({}))}
       >
         <OpenInNewIcon />
       </button>

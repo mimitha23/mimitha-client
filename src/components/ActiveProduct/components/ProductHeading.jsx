@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { PATHS } from "config/routes";
 
 import { DollarIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ProductHeading.styled";
@@ -21,7 +22,7 @@ export default function ProductHeading() {
           </span>
         </div>
 
-        <Link to="/products/:productId/edit" className="edit-link">
+        <Link to={PATHS.edit_product.fullPath({})} className="edit-link">
           {t("crossover.edit")}
         </Link>
       </div>
