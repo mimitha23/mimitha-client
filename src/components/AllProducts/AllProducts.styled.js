@@ -3,6 +3,7 @@ import { animateMoveLeft, animateMoveRight } from "styles/helpers";
 
 export const AllProductsContainer = styled.div`
   padding-top: ${({ theme }) => theme.app.nav_h_full};
+  min-height: 100vh;
 
   .wrapper-container {
     padding: 0;
@@ -45,7 +46,7 @@ export const AllProductsContainer = styled.div`
     padding: 0 3rem 3rem;
     display: grid;
     gap: 6rem 4rem;
-    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); //35
+    grid-template-columns: repeat(auto-fit, minmax(max-content, 28rem)); //35
     grid-auto-rows: 45rem;
     ${animateMoveLeft({
       duration: ({ theme }) => theme.app.section_animation_duration,

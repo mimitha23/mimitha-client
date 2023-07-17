@@ -4,4 +4,5 @@ import { productsActions } from "store/reducers/produtsReducer";
 
 export default function* productsSaga() {
   yield takeLatest(productsActions.getAllProducts, productHandlers.getProducts);
+  yield takeLatest(productsActions.search, productHandlers.searchProducts);
 }

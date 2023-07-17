@@ -1,4 +1,5 @@
 import { useFitProduct } from "hooks/layoutBase";
+import { useParams } from "react-router-dom";
 
 import { EditorFitButtons, ContainerFull } from "components/Layouts";
 import { EditorView, EditorActions } from "./components";
@@ -6,6 +7,8 @@ import * as Styled from "./Editor.styled";
 
 export default function Editor() {
   const { handleFitMannequin, handleFitModel, activeFit } = useFitProduct();
+
+  const { productId } = useParams();
 
   return (
     <ContainerFull>
@@ -18,7 +21,7 @@ export default function Editor() {
 
         <div className="editor-main">
           <EditorView />
-          <EditorActions />
+          <EditorActions productId={productId} />
         </div>
       </Styled.EditorContainer>
     </ContainerFull>

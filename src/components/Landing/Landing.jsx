@@ -18,6 +18,10 @@ export default function Landing() {
 
   useEffect(() => {
     dispatch(landingActions.getLanding());
+
+    return () => {
+      dispatch(landingActions.resetLanding());
+    };
   }, []);
 
   return (

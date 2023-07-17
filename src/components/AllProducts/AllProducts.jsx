@@ -1,32 +1,54 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  selectProductStatus,
+  selectAllProducts,
+} from "store/selectors/productSelectors";
+import { productsActions } from "store/reducers/produtsReducer";
+
 import {
   ContainerFull,
   ProductCard,
   Filter,
   Path,
-} from "components/Layouts/index";
+  Spinner,
+} from "components/Layouts";
 import * as Styled from "./AllProducts.styled";
-import { developedProducts } from "lib";
 
 export default function AllProducts() {
+  const dispatch = useDispatch();
+  const status = useSelector(selectProductStatus);
+  const allProducts = useSelector(selectAllProducts);
+
+  useEffect(() => {
+    dispatch(productsActions.getAllProducts());
+
+    return () => {
+      dispatch(productsActions.resetProducts());
+    };
+  }, [dispatch]);
+
   return (
     <Styled.AllProductsContainer>
-      <ContainerFull className="wrapper-container">
-        <div className="filter-box__wrapper">
-          <Path />
-          <div className="filter-box">
-            <Filter />
+      {!status.loading && (
+        <ContainerFull className="wrapper-container">
+          <div className="filter-box__wrapper">
+            <Path />
+            <div className="filter-box">
+              <Filter />
+            </div>
           </div>
-        </div>
 
-        <div className="products-list">
-          {developedProducts.map((product) => (
-            <ProductCard
-              key={`product-card--${product._id}`}
-              product={product}
-            />
-          ))}
-        </div>
-      </ContainerFull>
+          <div className="products-list">
+            {allProducts.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+          </div>
+        </ContainerFull>
+      )}
+
+      {status.loading && <Spinner />}
     </Styled.AllProductsContainer>
   );
 }

@@ -7,7 +7,7 @@ export default function CardFig({ productId, img, title }) {
   return (
     <Styled.CardFig className="product-fig">
       <Link
-        to={PATHS.active_product.fullPath({})}
+        to={PATHS.active_product.fullPath({ productId })}
         state={{}}
         className="card-fig__link"
       >

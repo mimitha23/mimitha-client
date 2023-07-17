@@ -17,13 +17,18 @@ export default function ProductCard({ cardType = "withActions", product }) {
 
       <CardContent cardType={cardType}>
         {cardType === "withActions" && (
-          <CardContentWithActions title={product.title} price={product.price} />
+          <CardContentWithActions
+            title={product.title}
+            price={product.price}
+            productId={product._id}
+          />
         )}
         {cardType === "descriptive" && (
           <CardContentDescriptive
             title={product.title}
             price={product.price}
             soldout={product.soldOut}
+            productId={product._id}
           />
         )}
       </CardContent>

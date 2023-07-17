@@ -5,13 +5,27 @@ import { productsActions } from "store/reducers/produtsReducer";
 
 export function* getProducts() {
   try {
-    const { data } = yield call(productsAPI.getAllProducts);
+    const { data } = yield call(productsAPI.getAllProductsQuery);
     yield put(productsActions.setProducts(data));
     yield put(productsActions.setSuccess());
   } catch (error) {
     yield errorController({
       error,
       location: "getProductsHandler",
+      errorSetter: productsActions.setError,
+    });
+  }
+}
+
+export function* searchProducts({ payload }) {
+  try {
+    const { data } = yield call(productsAPI.searchProductsQuery, payload);
+    yield put(productsActions.setSearchResults(data));
+    yield put(productsActions.setSearchSuccess());
+  } catch (error) {
+    yield errorController({
+      error,
+      location: "searchProductsHandler",
       errorSetter: productsActions.setError,
     });
   }

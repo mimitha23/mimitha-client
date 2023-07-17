@@ -7,6 +7,7 @@ import {
 
 export const ActiveProductContainer = styled.div`
   padding-top: ${({ theme }) => theme.app.nav_h_full};
+  min-height: 100vh;
 
   div.active-product__fit-buttons--box {
     ${animateMoveBottom({

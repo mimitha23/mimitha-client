@@ -10,12 +10,12 @@ import produtsReducer from "./produtsReducer";
 import landingReducer from "./landingReducer";
 
 const persistedEditorReducer = persistReducer(
-  { key: "editor", storage },
+  { key: "mimitha_editor", storage },
   editorReducer
 );
 
 const persistedFilterReducer = persistReducer(
-  { key: "filter", storage },
+  { key: "mimitha_filter", storage },
   filterReducer
 );
 

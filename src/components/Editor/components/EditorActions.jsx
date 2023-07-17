@@ -6,7 +6,7 @@ import { PATHS } from "config/routes";
 import EditorActionDropdown from "./EditorActionDropdown";
 import * as Styled from "./styles/EditorActions.styled";
 
-export default function EditorActions() {
+export default function EditorActions({ productId }) {
   const { t } = useTranslation();
 
   const [activeDropdown, setActiveDropdown] = useState(false);
@@ -50,7 +50,10 @@ export default function EditorActions() {
         />
       </div>
 
-      <Link to={PATHS.active_product.fullPath({})} className="finish-btn">
+      <Link
+        to={PATHS.active_product.fullPath({ productId })}
+        className="finish-btn"
+      >
         {t("crossover.finish_edit")}
       </Link>
     </Styled.EditorActionsContainer>

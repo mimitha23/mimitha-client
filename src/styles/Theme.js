@@ -21,6 +21,7 @@ const BaseTheme = {
     black: "#000",
     black_tr_05: "rgba(0,0,0,0.5)",
     black_tr_02: "rgba(0,0,0,0.2)",
+    red: "#d01345",
   },
   gradients: {
     backdrop_gradient:

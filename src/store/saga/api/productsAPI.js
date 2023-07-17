@@ -1,9 +1,11 @@
 import { axiosPublicQuery } from "service/axios";
 
-export async function getPopularProducts() {
+export async function getAllProductsQuery() {
   return await axiosPublicQuery.get("/products/developed?isPublic=1");
 }
 
-export async function getAllProducts() {
-  return await axiosPublicQuery.get("/products/developed?isPublic=1");
+export async function searchProductsQuery(payload) {
+  return await axiosPublicQuery.get(
+    `/products/search?search=${payload.search}&locale=${payload.locale}`
+  );
 }

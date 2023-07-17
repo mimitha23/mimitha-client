@@ -35,8 +35,10 @@ export const ProductStyler = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    gap: 1rem;
     font-size: 1.4rem;
     text-transform: uppercase;
+    margin-top: 1rem;
 
     .size {
       width: 50px;
@@ -45,11 +47,12 @@ export const ProductStyler = styled.div`
       justify-content: center;
       font-weight: 500;
       color: ${({ theme }) => theme.colors.black};
-      border-right: 2px solid ${({ theme }) => theme.colors.black};
       cursor: pointer;
       transition: all 0.2s ease;
+      position: relative;
 
       &.active-size {
+        position: relative;
         color: ${({ theme }) => theme.colors.white};
         background-color: ${({ theme }) => theme.colors.black};
       }
@@ -58,9 +61,38 @@ export const ProductStyler = styled.div`
         border: 0;
       }
 
+      &:not(:last-child):after {
+        content: " ";
+        position: absolute;
+        right: -0.55rem;
+        height: 100%;
+        width: 2px;
+        background: ${({ theme }) => theme.colors.black};
+      }
+
       :not(.active-size):hover {
         color: ${({ theme }) => theme.colors.bg};
         background-color: ${({ theme }) => theme.colors.text};
+      }
+
+      .size-amount {
+        display: none;
+      }
+
+      &.active-size .size-amount {
+        position: absolute;
+        z-index: 9;
+        top: -0.75rem;
+        right: -0.3rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 100%;
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: ${({ theme }) => theme.colors.red};
+        color: ${({ theme }) => theme.colors.white};
       }
     }
   }
@@ -110,7 +142,7 @@ export const ProductStyler = styled.div`
   }
 `;
 
-export const ColorPicker = styled.span`
+export const ColorPicker = styled.li`
   position: relative;
   width: 3.5rem;
   height: 3.5rem;

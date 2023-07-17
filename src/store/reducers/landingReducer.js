@@ -33,6 +33,11 @@ const landingSlice = createSlice({
     setError(state, { payload }) {
       state.status = status.error();
     },
+
+    // RESET
+    resetLanding(state) {
+      state.popularProducts = [];
+    },
   },
 });
 

@@ -2,7 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 import { controllStatus as status } from "./helpers";
 
 const initialState = {
+  allProducts: [],
+
+  searchResults: [],
+
   status: {
+    loading: false,
+    error: false,
+    message: "",
+  },
+
+  searchStatus: {
     loading: false,
     error: false,
     message: "",
@@ -13,6 +23,7 @@ const productsSlice = createSlice({
   name: "mimitha-all-products",
   initialState,
   reducers: {
+    // API
     getAllProducts: {
       reducer(state) {
         state.status = status.loading();
@@ -20,8 +31,27 @@ const productsSlice = createSlice({
     },
 
     setProducts: (state, { payload }) => {
-      console.log({ payload });
-      // state = action.payload;
+      state.allProducts = payload;
+    },
+
+    search: {
+      prepare(payload) {
+        console.log({ payload });
+        return {
+          payload: {
+            locale: payload.locale,
+            search: payload.search,
+          },
+        };
+      },
+
+      reducer(state) {
+        state.searchStatus = status.loading();
+      },
+    },
+
+    setSearchResults: (state, { payload }) => {
+      state.searchResults = payload;
     },
 
     // REQUEST STATUS SETTERS
@@ -31,6 +61,23 @@ const productsSlice = createSlice({
 
     setError(state, { payload }) {
       state.status = status.error();
+    },
+
+    setSearchSuccess(state) {
+      state.searchStatus = status.success();
+    },
+
+    setSearchError(state, { payload }) {
+      state.searchStatus = status.error();
+    },
+
+    // RESET
+    resetProducts(state) {
+      state.allProducts = [];
+    },
+
+    resetSearchResult(state) {
+      state.searchResults = [];
     },
   },
 });
