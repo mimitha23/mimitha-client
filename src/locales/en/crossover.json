@@ -9,7 +9,7 @@
   "goes_on": "goes on",
   "add_to_card": "add to card",
   "fit_model": "fit model",
-  "fit_mannequin": "fit mannnequin",
+  "fit_mannequin": "fit mannequin",
   "product_description": "product description",
   "items_sold_out": "items sold out",
   "how_choose_right_size": "how to choose right size ? ",
@@ -38,5 +38,5 @@
   "basket": "basket",
   "show_filter": "show filter",
   "hide_filter": "hide filter",
-  "soldout": "soldout"
+  "soldOut": "sold out"
 }

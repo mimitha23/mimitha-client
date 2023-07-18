@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { PATHS } from "config/routes";
@@ -79,14 +79,14 @@ export default function ProductStyler({ productId }) {
       </div>
 
       <div className="fit-and-questions__container">
-        <Link
+        {/* <Link
           to={PATHS.fit_products.fullPath({ productId })}
           className="fit-btn"
         >
           {t("crossover.goes_on")}
-        </Link>
+        </Link> */}
 
-        <div>
+        <div className="qa-box">
           <p>{t("crossover.how_choose_right_size")}</p>
           <p>{t("crossover.indicate_your_size")}</p>
         </div>

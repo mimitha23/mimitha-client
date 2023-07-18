@@ -1,22 +1,22 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { useState } from "react";
+// import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import graphic_cards from "lib/create-your-style-graphic-cards.json";
+// import graphic_cards from "lib/create-your-style-graphic-cards.json";
 
-import { ModalWindow } from "components/Layouts/index";
+// import { ModalWindow } from "components/Layouts/index";
 import * as Styled from "./styles/LandingCTAPhoto.styled";
 
 export default function LandingCTAPhoto() {
   const { t } = useTranslation();
-  const [activeCTA_Modal, setActiveCTA_Modal] = useState(false);
+  // const [activeCTA_Modal, setActiveCTA_Modal] = useState(false);
 
   return (
     <Styled.LandingCTAPhoto>
       <button
         to={"/products/:productId"}
         className="cta-link"
-        onClick={() => setActiveCTA_Modal(true)}
+        // onClick={() => setActiveCTA_Modal(true)}
       >
         <div className="landingCTA">
           <span>{t("landing.create_your_style.create")}</span>
@@ -25,7 +25,7 @@ export default function LandingCTAPhoto() {
         </div>
       </button>
 
-      <ModalWindow
+      {/* <ModalWindow
         activeModal={activeCTA_Modal}
         closeModal={() => setActiveCTA_Modal(false)}
       >
@@ -43,7 +43,7 @@ export default function LandingCTAPhoto() {
             </Link>
           ))}
         </div>
-      </ModalWindow>
+      </ModalWindow> */}
     </Styled.LandingCTAPhoto>
   );
 }

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import { productsActions } from "store/reducers/produtsReducer";
 
@@ -10,9 +11,10 @@ import * as Styled from "./styles/SearchBar.styled";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const [search, setSearch] = useState("");
-  const [isBillingualSearch, setIsBillingualSearch] = useState("");
+  const [isBilingualSearch, setIsBilingualSearch] = useState("");
   const [activeResults, setActiveResults] = useState(false);
 
   function onSearchClose() {
@@ -23,7 +25,7 @@ export default function SearchBar() {
   useEffect(() => {
     if (!search) {
       dispatch(productsActions.resetSearchResult());
-      isBillingualSearch && setIsBillingualSearch(false);
+      isBilingualSearch && setIsBilingualSearch(false);
       return;
     }
 
@@ -31,9 +33,8 @@ export default function SearchBar() {
       const isEn = /^[a-zA-Z]*$/.test(search);
       const isKa = /^[ა-ჰ]*$/g.test(search);
 
-      if (!isKa && !isEn) return setIsBillingualSearch(true);
-      else if ((isEn || isKa) && isBillingualSearch)
-        setIsBillingualSearch(true);
+      if (!isKa && !isEn) return setIsBilingualSearch(true);
+      else if ((isEn || isKa) && isBilingualSearch) setIsBilingualSearch(true);
 
       dispatch(
         productsActions.search({
@@ -50,7 +51,7 @@ export default function SearchBar() {
 
   return (
     <Styled.SearchBar className={activeResults ? "active_bar" : "toto"}>
-      <div className="search-bar__wraper">
+      <div className="search-bar__wrapper">
         <SearchBarField
           search={search}
           setSearch={setSearch}
@@ -58,10 +59,9 @@ export default function SearchBar() {
           onSearchClose={onSearchClose}
         />
 
-        {isBillingualSearch && (
+        {isBilingualSearch && (
           <div className="search-warning">
-            გთხოვთ საძიებო ველში შეიყვანოთ მხოლოდ ქართული ან მხოლოდ ლათინური
-            ასოები.
+            {t("navigation.searchbar.search_warning")}
           </div>
         )}
       </div>

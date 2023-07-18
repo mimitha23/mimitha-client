@@ -6,9 +6,23 @@ const selectedProductStatus = ({ products }) => ({
   message: products.status.message,
 });
 
+const selectedProductsSearchStatus = ({ products }) => ({
+  loading: products.searchStatus.loading,
+  error: products.searchStatus.error,
+  message: products.searchStatus.message,
+});
+
 export const selectAllProducts = ({ products }) => products.allProducts;
+
+export const selectProductsSearchResult = ({ products }) =>
+  products.searchResults;
 
 export const selectProductStatus = createSelector(
   selectedProductStatus,
-  (memorised) => memorised
+  (memorized) => memorized
+);
+
+export const selectProductsSearchStatus = createSelector(
+  selectedProductsSearchStatus,
+  (memorized) => memorized
 );

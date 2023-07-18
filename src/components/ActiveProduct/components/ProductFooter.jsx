@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import { BagIcon } from "components/Layouts/Icons";
+import { BagIcon, BookmarkAddIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ProductFooter.styled";
 
 function ProductFooter() {
@@ -12,13 +12,15 @@ function ProductFooter() {
         <span className="product-footer__btn-caption">
           {t("crossover.save_design")}
         </span>
-        <span className="polygonal-btn"></span>
+        <span className="icon">
+          <BookmarkAddIcon />
+        </span>
       </button>
       <button className="product-footer__btn">
         <span className="product-footer__btn-caption">
           {t("crossover.add_to_card")}
         </span>
-        <span className="bag-icon">
+        <span className="icon">
           <BagIcon />
         </span>
       </button>

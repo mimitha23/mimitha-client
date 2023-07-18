@@ -27,7 +27,7 @@ export default function ProductCard({ cardType = "withActions", product }) {
           <CardContentDescriptive
             title={product.title}
             price={product.price}
-            soldout={product.soldOut}
+            soldOut={product.soldOut}
             productId={product._id}
           />
         )}

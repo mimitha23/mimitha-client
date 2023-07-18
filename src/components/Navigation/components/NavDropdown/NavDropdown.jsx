@@ -1,4 +1,5 @@
 import navDropdownData from "lib/nav-dropdown.json";
+
 import NavDropdownRoutes from "./NavDropdownRoutes";
 import NavDropdownProducts from "./NavDropdownProducts";
 import * as Styled from "./NavDropdown.styled";
@@ -12,7 +13,7 @@ export default function NavDropdown({ activeDropDown }) {
         onMouseOver={(e) => e.stopPropagation()}
       >
         <NavDropdownRoutes
-          nav={navDropdownData.nav}
+          nav={navDropdownData?.[activeDropDown] || []}
           activeDropDown={activeDropDown}
         />
 

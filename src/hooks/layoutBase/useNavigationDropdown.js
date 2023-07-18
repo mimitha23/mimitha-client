@@ -6,7 +6,7 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
   const [activeDropDown, setActiveDropDown] = useState("");
 
   ///////////////////////////////////////////////
-  // 1.0) Controll Desktop Menu On Mouse Over //
+  // 1.0) Control Desktop Menu On Mouse Over //
   /////////////////////////////////////////////
   let timeoutId = undefined;
   let lastMainNavRouteSnapshot = undefined;
@@ -36,7 +36,7 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
   const handleNavDropdownOnMouseLeave = (e) => clearDropDownState();
 
   //////////////////////////////////////////
-  // 2.0 Controll Nav Dropdown On Mobile //
+  // 2.0 Control Nav Dropdown On Mobile //
   ////////////////////////////////////////
 
   const handleNavDropdownOnClick = (e, route) => {

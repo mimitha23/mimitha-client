@@ -2,7 +2,11 @@ import { BiSearchAlt } from "react-icons/bi";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
-import { BsFillHandbagFill } from "react-icons/bs";
+import {
+  BsFillHandbagFill,
+  BsBookmarkPlusFill,
+  BsBookmarkDashFill,
+} from "react-icons/bs";
 
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
 
@@ -36,6 +40,8 @@ const ArrowRightIcon = MdOutlineArrowForwardIos;
 const ArrowBottomIcon = MdOutlineKeyboardArrowDown;
 const BagIcon = BsFillHandbagFill;
 const BurgerIcon = GiHamburgerMenu;
+const BookmarkAddIcon = BsBookmarkPlusFill;
+const BookmarkRemoveIcon = BsBookmarkDashFill;
 const CloseXIcon = AiOutlineClose;
 const DollarIcon = FaDollarSign;
 const EditIcon = MdModeEditOutline;
@@ -63,6 +69,8 @@ export {
   ArrowBottomIcon,
   BagIcon,
   BurgerIcon,
+  BookmarkAddIcon,
+  BookmarkRemoveIcon,
   CloseXIcon,
   DollarIcon,
   EditIcon,

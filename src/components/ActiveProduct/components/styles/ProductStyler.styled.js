@@ -103,15 +103,19 @@ export const ProductStyler = styled.div`
     justify-content: space-between;
     align-items: flex-end;
 
-    p {
-      cursor: pointer;
-      letter-spacing: 0.6px;
-      font-size: ${({ theme }) => theme.fontSize.base};
-      font-weight: 500;
-      color: ${({ theme }) => theme.colors.text};
+    .qa-box {
+      margin-top: auto;
 
-      ::first-letter {
-        text-transform: capitalize;
+      p {
+        cursor: pointer;
+        letter-spacing: 0.6px;
+        font-size: ${({ theme }) => theme.fontSize.base};
+        font-weight: 500;
+        color: ${({ theme }) => theme.colors.text};
+
+        ::first-letter {
+          text-transform: capitalize;
+        }
       }
     }
   }

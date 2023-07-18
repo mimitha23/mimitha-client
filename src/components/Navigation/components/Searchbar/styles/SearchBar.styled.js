@@ -12,7 +12,7 @@ export const SearchBar = styled.div`
     display: block;
   }
 
-  .search-bar__wraper {
+  .search-bar__wrapper {
     position: relative;
     height: 5rem;
 

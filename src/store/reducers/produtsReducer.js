@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { controllStatus as status } from "./helpers";
+import { controlStatus as status } from "./helpers";
 
 const initialState = {
   allProducts: [],
@@ -36,7 +36,6 @@ const productsSlice = createSlice({
 
     search: {
       prepare(payload) {
-        console.log({ payload });
         return {
           payload: {
             locale: payload.locale,

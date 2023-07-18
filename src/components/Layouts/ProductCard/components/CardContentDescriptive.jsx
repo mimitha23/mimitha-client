@@ -6,7 +6,7 @@ import SoldOut from "./SoldOut";
 export default function CardContentDescriptive({
   price,
   title,
-  soldout,
+  soldOut,
   productId,
 }) {
   return (
@@ -14,7 +14,7 @@ export default function CardContentDescriptive({
       <ProductTitle title={title} productId={productId} />
       <Price price={price} />
       <CurrencySwitch />
-      <SoldOut soldout={soldout} />
+      <SoldOut soldOut={soldOut} />
     </>
   );
 }
