@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { navActions } from "store/reducers/navReducer";
 import { useWindowDimention } from "hooks/domBase/index";
 
 export default function useNavigationDropdown({ activeBurgerNav }) {
+  const dispatch = useDispatch();
+
   const { width } = useWindowDimention();
   const [activeDropDown, setActiveDropDown] = useState("");
 
@@ -14,6 +19,7 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
   function clearDropDownState() {
     timeoutId && clearTimeout(timeoutId);
     activeDropDown && setActiveDropDown("");
+    dispatch(navActions.resetNavDropdown());
     lastMainNavRouteSnapshot = undefined;
   }
 
@@ -28,9 +34,14 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
     if (!lastMainNavRouteSnapshot) return clearDropDownState();
 
     timeoutId = setTimeout(() => {
-      lastMainNavRouteSnapshot !== activeDropDown &&
+      if (
+        lastMainNavRouteSnapshot &&
+        lastMainNavRouteSnapshot !== activeDropDown
+      ) {
         setActiveDropDown(lastMainNavRouteSnapshot);
-    }, 300);
+        dispatch(navActions.getNav(lastMainNavRouteSnapshot));
+      }
+    }, 350);
   };
 
   const handleNavDropdownOnMouseLeave = (e) => clearDropDownState();
