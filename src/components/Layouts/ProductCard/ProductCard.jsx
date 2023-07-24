@@ -12,7 +12,12 @@ export default function ProductCard({ cardType = "withActions", product }) {
       <CardFig
         productId={product._id}
         img={product.assets[0]}
-        title={product.title}
+        alt={product.title}
+        linkState={{
+          title: product.title,
+          category: product.product.category?.query,
+          productType: product.product.productType,
+        }}
       />
 
       <CardContent cardType={cardType}>
@@ -21,6 +26,11 @@ export default function ProductCard({ cardType = "withActions", product }) {
             title={product.title}
             price={product.price}
             productId={product._id}
+            linkState={{
+              title: product.title,
+              category: product.product.category?.query,
+              productType: product.product.productType,
+            }}
           />
         )}
         {cardType === "descriptive" && (
@@ -29,6 +39,11 @@ export default function ProductCard({ cardType = "withActions", product }) {
             price={product.price}
             soldOut={product.soldOut}
             productId={product._id}
+            linkState={{
+              title: product.title,
+              category: product.product.category?.query,
+              productType: product.product.productType,
+            }}
           />
         )}
       </CardContent>

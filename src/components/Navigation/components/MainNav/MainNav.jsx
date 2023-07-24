@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 
-import { MAIN_NAV_ROUTES } from "config/consts";
+import { MAIN_NAV_ROUTES, MAIN_NAV_DROPDOWN_ROUTES } from "config/consts";
 import { useNavigationDropdown } from "hooks/layoutBase/index";
 
 import NavDropdown from "../NavDropdown/NavDropdown";
@@ -42,9 +42,13 @@ export default function MainNav({ onBurgerClose, activeBurgerNav }) {
               route === activeDropDown ? "active-item" : ""
             }`}
           >
-            <MainNavRouteCaption route={route} />
-            {route === activeDropDown && (
-              <NavDropdown activeDropDown={activeDropDown} />
+            {MAIN_NAV_DROPDOWN_ROUTES.includes(route) ? (
+              <>
+                <MainNavRouteCaption route={route} />
+                {route === activeDropDown && <NavDropdown />}
+              </>
+            ) : (
+              <MainNavRouteCaption route={route} />
             )}
           </li>
         ))}

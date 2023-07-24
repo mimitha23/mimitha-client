@@ -8,7 +8,7 @@ import NavDropdownRoutes from "./NavDropdownRoutes";
 import NavDropdownProducts from "./NavDropdownProducts";
 import * as Styled from "./NavDropdown.styled";
 
-export default function NavDropdown({ activeDropDown }) {
+export default function NavDropdown() {
   const status = useSelector(selectNavStatus);
 
   return (

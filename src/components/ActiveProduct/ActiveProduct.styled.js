@@ -9,6 +9,15 @@ export const ActiveProductContainer = styled.div`
   padding-top: ${({ theme }) => theme.app.nav_h_full};
   min-height: 100vh;
 
+  [data-user-track-path] {
+    position: sticky;
+    top: ${({ theme }) => theme.app.nav_h};
+    padding: 1rem 3.5rem;
+    z-index: 99;
+    background: ${({ theme }) => theme.colors.bg};
+    transition: all 0.2s;
+  }
+
   div.active-product__fit-buttons--box {
     ${animateMoveBottom({
       duration: ({ theme }) => theme.app.section_animation_duration,

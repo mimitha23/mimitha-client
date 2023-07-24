@@ -2,37 +2,63 @@ import { useLocation } from "react-router-dom";
 
 // EXAMPLE OF LOCATION OBJECT
 // {
-//  search_for :"men", // must be always key of main nav routes e.g men,women etc.
-//  query: { // must be obejct {query:"query str", label:{ka:"ქართული ქეფშენი", en:"english caption"}} label: "label",
+//  category :"men", // must be always key of main nav routes e.g men,women etc.
+//  productType: { // must be obejct {query:"query str", label:{ka:"ქართული ქეფშენი", en:"english caption"}} label: "label",
 //    query : "cargo-trousers",
-//    label : {
-//      ka:"კარგო შარვალი"
-//      en:"cargo trousers"
-//    },
+//    ka:"კარგო შარვალი"
+//    en:"cargo trousers"
 // },
 
 export default function useLocationState() {
   const { state } = useLocation();
 
-  function setLocationState({ search_for, query, queryLabel }) {
+  function setLocationState({ category, productType, title, search }) {
+    const locationStateDefaults = getLocationStateDefaults();
+
     return {
-      search_for: search_for || "",
-      query: {
-        query: query || "",
-        label: queryLabel || null,
-      },
+      category: category || locationStateDefaults.category,
+      productType: productType || locationStateDefaults.productType,
+      title: title || locationStateDefaults.title,
+      search: search || locationStateDefaults.search,
     };
   }
 
   function getLocationState() {
     return {
-      search_for: state?.search_for || "",
-      query: {
-        query: state?.query?.query || "",
-        label: state?.query?.label || null,
+      category: state?.category || "",
+      search: state?.search || "",
+      productType: state?.productType || {
+        query: "",
+        ka: "",
+        en: "",
+      },
+      title: state?.title || {
+        ka: "",
+        en: "",
       },
     };
   }
 
-  return { setLocationState, getLocationState };
+  function getLocationStateDefaults() {
+    return {
+      category: "",
+      search: "",
+      productType: {
+        query: "",
+        ka: "",
+        en: "",
+      },
+      title: {
+        ka: "",
+        en: "",
+      },
+    };
+  }
+
+  return {
+    setLocationState,
+    getLocationState,
+    getLocationStateDefaults,
+    state,
+  };
 }

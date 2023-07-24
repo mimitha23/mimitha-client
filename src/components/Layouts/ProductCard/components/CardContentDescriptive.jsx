@@ -8,10 +8,11 @@ export default function CardContentDescriptive({
   title,
   soldOut,
   productId,
+  linkState,
 }) {
   return (
     <>
-      <ProductTitle title={title} productId={productId} />
+      <ProductTitle title={title} productId={productId} linkState={linkState} />
       <Price price={price} />
       <CurrencySwitch />
       <SoldOut soldOut={soldOut} />

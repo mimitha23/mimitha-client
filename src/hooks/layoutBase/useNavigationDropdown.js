@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { navActions } from "store/reducers/navReducer";
 import { useWindowDimention } from "hooks/domBase/index";
+import { MAIN_NAV_DROPDOWN_ROUTES } from "config/consts";
 
 export default function useNavigationDropdown({ activeBurgerNav }) {
   const dispatch = useDispatch();
@@ -31,7 +33,11 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
       lastMainNavRouteSnapshot = e.target.closest(".categories-nav__list-item")
         .dataset?.route;
 
-    if (!lastMainNavRouteSnapshot) return clearDropDownState();
+    if (
+      !lastMainNavRouteSnapshot ||
+      !MAIN_NAV_DROPDOWN_ROUTES.includes(lastMainNavRouteSnapshot)
+    )
+      return clearDropDownState();
 
     timeoutId = setTimeout(() => {
       if (
@@ -39,7 +45,6 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
         lastMainNavRouteSnapshot !== activeDropDown
       ) {
         setActiveDropDown(lastMainNavRouteSnapshot);
-        dispatch(navActions.getNav(lastMainNavRouteSnapshot));
       }
     }, 350);
   };
@@ -61,6 +66,11 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
     if (width < 1280 && !activeBurgerNav && activeDropDown)
       setActiveDropDown("");
   }, [width, activeDropDown, activeBurgerNav]);
+
+  useEffect(() => {
+    if (!activeDropDown) return;
+    dispatch(navActions.getNav(activeDropDown));
+  }, [activeDropDown]);
 
   return {
     width,

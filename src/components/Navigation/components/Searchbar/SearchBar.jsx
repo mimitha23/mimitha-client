@@ -66,7 +66,9 @@ export default function SearchBar() {
         )}
       </div>
 
-      {activeResults && <SearchBarResults onSearchClose={onSearchClose} />}
+      {activeResults && (
+        <SearchBarResults onSearchClose={onSearchClose} search={search} />
+      )}
     </Styled.SearchBar>
   );
 }

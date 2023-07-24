@@ -25,6 +25,11 @@ const productsSlice = createSlice({
   reducers: {
     // API
     getAllProducts: {
+      prepare(payload) {
+        return {
+          payload: generateProductsQueryStr(payload),
+        };
+      },
       reducer(state) {
         state.status = status.loading();
       },
@@ -83,3 +88,15 @@ const productsSlice = createSlice({
 
 export default productsSlice.reducer;
 export const productsActions = productsSlice.actions;
+
+function generateProductsQueryStr(payload) {
+  let productsQuery = ["isPublic=1"];
+
+  if (payload.category) productsQuery.push(`category=${payload.category}`);
+  if (payload.productType.query)
+    productsQuery.push(`productType=${payload.productType.query}`);
+  if (payload.title.en) productsQuery.push(`title=${payload.title.en}`);
+  if (payload.search) productsQuery.push(`title=${payload.search}`);
+
+  return productsQuery.join("&");
+}

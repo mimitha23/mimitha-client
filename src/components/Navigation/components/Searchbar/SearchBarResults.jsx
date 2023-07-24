@@ -6,13 +6,17 @@ import {
   selectProductsSearchStatus,
 } from "store/selectors/productSelectors";
 import { PATHS } from "config/routes";
+import { useLocationState } from "hooks/utils";
 
 import { ProductCard, Spinner } from "components/Layouts";
 import * as Styled from "./styles/SearchBarResults.styled";
 
-export default function SearchBarResults({ onSearchClose }) {
+export default function SearchBarResults({ onSearchClose, search }) {
   const result = useSelector(selectProductsSearchResult);
   const status = useSelector(selectProductsSearchStatus);
+
+  const { setLocationState, getLocationStateDefaults } = useLocationState();
+  const locationStateDefaults = getLocationStateDefaults();
 
   return (
     <Styled.SearchBarResults className="search-bar__result-box active-modal">
@@ -23,8 +27,19 @@ export default function SearchBarResults({ onSearchClose }) {
         >
           {result[0] && (
             <>
-              <span>2 search results</span>
-              <Link to={PATHS.products.fullPath}>view all</Link>
+              <span>{result.length} search results</span>
+              <Link
+                to={PATHS.products.fullPath}
+                state={setLocationState({
+                  search,
+                  title: locationStateDefaults.title,
+                  category: locationStateDefaults.category,
+                  productType: locationStateDefaults.productType,
+                })}
+                onClick={onSearchClose}
+              >
+                view all
+              </Link>
             </>
           )}
         </div>

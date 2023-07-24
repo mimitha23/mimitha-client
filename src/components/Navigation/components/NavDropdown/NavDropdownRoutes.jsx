@@ -10,7 +10,8 @@ import * as Styled from "./NavDropdown.styled";
 
 export default function NavDropdownRoutes() {
   const { currentLocale } = useTranslationContext();
-  const { setLocationState } = useLocationState();
+  const { setLocationState, getLocationStateDefaults } = useLocationState();
+  const locationStateDefaults = getLocationStateDefaults();
 
   const dropdown = useSelector(selectNavDropdown);
 
@@ -35,9 +36,9 @@ export default function NavDropdownRoutes() {
                 <Link
                   to="/products"
                   state={setLocationState({
-                    search_for: dropdown.category,
-                    query: route.query,
-                    queryLabel: route[currentLocale],
+                    category: dropdown.category,
+                    productType: route,
+                    title: locationStateDefaults.title,
                   })}
                 >
                   {route[currentLocale]}

@@ -10,7 +10,7 @@ import Dropdown from "./Dropdown";
 import FilterToggle from "./FilterToggle";
 import * as Styled from "./styles/Filter.styled";
 
-export default function Filter() {
+export default function Filter({ showProductTypeFilter }) {
   const { t } = useTranslation();
 
   const { activeFilterDropdown, activateFilter } = useFilter();
@@ -33,13 +33,15 @@ export default function Filter() {
           data={filter.sort}
         />
 
-        <Dropdown
-          dropdownType="PRODUCT_TYPE"
-          activateFilter={activateFilter}
-          isActive={activeFilterDropdown === "PRODUCT_TYPE"}
-          caption={t("crossover.product_type")}
-          data={filter.productType}
-        />
+        {showProductTypeFilter && (
+          <Dropdown
+            dropdownType="PRODUCT_TYPE"
+            activateFilter={activateFilter}
+            isActive={activeFilterDropdown === "PRODUCT_TYPE"}
+            caption={t("crossover.product_type")}
+            data={filter.productType}
+          />
+        )}
 
         <Dropdown
           dropdownType="SEASON"

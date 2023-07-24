@@ -3,19 +3,19 @@ export const PATHS = {
     fullPath: "/",
   },
   gallery: {
-    fullPath: "gallery",
+    fullPath: "/gallery",
   },
   goes_on: {
-    fullPath: "goes-on",
+    fullPath: "/goes-on",
   },
   goes_on_tutorial: {
-    fullPath: "goes-on/tutorial",
+    fullPath: "/goes-on/tutorial",
   },
   cart: {
-    fullPath: "cart",
+    fullPath: "/cart",
   },
   products: {
-    fullPath: "products",
+    fullPath: "/products",
   },
   active_product: {
     fullPath: ({ productId }) =>

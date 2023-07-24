@@ -43,10 +43,9 @@ export default function ActiveProduct() {
 
   return (
     <Styled.ActiveProductContainer>
+      <Path />
       {!status.loading && (
         <ContainerFull>
-          <Path />
-
           {/* <div className="active-product__fit-buttons--box">
             <EditorFitButtons
               activeFit={activeFit}

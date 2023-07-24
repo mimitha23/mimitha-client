@@ -7,6 +7,8 @@ const MAIN_NAV_TRANSLATIONS = i18next
 
 const MAIN_NAV_ROUTES = Object.keys(MAIN_NAV_TRANSLATIONS);
 
+const MAIN_NAV_DROPDOWN_ROUTES = ["men", "women", "adult", "family"];
+
 const JWT_MIMITHA_KEY = "mimitha_client_passport";
 
-export { JWT_MIMITHA_KEY, MAIN_NAV_ROUTES };
+export { JWT_MIMITHA_KEY, MAIN_NAV_ROUTES, MAIN_NAV_DROPDOWN_ROUTES };

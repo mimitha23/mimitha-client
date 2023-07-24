@@ -7,11 +7,11 @@ export default function CardActions({ productId }) {
 
   return (
     <div className="product-edit__and__fit-box">
-      <button className="edit-btn">
+      {/* <button className="edit-btn">
         <Link to={PATHS.fit_products.fullPath({ productId })}>
           {t("crossover.goes_on")}
         </Link>
-      </button>
+      </button> */}
       <button className="edit-btn">
         <Link to={PATHS.edit_product.fullPath({ productId })}>
           {t("crossover.edit")}

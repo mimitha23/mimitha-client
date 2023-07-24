@@ -18,6 +18,15 @@ export const Path = styled.div`
     a::first-letter {
       text-transform: capitalize;
     }
+
+    &.search_path-step {
+      display: flex;
+      align-items: center;
+
+      pre {
+        font-family: inherit;
+      }
+    }
   }
 
   span:not(:last-child) a::after {

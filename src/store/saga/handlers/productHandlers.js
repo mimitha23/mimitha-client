@@ -3,9 +3,9 @@ import { errorController } from "./helpers";
 import { productsAPI } from "../api";
 import { productsActions } from "store/reducers/produtsReducer";
 
-export function* getProducts() {
+export function* getProducts({ payload }) {
   try {
-    const { data } = yield call(productsAPI.getAllProductsQuery);
+    const { data } = yield call(productsAPI.getAllProductsQuery, payload);
     yield put(productsActions.setProducts(data));
     yield put(productsActions.setSuccess());
   } catch (error) {
