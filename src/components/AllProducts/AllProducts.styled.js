@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { animateMoveLeft, animateMoveRight } from "styles/helpers";
+import { animateMoveLeft } from "styles/helpers";
 
-export const AllProductsContainer = styled.div`
+export const AllProductsContainer = styled.main`
   padding-top: ${({ theme }) => theme.app.nav_h_full};
   min-height: 100vh;
 
@@ -9,7 +9,7 @@ export const AllProductsContainer = styled.div`
     padding: 0;
   }
 
-  .filter-box__wrapper {
+  .all-products__header {
     width: 100%;
     position: sticky;
     top: ${({ theme }) => theme.app.nav_h};
@@ -20,13 +20,6 @@ export const AllProductsContainer = styled.div`
     background: ${({ theme }) => theme.colors.bg};
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
     transition: all 0.2s linear;
-  }
-
-  .filter-box {
-    background: ${({ theme }) => theme.colors.bg};
-    ${animateMoveRight({
-      duration: ({ theme }) => theme.app.section_animation_duration,
-    })};
 
     [data-filter-container] {
       column-gap: 4rem;

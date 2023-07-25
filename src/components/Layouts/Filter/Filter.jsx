@@ -1,20 +1,33 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useTranslation } from "react-i18next";
-// import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { useFilter } from "hooks/layoutBase";
-// import { selectFilters } from "store/selectors/filterSelectors";
-import { filter } from "lib";
+import { filterActions } from "store/reducers/filterReducer";
+import {
+  selectFilters,
+  selectActiveFilters,
+} from "store/selectors/filterSelectors";
 
 import Dropdown from "./Dropdown";
 import FilterToggle from "./FilterToggle";
 import * as Styled from "./styles/Filter.styled";
 
-export default function Filter({ showProductTypeFilter }) {
-  const { t } = useTranslation();
+export default memo(function Filter({ showProductTypeFilter }) {
+  const dispatch = useDispatch();
 
+  const { t } = useTranslation();
   const { activeFilterDropdown, activateFilter } = useFilter();
-  // const { productType, season, style, texture } = useSelector(selectFilters);
+
+  const {
+    activeProductTypes,
+    activeSeasons,
+    activeSort,
+    activeStyles,
+    activeTextures,
+  } = useSelector(selectActiveFilters);
+  const { productTypes, seasons, styles, textures, sort } =
+    useSelector(selectFilters);
 
   const [openFilter, setOpenFilter] = useState(false);
 
@@ -29,8 +42,13 @@ export default function Filter({ showProductTypeFilter }) {
           dropdownType="SORT"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "SORT"}
-          caption={t("crossover.sort")}
-          data={filter.sort}
+          label={t("crossover.sort")}
+          captionKey="ka"
+          list={sort}
+          activeList={activeSort}
+          onSelect={(value) =>
+            dispatch(filterActions.setFilter({ key: "sort", value }))
+          }
         />
 
         {showProductTypeFilter && (
@@ -38,8 +56,13 @@ export default function Filter({ showProductTypeFilter }) {
             dropdownType="PRODUCT_TYPE"
             activateFilter={activateFilter}
             isActive={activeFilterDropdown === "PRODUCT_TYPE"}
-            caption={t("crossover.product_type")}
-            data={filter.productType}
+            label={t("crossover.product_type")}
+            captionKey="ka"
+            list={productTypes}
+            activeList={activeProductTypes}
+            onSelect={(value) =>
+              dispatch(filterActions.setFilter({ key: "productTypes", value }))
+            }
           />
         )}
 
@@ -47,26 +70,41 @@ export default function Filter({ showProductTypeFilter }) {
           dropdownType="SEASON"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "SEASON"}
-          caption={t("crossover.season")}
-          data={filter.season}
+          label={t("crossover.season")}
+          captionKey="ka"
+          list={seasons}
+          activeList={activeSeasons}
+          onSelect={(value) =>
+            dispatch(filterActions.setFilter({ key: "seasons", value }))
+          }
         />
 
         <Dropdown
           dropdownType="TEXTURE"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "TEXTURE"}
-          caption={t("crossover.texture")}
-          data={filter.texture}
+          label={t("crossover.texture")}
+          captionKey="ka"
+          list={textures}
+          activeList={activeTextures}
+          onSelect={(value) =>
+            dispatch(filterActions.setFilter({ key: "textures", value }))
+          }
         />
 
         <Dropdown
           dropdownType="STYLE"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "STYLE"}
-          caption={t("crossover.style")}
-          data={filter.style}
+          label={t("crossover.style")}
+          captionKey="ka"
+          list={styles}
+          activeList={activeStyles}
+          onSelect={(value) =>
+            dispatch(filterActions.setFilter({ key: "styles", value }))
+          }
         />
       </div>
     </Styled.FilterContainer>
   );
-}
+});

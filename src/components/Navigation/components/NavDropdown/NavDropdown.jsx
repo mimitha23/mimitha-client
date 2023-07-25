@@ -1,11 +1,10 @@
-import navDropdownData from "lib/nav-dropdown.json";
 import { useSelector } from "react-redux";
 
 import { selectNavStatus } from "store/selectors/navSelectors";
 
 import { Spinner } from "components/Layouts";
 import NavDropdownRoutes from "./NavDropdownRoutes";
-import NavDropdownProducts from "./NavDropdownProducts";
+// import NavDropdownProducts from "./NavDropdownProducts";
 import * as Styled from "./NavDropdown.styled";
 
 export default function NavDropdown() {
@@ -22,7 +21,7 @@ export default function NavDropdown() {
           <>
             <NavDropdownRoutes />
 
-            <NavDropdownProducts products={navDropdownData.products} />
+            {/* <NavDropdownProducts products={navDropdownData.products} /> */}
           </>
         )}
 

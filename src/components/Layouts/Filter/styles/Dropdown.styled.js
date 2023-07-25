@@ -27,6 +27,9 @@ export const Dropdown = styled.div`
     left: 0;
     right: 0;
     padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     border-radius: 0.5rem;
     box-shadow: ${({ theme }) => theme.shadow.radial_sm_dark};
     background: ${({ theme }) => theme.colors.bg};
@@ -40,17 +43,24 @@ export const Dropdown = styled.div`
     }
 
     .filter-dropdown__list-item {
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+
+      &.active {
+        background: ${({ theme }) => theme.colors.blue};
+        color: ${({ theme }) => theme.colors.white};
+      }
+
+      &:not(.active):hover {
+        background: ${({ theme }) => theme.colors.text};
+        color: ${({ theme }) => theme.colors.bg};
+        border-radius: 0.5rem;
+      }
+
       button {
         padding: 0.5rem;
         width: 100%;
         text-align: start;
-        transition: all 0.2s ease;
-        border-radius: 0.5rem;
-      }
-
-      button:hover {
-        background: ${({ theme }) => theme.colors.text};
-        color: ${({ theme }) => theme.colors.bg};
       }
     }
   }

@@ -1,17 +1,15 @@
 import { useScrollToTop } from "hooks/domBase";
-
-import { Navigation } from "components";
+import { Navigation, Footer } from "components";
 import Editor from "components/Editor/Editor";
 
-function EditorPage() {
+export default function EditorPage() {
   useScrollToTop();
 
   return (
     <>
       <Navigation />
       <Editor />
+      <Footer />
     </>
   );
 }
-
-export default EditorPage;

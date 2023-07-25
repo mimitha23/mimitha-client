@@ -2,7 +2,7 @@ import useScrollToTop from "hooks/domBase/useScrollToTop";
 import { Navigation, Footer } from "components/index";
 import Cart from "components/Cart/Cart";
 
-function CartPage() {
+export default function CartPage() {
   useScrollToTop();
 
   return (
@@ -13,5 +13,3 @@ function CartPage() {
     </>
   );
 }
-
-export default CartPage;

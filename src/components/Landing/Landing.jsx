@@ -1,9 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-import { landingActions } from "store/reducers/landingReducer";
-import { selectLandingStatus } from "store/selectors/landingSelectors";
+import { useLandingQuery } from "hooks/api";
 
 import { Container, Spinner } from "components/Layouts/index";
 import LandingCTAPhoto from "./components/LandingCTAPhoto";
@@ -12,15 +9,13 @@ import PopularProducts from "./components/PopularProducts";
 import * as Styled from "./Landing.styled";
 
 export default function Landing() {
-  const dispatch = useDispatch();
-
-  const status = useSelector(selectLandingStatus);
+  const { status, getLanding, resetLanding } = useLandingQuery();
 
   useEffect(() => {
-    dispatch(landingActions.getLanding());
+    getLanding();
 
     return () => {
-      dispatch(landingActions.resetLanding());
+      resetLanding();
     };
   }, []);
 

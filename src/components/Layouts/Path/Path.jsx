@@ -1,5 +1,6 @@
-import { useTranslation } from "react-i18next";
+import { memo } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { PATHS } from "config/routes";
 import { useLocationState } from "hooks/utils/index";
@@ -7,7 +8,7 @@ import { useTranslationContext } from "providers/I18nextProvider";
 
 import * as Styled from "./Path.styled";
 
-export default function Path({ showSearch }) {
+export default memo(function Path({ showSearch }) {
   const { t } = useTranslation();
   const { currentLocale } = useTranslationContext();
 
@@ -59,4 +60,4 @@ export default function Path({ showSearch }) {
       )}
     </Styled.Path>
   );
-}
+});

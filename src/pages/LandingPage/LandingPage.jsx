@@ -1,8 +1,6 @@
 import { useScrollToTop } from "hooks/domBase";
-
-import { Footer } from "components/index";
+import { Footer, Navigation } from "components";
 import Landing from "components/Landing/Landing";
-import { Navigation } from "components";
 
 export default function LandingPage() {
   useScrollToTop();

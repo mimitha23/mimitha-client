@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useHideNavOnScroll } from "hooks/domBase/index";
 import { useBurgerNavigation } from "hooks/layoutBase/index";
 
@@ -11,7 +12,7 @@ import {
 } from "./components";
 import * as Styled from "./Navigation.styled";
 
-export default function Navigation() {
+export default memo(function Navigation() {
   const { partialNav } = useHideNavOnScroll();
   const { activeBurgerNav, setActiveBurgerNav } = useBurgerNavigation();
 
@@ -35,4 +36,4 @@ export default function Navigation() {
       </div>
     </Styled.Navigation>
   );
-}
+});

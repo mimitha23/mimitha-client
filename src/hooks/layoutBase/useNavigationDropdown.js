@@ -54,7 +54,6 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
   //////////////////////////////////////////
   // 2.0 Control Nav Dropdown On Mobile //
   ////////////////////////////////////////
-
   const handleNavDropdownOnClick = (e, route) => {
     setActiveDropDown((prev) => (prev === route ? "" : route));
 
@@ -67,6 +66,9 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
       setActiveDropDown("");
   }, [width, activeDropDown, activeBurgerNav]);
 
+  ///////////////////////////
+  // 3.0 Fetch Navigation //
+  /////////////////////////
   useEffect(() => {
     if (!activeDropDown) return;
     dispatch(navActions.getNav(activeDropDown));

@@ -1,15 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-
-import { activeProductActions } from "store/reducers/activeProductReducer";
-import { selectActiveProductStatus } from "store/selectors/activeProductSelectors";
-
+import { useActiveProductQuery } from "hooks/api";
 // import { useFitProduct } from "hooks/layoutBase";
 
 import {
-  // EditorFitButtons,
+  // EditorFitButtons,s
   ContainerFull,
   Path,
   Spinner,
@@ -23,23 +16,12 @@ import {
   ProductFooter,
   RelatedProducts,
 } from "./components";
-import * as Styled from "./ActiveProduct.styled";
+import * as Styled from "./ActiveProductContainer.styled";
 
 export default function ActiveProduct() {
-  const dispatch = useDispatch();
-  const { productId } = useParams();
-
-  const status = useSelector(selectActiveProductStatus);
+  const { status, productId } = useActiveProductQuery();
 
   // const { handleFitMannequin, handleFitModel, activeFit } = useFitProduct();
-
-  useEffect(() => {
-    dispatch(activeProductActions.getActiveProduct(productId));
-
-    return () => {
-      dispatch(activeProductActions.resetActiveProduct());
-    };
-  }, [productId]);
 
   return (
     <Styled.ActiveProductContainer>

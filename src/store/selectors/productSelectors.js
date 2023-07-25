@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-const selectedProductStatus = ({ products }) => ({
+const selectedProductsStatus = ({ products }) => ({
   loading: products.status.loading,
   error: products.status.error,
   message: products.status.message,
@@ -17,8 +17,8 @@ export const selectAllProducts = ({ products }) => products.allProducts;
 export const selectProductsSearchResult = ({ products }) =>
   products.searchResults;
 
-export const selectProductStatus = createSelector(
-  selectedProductStatus,
+export const selectProductsStatus = createSelector(
+  selectedProductsStatus,
   (memorized) => memorized
 );
 

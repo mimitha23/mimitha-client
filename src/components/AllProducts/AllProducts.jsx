@@ -1,13 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-import {
-  selectProductStatus,
-  selectAllProducts,
-} from "store/selectors/productSelectors";
-import { productsActions } from "store/reducers/produtsReducer";
-import { useLocationState } from "hooks/utils";
+import { useSelector } from "react-redux";
+import { useAllProductsQuery } from "hooks/api";
+import { selectAllProducts } from "store/selectors/productSelectors";
 
 import {
   ContainerFull,
@@ -19,36 +12,21 @@ import {
 import * as Styled from "./AllProducts.styled";
 
 export default function AllProducts() {
-  const dispatch = useDispatch();
-
-  const status = useSelector(selectProductStatus);
   const allProducts = useSelector(selectAllProducts);
-
-  const { getLocationState, state } = useLocationState();
-
-  useEffect(() => {
-    dispatch(productsActions.getAllProducts(getLocationState()));
-  }, [state]);
-
-  useEffect(() => {
-    return () => {
-      dispatch(productsActions.resetProducts());
-    };
-  }, []);
+  const { status, state } = useAllProductsQuery();
 
   return (
     <Styled.AllProductsContainer>
+      <header className="all-products__header">
+        <Path showSearch={true} />
+
+        <Filter
+          showProductTypeFilter={state?.productType?.query ? false : true}
+        />
+      </header>
+
       {!status.loading && (
         <ContainerFull className="wrapper-container">
-          <div className="filter-box__wrapper">
-            <Path showSearch={true} />
-            <div className="filter-box">
-              <Filter
-                showProductTypeFilter={state?.productType?.query ? false : true}
-              />
-            </div>
-          </div>
-
           <div className="products-list">
             {allProducts.map((product) => (
               <ProductCard key={product._id} product={product} />

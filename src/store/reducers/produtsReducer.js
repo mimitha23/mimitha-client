@@ -92,11 +92,46 @@ export const productsActions = productsSlice.actions;
 function generateProductsQueryStr(payload) {
   let productsQuery = ["isPublic=1"];
 
+  // filter by router-state
   if (payload.category) productsQuery.push(`category=${payload.category}`);
   if (payload.productType.query)
     productsQuery.push(`productType=${payload.productType.query}`);
   if (payload.title.en) productsQuery.push(`title=${payload.title.en}`);
   if (payload.search) productsQuery.push(`title=${payload.search}`);
+
+  // filter by products filter
+  if (!payload.filter) return productsQuery.join("&");
+  console.log(payload.filter);
+  if (payload.filter.activeProductTypes[0])
+    productsQuery.push(
+      `productType=${payload.filter.activeProductTypes
+        .map((type) => type.query)
+        .join(",")}`
+    );
+  if (payload.filter.activeSeasons[0])
+    productsQuery.push(
+      `seasons=${payload.filter.activeSeasons
+        .map((season) => season.query)
+        .join(",")}`
+    );
+  if (payload.filter.activeSort[0])
+    productsQuery.push(
+      `sort=${payload.filter.activeSort
+        .map((sortQuery) => sortQuery.query)
+        .join(",")}`
+    );
+  if (payload.filter.activeStyles[0])
+    productsQuery.push(
+      `styles=${payload.filter.activeStyles
+        .map((style) => style.query)
+        .join(",")}`
+    );
+  if (payload.filter.activeTextures[0])
+    productsQuery.push(
+      `textures=${payload.filter.activeTextures
+        .map((texture) => texture.en)
+        .join(",")}`
+    );
 
   return productsQuery.join("&");
 }
