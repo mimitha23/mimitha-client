@@ -17,7 +17,7 @@ export default function CardFig({ productId, img, alt, linkState }) {
         state={setLocationState({ ...linkState })}
         className="card-fig__link"
       >
-        <img src={img} alt={alt[currentLocale]} />
+        <img src={img} alt={alt[currentLocale]} loading="lazy" />
       </Link>
     </Styled.CardFig>
   );

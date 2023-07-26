@@ -5,8 +5,9 @@ export const ProductView = styled.div`
   height: 30vw;
   display: flex;
   gap: 0.5rem;
-  background: ${({ theme }) => theme.colors.bg};
+  background: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.gray_shade};
+  border-radius: 1rem;
 
   @media (${({ theme }) => theme.media.tablet}) {
     height: 38vw;

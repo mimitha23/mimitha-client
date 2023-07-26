@@ -13,7 +13,7 @@ export const ActiveProductContainer = styled.div`
     position: sticky;
     top: ${({ theme }) => theme.app.nav_h};
     padding: 1rem 3.5rem;
-    z-index: 99;
+    z-index: 9;
     background: ${({ theme }) => theme.colors.bg};
     transition: all 0.2s;
   }

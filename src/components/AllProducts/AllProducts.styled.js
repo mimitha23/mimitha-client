@@ -39,8 +39,7 @@ export const AllProductsContainer = styled.main`
     padding: 0 3rem 3rem;
     display: grid;
     gap: 6rem 4rem;
-    grid-template-columns: repeat(auto-fit, minmax(28rem, max-content)); //35
-    grid-auto-rows: 45rem;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, max-content));
     ${animateMoveLeft({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};

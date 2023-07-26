@@ -12,6 +12,7 @@ export default function CardActions({ productId }) {
           {t("crossover.goes_on")}
         </Link>
       </button> */}
+
       <button className="edit-btn">
         <Link to={PATHS.edit_product.fullPath({ productId })}>
           {t("crossover.edit")}

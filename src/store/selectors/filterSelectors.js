@@ -16,6 +16,10 @@ const selectedActiveFilters = ({ filter }) => ({
   activeSort: filter.activeFilter.sort,
 });
 
+const selectedFilterIsSet = ({ filter }) =>
+  Object.values(selectedActiveFilters({ filter })).some((value) => value[0]);
+
+// EXPORTS //
 export const selectActiveFilterDropdown = ({ filter }) =>
   filter.activeFilterDropdown;
 
@@ -27,4 +31,9 @@ export const selectFilters = createSelector(
 export const selectActiveFilters = createSelector(
   selectedActiveFilters,
   (activeFilter) => activeFilter
+);
+
+export const selectFilterIsSet = createSelector(
+  selectedFilterIsSet,
+  (isSet) => isSet
 );

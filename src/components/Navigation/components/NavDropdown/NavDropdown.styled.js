@@ -3,7 +3,7 @@ import { animateMoveTop } from "styles/helpers/animations";
 
 export const NavDropdown = styled.nav`
   position: fixed;
-  z-index: -1;
+  z-index: 99;
   top: calc(${({ theme }) => theme.app.nav_h} - 2px);
   border-top: 2px solid ${({ theme }) => theme.colors.text};
   left: 0;

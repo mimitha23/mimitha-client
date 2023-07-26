@@ -13,8 +13,10 @@ export default function CardContentDescriptive({
   return (
     <>
       <ProductTitle title={title} productId={productId} linkState={linkState} />
-      <Price price={price} />
-      <CurrencySwitch />
+      <div className="product-card__price-currency--box">
+        <Price price={price} />
+        <CurrencySwitch />
+      </div>
       <SoldOut soldOut={soldOut} />
     </>
   );

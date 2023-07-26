@@ -3,9 +3,12 @@ import styled from "styled-components";
 export const CardFig = styled.figure`
   width: 100%;
   height: 100%;
-  border-radius: 0.25rem;
+  min-height: 20rem;
+  max-height: 20rem;
+  border-radius: 0.5rem;
   overflow: hidden;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.shadow.radial_sm_dark};
 
   .card-fig__link {
     display: flex;

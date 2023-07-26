@@ -1,19 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useMemo, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useLocationState } from "hooks/utils";
 import { productsActions } from "store/reducers/produtsReducer";
 import { filterActions } from "store/reducers/filterReducer";
 
-import { selectActiveFilters } from "store/selectors/filterSelectors";
+import {
+  selectActiveFilters,
+  selectFilterIsSet,
+} from "store/selectors/filterSelectors";
 import { selectProductsStatus } from "store/selectors/productSelectors";
 
 export default function useAllProductsQuery() {
   const dispatch = useDispatch();
-
-  const status = useSelector(selectProductsStatus);
-  const { getLocationState, state } = useLocationState();
 
   const {
     activeProductTypes,
@@ -22,6 +22,11 @@ export default function useAllProductsQuery() {
     activeStyles,
     activeTextures,
   } = useSelector(selectActiveFilters);
+  const status = useSelector(selectProductsStatus);
+  const { getLocationState, state } = useLocationState();
+
+  const [isMounted, setIsMounted] = useState(false);
+  const filterIsSet = useSelector(selectFilterIsSet);
 
   const getFilteredProducts = () =>
     dispatch(
@@ -37,9 +42,19 @@ export default function useAllProductsQuery() {
       })
     );
 
+  // fetch data on mount based on router state
+  useEffect(() => {
+    if (filterIsSet) return;
+
+    dispatch(productsActions.getAllProducts(getLocationState()));
+    dispatch(filterActions.getProductsFilter(state));
+
+    setIsMounted(true);
+  }, [state]);
+
   // fetch data on filter change
   useEffect(() => {
-    if (status.loading) return;
+    if (!isMounted && !filterIsSet) return;
 
     const timeoutId = setTimeout(() => {
       getFilteredProducts();
@@ -55,12 +70,6 @@ export default function useAllProductsQuery() {
     activeStyles,
     activeTextures,
   ]);
-
-  // fetch data on mount based on router state
-  useEffect(() => {
-    dispatch(productsActions.getAllProducts(getLocationState()));
-    dispatch(filterActions.getProductsFilter(state));
-  }, [state]);
 
   // cleaner
   useEffect(() => {
