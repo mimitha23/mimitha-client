@@ -7,4 +7,8 @@ export default function* activeProductSaga() {
     activeProductActions.getActiveProduct,
     activeProductHandlers.getActiveProduct
   );
+  yield takeLatest(
+    activeProductActions.getRelatedProducts,
+    activeProductHandlers.getRelatedProducts
+  );
 }

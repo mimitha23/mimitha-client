@@ -1,3 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useCallback } from "react";
+import { useDispatch } from "react-redux";
+
+import { shoppingCartActions } from "store/reducers/shoppingCartReducer";
+
 import {
   CardFig,
   CardContentWithActions,
@@ -7,6 +13,22 @@ import * as Styled from "./ProductCard.styled";
 import { CardContent } from "./components/styles/CardContent.styled";
 
 export default function ProductCard({ cardType = "withActions", product }) {
+  const dispatch = useDispatch();
+
+  const onAddToCart = useCallback(() => {
+    dispatch(
+      shoppingCartActions.addToCart({
+        productId: product._id,
+        color: product.color,
+        size: product.size.find((s) => s.amount > 0),
+        price: product.price,
+        title: product.title,
+        thumbnail: product.assets[0],
+        quantity: 1,
+      })
+    );
+  }, []);
+
   return (
     <Styled.ProductCard data-product-card>
       {product && (
@@ -30,6 +52,7 @@ export default function ProductCard({ cardType = "withActions", product }) {
                 productId={product._id}
                 soldOut={product.soldOut}
                 isEditable={product.product.isEditable}
+                onAddToCart={onAddToCart}
                 linkState={{
                   title: product.title,
                   category: product.product.category.query,

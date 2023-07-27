@@ -4,6 +4,18 @@ import { animateMoveBottom, dropdownRectingle } from "styles/helpers/index";
 export const Dropdown = styled.div`
   position: relative;
 
+  &.active .filter-dropdown__trigger-btn {
+    border-color: ${({ theme }) => theme.colors.blue};
+
+    &::after {
+      border-top-color: ${({ theme }) => theme.colors.blue};
+    }
+
+    &::before {
+      border-top-color: ${({ theme }) => theme.colors.blue};
+    }
+  }
+
   .filter-dropdown__trigger-btn {
     text-align: start;
     padding-left: 1rem;
@@ -17,7 +29,7 @@ export const Dropdown = styled.div`
       buttonBorderWidth: "1px",
       rectingleHeight: "3.6rem",
       rectingleBorderWidth: "1px",
-    })}
+    })};
   }
 
   .filter-dropdown__body {

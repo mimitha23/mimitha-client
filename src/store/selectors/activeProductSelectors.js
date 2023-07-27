@@ -6,6 +6,12 @@ const selectedActiveProductStatus = ({ activeProduct }) => ({
   message: activeProduct.status.message,
 });
 
+const selectedRelatedProductsStatus = ({ activeProduct }) => ({
+  loading: activeProduct.relatedProductsStatus.loading,
+  error: activeProduct.relatedProductsStatus.error,
+  message: activeProduct.relatedProductsStatus.message,
+});
+
 const selectedActiveProduct = ({ activeProduct }) => ({
   _id: activeProduct.product._id,
   description: activeProduct.product.description,
@@ -19,6 +25,16 @@ const selectedActiveProduct = ({ activeProduct }) => ({
   warnings: activeProduct.product.warnings,
 });
 
+const selectedActiveProductInfoForShoppingCart = ({ activeProduct }) => ({
+  _id: activeProduct.product._id,
+  color: activeProduct.product.color,
+  price: activeProduct.product.price,
+  title: activeProduct.product.title,
+  thumbnail: activeProduct.product.assets[0],
+  size: activeProduct.activeSize,
+});
+
+// EXPORTS
 export const selectActiveProductAssets = ({ activeProduct }) => ({
   assets: activeProduct.product.assets,
   alt: activeProduct.product.title,
@@ -51,4 +67,17 @@ export const selectActiveProduct = createSelector(
 export const selectActiveProductStatus = createSelector(
   selectedActiveProductStatus,
   (memorised) => memorised
+);
+
+export const selectRelatedProductsStatus = createSelector(
+  selectedRelatedProductsStatus,
+  (memorised) => memorised
+);
+
+export const selectRelatedProducts = ({ activeProduct }) =>
+  activeProduct.relatedProducts;
+
+export const selectActiveProductInfoForShoppingCart = createSelector(
+  selectedActiveProductInfoForShoppingCart,
+  (info) => info
 );

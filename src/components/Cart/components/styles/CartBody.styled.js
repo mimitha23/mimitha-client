@@ -3,6 +3,8 @@ import { scrollBar } from "styles/helpers";
 
 export const CartBodyContainer = styled.main`
   margin: 2rem 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -10,6 +12,25 @@ export const CartBodyContainer = styled.main`
   ${scrollBar};
   padding-right: 2rem;
   scroll-behavior: smooth;
+
+  .no-products__message {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: ${({ theme }) => theme.fontSize.xl};
+    font-weight: 700;
+    opacity: 0.5;
+
+    .message__secondary {
+      font-size: ${({ theme }) => theme.fontSize.md};
+      text-decoration: underline;
+      text-align: center;
+      text-wrap: balance;
+    }
+  }
 
   @media (${({ theme }) => theme.media.tablet}) {
     display: grid;

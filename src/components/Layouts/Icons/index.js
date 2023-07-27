@@ -8,7 +8,13 @@ import {
   BsBookmarkDashFill,
 } from "react-icons/bs";
 
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
+import {
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiOutlineClose,
+  AiFillEye,
+  AiFillEyeInvisible,
+} from "react-icons/ai";
 
 import { HiOutlineLockClosed, HiOutlineLockOpen } from "react-icons/hi";
 
@@ -24,6 +30,8 @@ import {
   MdOpenWith,
   MdOpenInNew,
   MdModeEditOutline,
+  MdLogin,
+  MdLogout,
 } from "react-icons/md";
 
 import {
@@ -46,11 +54,15 @@ const CloseXIcon = AiOutlineClose;
 const DollarIcon = FaDollarSign;
 const EditIcon = MdModeEditOutline;
 const EuroIcon = FaEuroSign;
+const EyeShowIcon = AiFillEye;
+const EyeHideIcon = AiFillEyeInvisible;
 const FacebookIcon = FaFacebook;
 const FilterIcon = MdOutlineFilterList;
 const FilterOffIcon = MdOutlineFilterListOff;
 const InstagramIcon = FaInstagram;
 const LockIcon = HiOutlineLockClosed;
+const LoginIcon = MdLogin;
+const LogoutIcon = MdLogout;
 const MoonIcon = FaMoon;
 const MinusIcon = AiOutlineMinus;
 const OpenIcon = MdOpenWith;
@@ -75,11 +87,15 @@ export {
   DollarIcon,
   EditIcon,
   EuroIcon,
+  EyeShowIcon,
+  EyeHideIcon,
   FacebookIcon,
   FilterIcon,
   FilterOffIcon,
   InstagramIcon,
   LockIcon,
+  LoginIcon,
+  LogoutIcon,
   MoonIcon,
   MinusIcon,
   MuteIcon,

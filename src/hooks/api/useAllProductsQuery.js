@@ -1,15 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useLocationState } from "hooks/utils";
 import { productsActions } from "store/reducers/produtsReducer";
 import { filterActions } from "store/reducers/filterReducer";
 
-import {
-  selectActiveFilters,
-  selectFilterIsSet,
-} from "store/selectors/filterSelectors";
+import { selectActiveFilters } from "store/selectors/filterSelectors";
 import { selectProductsStatus } from "store/selectors/productSelectors";
 
 export default function useAllProductsQuery() {
@@ -25,9 +22,6 @@ export default function useAllProductsQuery() {
   const status = useSelector(selectProductsStatus);
   const { getLocationState, state } = useLocationState();
 
-  const [isMounted, setIsMounted] = useState(false);
-  const filterIsSet = useSelector(selectFilterIsSet);
-
   const getFilteredProducts = () =>
     dispatch(
       productsActions.getAllProducts({
@@ -42,20 +36,13 @@ export default function useAllProductsQuery() {
       })
     );
 
-  // fetch data on mount based on router state
+  // // fetch products filter on mount based on router state
   useEffect(() => {
-    if (filterIsSet) return;
-
-    dispatch(productsActions.getAllProducts(getLocationState()));
     dispatch(filterActions.getProductsFilter(state));
-
-    setIsMounted(true);
   }, [state]);
 
   // fetch data on filter change
   useEffect(() => {
-    if (!isMounted && !filterIsSet) return;
-
     const timeoutId = setTimeout(() => {
       getFilteredProducts();
     }, 1000);
@@ -69,6 +56,7 @@ export default function useAllProductsQuery() {
     activeSort,
     activeStyles,
     activeTextures,
+    state,
   ]);
 
   // cleaner

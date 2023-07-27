@@ -11,6 +11,7 @@ export default function CardContentWithActions({
   soldOut,
   productId,
   isEditable,
+  onAddToCart,
   linkState,
 }) {
   return (
@@ -24,7 +25,7 @@ export default function CardContentWithActions({
 
       <SoldOut soldOut={soldOut} />
 
-      <AddToCart />
+      <AddToCart onAddToCart={onAddToCart} />
 
       {isEditable && (
         <>

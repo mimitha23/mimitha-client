@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { persistStore } from "redux-persist";
-import rootReducer from "./reducers";
+import rootReducer from "./reducers/root";
 
 import createSagaMiddleWare from "redux-saga";
 import initSagas from "./saga/initSagas";

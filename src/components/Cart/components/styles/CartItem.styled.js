@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CartItemContainer = styled.div`
+export const CartItem = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 1rem;
@@ -15,6 +15,37 @@ export const CartItemContainer = styled.div`
     height: 12rem;
     overflow: hidden;
     border-radius: 0.5rem;
+    position: relative;
+    cursor: pointer;
+
+    &--layover {
+      position: absolute;
+      inset: 0;
+      bottom: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: ${({ theme }) => theme.colors.black_tr_05};
+      color: ${({ theme }) => theme.colors.white};
+      transition: all 0.3s ease;
+
+      a {
+        transition: all 0.15s ease-out;
+        opacity: 0;
+        pointer-events: none;
+        text-align: center;
+      }
+    }
+
+    &:hover .cart-item__fig--layover {
+      bottom: 0;
+
+      a {
+        pointer-events: all;
+        opacity: 1;
+        transition-delay: 0.3s;
+      }
+    }
   }
 
   .cart-item__details {
@@ -56,6 +87,24 @@ export const CartItemContainer = styled.div`
         align-items: center;
         padding: 0.5rem;
       }
+
+      &__title-box {
+        text-align: center;
+
+        div span {
+          font-size: ${({ theme }) => theme.fontSize.md};
+
+          &::first-letter {
+            text-transform: capitalize;
+          }
+        }
+      }
+
+      &__size-box {
+        div span {
+          text-transform: uppercase;
+        }
+      }
     }
 
     .cart-item__details-box--content__size {
@@ -77,6 +126,12 @@ export const CartItemContainer = styled.div`
         align-items: center;
         justify-content: center;
         font-size: 2rem;
+        transition: opacity 0.2s ease;
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: none;
+        }
       }
 
       input {
@@ -98,6 +153,12 @@ export const CartItemContainer = styled.div`
     top: 1rem;
     right: 1rem;
     font-size: 2rem;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.blue};
+      transform: scale(1.25);
+    }
   }
 
   @media (${({ theme }) => theme.media.tablet}) {

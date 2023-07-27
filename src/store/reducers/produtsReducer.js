@@ -101,7 +101,7 @@ function generateProductsQueryStr(payload) {
 
   // filter by products filter
   if (!payload.filter) return productsQuery.join("&");
-  console.log(payload.filter);
+
   if (payload.filter.activeProductTypes[0])
     productsQuery.push(
       `productType=${payload.filter.activeProductTypes
@@ -117,7 +117,7 @@ function generateProductsQueryStr(payload) {
   if (payload.filter.activeSort[0])
     productsQuery.push(
       `sort=${payload.filter.activeSort
-        .map((sortQuery) => sortQuery.query)
+        .flatMap((sortQuery) => sortQuery.query.split(","))
         .join(",")}`
     );
   if (payload.filter.activeStyles[0])

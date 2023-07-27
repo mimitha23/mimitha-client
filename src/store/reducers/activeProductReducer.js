@@ -52,7 +52,15 @@ const initialState = {
 
   availableColors: [],
 
+  relatedProducts: [],
+
   status: {
+    loading: false,
+    error: false,
+    message: "",
+  },
+
+  relatedProductsStatus: {
     loading: false,
     error: false,
     message: "",
@@ -125,6 +133,24 @@ const activeProductsSlice = createSlice({
       state.activeSize = payload.size[0];
     },
 
+    getRelatedProducts: {
+      prepare(payload) {
+        return {
+          payload: {
+            productId: payload,
+          },
+        };
+      },
+
+      reducer(state) {
+        state.relatedProductsStatus = status.loading();
+      },
+    },
+
+    setRelatedProducts: (state, { payload }) => {
+      state.relatedProducts = payload;
+    },
+
     // REQUEST STATUS SETTERS
     setSuccess(state) {
       state.status = status.success();
@@ -134,11 +160,23 @@ const activeProductsSlice = createSlice({
       state.status = status.error();
     },
 
+    setRelatedProductsSuccess(state) {
+      state.relatedProductsStatus = status.success();
+    },
+
+    setRelatedProductsError(state, { payload }) {
+      state.relatedProductsStatus = status.error();
+    },
+
     // RESET
     resetActiveProduct(state) {
       state.activeSize = initialState.activeSize;
       state.product = initialState.product;
       state.availableColors = initialState.availableColors;
+    },
+
+    resetRelatedProducts(state) {
+      state.relatedProducts = [];
     },
   },
 });

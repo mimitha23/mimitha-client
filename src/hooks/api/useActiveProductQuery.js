@@ -14,8 +14,11 @@ export default function useActiveProductQuery() {
 
   useEffect(() => {
     dispatch(activeProductActions.getActiveProduct(productId));
+    dispatch(activeProductActions.getRelatedProducts(productId));
+
     return () => {
       dispatch(activeProductActions.resetActiveProduct());
+      dispatch(activeProductActions.resetRelatedProducts());
     };
   }, [productId]);
 

@@ -13,7 +13,7 @@ export const CartContainer = styled.div`
 
   .cart {
     width: min(128rem, 100%);
-    height: 70vh;
+    height: 74vh;
     box-shadow: ${({ theme }) => theme.shadow.radial_sm_dark};
     border-radius: 0.5rem;
     padding: 1rem;

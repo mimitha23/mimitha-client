@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { controlStatus as status } from "store/reducers/helpers";
 
 const initialState = {
@@ -64,7 +64,13 @@ const filterSlice = createSlice({
     },
 
     setProductsFilter(state, { payload }) {
-      state.filter = payload;
+      state.filter = {
+        ...payload,
+        sort: payload.sort.map((sortQuery) => ({
+          ...sortQuery,
+          _id: nanoid(),
+        })),
+      };
     },
 
     // REQUEST STATUS SETTERS
