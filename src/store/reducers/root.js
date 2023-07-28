@@ -10,6 +10,8 @@ import produtsReducer from "./produtsReducer";
 import landingReducer from "./landingReducer";
 import navReducer from "./navReducer";
 import shoppingCartReducer from "./shoppingCartReducer";
+import authReducer from "./authReducer";
+import userReducer from "./userReducer";
 
 const persistedEditorReducer = persistReducer(
   { key: "mimitha_editor", storage },
@@ -35,6 +37,8 @@ const rootReducer = combineReducers({
   landing: landingReducer,
   nav: navReducer,
   shoppingCart: persistedCartReducer,
+  auth: authReducer,
+  user: userReducer,
 });
 
 export default rootReducer;

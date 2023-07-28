@@ -1,33 +1,33 @@
-export default function SwitchProcessField({
-  onGoingProcess,
-  setOnGoingProcess,
-}) {
+import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { authActions } from "store/reducers/authReducer";
+
+export default function SwitchProcessField({ onGoingProcess }) {
+  const dispatch = useDispatch();
+
+  const { t } = useTranslation();
+
+  function onSwitchProcess(e) {
+    e.preventDefault();
+    dispatch(authActions.changeAuthOnGoingProcess());
+    dispatch(authActions.resetForms());
+  }
+
   return (
     <div className="registration-suggestion">
       <span>
         {onGoingProcess === "authorization"
-          ? "არ გაქვს ანგარიში ?"
+          ? t("auth.not_have_an_account")
           : onGoingProcess === "registration"
-          ? "გაქვს ანგარიში ?"
+          ? t("auth.have_an_account")
           : ""}
       </span>
       &nbsp;
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          setOnGoingProcess((prev) =>
-            prev === "authorization"
-              ? "registration"
-              : prev === "registration"
-              ? "authorization"
-              : ""
-          );
-        }}
-      >
+      <button onClick={onSwitchProcess}>
         {onGoingProcess === "authorization"
-          ? "რეგისტრაცია"
+          ? t("auth.registration")
           : onGoingProcess === "registration"
-          ? "ავტორიზაცია"
+          ? t("auth.login")
           : ""}
       </button>
     </div>

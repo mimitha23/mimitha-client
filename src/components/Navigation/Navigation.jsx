@@ -1,8 +1,7 @@
 import { memo } from "react";
+
 import { useHideNavOnScroll } from "hooks/domBase/index";
 import { useBurgerNavigation } from "hooks/layoutBase/index";
-
-import { useAuthContext } from "providers/AuthProvider";
 
 import {
   Logo,
@@ -12,14 +11,11 @@ import {
   ShoppingCardButton,
   BurgerButton,
 } from "./components";
-import { LoginIcon } from "components/Layouts/Icons";
 import * as Styled from "./Navigation.styled";
 
 export default memo(function Navigation() {
   const { partialNav } = useHideNavOnScroll();
   const { activeBurgerNav, setActiveBurgerNav } = useBurgerNavigation();
-
-  const { startAuth } = useAuthContext();
 
   return (
     <Styled.Navigation partialNav={partialNav}>
@@ -35,9 +31,6 @@ export default memo(function Navigation() {
           <div className="main_nav--right">
             <SearchBar />
             <ShoppingCardButton />
-            <button onClick={startAuth}>
-              <LoginIcon />
-            </button>
             <BurgerButton setActiveBurgerNav={setActiveBurgerNav} />
           </div>
         </div>

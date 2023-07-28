@@ -7,8 +7,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import { store, persistore } from "./store";
 import AppThemeProvider from "providers/Theme";
-import I18nextProvier from "providers/I18nextProvider";
-import AuthProvider from "providers/AuthProvider";
+import I18nextProvider from "providers/I18nextProvider";
 
 import App from "./App";
 
@@ -17,11 +16,9 @@ createRoot(document.getElementById("root")).render(
     <PersistGate loading={null} persistor={persistore}>
       <BrowserRouter>
         <AppThemeProvider>
-          <I18nextProvier>
-            <AuthProvider>
-              <App />
-            </AuthProvider>
-          </I18nextProvier>
+          <I18nextProvider>
+            <App />
+          </I18nextProvider>
         </AppThemeProvider>
       </BrowserRouter>
     </PersistGate>

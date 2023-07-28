@@ -1,48 +1,141 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useCallback, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  selectAuthOnGoingProcess,
+  selectAuthForm,
+} from "store/selectors/authSelectors";
+import {
+  useLoginQuery,
+  useGoogleLoginQuery,
+  useRegistrationQuery,
+} from "hooks/api/Auth";
+import { authActions } from "store/reducers/authReducer";
+
+import { CloseXIcon } from "components/Layouts/Icons";
+import { Spinner } from "components/Layouts";
 import SwitchProcessField from "./SwitchProcessField";
 import FormInputField from "./FormInputField";
 
-export default function Form() {
-  const [onGoingProcess, setOnGoingProcess] = useState("authorization");
+export default function Form({ onClosePopup }) {
+  const dispatch = useDispatch();
+
+  const { t } = useTranslation();
+
+  const onGoingProcess = useSelector(selectAuthOnGoingProcess);
+  const form = useSelector(selectAuthForm);
+
+  const isRegistrationProcess = onGoingProcess === "registration";
+  const isAuthenticationProcess = onGoingProcess === "authorization";
+
+  const { login, error: loginError } = useLoginQuery();
+
+  const { googleLogin } = useGoogleLoginQuery();
+
+  const { registration, error: registrationError } = useRegistrationQuery();
+
+  const handleForm = useCallback((e) => {
+    dispatch(
+      authActions.setForm({
+        key: e.target.name,
+        value: e.target.value,
+      })
+    );
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      dispatch(authActions.resetForms());
+      dispatch(authActions.changeAuthOnGoingProcess("authorization"));
+    };
+  }, []);
 
   return (
-    <form className="auth-popup__form">
-      <FormInputField id="email" label="ელ-ფოსტა" message="" type="email" />
+    <form
+      className={`auth-popup__form ${isRegistrationProcess ? "reg" : "auth"}`}
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
+      <button className="auth-popup__close-btn" onClick={onClosePopup}>
+        <CloseXIcon />
+      </button>
 
-      <FormInputField id="password" label="პაროლი" message="" type="password" />
+      <FormInputField
+        id="email"
+        label={t("auth.email")}
+        type="email"
+        name="email"
+        placeholder="user@io.com"
+        value={form.email}
+        onChange={handleForm}
+        error={
+          isAuthenticationProcess ? loginError.email : registrationError.email
+        }
+      />
 
-      {onGoingProcess === "registration" && (
+      <FormInputField
+        id="password"
+        label={t("auth.password")}
+        type="password"
+        name="password"
+        placeholder="******"
+        error={
+          isAuthenticationProcess
+            ? loginError.password
+            : registrationError.password
+        }
+        value={form.password}
+        onChange={handleForm}
+      />
+
+      {isRegistrationProcess && (
         <FormInputField
           id="confirm-password"
-          label="დაადასტურე პაროლი"
+          label={t("auth.confirm_password")}
           message=""
           type="password"
+          name="confirm_password"
+          placeholder="******"
+          error={registrationError.confirm_password}
+          value={form.confirm_password}
+          onChange={handleForm}
         />
       )}
 
       <div className="login__register__box">
-        <button className="login-btn">
-          {onGoingProcess === "authorization"
-            ? "რეგისტრაცია"
-            : onGoingProcess === "registration"
-            ? "ავტორიზაცია"
+        <button
+          className="login-btn"
+          onClick={
+            isRegistrationProcess
+              ? registration
+              : isAuthenticationProcess
+              ? login
+              : (e) => {
+                  e.preventDefault();
+                }
+          }
+        >
+          {isAuthenticationProcess
+            ? t("auth.login")
+            : isRegistrationProcess
+            ? t("auth.registration")
             : ""}
         </button>
 
-        <SwitchProcessField
-          onGoingProcess={onGoingProcess}
-          setOnGoingProcess={setOnGoingProcess}
-        />
+        <SwitchProcessField onGoingProcess={onGoingProcess} />
       </div>
 
       <div className="auth-popup__form-devider">
         <hr />
-        <span>or</span>
+        <span>{t("auth.or")}</span>
         <hr />
       </div>
 
-      <button className="login-btn google-login--btn">
-        <span>გუგლით ავტორიზაცია</span>
+      <button className="login-btn google-login--btn" onClick={googleLogin}>
+        <span>{t("auth.google_auth")}</span>
         <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +162,8 @@ export default function Form() {
           </svg>
         </span>
       </button>
+
+      {false && <Spinner />}
     </form>
   );
 }

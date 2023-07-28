@@ -40,6 +40,7 @@ export const AllProductsContainer = styled.main`
     display: grid;
     gap: 6rem 4rem;
     grid-template-columns: repeat(auto-fit, minmax(32rem, max-content));
+    justify-content: space-between;
     ${animateMoveLeft({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};

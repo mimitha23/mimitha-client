@@ -1,23 +1,76 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const animate_auth_popup = keyframes`
+  0%{
+    opacity: 0;
+    transform: scale(1);
+  } 100% {
+    opacity: 1;
+    transform: scale(50);
+  }
+`;
+
+const animate_auth_form = keyframes`
+  0%{
+    opacity: 0;
+    transform: translateY(2rem);
+  } 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const AuthPopup = styled.div`
   position: fixed;
   z-index: 1000;
-  background: ${({ theme }) => theme.gradients.backdrop_gradient};
+  background: transparent;
   inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  .animate-layover {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    background: ${({ theme }) => theme.gradients.backdrop_gradient};
+    animation: ${animate_auth_popup} 0.5s ease forwards;
+  }
+
   .auth-popup__form {
     background: ${({ theme }) => theme.colors.white};
-    padding: 5rem 2rem;
+    padding: 6rem 2rem 4rem 2rem;
     border-radius: 1rem;
     width: min(40rem, 100%);
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
     box-shadow: ${({ theme }) => theme.shadow.radial_lg_dark};
+    position: relative;
+    opacity: 0;
+    animation: ${animate_auth_form} 0.3s 0.55s ease-out forwards;
+    transition: all 0.3s ease;
+    overflow: hidden;
+
+    &.reg {
+      max-height: 68rem;
+    }
+
+    &.auth {
+      max-height: 48rem;
+    }
+
+    .auth-popup__close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2.4rem;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.blue};
+      }
+    }
 
     &-field {
       display: flex;
@@ -45,6 +98,7 @@ export const AuthPopup = styled.div`
         button {
           font-size: 2.2rem;
           transform: translateY(0.25rem);
+          outline: none;
         }
       }
 
@@ -61,11 +115,18 @@ export const AuthPopup = styled.div`
         &:-webkit-autofill {
           -webkit-box-shadow: 0 0 0 30px white inset !important;
         }
+
+        &::placeholder {
+          font-style: italic;
+          opacity: 0.6;
+          font-size: ${({ theme }) => theme.fontSize.sm};
+        }
       }
 
       &--message {
         text-align: center;
-        font-size: ${({ theme }) => theme.fontSize.md};
+        text-wrap: balance;
+        font-size: ${({ theme }) => theme.fontSize.sm};
         color: ${({ theme }) => theme.colors.red};
       }
     }
@@ -92,6 +153,11 @@ export const AuthPopup = styled.div`
       color: ${({ theme }) => theme.colors.white};
       height: 4rem;
       border-radius: 0.5rem;
+      transition: all 0.3s ease-out;
+
+      &:hover {
+        filter: brightness(110%);
+      }
     }
 
     .google-login--btn {
@@ -118,6 +184,14 @@ export const AuthPopup = styled.div`
       span {
         transform: translateY(-20%);
       }
+    }
+
+    [data-spinner] {
+      position: absolute;
+      inset: 0;
+      width: auto;
+      height: auto;
+      background: ${({ theme }) => theme.colors.black_tr_02};
     }
   }
 `;
