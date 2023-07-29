@@ -12,6 +12,7 @@ const initialState = {
 
   registerForm: {
     email: "",
+    username: "",
     password: "",
     confirm_password: "",
   },
@@ -93,13 +94,21 @@ const authSlice = createSlice({
     },
 
     setError(state, { payload }) {
-      state.status = status.error();
+      state.status = status.error(payload.message);
     },
 
     // RESET
     resetForms(state) {
       state.loginForm = initialState.loginForm;
       state.registerForm = initialState.registerForm;
+    },
+
+    cleanUpAuth(state) {
+      state.loginForm = initialState.loginForm;
+      state.registerForm = initialState.registerForm;
+      state.openPopup = false;
+      state.authOnGoingProcess = "authorization";
+      state.status = status.success();
     },
   },
 });
@@ -115,6 +124,7 @@ function prepareCredentialsForAuth(payload) {
 
   if (payload.confirm_password)
     credentials.confirm_password = payload.confirm_password;
+  if (payload.username) credentials.username = payload.username;
 
   return credentials;
 }

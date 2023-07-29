@@ -6,10 +6,9 @@ import { errorController } from "store/saga/handlers/helpers";
 
 export function* login({ payload }) {
   try {
-    console.log(payload);
-    // const { data } = yield call(authAPI.login, payload);
-    // yield put(userActions.setUser(data));
-    yield put(authActions.setSuccess());
+    const { data } = yield call(authAPI.login, payload);
+    yield put(userActions.setUser(data));
+    yield put(authActions.cleanUpAuth());
   } catch (error) {
     yield errorController({
       error,
@@ -37,6 +36,7 @@ export function* googleLogin({ payload }) {
   try {
     console.log(payload);
     // const { data } = yield call(authAPI.googleLogin, payload);
+    yield put(authActions.cleanUpAuth());
     // yield put(userActions.setUser(data));
     yield put(authActions.setSuccess());
   } catch (error) {
@@ -50,10 +50,9 @@ export function* googleLogin({ payload }) {
 
 export function* registration({ payload }) {
   try {
-    console.log(payload);
-    // const { data } = yield call(authAPI.registration, payload);
-    // yield put(userActions.setUser(data));
-    yield put(authActions.setSuccess());
+    const { data } = yield call(authAPI.registration, payload);
+    yield put(userActions.setUser(data));
+    yield put(authActions.cleanUpAuth());
   } catch (error) {
     yield errorController({
       error,

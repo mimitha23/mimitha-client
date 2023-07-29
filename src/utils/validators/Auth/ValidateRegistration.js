@@ -15,6 +15,11 @@ export default class ValidateRegistration extends Validators {
         rules: [Rules.notIsEmpty, Rules.isEmail],
       },
       {
+        key: "username",
+        validationType: validationType.isPrimitive,
+        rules: [Rules.notIsEmpty, Rules.isValidPassword],
+      },
+      {
         key: "password",
         validationType: validationType.isPrimitive,
         rules: [Rules.notIsEmpty, Rules.isValidPassword],
@@ -29,6 +34,7 @@ export default class ValidateRegistration extends Validators {
     this.error = {
       hasError: false,
       email: { hasError: false, message: "" },
+      username: { hasError: false, message: "" },
       password: { hasError: false, message: "" },
       confirm_password: { hasError: false, message: "" },
     };
@@ -46,11 +52,13 @@ export default class ValidateRegistration extends Validators {
       !isValid &&
       !this.error.password.hasError &&
       !this.error.confirm_password.hasError
-    )
+    ) {
+      this.error.hasError = true;
       this.error.confirm_password = {
         hasError: true,
         message,
       };
+    }
 
     return this;
   }

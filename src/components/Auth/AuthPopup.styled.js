@@ -34,7 +34,7 @@ export const AuthPopup = styled.div`
     height: 10rem;
     border-radius: 100%;
     background: ${({ theme }) => theme.gradients.backdrop_gradient};
-    animation: ${animate_auth_popup} 0.5s ease forwards;
+    animation: ${animate_auth_popup} 0.3s ease forwards;
   }
 
   .auth-popup__form {
@@ -48,7 +48,7 @@ export const AuthPopup = styled.div`
     box-shadow: ${({ theme }) => theme.shadow.radial_lg_dark};
     position: relative;
     opacity: 0;
-    animation: ${animate_auth_form} 0.3s 0.55s ease-out forwards;
+    animation: ${animate_auth_form} 0.2s 0.2s ease-out forwards;
     transition: all 0.3s ease;
     overflow: hidden;
 

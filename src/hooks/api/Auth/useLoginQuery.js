@@ -11,6 +11,12 @@ export default function useLoginQuery() {
 
   const loginValidation = new ValidateLogin();
   const [error, setError] = useState(loginValidation.error);
+  const defaultError = { ...loginValidation.error };
+
+  function resetError() {
+    loginValidation.error = { ...defaultError };
+    setError(defaultError);
+  }
 
   function login(e) {
     e.preventDefault();
@@ -23,5 +29,5 @@ export default function useLoginQuery() {
     dispatch(authActions.login(form));
   }
 
-  return { login, error };
+  return { login, error, resetError };
 }

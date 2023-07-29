@@ -11,6 +11,12 @@ export default function useRegistrationQuery() {
 
   const registrationValidation = new ValidateRegistration();
   const [error, setError] = useState(registrationValidation.error);
+  const defaultError = { ...registrationValidation.error };
+
+  function resetError() {
+    registrationValidation.error = { ...defaultError };
+    setError(defaultError);
+  }
 
   function registration(e) {
     e.preventDefault();
@@ -26,5 +32,5 @@ export default function useRegistrationQuery() {
     dispatch(authActions.registration(form));
   }
 
-  return { registration, error };
+  return { registration, error, resetError };
 }

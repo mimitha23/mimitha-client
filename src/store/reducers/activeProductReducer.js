@@ -157,7 +157,7 @@ const activeProductsSlice = createSlice({
     },
 
     setError(state, { payload }) {
-      state.status = status.error();
+      state.status = status.error(payload.message);
     },
 
     setRelatedProductsSuccess(state) {
@@ -165,7 +165,7 @@ const activeProductsSlice = createSlice({
     },
 
     setRelatedProductsError(state, { payload }) {
-      state.relatedProductsStatus = status.error();
+      state.relatedProductsStatus = status.error(payload.message);
     },
 
     // RESET

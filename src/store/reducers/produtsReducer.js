@@ -64,7 +64,7 @@ const productsSlice = createSlice({
     },
 
     setError(state, { payload }) {
-      state.status = status.error();
+      state.status = status.error(payload.message);
     },
 
     setSearchSuccess(state) {
@@ -72,7 +72,7 @@ const productsSlice = createSlice({
     },
 
     setSearchError(state, { payload }) {
-      state.searchStatus = status.error();
+      state.searchStatus = status.error(payload.message);
     },
 
     // RESET

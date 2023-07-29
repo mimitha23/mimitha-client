@@ -30,3 +30,5 @@ export const PATHS = {
       `/products/${productId ? productId : ":productId"}/fit`,
   },
 };
+
+export const PUBLIC_ROUTES = [];

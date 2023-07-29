@@ -14,17 +14,17 @@ import authReducer from "./authReducer";
 import userReducer from "./userReducer";
 
 const persistedEditorReducer = persistReducer(
-  { key: "mimitha_editor", storage },
+  { key: "mimitha_client_editor", storage },
   editorReducer
 );
 
 const persistedFilterReducer = persistReducer(
-  { key: "mimitha_filter", storage },
+  { key: "mimitha_client_filter", storage },
   filterReducer
 );
 
 const persistedCartReducer = persistReducer(
-  { key: "mimitha_cart", storage },
+  { key: "mimitha_client_cart", storage },
   shoppingCartReducer
 );
 

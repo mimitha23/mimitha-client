@@ -4,14 +4,15 @@ import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  selectAuthOnGoingProcess,
-  selectAuthForm,
-} from "store/selectors/authSelectors";
-import {
   useLoginQuery,
   useGoogleLoginQuery,
   useRegistrationQuery,
 } from "hooks/api/Auth";
+import {
+  selectAuthForm,
+  selectAuthStatus,
+  selectAuthOnGoingProcess,
+} from "store/selectors/authSelectors";
 import { authActions } from "store/reducers/authReducer";
 
 import { CloseXIcon } from "components/Layouts/Icons";
@@ -24,17 +25,31 @@ export default function Form({ onClosePopup }) {
 
   const { t } = useTranslation();
 
+  const status = useSelector(selectAuthStatus);
   const onGoingProcess = useSelector(selectAuthOnGoingProcess);
   const form = useSelector(selectAuthForm);
 
   const isRegistrationProcess = onGoingProcess === "registration";
   const isAuthenticationProcess = onGoingProcess === "authorization";
 
-  const { login, error: loginError } = useLoginQuery();
+  const {
+    login,
+    error: loginError,
+    resetError: resetLoginError,
+  } = useLoginQuery();
 
   const { googleLogin } = useGoogleLoginQuery();
 
-  const { registration, error: registrationError } = useRegistrationQuery();
+  const {
+    registration,
+    error: registrationError,
+    resetError: resetRegistrationError,
+  } = useRegistrationQuery();
+
+  function onSwitchProcess() {
+    loginError.hasError && resetLoginError();
+    registrationError.hasError && resetRegistrationError();
+  }
 
   const handleForm = useCallback((e) => {
     dispatch(
@@ -47,8 +62,7 @@ export default function Form({ onClosePopup }) {
 
   useEffect(() => {
     return () => {
-      dispatch(authActions.resetForms());
-      dispatch(authActions.changeAuthOnGoingProcess("authorization"));
+      dispatch(authActions.cleanUpAuth());
     };
   }, []);
 
@@ -76,6 +90,19 @@ export default function Form({ onClosePopup }) {
         }
       />
 
+      {isRegistrationProcess && (
+        <FormInputField
+          id="username"
+          label={t("auth.username")}
+          type="text"
+          name="username"
+          placeholder="user.mimitha"
+          error={registrationError.username}
+          value={form.username}
+          onChange={handleForm}
+        />
+      )}
+
       <FormInputField
         id="password"
         label={t("auth.password")}
@@ -95,7 +122,6 @@ export default function Form({ onClosePopup }) {
         <FormInputField
           id="confirm-password"
           label={t("auth.confirm_password")}
-          message=""
           type="password"
           name="confirm_password"
           placeholder="******"
@@ -103,6 +129,12 @@ export default function Form({ onClosePopup }) {
           value={form.confirm_password}
           onChange={handleForm}
         />
+      )}
+
+      {status.error && (
+        <blockquote className="auth-popup__form-field--message">
+          {status.message}
+        </blockquote>
       )}
 
       <div className="login__register__box">
@@ -125,7 +157,10 @@ export default function Form({ onClosePopup }) {
             : ""}
         </button>
 
-        <SwitchProcessField onGoingProcess={onGoingProcess} />
+        <SwitchProcessField
+          onGoingProcess={onGoingProcess}
+          onSwitchProcess={onSwitchProcess}
+        />
       </div>
 
       <div className="auth-popup__form-devider">
@@ -163,7 +198,7 @@ export default function Form({ onClosePopup }) {
         </span>
       </button>
 
-      {false && <Spinner />}
+      {status.loading && <Spinner />}
     </form>
   );
 }

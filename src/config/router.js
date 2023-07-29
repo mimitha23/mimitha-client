@@ -29,7 +29,7 @@ export const Router = [
   },
   {
     path: PATHS.products.fullPath,
-    name: "alll-products-page",
+    name: "all-products-page",
     element: <Pages.AllProductsPage />,
   },
   {

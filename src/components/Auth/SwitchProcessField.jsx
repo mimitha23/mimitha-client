@@ -2,15 +2,19 @@ import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { authActions } from "store/reducers/authReducer";
 
-export default function SwitchProcessField({ onGoingProcess }) {
+export default function SwitchProcessField({
+  onGoingProcess,
+  onSwitchProcess,
+}) {
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
 
-  function onSwitchProcess(e) {
+  function onSwitch(e) {
     e.preventDefault();
     dispatch(authActions.changeAuthOnGoingProcess());
     dispatch(authActions.resetForms());
+    onSwitchProcess();
   }
 
   return (
@@ -23,7 +27,7 @@ export default function SwitchProcessField({ onGoingProcess }) {
           : ""}
       </span>
       &nbsp;
-      <button onClick={onSwitchProcess}>
+      <button onClick={onSwitch}>
         {onGoingProcess === "authorization"
           ? t("auth.registration")
           : onGoingProcess === "registration"
