@@ -1,4 +1,4 @@
-import { BiSearchAlt } from "react-icons/bi";
+import { BiSearchAlt, BiHistory } from "react-icons/bi";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -6,6 +6,7 @@ import {
   BsFillHandbagFill,
   BsBookmarkPlusFill,
   BsBookmarkDashFill,
+  BsFillBookmarkFill,
 } from "react-icons/bs";
 
 import {
@@ -14,6 +15,11 @@ import {
   AiOutlineClose,
   AiFillEye,
   AiFillEyeInvisible,
+  AiFillHeart,
+  AiFillFolderAdd,
+  AiFillFolderOpen,
+  AiFillFolder,
+  AiFillCamera,
 } from "react-icons/ai";
 
 import { HiOutlineLockClosed, HiOutlineLockOpen } from "react-icons/hi";
@@ -46,11 +52,16 @@ import {
 const ArrowLeftIcon = MdOutlineArrowBackIosNew;
 const ArrowRightIcon = MdOutlineArrowForwardIos;
 const ArrowBottomIcon = MdOutlineKeyboardArrowDown;
+const AddFolderIcon = AiFillFolderAdd;
+const OpenFolderIcon = AiFillFolderOpen;
+const FolderIcon = AiFillFolder;
 const BagIcon = BsFillHandbagFill;
 const BurgerIcon = GiHamburgerMenu;
+const BookmarkIcon = BsFillBookmarkFill;
 const BookmarkAddIcon = BsBookmarkPlusFill;
 const BookmarkRemoveIcon = BsBookmarkDashFill;
 const CloseXIcon = AiOutlineClose;
+const CameraIcon = AiFillCamera;
 const DollarIcon = FaDollarSign;
 const EditIcon = MdModeEditOutline;
 const EuroIcon = FaEuroSign;
@@ -59,6 +70,8 @@ const EyeHideIcon = AiFillEyeInvisible;
 const FacebookIcon = FaFacebook;
 const FilterIcon = MdOutlineFilterList;
 const FilterOffIcon = MdOutlineFilterListOff;
+const HeartIcon = AiFillHeart;
+const HistoryIcon = BiHistory;
 const InstagramIcon = FaInstagram;
 const LockIcon = HiOutlineLockClosed;
 const LoginIcon = MdLogin;
@@ -79,11 +92,16 @@ export {
   ArrowLeftIcon,
   ArrowRightIcon,
   ArrowBottomIcon,
+  AddFolderIcon,
+  OpenFolderIcon,
+  FolderIcon,
   BagIcon,
   BurgerIcon,
   BookmarkAddIcon,
   BookmarkRemoveIcon,
+  BookmarkIcon,
   CloseXIcon,
+  CameraIcon,
   DollarIcon,
   EditIcon,
   EuroIcon,
@@ -92,6 +110,8 @@ export {
   FacebookIcon,
   FilterIcon,
   FilterOffIcon,
+  HeartIcon,
+  HistoryIcon,
   InstagramIcon,
   LockIcon,
   LoginIcon,

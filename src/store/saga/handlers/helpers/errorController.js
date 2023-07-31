@@ -13,14 +13,15 @@ export default function* errorController({
     error.message ||
     "";
 
-  yield put(
-    errorSetter({
-      ...setterParams,
-      error: true,
-      loading: false,
-      message: errorMessage,
-    })
-  );
+  if (errorSetter)
+    yield put(
+      errorSetter({
+        ...setterParams,
+        error: true,
+        loading: false,
+        message: errorMessage,
+      })
+    );
 
   if (ENV !== "DEV") return;
 

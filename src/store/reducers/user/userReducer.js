@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { controlStatus as status } from "../helpers";
 import { jwt } from "utils";
 
 const initialState = {
@@ -7,6 +8,7 @@ const initialState = {
     _id: "",
     email: "",
     username: "",
+    profilePicture: "",
   },
 };
 
@@ -23,6 +25,8 @@ const userSlice = createSlice({
       state.user = initialState.user;
       jwt.removeJWT();
     },
+
+    setProfilePicture(state, { payload }) {},
   },
 });
 

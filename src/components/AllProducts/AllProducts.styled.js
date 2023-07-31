@@ -12,6 +12,7 @@ export const AllProductsContainer = styled.main`
   .all-products__header {
     width: 100%;
     position: sticky;
+    z-index: 9;
     top: ${({ theme }) => theme.app.nav_h};
     display: flex;
     flex-direction: column;

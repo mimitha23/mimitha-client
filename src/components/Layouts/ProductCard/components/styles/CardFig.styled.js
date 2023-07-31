@@ -9,6 +9,8 @@ export const CardFig = styled.figure`
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.shadow.radial_sm_dark};
+  position: relative;
+  z-index: 1;
 
   .card-fig__link {
     display: flex;

@@ -1,13 +1,16 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
+import {
+  Theme as AppThemeProvider,
+  I18nextProvider,
+  AppProvider,
+  AppPortalsProvider,
+} from "providers";
 import { store, persistore } from "./store";
-import AppThemeProvider from "providers/Theme";
-import I18nextProvider from "providers/I18nextProvider";
 
 import App from "./App";
 
@@ -17,7 +20,11 @@ createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <AppThemeProvider>
           <I18nextProvider>
-            <App />
+            <AppProvider>
+              <AppPortalsProvider>
+                <App />
+              </AppPortalsProvider>
+            </AppProvider>
           </I18nextProvider>
         </AppThemeProvider>
       </BrowserRouter>

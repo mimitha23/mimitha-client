@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { authAPI } from "store/saga/api";
 import { authActions } from "store/reducers/authReducer";
-import { userActions } from "store/reducers/userReducer";
+import { userActions } from "store/reducers/user/userReducer";
 import { errorController } from "store/saga/handlers/helpers";
 
 export function* login({ payload }) {
@@ -20,8 +20,8 @@ export function* login({ payload }) {
 
 export function* logout() {
   try {
-    // yield call(authAPI.logout);
-    // yield put(userActions.resetUser());
+    yield call(authAPI.logout);
+    yield put(userActions.resetUser());
     yield put(authActions.setSuccess());
   } catch (error) {
     yield errorController({

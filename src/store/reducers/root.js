@@ -11,7 +11,11 @@ import landingReducer from "./landingReducer";
 import navReducer from "./navReducer";
 import shoppingCartReducer from "./shoppingCartReducer";
 import authReducer from "./authReducer";
-import userReducer from "./userReducer";
+
+// user
+import userReducer from "./user/userReducer";
+import userFavoritesReducer from "./user/userFavoritesReducer";
+import userListsReducer from "./user/userListsReducer";
 
 const persistedEditorReducer = persistReducer(
   { key: "mimitha_client_editor", storage },
@@ -28,6 +32,11 @@ const persistedCartReducer = persistReducer(
   shoppingCartReducer
 );
 
+const persistedUserReducer = persistReducer(
+  { key: "mimitha_client_user", storage },
+  userReducer
+);
+
 const rootReducer = combineReducers({
   editor: persistedEditorReducer,
   filter: persistedFilterReducer,
@@ -38,7 +47,10 @@ const rootReducer = combineReducers({
   nav: navReducer,
   shoppingCart: persistedCartReducer,
   auth: authReducer,
-  user: userReducer,
+  // user
+  user: persistedUserReducer,
+  userFavorites: userFavoritesReducer,
+  userLists: userListsReducer,
 });
 
 export default rootReducer;

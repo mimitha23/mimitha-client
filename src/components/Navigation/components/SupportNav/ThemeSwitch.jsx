@@ -8,7 +8,7 @@ export default function ThemeSwitch() {
 
   return (
     <Styled.ThemeSwitch>
-      <button onClick={() => setTheme(!mode)}>
+      <button onClick={() => setTheme(!mode)} title="change theme">
         {mode ? <MoonIcon /> : <SunIcon />}
       </button>
     </Styled.ThemeSwitch>

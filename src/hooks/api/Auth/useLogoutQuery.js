@@ -6,6 +6,7 @@ export default function useLogoutQuery() {
 
   function logout(e) {
     e.preventDefault();
+    dispatch(authActions.logout());
   }
 
   return { logout };

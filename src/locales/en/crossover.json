@@ -44,5 +44,9 @@
   "decrease_product_quantity_warning": "Product's quantity shouldn't be less than 1. Otherwise remove product from cart.",
   "decrease_product_quantity": "Decrease product quantity.",
   "no_products_in_basket": "There are no products in basket.",
-  "cart_persistance_message": "Remember that products added into the basket will be removed after 3 hours automatically."
+  "cart_persistance_message": "Remember that products added into the basket will be removed after 3 hours automatically.",
+  "create_list": "Create List",
+  "create_list_placeholder": "list name",
+  "cancel": "Cancel",
+  "create": "Create"
 }

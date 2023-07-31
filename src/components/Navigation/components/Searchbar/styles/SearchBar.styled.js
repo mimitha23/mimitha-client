@@ -13,12 +13,12 @@ export const SearchBar = styled.div`
   }
 
   .search-bar__wrapper {
-    position: relative;
+    /* position: relative; */
     height: 5rem;
 
     .search-warning {
       position: absolute;
-      z-index: 9;
+      z-index: 1;
       top: calc(100% + 1rem);
       border-radius: 0.5rem;
       padding: 1rem;

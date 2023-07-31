@@ -5,6 +5,7 @@ const selectedUser = ({ user }) => ({
   _id: user.user._id,
   email: user.user.email,
   username: user.user.username,
+  profilePicture: user.user.profilePicture,
 });
 
 export const selectUser = createSelector(selectedUser, (user) => user);
