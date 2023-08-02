@@ -11,12 +11,33 @@ export const ProductFooterContainer = styled.div`
     display: flex;
     align-items: flex-end;
     gap: 1rem;
+    position: relative;
 
-    .product-footer__btn-caption {
+    &.active {
+      color: ${({ theme }) => theme.colors.blue};
+    }
+
+    &-caption {
       text-decoration: underline;
       text-underline-offset: 0.65rem;
       text-transform: capitalize;
       font-size: ${({ theme }) => theme.fontSize.lg};
+    }
+
+    &-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -30%);
+      width: 2rem;
+      height: 2rem;
+      background: ${({ theme }) => theme.colors.text};
+      color: ${({ theme }) => theme.colors.bg};
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: ${({ theme }) => theme.fontSize.sm};
     }
 
     .icon {

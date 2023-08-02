@@ -1,14 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 
+import { useStartAuth } from "../Auth";
+import { useIsAuthenticated } from "hooks/auth";
 import { userFavoritesActions } from "store/reducers/user/userFavoritesReducer";
 import { selectAllUserFavorites } from "store/selectors/user/userFavoritesSelector";
 
 export default function useFavoritesQuery() {
   const dispatch = useDispatch();
 
+  const { startAuth } = useStartAuth();
+  const { isAuthenticated } = useIsAuthenticated();
+
   const allUserFavorites = useSelector(selectAllUserFavorites);
 
+  function cleanUpUserFavorites() {
+    dispatch(userFavoritesActions.resetUserFavorites());
+  }
+
   function addToFavoritesQuery({ productId }) {
+    if (!isAuthenticated) return startAuth();
+
     const isSavedToFavorites = allUserFavorites.some(
       (product) => product._id === productId
     );
@@ -22,5 +33,5 @@ export default function useFavoritesQuery() {
     dispatch(userFavoritesActions.getAllFavoritesIds());
   }
 
-  return { addToFavoritesQuery, getAllFavoritesIdsQuery };
+  return { addToFavoritesQuery, getAllFavoritesIdsQuery, cleanUpUserFavorites };
 }

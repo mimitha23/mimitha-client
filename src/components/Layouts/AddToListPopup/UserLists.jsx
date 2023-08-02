@@ -1,4 +1,4 @@
-import { FolderIcon, PlusIcon } from "components/Layouts/Icons";
+import { FolderIcon, PlusIcon, MinusIcon } from "components/Layouts/Icons";
 
 export default function UserLists({
   allUserLists,
@@ -20,7 +20,11 @@ export default function UserLists({
           </span>
           <span>{list.title}</span>
           <span>
-            <PlusIcon />
+            {list.products.includes(productToAddToListId) ? (
+              <MinusIcon />
+            ) : (
+              <PlusIcon />
+            )}
           </span>
         </li>
       ))}

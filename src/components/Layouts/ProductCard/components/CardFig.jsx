@@ -11,7 +11,13 @@ import { selectAllUserFavorites } from "store/selectors/user/userFavoritesSelect
 import SaveToListButtons from "./SaveToListButtons";
 import * as Styled from "./styles/CardFig.styled";
 
-export default function CardFig({ productId, img, alt, linkState }) {
+export default function CardFig({
+  productId,
+  img,
+  alt,
+  linkState,
+  showAddToList,
+}) {
   const { setLocationState } = useLocationState();
   const { currentLocale } = useTranslationContext();
 
@@ -54,6 +60,7 @@ export default function CardFig({ productId, img, alt, linkState }) {
           onAddToList={onAddToList}
           isSavedToFavorites={isSavedToFavorites}
           isSavedToList={isSavedToList}
+          showAddToList={showAddToList}
         />
       </Link>
     </Styled.CardFig>

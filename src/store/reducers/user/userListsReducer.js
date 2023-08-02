@@ -137,6 +137,13 @@ const userListsSlice = createSlice({
     setError(state, { payload }) {
       state.status = status.error(payload.message);
     },
+
+    // Cleaners
+    resetUserLists(state) {
+      Object.keys(initialState).forEach(
+        (key) => (state[key] = initialState[key])
+      );
+    },
   },
 });
 

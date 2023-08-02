@@ -3,7 +3,7 @@ import { animateMoveTop } from "styles/helpers";
 
 export const AddToListPopup = styled.div`
   position: fixed;
-  z-index: 9;
+  z-index: 99;
   inset: 0;
   /* background: ${({ theme }) => theme.colors.black_tr_02}; */
   display: flex;
@@ -42,10 +42,13 @@ export const AddToListPopup = styled.div`
       padding: 0.5rem;
       border-radius: 0.5rem;
 
-      &.active,
-      &:hover {
+      &:not(.active):hover {
         background: ${({ theme }) => theme.colors.blue};
         color: ${({ theme }) => theme.colors.white};
+      }
+
+      &.active {
+        color: ${({ theme }) => theme.colors.blue};
       }
     }
 
@@ -59,8 +62,14 @@ export const AddToListPopup = styled.div`
       }
     }
 
-    li.active span:last-child {
-      display: none;
+    li span:last-child {
+      visibility: hidden;
+    }
+
+    li:hover {
+      span:last-child {
+        visibility: visible;
+      }
     }
   }
 

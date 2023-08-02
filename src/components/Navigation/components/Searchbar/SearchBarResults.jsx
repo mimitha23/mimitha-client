@@ -50,7 +50,11 @@ export default function SearchBarResults({ onSearchClose, search }) {
         >
           {!status.loading &&
             result.map((product) => (
-              <ProductCard key={product._id} product={product} />
+              <ProductCard
+                key={product._id}
+                product={product}
+                showAddToList={false}
+              />
             ))}
 
           {status.loading && <Spinner />}

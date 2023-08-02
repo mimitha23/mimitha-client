@@ -24,6 +24,7 @@ export const ProductView = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   .editor-fig img {
@@ -31,5 +32,16 @@ export const ProductView = styled.div`
     height: 100%;
     object-fit: contain;
     object-position: center;
+  }
+
+  .editor-fig button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+
+    &.is-saved-to-favorites {
+      color: ${({ theme }) => theme.colors.red};
+      background: ${({ theme }) => theme.colors.black_tr_02};
+    }
   }
 `;

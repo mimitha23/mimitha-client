@@ -12,7 +12,11 @@ import {
 import * as Styled from "./ProductCard.styled";
 import { CardContent } from "./components/styles/CardContent.styled";
 
-export default function ProductCard({ cardType = "withActions", product }) {
+export default function ProductCard({
+  cardType = "withActions",
+  product,
+  showAddToList = true,
+}) {
   const dispatch = useDispatch();
 
   const onAddToCart = useCallback(() => {
@@ -37,6 +41,7 @@ export default function ProductCard({ cardType = "withActions", product }) {
             productId={product._id}
             img={product.assets[0]}
             alt={product.title}
+            showAddToList={showAddToList}
             linkState={{
               title: product.title,
               category: product.product.category.query,

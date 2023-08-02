@@ -1,3 +1,4 @@
+import CircleButton from "components/Layouts/CircleButton/CircleButton";
 import { HeartIcon, BookmarkAddIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/SaveToListButtons.styled";
 
@@ -6,21 +7,25 @@ export default function SaveToListButtons({
   onAddToFavorites,
   isSavedToList,
   isSavedToFavorites,
+  showAddToList,
 }) {
   return (
     <Styled.SaveToListButtons>
-      <button
-        onClick={onAddToList}
-        className={isSavedToList ? `is-saved-to-list` : ""}
-      >
-        <BookmarkAddIcon />
-      </button>
-      <button
+      {showAddToList && (
+        <CircleButton
+          onClick={onAddToList}
+          className={isSavedToList ? `is-saved-to-list` : ""}
+        >
+          <BookmarkAddIcon />
+        </CircleButton>
+      )}
+
+      <CircleButton
         onClick={onAddToFavorites}
         className={isSavedToFavorites ? `is-saved-to-favorites` : ""}
       >
         <HeartIcon />
-      </button>
+      </CircleButton>
     </Styled.SaveToListButtons>
   );
 }

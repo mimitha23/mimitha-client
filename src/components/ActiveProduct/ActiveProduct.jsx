@@ -38,7 +38,7 @@ export default function ActiveProduct() {
 
           <div className="product-main">
             <div className="product-main__product-view">
-              <ProductView />
+              <ProductView productId={productId} />
             </div>
 
             <div className="product-main__product-info">

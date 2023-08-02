@@ -8,3 +8,4 @@ export { default as Filter } from "./Filter/Filter";
 export { default as Path } from "./Path/Path";
 export { default as Spinner } from "./Spinner/Spinner";
 export { default as AddToListPopup } from "./AddToListPopup/AddToListPopup";
+export { default as CircleButton } from "./CircleButton/CircleButton";

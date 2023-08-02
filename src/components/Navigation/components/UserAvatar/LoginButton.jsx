@@ -1,13 +1,8 @@
-import { useDispatch } from "react-redux";
-
-import { authActions } from "store/reducers/authReducer";
-
+import { useStartAuth } from "hooks/api/Auth";
 import { LoginIcon } from "components/Layouts/Icons";
 
 export default function LoginButton() {
-  const dispatch = useDispatch();
-
-  const startAuth = () => dispatch(authActions.setOpenPopup(true));
+  const { startAuth } = useStartAuth();
 
   return (
     <button onClick={startAuth} className="nav__login-btn" title="log in">

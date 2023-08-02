@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { selectUser } from "store/selectors/user/userSelectors";
 import { useIsAuthenticated } from "hooks/auth";
+import { useLogoutQuery } from "hooks/api/Auth";
+import { selectUser } from "store/selectors/user/userSelectors";
 
 import { useClickOutside } from "hooks/domBase";
 
@@ -22,6 +23,8 @@ export default function UserAvatar() {
     setShowUserDropdown(false);
   });
 
+  const { logout } = useLogoutQuery();
+
   return (
     <Styled.UserAvatar ref={container_ref}>
       {!isAuthenticated && <LoginButton isAuthenticated={isAuthenticated} />}
@@ -34,7 +37,7 @@ export default function UserAvatar() {
         </figure>
       )}
 
-      {showUserDropdown && (
+      {isAuthenticated && showUserDropdown && (
         <ul className="user__dropdown">
           <UserDropdownDetails
             user={user}
@@ -57,12 +60,12 @@ export default function UserAvatar() {
             შეკვეთების ისტორია
           </li>
 
-          <li className="user__dropdown-item">
+          <button className="user__dropdown-item" onClick={logout}>
             <span className="user__dropdown-item--icon logout">
               <LogoutIcon />
             </span>
             გასვლა
-          </li>
+          </button>
         </ul>
       )}
     </Styled.UserAvatar>

@@ -43,6 +43,7 @@ export const selectActiveProductAssets = ({ activeProduct }) => ({
 export const selectActiveProductHeader = ({ activeProduct }) => ({
   price: activeProduct.product.price,
   title: activeProduct.product.title,
+  isEditable: activeProduct.product.isEditable,
 });
 
 export const selectActiveProductDescription = ({ activeProduct }) => ({

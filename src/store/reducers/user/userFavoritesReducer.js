@@ -86,6 +86,13 @@ const userFavoritesSlice = createSlice({
     setError(state, { payload }) {
       state.status = status.error(payload.message);
     },
+
+    // cleaners
+    resetUserFavorites(state) {
+      Object.keys(initialState).forEach(
+        (key) => (state[key] = initialState[key])
+      );
+    },
   },
 });
 

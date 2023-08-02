@@ -14,7 +14,7 @@ export default function ProductHeading({ productId }) {
   const { currentLocale } = useTranslationContext();
   const { t } = useTranslation();
 
-  const { title, price } = useSelector(selectActiveProductHeader);
+  const { title, price, isEditable } = useSelector(selectActiveProductHeader);
 
   return (
     <Styled.ProductHeadingContainer>
@@ -32,12 +32,14 @@ export default function ProductHeading({ productId }) {
           </span>
         </div>
 
-        <Link
-          to={PATHS.edit_product.fullPath({ productId })}
-          className="edit-link"
-        >
-          {t("crossover.edit")}
-        </Link>
+        {isEditable && (
+          <Link
+            to={PATHS.edit_product.fullPath({ productId })}
+            className="edit-link"
+          >
+            {t("crossover.edit")}
+          </Link>
+        )}
       </div>
     </Styled.ProductHeadingContainer>
   );

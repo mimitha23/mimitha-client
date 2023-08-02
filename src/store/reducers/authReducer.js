@@ -33,20 +33,15 @@ const authSlice = createSlice({
     },
 
     changeAuthOnGoingProcess(state, { payload }) {
-      state.authOnGoingProcess = payload
-        ? payload
-        : state.authOnGoingProcess === "authorization"
-        ? "registration"
-        : "authorization";
+      state.authOnGoingProcess = payload;
     },
 
-    setForm(state, { payload: { key, value } }) {
-      const formKey =
-        state.authOnGoingProcess === "authorization"
-          ? "loginForm"
-          : "registerForm";
+    setLoginForm(state, { payload: { key, value } }) {
+      state.loginForm[key] = value;
+    },
 
-      state[formKey][key] = value;
+    setRegisterForm(state, { payload: { key, value } }) {
+      state.registerForm[key] = value;
     },
 
     // API
