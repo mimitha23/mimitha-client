@@ -11,11 +11,8 @@ import { useLoginQuery } from "hooks/api/Auth";
 import { authActions } from "store/reducers/authReducer";
 
 import { Spinner } from "components/Layouts";
-import { CloseXIcon } from "components/Layouts/Icons";
+import { CloseXIcon, ArrowLeftIcon } from "components/Layouts/Icons";
 import FormInputField from "./components/FormInputField";
-import FormDevider from "./components/FormDevider";
-import SwitchProcessField from "./components/SwitchProcessField";
-import GoogleButton from "./components/GoogleButton";
 
 export default function ForgotPasswordForm({ onClosePopup }) {
   const dispatch = useDispatch();
@@ -26,7 +23,10 @@ export default function ForgotPasswordForm({ onClosePopup }) {
 
   const { login, error, resetError } = useLoginQuery();
 
-  const onSwitchProcess = () => error.hasError && resetError();
+  const onBack = () => {
+    error.hasError && resetError();
+    dispatch(authActions.changeAuthOnGoingProcess("authorization"));
+  };
 
   const handleForm = useCallback((e) => {
     dispatch(
@@ -48,6 +48,11 @@ export default function ForgotPasswordForm({ onClosePopup }) {
         <CloseXIcon />
       </button>
 
+      <button className="auth-popup__back-btn" onClick={onBack}>
+        <ArrowLeftIcon />
+        <span>{t("auth.login")}</span>
+      </button>
+
       <FormInputField
         id="email"
         label={t("auth.email")}
@@ -67,7 +72,7 @@ export default function ForgotPasswordForm({ onClosePopup }) {
 
       <div className="login__register__box">
         <button className="login-btn" onClick={login}>
-          {t("auth.login")}
+          {t("auth.send")}
         </button>
       </div>
 

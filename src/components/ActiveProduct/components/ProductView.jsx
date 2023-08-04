@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useFavoritesQuery } from "hooks/api/user";
 import { useTranslationContext } from "providers/I18nextProvider";
 import { selectActiveProductAssets } from "store/selectors/activeProductSelectors";
-import { selectAllUserFavorites } from "store/selectors/user/userFavoritesSelector";
+import { selectAllUserFavoritesIds } from "store/selectors/user/userFavoritesSelector";
 
 import { CircleButton } from "components/Layouts";
 import { HeartIcon } from "components/Layouts/Icons";
@@ -15,7 +15,7 @@ export default function ProductView({ productId }) {
 
   const { addToFavoritesQuery } = useFavoritesQuery();
 
-  const allUserFavorites = useSelector(selectAllUserFavorites);
+  const allUserFavorites = useSelector(selectAllUserFavoritesIds);
   const isSavedToFavorites = allUserFavorites.some(
     (product) => product._id === productId
   );

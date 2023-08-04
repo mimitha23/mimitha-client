@@ -4,6 +4,7 @@ import { userListsHandlers } from "store/saga/handlers/user";
 
 export default function* userListsSaga() {
   yield takeLatest(userListsActions.createList, userListsHandlers.createList);
+  yield takeLatest(userListsActions.deleteList, userListsHandlers.deleteList);
   yield takeLatest(userListsActions.addToList, userListsHandlers.addToList);
   yield takeLatest(
     userListsActions.removeFromList,

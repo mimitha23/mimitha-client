@@ -32,6 +32,20 @@ export function* createList({ payload }) {
   }
 }
 
+export function* deleteList({ payload }) {
+  try {
+    yield call(userListAPI.deleteListQuery, payload);
+    yield put(userListsActions.setDeletedList(payload));
+    yield put(userListsActions.setSuccess());
+  } catch (error) {
+    yield errorController({
+      error,
+      location: "deleteListHandler",
+      errorSetter: userListsActions.setError,
+    });
+  }
+}
+
 export function* addToList({ payload }) {
   try {
     yield call(userListAPI.addToListQuery, payload);

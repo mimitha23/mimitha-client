@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import { useIsAuthenticated } from "hooks/auth";
 import { useLogoutQuery } from "hooks/api/Auth";
 import { selectUser } from "store/selectors/user/userSelectors";
 
+import { PATHS } from "config/routes";
 import { useClickOutside } from "hooks/domBase";
 
 import LoginButton from "./LoginButton";
@@ -14,6 +17,8 @@ import { HeartIcon, HistoryIcon, LogoutIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/UserAvatar.styled";
 
 export default function UserAvatar() {
+  const { t } = useTranslation();
+
   const { isAuthenticated } = useIsAuthenticated();
 
   const user = useSelector(selectUser);
@@ -45,26 +50,30 @@ export default function UserAvatar() {
           />
 
           <li className="user__dropdown-item">
-            <span className="user__dropdown-item--icon heart">
-              <HeartIcon />
-            </span>
-            რჩეულები
+            <Link to={PATHS.favorites.fullPath}>
+              <span className="user__dropdown-item--icon heart">
+                <HeartIcon />
+              </span>
+              {t("favorites.favorites")}
+            </Link>
           </li>
 
           <BookmarksList />
 
           <li className="user__dropdown-item">
-            <span className="user__dropdown-item--icon history">
-              <HistoryIcon />
-            </span>
-            შეკვეთების ისტორია
+            <Link to={PATHS.order_history.fullPath}>
+              <span className="user__dropdown-item--icon history">
+                <HistoryIcon />
+              </span>
+              {t("cart.orders_history")}
+            </Link>
           </li>
 
-          <button className="user__dropdown-item" onClick={logout}>
+          <button className="user__dropdown-item--btn" onClick={logout}>
             <span className="user__dropdown-item--icon logout">
               <LogoutIcon />
             </span>
-            გასვლა
+            {t("auth.logout")}
           </button>
         </ul>
       )}

@@ -1,0 +1,14 @@
+{
+  "increase_product_quantity_warning": "პროდუქტის {{size}} ზომის მაქსიმალური რაოდენობა შეადგენს {{amount}}_ს",
+  "increase_product_quantity": "გაზარდეთ პროდუქტის რაოდენობა",
+  "decrease_product_quantity_warning": "პროდუქტის რაოდენობა არ შეიძლება შეადგენდეს 1_ზე ნაკლებს. სხვა შემთხვევაში ამოიღეთ პროდუქტი კალათიდან.",
+  "decrease_product_quantity": "შეამცირეთ პროდუქტის რაოდენობა",
+  "no_products_in_basket": "კალათაში პროდუქტები არ მოიძებნება",
+  "cart_persistance_message": "გახსოვდეთ რომ კალათაში დამატებული პროდუქტები 3 საათის შემდეგ ავტომატურად წაიშლება",
+  "products_total_quantity": "პროდუქტების ჯამური რაოდენობა",
+  "products_total_amount": "პროდუქტების ჯამური ფასი",
+  "clean_basket": "კალათის გასუფთავება",
+  "basket": "კალათა",
+  "view_product": "ნახე პროდუქტი",
+  "orders_history": "შეკვეთების ისტორია"
+}

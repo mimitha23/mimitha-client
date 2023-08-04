@@ -28,6 +28,11 @@ export const Router = [
     element: <Pages.CartPage />,
   },
   {
+    path: PATHS.order_history.fullPath,
+    name: "order-history",
+    element: <Pages.OrderHistoryPage />,
+  },
+  {
     path: PATHS.products.fullPath,
     name: "all-products-page",
     element: <Pages.AllProductsPage />,
@@ -36,6 +41,16 @@ export const Router = [
     path: PATHS.active_product.fullPath({}),
     name: "active-product-page",
     element: <Pages.ActiveProductPage />,
+  },
+  {
+    path: PATHS.favorites.fullPath,
+    name: "user-favorites--page",
+    element: <Pages.UserFavoritesPage />,
+  },
+  {
+    path: PATHS.bookmarks.fullPath({}),
+    name: "user-bookmarks-page",
+    element: <Pages.UserBookmarksPage />,
   },
   {
     path: PATHS.edit_product.fullPath({}),
@@ -48,3 +63,8 @@ export const Router = [
     element: <Pages.ProductFitPage />,
   },
 ];
+
+export const RouterHistory = {
+  location: null,
+  navigate: null,
+};

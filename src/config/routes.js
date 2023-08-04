@@ -17,9 +17,18 @@ export const PATHS = {
   products: {
     fullPath: "/products",
   },
+  favorites: {
+    fullPath: "/favorites",
+  },
+  order_history: {
+    fullPath: "/orders",
+  },
   active_product: {
     fullPath: ({ productId }) =>
       `/products/${productId ? productId : ":productId"}`,
+  },
+  bookmarks: {
+    fullPath: ({ listId }) => `/bookmarks/${listId ? listId : ":listId"}`,
   },
   edit_product: {
     fullPath: ({ productId }) =>

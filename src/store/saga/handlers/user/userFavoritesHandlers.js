@@ -11,7 +11,6 @@ export function* addToFavorites({ payload }) {
     yield errorController({
       error,
       location: "addToFavoritesHandler",
-      // errorSetter: userFavoritesActions.setError,
     });
   }
 }
@@ -24,7 +23,6 @@ export function* removeFromFavorites({ payload }) {
     yield errorController({
       error,
       location: "removeFromFavoritesHandler",
-      // errorSetter: userFavoritesActions.setError,
     });
   }
 }
@@ -33,10 +31,12 @@ export function* getAllFavorites() {
   try {
     const { data } = yield call(userFavoritesAPI.getAllFavoritesQuery);
     yield put(userFavoritesActions.setAllFavorites(data));
+    yield put(userFavoritesActions.setSuccess());
   } catch (error) {
     yield errorController({
       error,
       location: "getAllFavoritesHandler",
+      errorSetter: userFavoritesActions.setError,
     });
   }
 }

@@ -60,6 +60,7 @@ export const AuthPopup = styled.div`
       max-height: 48rem;
     }
 
+    .auth-popup__back-btn,
     .auth-popup__close-btn {
       position: absolute;
       top: 1rem;
@@ -69,6 +70,22 @@ export const AuthPopup = styled.div`
 
       &:hover {
         color: ${({ theme }) => theme.colors.blue};
+      }
+    }
+
+    .auth-popup__back-btn {
+      left: 1rem;
+      right: auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      span {
+        display: flex;
+        align-items: center;
+        font-size: ${({ theme }) => theme.fontSize.base};
+        color: ${({ theme }) => theme.colors.blue};
+        text-decoration: underline;
       }
     }
 

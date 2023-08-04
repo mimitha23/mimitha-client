@@ -38,6 +38,7 @@ import {
   MdModeEditOutline,
   MdLogin,
   MdLogout,
+  MdFolderDelete,
 } from "react-icons/md";
 
 import {
@@ -62,6 +63,7 @@ const BookmarkAddIcon = BsBookmarkPlusFill;
 const BookmarkRemoveIcon = BsBookmarkDashFill;
 const CloseXIcon = AiOutlineClose;
 const CameraIcon = AiFillCamera;
+const DeleteFolderIcon = MdFolderDelete;
 const DollarIcon = FaDollarSign;
 const EditIcon = MdModeEditOutline;
 const EuroIcon = FaEuroSign;
@@ -103,6 +105,7 @@ export {
   CloseXIcon,
   CameraIcon,
   DollarIcon,
+  DeleteFolderIcon,
   EditIcon,
   EuroIcon,
   EyeShowIcon,

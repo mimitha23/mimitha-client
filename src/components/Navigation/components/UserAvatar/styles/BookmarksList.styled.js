@@ -34,7 +34,7 @@ export const BookmarksList = styled.li`
     gap: 0.25rem;
     ${animateMoveBottom};
 
-    li {
+    li a {
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -43,7 +43,11 @@ export const BookmarksList = styled.li`
       padding: 0.5rem;
       border-radius: 0.5rem;
 
-      &:hover {
+      &.active {
+        color: ${({ theme }) => theme.colors.blue};
+      }
+
+      &:not(.active):hover {
         background: ${({ theme }) => theme.colors.blue};
         color: ${({ theme }) => theme.colors.white};
       }

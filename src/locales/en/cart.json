@@ -1,0 +1,15 @@
+{
+  "increase_product_quantity_warning": "Product's size {{size}} max quantity is {{amount}}",
+  "increase_product_quantity": "Increase product quantity.",
+  "decrease_product_quantity_warning": "Product's quantity shouldn't be less than 1. Otherwise remove product from cart.",
+  "decrease_product_quantity": "Decrease product quantity.",
+  "no_products_in_basket": "There are no products in basket.",
+  "cart_persistance_message": "Remember that products added into the basket will be removed after 3 hours automatically.",
+  "products_total_quantity": "products total quantity",
+  "products_total_amount": "products total amount",
+  "delivery_price": "delivery price",
+  "clean_basket": "clean up basket",
+  "basket": "basket",
+  "view_product": "View Product",
+  "orders_history": "Order history"
+}

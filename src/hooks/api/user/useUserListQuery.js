@@ -54,6 +54,14 @@ export default function useAddToListQuery() {
     dispatch(userListsActions.getAllList());
   }
 
+  function getListQuery(listId) {
+    dispatch(userListsActions.getAllFromList({ listId }));
+  }
+
+  function deleteListQuery(listId) {
+    dispatch(userListsActions.deleteList({ listId }));
+  }
+
   return {
     openAddToListPopup,
     onStartListCreation,
@@ -63,5 +71,7 @@ export default function useAddToListQuery() {
     addToListQuery,
     getAllListsQuery,
     createListQuery,
+    getListQuery,
+    deleteListQuery,
   };
 }

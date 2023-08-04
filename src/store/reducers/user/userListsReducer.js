@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { controlStatus as status } from "store/reducers/helpers";
 
+import { PATHS } from "config/routes";
+import { RouterHistory } from "config/router";
+
 const initialState = {
   allList: [],
 
@@ -63,6 +66,26 @@ const userListsSlice = createSlice({
       state.allList.push(payload);
     },
 
+    deleteList: {
+      prepare(payload) {
+        return {
+          payload: {
+            listId: payload.listId,
+          },
+        };
+      },
+
+      reducer(state) {
+        state.status = status.loading();
+      },
+    },
+
+    setDeletedList(state, { payload: { listId } }) {
+      state.allList = state.allList.filter((list) => list._id !== listId);
+      state.list = initialState.list;
+      RouterHistory.navigate(PATHS.home.fullPath);
+    },
+
     addToList: {
       prepare(payload) {
         return {
@@ -103,6 +126,11 @@ const userListsSlice = createSlice({
       state.allList[listIndex].products = state.allList[
         listIndex
       ].products.filter((product) => product !== productId);
+
+      if (state.list.products[0])
+        state.list.products = state.list.products.filter(
+          (product) => product._id !== productId
+        );
     },
 
     getAllFromList: {

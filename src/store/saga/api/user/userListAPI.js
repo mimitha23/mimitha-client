@@ -4,6 +4,10 @@ export async function createListQuery(payload) {
   return await axiosPrivateQuery.post(`/user/lists`, payload);
 }
 
+export async function deleteListQuery(payload) {
+  return await axiosPrivateQuery.delete(`/user/lists/${payload.listId}`);
+}
+
 export async function addToListQuery(payload) {
   return await axiosPrivateQuery.post(
     `/user/lists/${payload.listId}/${payload.productId}`

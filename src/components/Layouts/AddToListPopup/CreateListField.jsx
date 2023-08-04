@@ -17,7 +17,7 @@ export default function CreateListField({
         </span>
         <input
           type="text"
-          placeholder={t("crossover.create_list_placeholder")}
+          placeholder={t("user_list.create_list_placeholder")}
           onChange={onChange}
           value={value}
         />

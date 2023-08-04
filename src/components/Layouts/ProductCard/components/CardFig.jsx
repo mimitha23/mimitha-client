@@ -6,7 +6,7 @@ import { useLocationState } from "hooks/utils";
 import { useFavoritesQuery, useUserListQuery } from "hooks/api/user";
 import { useTranslationContext } from "providers/I18nextProvider";
 import { selectAllUserLists } from "store/selectors/user/userListsSelectors";
-import { selectAllUserFavorites } from "store/selectors/user/userFavoritesSelector";
+import { selectAllUserFavoritesIds } from "store/selectors/user/userFavoritesSelector";
 
 import SaveToListButtons from "./SaveToListButtons";
 import * as Styled from "./styles/CardFig.styled";
@@ -25,7 +25,7 @@ export default function CardFig({
   const { openAddToListPopup } = useUserListQuery();
 
   const allUerLists = useSelector(selectAllUserLists);
-  const allUserFavorites = useSelector(selectAllUserFavorites);
+  const allUserFavorites = useSelector(selectAllUserFavoritesIds);
 
   const isSavedToList = allUerLists.some((list) =>
     list.products.includes(productId)

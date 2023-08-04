@@ -71,7 +71,9 @@ const userFavoritesSlice = createSlice({
     },
 
     getAllFavorites: {
-      reducer(state) {},
+      reducer(state) {
+        state.status = status.loading();
+      },
     },
 
     setAllFavorites(state, { payload }) {

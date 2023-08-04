@@ -39,7 +39,7 @@ export default function CartItem({ product }) {
           <Link
             to={PATHS.active_product.fullPath({ productId: product.productId })}
           >
-            ნახე პროდუქტი
+            {t("cart.view_product")}
           </Link>
         </div>
       </figure>

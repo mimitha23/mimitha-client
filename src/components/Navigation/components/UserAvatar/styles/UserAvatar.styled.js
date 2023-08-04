@@ -47,12 +47,24 @@ export const UserAvatar = styled.div`
     .user__dropdown-item {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      cursor: pointer;
-      padding: 0.5rem;
       border-radius: 0.5rem;
       transition: all 0.2s ease;
 
+      &--btn {
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+      }
+
+      &--btn,
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 0.5rem;
+      }
+
+      &--btn .user__dropdown-item--icon,
       .user__dropdown-item--icon {
         display: flex;
         justify-content: center;
@@ -72,6 +84,7 @@ export const UserAvatar = styled.div`
         }
       }
 
+      &--btn:hover,
       &:hover {
         background: ${({ theme }) => theme.colors.blue};
         color: ${({ theme }) => theme.colors.white};

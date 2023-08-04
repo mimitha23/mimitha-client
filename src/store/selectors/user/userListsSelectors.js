@@ -6,6 +6,12 @@ const selectedUserListsTitlesAndIds = ({ userLists }) =>
     title: list.title,
   }));
 
+const selectedUserListStatus = ({ userLists }) => ({
+  loading: userLists.status.loading,
+  error: userLists.status.error,
+  message: userLists.status.message,
+});
+
 export const selectAllUserLists = ({ userLists }) => userLists.allList;
 
 export const selectProductToAddToListId = ({ userLists }) =>
@@ -19,4 +25,11 @@ export const selectIsCreatingList = ({ userLists }) => userLists.isCreatingList;
 export const selectUserListsTitlesAndIds = createSelector(
   selectedUserListsTitlesAndIds,
   (list) => list
+);
+
+export const selectUserList = ({ userLists }) => userLists.list;
+
+export const selectUserListStatus = createSelector(
+  selectedUserListStatus,
+  (status) => status
 );

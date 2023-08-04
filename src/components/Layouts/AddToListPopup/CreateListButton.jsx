@@ -9,7 +9,7 @@ export default function CreateListButton({ onClick }) {
       <span>
         <AddFolderIcon />
       </span>
-      <span>{t("crossover.create_list")}</span>
+      <span>{t("user_list.create_list")}</span>
     </button>
   );
 }

@@ -12,6 +12,7 @@ export default function useStartAuth() {
   const delayAuth = (e) => {
     e && e.preventDefault();
     dispatch(authActions.setOpenPopup(false));
+    dispatch(authActions.changeAuthOnGoingProcess("authorization"));
   };
 
   return { startAuth, delayAuth };

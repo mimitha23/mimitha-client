@@ -16,11 +16,11 @@ export default function CartBody({ products }) {
       {!products[0] && (
         <div className="no-products__message">
           <span className="message_main">
-            {t("crossover.no_products_in_basket")}
+            {t("cart.no_products_in_basket")}
           </span>
           <br />
           <blockquote className="message__secondary">
-            ({t("crossover.cart_persistance_message")})
+            ({t("cart.cart_persistance_message")})
           </blockquote>
         </div>
       )}
