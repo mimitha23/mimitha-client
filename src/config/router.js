@@ -1,6 +1,12 @@
 import * as Pages from "pages";
 import { PATHS } from "./routes";
 
+export const RouterHistory = {
+  location: null,
+  navigate: null,
+  redirectIfUnauthorized: null,
+};
+
 export const Router = [
   {
     path: PATHS.home.fullPath,
@@ -63,8 +69,3 @@ export const Router = [
     element: <Pages.ProductFitPage />,
   },
 ];
-
-export const RouterHistory = {
-  location: null,
-  navigate: null,
-};

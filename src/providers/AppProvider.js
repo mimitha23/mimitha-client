@@ -2,7 +2,7 @@
 import { createContext, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import { useIsAuthenticated } from "hooks/auth";
+import { useIsAuthenticated, useRestrictUnauthorized } from "hooks/auth";
 import { RouterHistory } from "config/router";
 import { useFavoritesQuery, useUserListQuery } from "hooks/api/user";
 
@@ -13,9 +13,11 @@ export default function AppProvider({ children }) {
   const { getAllListsQuery, cleanUpUserLists } = useUserListQuery();
 
   const { isAuthenticated, loading } = useIsAuthenticated();
+  const { redirectIfUnauthorized } = useRestrictUnauthorized();
 
   RouterHistory.navigate = useNavigate();
   RouterHistory.location = useLocation();
+  RouterHistory.redirectIfUnauthorized = redirectIfUnauthorized;
 
   useEffect(() => {
     if (loading) return;

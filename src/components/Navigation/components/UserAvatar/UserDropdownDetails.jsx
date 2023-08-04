@@ -1,4 +1,4 @@
-import { CameraIcon } from "components/Layouts/Icons";
+// import { CameraIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/UserDropdownDetails.styled";
 
 export default function UserDropdownDetails({ setShowUserDropdown, user }) {
@@ -16,9 +16,9 @@ export default function UserDropdownDetails({ setShowUserDropdown, user }) {
         <span className="user__email">{user.email}</span>
       </div>
 
-      <label htmlFor="" className="camera-label">
+      {/* <label htmlFor="" className="camera-label">
         <CameraIcon />
-      </label>
+      </label> */}
     </Styled.UserDropdownDetails>
   );
 }

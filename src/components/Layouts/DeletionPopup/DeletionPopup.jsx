@@ -1,7 +1,11 @@
-import * as Styled from "./DeletionPopup.styled";
+import { useTranslation } from "react-i18next";
+
 import { CloseXIcon } from "components/Layouts/Icons";
+import * as Styled from "./DeletionPopup.styled";
 
 export default function DeletionPopup({ targetName, onClose, onConfirm }) {
+  const { t } = useTranslation();
+
   return (
     <Styled.DeletionPopup onClick={() => onClose()}>
       <div className="deletion-window" onClick={(e) => e.stopPropagation()}>
@@ -12,7 +16,7 @@ export default function DeletionPopup({ targetName, onClose, onConfirm }) {
           <CloseXIcon />
         </button>
         <span className="deletion-window__message">
-          დარწმუნებული ხართ გინდათ წაშალოთ ეს{" "}
+          {t("crossover.delete_popup")}&nbsp;
           <span className="deletion-window__message-target">{targetName}</span>
           &nbsp;?
         </span>
@@ -21,13 +25,13 @@ export default function DeletionPopup({ targetName, onClose, onConfirm }) {
             className="deletion-window__actions-box--btn close"
             onClick={() => onClose()}
           >
-            დახურვა
+            {t("crossover.close")}
           </button>
           <button
             className="deletion-window__actions-box--btn confirm"
             onClick={() => onConfirm()}
           >
-            დიახ
+            {t("crossover.yes")}
           </button>
         </div>
       </div>

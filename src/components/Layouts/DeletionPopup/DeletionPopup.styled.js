@@ -16,8 +16,8 @@ export const DeletionPopup = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 0.5rem;
-    background: ${({ theme }) => theme.colors.text};
-    color: ${({ theme }) => theme.colors.bg};
+    background: ${({ theme }) => theme.colors.bg};
+    color: ${({ theme }) => theme.colors.text};
     box-shadow: ${({ theme }) =>
       theme.mode === "DARK"
         ? theme.shadow.bottom_right_md_light

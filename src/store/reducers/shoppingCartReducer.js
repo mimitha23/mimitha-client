@@ -17,7 +17,7 @@ const shoppingCartSlice = createSlice({
           item.size._id === payload.size._id
       );
 
-      const { createdAt, expiresIn } = addExpirationDateOnProduct();
+      // const { createdAt, expiresIn } = addExpirationDateOnProduct();
 
       if (
         isInCartIndex >= 0 &&
@@ -25,10 +25,15 @@ const shoppingCartSlice = createSlice({
           state.cart[isInCartIndex].size.amount
       ) {
         state.cart[isInCartIndex].quantity += 1;
-        state.cart[isInCartIndex].createdAt = createdAt;
-        state.cart[isInCartIndex].expiresIn = expiresIn;
+        // state.cart[isInCartIndex].createdAt = createdAt;
+        // state.cart[isInCartIndex].expiresIn = expiresIn;
       } else if (isInCartIndex < 0)
-        state.cart.push({ ...payload, _id: nanoid(), createdAt, expiresIn });
+        state.cart.push({
+          ...payload,
+          _id: nanoid(),
+          // createdAt,
+          // expiresIn,
+        });
     },
 
     removeFromCart(state, { payload: itemId }) {
@@ -42,7 +47,7 @@ const shoppingCartSlice = createSlice({
 
       if (itemIndex < 0) return;
 
-      const { createdAt, expiresIn } = addExpirationDateOnProduct();
+      // const { createdAt, expiresIn } = addExpirationDateOnProduct();
 
       const possibleProductQuantity = state.cart[itemIndex].quantity + value;
 
@@ -52,8 +57,8 @@ const shoppingCartSlice = createSlice({
         possibleProductQuantity <= MAX_CART_ITEM_QUANTITY_PER_PRODUCT
       ) {
         state.cart[itemIndex].quantity += value;
-        state.cart[itemIndex].createdAt = createdAt;
-        state.cart[itemIndex].expiresIn = expiresIn;
+        // state.cart[itemIndex].createdAt = createdAt;
+        // state.cart[itemIndex].expiresIn = expiresIn;
       }
     },
 
@@ -66,24 +71,24 @@ const shoppingCartSlice = createSlice({
     },
   },
 
-  extraReducers: (builder) => {
-    builder.addMatcher(
-      (action) => action.type.startsWith("mimitha-shopping-card"),
-      (state) => {
-        state.cart = state.cart.filter((item) => Date.now() < item.expiresIn);
-      }
-    );
-  },
+  // extraReducers: (builder) => {
+  //   builder.addMatcher(
+  //     (action) => action.type.startsWith("mimitha-shopping-card"),
+  //     (state) => {
+  //       state.cart = state.cart.filter((item) => Date.now() < item.expiresIn);
+  //     }
+  //   );
+  // },
 });
 
 export default shoppingCartSlice.reducer;
 export const shoppingCartActions = shoppingCartSlice.actions;
 
-function addExpirationDateOnProduct() {
-  const currDate = Date.now();
+// function addExpirationDateOnProduct() {
+//   const currDate = Date.now();
 
-  return {
-    createdAt: currDate,
-    expiresIn: 1000 * 60 * 60 * 3 + currDate,
-  };
-}
+//   return {
+//     createdAt: currDate,
+//     expiresIn: 1000 * 60 * 60 * 3 + currDate,
+//   };
+// }

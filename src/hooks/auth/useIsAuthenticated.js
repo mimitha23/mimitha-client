@@ -34,6 +34,18 @@ export default function useIsAuthenticated(redirectUnauthorized = false) {
       navigate(PATHS.home.fullPath, { replace: true });
   }
 
+  async function checkAuthAsync() {
+    const mimitha_passport = jwt.getJWT();
+
+    if (!mimitha_passport) return false;
+
+    const decodedUser = decode(mimitha_passport);
+
+    if (!decodedUser) return false;
+
+    return true;
+  }
+
   useEffect(() => {
     const mimitha_passport = jwt.getJWT();
 
@@ -48,5 +60,5 @@ export default function useIsAuthenticated(redirectUnauthorized = false) {
     setLoading(false);
   }, [user]);
 
-  return { isAuthenticated, loading };
+  return { isAuthenticated, loading, checkAuthAsync };
 }
