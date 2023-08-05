@@ -2,7 +2,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { controlStatus as status } from "store/reducers/helpers";
 
 const initialState = {
-  activeFilterDropdown: "", // PRODUCT_TYPE - SORT - SEASON - TEXTURE - STYLE
+  activeFilterDropdown: "", // PRODUCT_TYPE - SORT - SEASON - TEXTURE - STYLE - GENDER
 
   filter: {
     sort: [],
@@ -10,6 +10,7 @@ const initialState = {
     productTypes: [],
     textures: [],
     styles: [],
+    gender: [],
   },
 
   activeFilter: {
@@ -18,6 +19,7 @@ const initialState = {
     productTypes: [],
     textures: [],
     styles: [],
+    gender: [],
   },
 
   status: {
@@ -70,6 +72,10 @@ const filterSlice = createSlice({
           ...sortQuery,
           _id: nanoid(),
         })),
+        gender: payload.gender.map((gender) => ({
+          ...gender,
+          _id: nanoid(),
+        })),
       };
     },
 
@@ -98,7 +104,9 @@ export default filterSlice.reducer;
 export const filterActions = filterSlice.actions;
 
 function generateProductsFilterQuery(payload) {
-  const credentials = [`isPublic=1`, `category=${payload?.category}`];
+  const credentials = [`isPublic=1`];
+
+  if (payload?.category) credentials.push(`category=${payload.category}`);
 
   if (payload?.productType?.query)
     credentials.push(`productType=${payload.productType.query}`);

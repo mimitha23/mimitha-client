@@ -26,9 +26,17 @@ export default function Dropdown({
           isActive ? "active-dropdown" : ""
         }`}
       >
-        {activeList[0]
-          ? activeList[activeList.length - 1][currentLocale]
-          : label}
+        <span
+          title={
+            activeList[0]
+              ? activeList[activeList.length - 1][currentLocale]
+              : label
+          }
+        >
+          {activeList[0]
+            ? activeList[activeList.length - 1][currentLocale]
+            : label}
+        </span>
       </button>
 
       {isActive && (

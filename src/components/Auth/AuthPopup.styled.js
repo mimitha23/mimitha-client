@@ -158,6 +158,11 @@ export const AuthPopup = styled.div`
         font-size: ${({ theme }) => theme.fontSize.md};
         text-align: center;
 
+        span {
+          display: inline-block;
+          font-size: ${({ theme }) => theme.fontSize.sm};
+        }
+
         button {
           text-decoration: underline;
           cursor: pointer;

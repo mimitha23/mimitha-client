@@ -19,12 +19,6 @@ export default function CartFooter({ onBuy, isEmpty }) {
 
   return (
     <Styled.CartFooterContainer>
-      {!isEmpty && (
-        <blockquote className="cart_persistance-message">
-          ({t("cart.cart_persistance_message")})
-        </blockquote>
-      )}
-
       <div className="footer__summary-box">
         <span className="delivery-price">
           {t("cart.products_total_quantity")} &mdash; {sum.productsAmount}

@@ -58,7 +58,6 @@ export default function CartItem({ product }) {
         >
           <CartItemDetailsControlProductAmount
             productAmount={product.quantity}
-            productSize={product.size}
             onProductQuantity={onProductQuantity}
           />
         </CartItemDetailsBoxContainer>

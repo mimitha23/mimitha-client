@@ -17,12 +17,11 @@ export const Dropdown = styled.div`
   }
 
   .filter-dropdown__trigger-btn {
-    text-align: start;
     padding-left: 1rem;
     background: ${({ theme }) => theme.colors.bg};
     border: 1px solid ${({ theme }) => theme.colors.gray_shade};
     border-radius: 0.5rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
 
     ${dropdownRectingle({
       buttonWidth: "22rem",
@@ -30,6 +29,15 @@ export const Dropdown = styled.div`
       rectingleHeight: "3.6rem",
       rectingleBorderWidth: "1px",
     })};
+
+    span {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      line-clamp: 1;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      text-align: start;
+    }
   }
 
   .filter-dropdown__body {
@@ -73,6 +81,7 @@ export const Dropdown = styled.div`
         padding: 0.5rem;
         width: 100%;
         text-align: start;
+        text-transform: capitalize;
       }
     }
   }

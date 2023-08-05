@@ -10,7 +10,8 @@ import * as Styled from "./NavDropdown.styled";
 
 export default function NavDropdownRoutes() {
   const { currentLocale } = useTranslationContext();
-  const { setLocationState, getLocationStateDefaults } = useLocationState();
+  const { setLocationState, getLocationStateDefaults, state } =
+    useLocationState();
   const locationStateDefaults = getLocationStateDefaults();
 
   const dropdown = useSelector(selectNavDropdown);
@@ -32,7 +33,12 @@ export default function NavDropdownRoutes() {
 
           <ul className="dropdown-nav__routes-list">
             {block.routes.map((route) => (
-              <li key={route._id} className="dropdown-nav__routes-list--item">
+              <li
+                key={route._id}
+                className={`dropdown-nav__routes-list--item ${
+                  state?.productType?.query === route.query ? "active" : ""
+                }`}
+              >
                 <Link
                   to="/products"
                   state={setLocationState({

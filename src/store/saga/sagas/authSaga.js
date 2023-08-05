@@ -7,4 +7,5 @@ export default function* authSaga() {
   yield takeLatest(authActions.googleLogin, authHandlers.googleLogin);
   yield takeLatest(authActions.logout, authHandlers.logout);
   yield takeLatest(authActions.registration, authHandlers.registration);
+  yield takeLatest(authActions.forgotPassword, authHandlers.forgotPassword);
 }

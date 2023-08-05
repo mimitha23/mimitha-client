@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useTranslationContext } from "providers/I18nextProvider";
-
-import { selectActiveProductHeader } from "store/selectors/activeProductSelectors";
 
 import { PATHS } from "config/routes";
+import { useTranslationContext } from "providers/I18nextProvider";
+import { selectActiveProductHeader } from "store/selectors/activeProductSelectors";
 
-import { DollarIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ProductHeading.styled";
 
 export default function ProductHeading({ productId }) {
@@ -26,9 +24,6 @@ export default function ProductHeading({ productId }) {
         <div className="product-price">
           <span>
             {t("crossover.price")}: {price} ₾
-          </span>
-          <span>
-            <DollarIcon />
           </span>
         </div>
 

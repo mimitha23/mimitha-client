@@ -6,6 +6,7 @@ const selectedFilters = ({ filter }) => ({
   textures: filter.filter.textures,
   styles: filter.filter.styles,
   sort: filter.filter.sort,
+  gender: filter.filter.gender,
 });
 
 const selectedActiveFilters = ({ filter }) => ({
@@ -14,6 +15,7 @@ const selectedActiveFilters = ({ filter }) => ({
   activeTextures: filter.activeFilter.textures,
   activeStyles: filter.activeFilter.styles,
   activeSort: filter.activeFilter.sort,
+  activeGender: filter.activeFilter.gender,
 });
 
 const selectedFilterIsSet = ({ filter }) =>

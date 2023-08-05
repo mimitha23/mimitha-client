@@ -1,9 +1,10 @@
-import { MinusIcon, PlusIcon } from "components/Layouts/Icons/index";
 import { useTranslation } from "react-i18next";
+import { MAX_CART_ITEM_QUANTITY_PER_PRODUCT } from "config/consts";
+
+import { MinusIcon, PlusIcon } from "components/Layouts/Icons/index";
 
 export default function CartItemDetailsControlProductAmount({
   productAmount,
-  productSize,
   onProductQuantity,
 }) {
   const { t } = useTranslation();
@@ -15,8 +16,8 @@ export default function CartItemDetailsControlProductAmount({
         disabled={productAmount === 1}
         title={
           productAmount === 1
-            ? t("crossover.decrease_product_quantity_warning")
-            : t("crossover.decrease_product_quantity")
+            ? t("cart.decrease_product_quantity_warning")
+            : t("cart.decrease_product_quantity")
         }
       >
         <MinusIcon />
@@ -32,14 +33,13 @@ export default function CartItemDetailsControlProductAmount({
 
       <button
         onClick={() => onProductQuantity(1)}
-        disabled={productAmount >= productSize.amount}
+        disabled={productAmount >= MAX_CART_ITEM_QUANTITY_PER_PRODUCT}
         title={
-          productAmount >= productSize.amount
-            ? t("crossover.increase_product_quantity_warning", {
-                size: productSize.size.toUpperCase(),
-                amount: productSize.amount,
+          productAmount >= MAX_CART_ITEM_QUANTITY_PER_PRODUCT
+            ? t("cart.increase_product_quantity_warning", {
+                max: MAX_CART_ITEM_QUANTITY_PER_PRODUCT,
               })
-            : t("crossover.increase_product_quantity")
+            : t("cart.increase_product_quantity")
         }
       >
         <PlusIcon />

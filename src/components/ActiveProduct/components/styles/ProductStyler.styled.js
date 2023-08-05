@@ -74,26 +74,6 @@ export const ProductStyler = styled.div`
         color: ${({ theme }) => theme.colors.bg};
         background-color: ${({ theme }) => theme.colors.text};
       }
-
-      .size-amount {
-        display: none;
-      }
-
-      &.active-size .size-amount {
-        position: absolute;
-        z-index: 9;
-        top: -0.75rem;
-        right: -0.3rem;
-        width: 1.5rem;
-        height: 1.5rem;
-        border-radius: 100%;
-        font-size: 1.1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: ${({ theme }) => theme.colors.red};
-        color: ${({ theme }) => theme.colors.white};
-      }
     }
   }
 

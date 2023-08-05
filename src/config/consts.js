@@ -5,7 +5,9 @@ const MAIN_NAV_TRANSLATIONS = i18next
   ? i18next.options.resources[i18next.language].translation.navigation.main
   : [];
 
-const MAIN_NAV_ROUTES = Object.keys(MAIN_NAV_TRANSLATIONS);
+const MAIN_NAV_ROUTES = Object.keys(MAIN_NAV_TRANSLATIONS).filter(
+  (key) => !["combo", "my_style"].includes(key)
+);
 
 const MAIN_NAV_DROPDOWN_ROUTES = ["men", "women", "adult", "family"];
 

@@ -131,7 +131,7 @@ export default class Validators extends ValidateHelpers {
   isEmail({ key, value }) {
     let isValid = true;
 
-    if (typeof value !== "string" && !this.regs.is_email.test(value))
+    if (typeof value === "string" && !this.regs.is_email.test(value))
       isValid = false;
 
     const message = isValid

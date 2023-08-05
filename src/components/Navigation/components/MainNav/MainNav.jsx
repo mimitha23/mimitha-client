@@ -1,6 +1,7 @@
 import { v4 as uuid } from "uuid";
 
-import { MAIN_NAV_ROUTES, MAIN_NAV_DROPDOWN_ROUTES } from "config/consts";
+import { MAIN_NAV_DROPDOWN_ROUTES } from "config/consts";
+import { useLocationState } from "hooks/utils";
 import { useNavigationDropdown } from "hooks/layoutBase/index";
 
 import NavDropdown from "../NavDropdown/NavDropdown";
@@ -15,6 +16,10 @@ export default function MainNav({ onBurgerClose, activeBurgerNav }) {
     handleNavDropdownOnClick,
     activeDropDown,
   } = useNavigationDropdown({ activeBurgerNav });
+
+  const { setLocationState, getLocationStateDefaults, state } =
+    useLocationState();
+  const locationStateDefaults = getLocationStateDefaults();
 
   return (
     <Styled.MainNavList
@@ -31,7 +36,7 @@ export default function MainNav({ onBurgerClose, activeBurgerNav }) {
           onMouseLeave: handleNavDropdownOnMouseLeave,
         })}
       >
-        {MAIN_NAV_ROUTES.map((route) => (
+        {MAIN_NAV_DROPDOWN_ROUTES.map((route) => (
           <li
             key={uuid()}
             data-route={route}
@@ -42,16 +47,28 @@ export default function MainNav({ onBurgerClose, activeBurgerNav }) {
               route === activeDropDown ? "active-item" : ""
             }`}
           >
-            {MAIN_NAV_DROPDOWN_ROUTES.includes(route) ? (
-              <>
-                <MainNavRouteCaption route={route} />
-                {route === activeDropDown && <NavDropdown />}
-              </>
-            ) : (
-              <MainNavRouteCaption route={route} />
-            )}
+            <MainNavRouteCaption route={route} />
+            {route === activeDropDown && <NavDropdown />}
           </li>
         ))}
+
+        <li
+          data-route="sale"
+          className={`categories-nav__list-item ${
+            state?.sale ? "active-item" : ""
+          }`}
+        >
+          <MainNavRouteCaption
+            route="sale"
+            isDirectLink={true}
+            linkState={setLocationState({
+              title: locationStateDefaults.title,
+              productType: locationStateDefaults.productType,
+              category: locationStateDefaults.category,
+              sale: "1",
+            })}
+          />
+        </li>
       </ul>
     </Styled.MainNavList>
   );

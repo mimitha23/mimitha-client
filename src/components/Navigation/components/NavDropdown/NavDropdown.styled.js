@@ -123,11 +123,15 @@ export const NavDropdownBlock = styled.div`
         content: "-";
         margin-right: 2rem;
       }
+    }
 
-      :hover {
-        background: ${({ theme }) => theme.colors.text};
-        color: ${({ theme }) => theme.colors.bg};
-      }
+    :not(.dropdown-nav__routes-list--item.active) a:hover {
+      background: ${({ theme }) => theme.colors.text};
+      color: ${({ theme }) => theme.colors.bg};
+    }
+
+    &.active {
+      color: ${({ theme }) => theme.colors.blue} !important;
     }
   }
 `;

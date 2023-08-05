@@ -31,6 +31,10 @@ export const MainNavList = styled.nav`
         cursor: pointer;
         transition: all 0.2s ease-in;
 
+        &.active {
+          color: ${({ theme }) => theme.colors.blue};
+        }
+
         &__icon {
           display: none;
         }

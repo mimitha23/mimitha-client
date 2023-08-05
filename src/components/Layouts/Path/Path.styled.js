@@ -41,4 +41,13 @@ export const Path = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  .sale-path {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    font-weight: 700;
+    font-size: ${({ theme }) => theme.fontSize.xl};
+    color: ${({ theme }) => theme.colors.blue};
+  }
 `;

@@ -27,6 +27,7 @@ export default memo(function Path({ showSearch }) {
               category: locationState.category,
               productType: locationStateDefaults.productType,
               title: locationStateDefaults.title,
+              sale: locationStateDefaults.sale,
             })}
           >
             {t(`navigation.main.${[locationState.category]}`)}
@@ -42,6 +43,7 @@ export default memo(function Path({ showSearch }) {
               title: locationStateDefaults.title,
               productType: locationState.productType,
               category: locationState.category,
+              sale: locationStateDefaults.sale,
             })}
           >
             {locationState.productType[currentLocale]}
@@ -58,6 +60,8 @@ export default memo(function Path({ showSearch }) {
       {locationState.title[currentLocale] && (
         <span>{locationState.title[currentLocale]}</span>
       )}
+
+      {locationState.sale && <span className="sale-path">Mimita Hot Sale</span>}
     </Styled.Path>
   );
 });

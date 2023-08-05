@@ -44,6 +44,7 @@ export default function SwitchProcessField({
               : ""}
           </button>
         </div>
+
         {showForgotPassword && (
           <button
             onClick={() =>

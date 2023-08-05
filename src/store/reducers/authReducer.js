@@ -17,6 +17,10 @@ const initialState = {
     confirm_password: "",
   },
 
+  forgotPasswordForm: {
+    email: "",
+  },
+
   status: {
     loading: false,
     error: false,
@@ -42,6 +46,10 @@ const authSlice = createSlice({
 
     setRegisterForm(state, { payload: { key, value } }) {
       state.registerForm[key] = value;
+    },
+
+    setForgotPasswordForm(state, { payload: { key, value } }) {
+      state.forgotPasswordForm[key] = value;
     },
 
     // API
@@ -83,6 +91,20 @@ const authSlice = createSlice({
       },
     },
 
+    forgotPassword: {
+      prepare(payload) {
+        return {
+          payload: {
+            email: payload.email,
+          },
+        };
+      },
+
+      reducer(state) {
+        state.status = status.loading();
+      },
+    },
+
     // REQUEST STATUS SETTERS
     setSuccess(state) {
       state.status = status.success();
@@ -101,6 +123,7 @@ const authSlice = createSlice({
     cleanUpAuth(state) {
       state.loginForm = initialState.loginForm;
       state.registerForm = initialState.registerForm;
+      state.forgotPasswordForm = initialState.forgotPasswordForm;
       state.openPopup = false;
       state.authOnGoingProcess = "authorization";
       state.status = status.success();

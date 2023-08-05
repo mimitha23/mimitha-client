@@ -4,10 +4,10 @@ import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  selectLoginForm,
   selectAuthStatus,
+  selectForgotPasswordForm,
 } from "store/selectors/authSelectors";
-import { useLoginQuery } from "hooks/api/Auth";
+import { useForgotPasswordQuery } from "hooks/api/Auth";
 import { authActions } from "store/reducers/authReducer";
 
 import { Spinner } from "components/Layouts";
@@ -18,10 +18,10 @@ export default function ForgotPasswordForm({ onClosePopup }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const form = useSelector(selectLoginForm);
+  const form = useSelector(selectForgotPasswordForm);
   const status = useSelector(selectAuthStatus);
 
-  const { login, error, resetError } = useLoginQuery();
+  const { forgotPassword, error, resetError } = useForgotPasswordQuery();
 
   const onBack = () => {
     error.hasError && resetError();
@@ -30,7 +30,7 @@ export default function ForgotPasswordForm({ onClosePopup }) {
 
   const handleForm = useCallback((e) => {
     dispatch(
-      authActions.setLoginForm({
+      authActions.setForgotPasswordForm({
         key: e.target.name,
         value: e.target.value,
       })
@@ -71,7 +71,7 @@ export default function ForgotPasswordForm({ onClosePopup }) {
       )}
 
       <div className="login__register__box">
-        <button className="login-btn" onClick={login}>
+        <button className="login-btn" onClick={forgotPassword}>
           {t("auth.send")}
         </button>
       </div>

@@ -39,5 +39,6 @@
   "close": "close",
   "yes": "yes",
   "delete_popup": "Are you sure you want to delete this",
-  "list": "list"
+  "list": "list",
+  "gender": "gender"
 }

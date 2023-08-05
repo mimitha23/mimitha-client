@@ -31,13 +31,6 @@ export const CartFooterContainer = styled.footer`
     text-transform: capitalize;
   }
 
-  .cart_persistance-message {
-    text-align: center;
-    font-size: ${({ theme }) => theme.fontSize.md};
-    opacity: 0.5;
-    text-wrap: balance;
-  }
-
   @media (${({ theme }) => theme.media.tablet}) {
     .footer__summary-box {
       flex-direction: column;

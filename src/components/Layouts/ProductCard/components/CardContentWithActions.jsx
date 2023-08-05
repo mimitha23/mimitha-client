@@ -1,6 +1,6 @@
 import CardActions from "./CardActions";
 import AddToCart from "./AddToCart";
-import CurrencySwitch from "./CurrencySwitch";
+// import CurrencySwitch from "./CurrencySwitch";
 import Price from "./Price";
 import ProductTitle from "./ProductTitle";
 import SoldOut from "./SoldOut";
@@ -20,7 +20,7 @@ export default function CardContentWithActions({
 
       <div className="product-card__price-currency--box">
         <Price price={price} />
-        <CurrencySwitch />
+        {/* <CurrencySwitch /> */}
       </div>
 
       <SoldOut soldOut={soldOut} />

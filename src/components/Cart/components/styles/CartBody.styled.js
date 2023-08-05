@@ -23,13 +23,6 @@ export const CartBodyContainer = styled.main`
     font-size: ${({ theme }) => theme.fontSize.xl};
     font-weight: 700;
     opacity: 0.5;
-
-    .message__secondary {
-      font-size: ${({ theme }) => theme.fontSize.md};
-      text-decoration: underline;
-      text-align: center;
-      text-wrap: balance;
-    }
   }
 
   @media (${({ theme }) => theme.media.tablet}) {

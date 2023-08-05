@@ -2,7 +2,7 @@ import { call, put } from "redux-saga/effects";
 import { authAPI } from "store/saga/api";
 import { authActions } from "store/reducers/authReducer";
 import { userActions } from "store/reducers/user/userReducer";
-import { errorController } from "store/saga/handlers/helpers";
+import { errorController, pretendLoading } from "store/saga/handlers/helpers";
 
 export function* login({ payload }) {
   try {
@@ -57,6 +57,21 @@ export function* registration({ payload }) {
     yield errorController({
       error,
       location: "registrationHandler",
+      errorSetter: authActions.setError,
+    });
+  }
+}
+
+export function* forgotPassword({ payload }) {
+  try {
+    console.log(payload);
+    yield pretendLoading();
+    // yield put(authActions.cleanUpAuth());
+    yield put(authActions.setSuccess());
+  } catch (error) {
+    yield errorController({
+      error,
+      location: "googleLoginHandler",
       errorSetter: authActions.setError,
     });
   }

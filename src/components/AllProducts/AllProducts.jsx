@@ -22,6 +22,7 @@ export default function AllProducts() {
 
         <Filter
           showProductTypeFilter={state?.productType?.query ? false : true}
+          showGenderFilter={!["men", "women"].includes(state?.category)}
         />
       </header>
 

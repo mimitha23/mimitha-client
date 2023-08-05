@@ -12,7 +12,7 @@ import { useLocation } from "react-router-dom";
 export default function useLocationState() {
   const { state } = useLocation();
 
-  function setLocationState({ category, productType, title, search }) {
+  function setLocationState({ category, productType, title, search, sale }) {
     const locationStateDefaults = getLocationStateDefaults();
 
     return {
@@ -20,6 +20,7 @@ export default function useLocationState() {
       productType: productType || locationStateDefaults.productType,
       title: title || locationStateDefaults.title,
       search: search || locationStateDefaults.search,
+      sale: sale || locationStateDefaults.sale,
     };
   }
 
@@ -36,6 +37,7 @@ export default function useLocationState() {
         ka: "",
         en: "",
       },
+      sale: state?.sale || "",
     };
   }
 
@@ -52,6 +54,7 @@ export default function useLocationState() {
         ka: "",
         en: "",
       },
+      sale: "",
     };
   }
 

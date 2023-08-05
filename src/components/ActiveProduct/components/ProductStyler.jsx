@@ -64,14 +64,6 @@ export default function ProductStyler({ productId }) {
                 }`}
               >
                 <span>{size.size}</span>
-                <span
-                  className="size-amount"
-                  title={`size ${size.size.toUpperCase()} in total - ${
-                    size.amount
-                  }`}
-                >
-                  {size.amount}
-                </span>
               </li>
             ))}
           </ul>

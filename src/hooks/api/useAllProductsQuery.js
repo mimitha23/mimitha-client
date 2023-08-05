@@ -18,6 +18,7 @@ export default function useAllProductsQuery() {
     activeSort,
     activeStyles,
     activeTextures,
+    activeGender,
   } = useSelector(selectActiveFilters);
   const status = useSelector(selectProductsStatus);
   const { getLocationState, state } = useLocationState();
@@ -32,6 +33,7 @@ export default function useAllProductsQuery() {
           activeSort,
           activeStyles,
           activeTextures,
+          activeGender,
         },
       })
     );
@@ -56,6 +58,7 @@ export default function useAllProductsQuery() {
     activeSort,
     activeStyles,
     activeTextures,
+    activeGender,
     state,
   ]);
 

@@ -93,6 +93,7 @@ function generateProductsQueryStr(payload) {
   let productsQuery = ["isPublic=1"];
 
   // filter by router-state
+  if (payload.sale) productsQuery.push(`sale=${payload.sale}`);
   if (payload.category) productsQuery.push(`category=${payload.category}`);
   if (payload.productType.query)
     productsQuery.push(`productType=${payload.productType.query}`);
@@ -102,6 +103,12 @@ function generateProductsQueryStr(payload) {
   // filter by products filter
   if (!payload.filter) return productsQuery.join("&");
 
+  if (payload.filter.activeGender[0])
+    productsQuery.push(
+      `gender=${payload.filter.activeGender
+        .map((type) => type.query)
+        .join(",")}`
+    );
   if (payload.filter.activeProductTypes[0])
     productsQuery.push(
       `productType=${payload.filter.activeProductTypes

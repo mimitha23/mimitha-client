@@ -18,10 +18,6 @@ export default function CartBody({ products }) {
           <span className="message_main">
             {t("cart.no_products_in_basket")}
           </span>
-          <br />
-          <blockquote className="message__secondary">
-            ({t("cart.cart_persistance_message")})
-          </blockquote>
         </div>
       )}
     </Styled.CartBodyContainer>
