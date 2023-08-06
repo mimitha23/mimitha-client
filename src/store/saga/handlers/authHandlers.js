@@ -66,12 +66,42 @@ export function* forgotPassword({ payload }) {
   try {
     console.log(payload);
     yield pretendLoading();
-    // yield put(authActions.cleanUpAuth());
+    yield put(authActions.setForgotPassword());
     yield put(authActions.setSuccess());
   } catch (error) {
     yield errorController({
       error,
-      location: "googleLoginHandler",
+      location: "forgotPasswordHandler",
+      errorSetter: authActions.setError,
+    });
+  }
+}
+
+export function* confirmEmail({ payload }) {
+  try {
+    console.log(payload);
+    yield pretendLoading();
+    yield put(authActions.setConfirmEmail());
+    yield put(authActions.setSuccess());
+  } catch (error) {
+    yield errorController({
+      error,
+      location: "confirmEmailHandler",
+      errorSetter: authActions.setError,
+    });
+  }
+}
+
+export function* updatePassword({ payload }) {
+  try {
+    console.log(payload);
+    yield pretendLoading();
+    yield put(authActions.setUpdatePassword());
+    yield put(authActions.setSuccess());
+  } catch (error) {
+    yield errorController({
+      error,
+      location: "updatePasswordHandler",
       errorSetter: authActions.setError,
     });
   }

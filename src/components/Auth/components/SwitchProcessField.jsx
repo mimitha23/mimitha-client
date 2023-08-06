@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { authActions } from "store/reducers/authReducer";
+import { authActions, AUTH_PROCESSES } from "store/reducers/authReducer";
 import { selectAuthOnGoingProcess } from "store/selectors/authSelectors";
 
 export default function SwitchProcessField({
@@ -17,9 +17,12 @@ export default function SwitchProcessField({
     e.preventDefault();
     dispatch(
       authActions.changeAuthOnGoingProcess(
-        onGoingProcess === "authorization" ? "registration" : "authorization"
+        onGoingProcess === AUTH_PROCESSES.authorization
+          ? AUTH_PROCESSES.registration
+          : AUTH_PROCESSES.registration
       )
     );
+
     dispatch(authActions.resetForms());
     onSwitchProcess();
   }

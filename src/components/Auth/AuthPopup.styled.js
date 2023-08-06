@@ -41,7 +41,7 @@ export const AuthPopup = styled.div`
     background: ${({ theme }) => theme.colors.white};
     padding: 6rem 2rem 4rem 2rem;
     border-radius: 1rem;
-    width: min(40rem, 100%);
+    width: min(42rem, 100%);
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
@@ -148,6 +148,33 @@ export const AuthPopup = styled.div`
       }
     }
 
+    .otp-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .otp-inp {
+        border: 1px solid ${({ theme }) => theme.colors.gray_shade};
+        width: 4rem !important;
+        height: 4rem !important;
+        outline: none;
+        text-align: center;
+        border-radius: 0.5rem;
+
+        &::placeholder {
+          font-weight: bold;
+          font-size: ${({ theme }) => theme.fontSize.lg};
+          transform: translateY(0.5rem);
+        }
+
+        &:focus {
+          border: 1px solid ${({ theme }) => theme.colors.blue};
+        }
+      }
+    }
+
     .login__register__box {
       display: flex;
       flex-direction: column;
@@ -157,6 +184,11 @@ export const AuthPopup = styled.div`
         color: ${({ theme }) => theme.colors.blue};
         font-size: ${({ theme }) => theme.fontSize.md};
         text-align: center;
+        text-wrap: balance;
+
+        &.confirm-email {
+          margin-bottom: 1rem;
+        }
 
         span {
           display: inline-block;

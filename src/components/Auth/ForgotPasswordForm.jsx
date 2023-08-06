@@ -8,7 +8,7 @@ import {
   selectForgotPasswordForm,
 } from "store/selectors/authSelectors";
 import { useForgotPasswordQuery } from "hooks/api/Auth";
-import { authActions } from "store/reducers/authReducer";
+import { authActions, AUTH_PROCESSES } from "store/reducers/authReducer";
 
 import { Spinner } from "components/Layouts";
 import { CloseXIcon, ArrowLeftIcon } from "components/Layouts/Icons";
@@ -25,7 +25,9 @@ export default function ForgotPasswordForm({ onClosePopup }) {
 
   const onBack = () => {
     error.hasError && resetError();
-    dispatch(authActions.changeAuthOnGoingProcess("authorization"));
+    dispatch(
+      authActions.changeAuthOnGoingProcess(AUTH_PROCESSES.authorization)
+    );
   };
 
   const handleForm = useCallback((e) => {

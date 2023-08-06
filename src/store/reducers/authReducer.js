@@ -1,9 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { controlStatus as status } from "./helpers";
 
+export const AUTH_PROCESSES = {
+  authorization: "authorization",
+  registration: "registration",
+  forgot_password: "forgot_password",
+  confirm_email: "confirm_email",
+  update_password: "update_password",
+};
+
 const initialState = {
   openPopup: false,
-  authOnGoingProcess: "authorization",
+  authOnGoingProcess: AUTH_PROCESSES.authorization,
 
   loginForm: {
     email: "",
@@ -19,6 +27,11 @@ const initialState = {
 
   forgotPasswordForm: {
     email: "",
+  },
+
+  updatePasswordForm: {
+    password: "",
+    confirm_password: "",
   },
 
   status: {
@@ -50,6 +63,10 @@ const authSlice = createSlice({
 
     setForgotPasswordForm(state, { payload: { key, value } }) {
       state.forgotPasswordForm[key] = value;
+    },
+
+    setUpdatePasswordForm(state, { payload: { key, value } }) {
+      state.updatePasswordForm[key] = value;
     },
 
     // API
@@ -105,6 +122,48 @@ const authSlice = createSlice({
       },
     },
 
+    setForgotPassword(state) {
+      state.authOnGoingProcess = AUTH_PROCESSES.confirm_email;
+      state.forgotPasswordForm = initialState.forgotPasswordForm;
+    },
+
+    confirmEmail: {
+      prepare(payload) {
+        return {
+          payload: {
+            pin: payload.pin,
+          },
+        };
+      },
+
+      reducer(state) {
+        state.status = status.loading();
+      },
+    },
+
+    setConfirmEmail(state) {
+      state.authOnGoingProcess = AUTH_PROCESSES.update_password;
+    },
+
+    updatePassword: {
+      prepare(payload) {
+        return {
+          payload: {
+            password: payload.password,
+          },
+        };
+      },
+
+      reducer(state) {
+        state.status = status.loading();
+      },
+    },
+
+    setUpdatePassword(state) {
+      state.authOnGoingProcess = AUTH_PROCESSES.authorization;
+      state.updatePasswordForm = initialState.updatePasswordForm;
+    },
+
     // REQUEST STATUS SETTERS
     setSuccess(state) {
       state.status = status.success();
@@ -125,7 +184,7 @@ const authSlice = createSlice({
       state.registerForm = initialState.registerForm;
       state.forgotPasswordForm = initialState.forgotPasswordForm;
       state.openPopup = false;
-      state.authOnGoingProcess = "authorization";
+      state.authOnGoingProcess = AUTH_PROCESSES.authorization;
       state.status = status.success();
     },
   },

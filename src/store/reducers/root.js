@@ -17,25 +17,32 @@ import userReducer from "./user/userReducer";
 import userFavoritesReducer from "./user/userFavoritesReducer";
 import userListsReducer from "./user/userListsReducer";
 
-const persistedEditorReducer = persistReducer(
-  { key: "mimitha_client_editor", storage },
-  editorReducer
-);
+const persistedEditorReducer = generatePersistedReducer({
+  key: "mimitha_client_editor",
+  reducer: editorReducer,
+});
 
-const persistedFilterReducer = persistReducer(
-  { key: "mimitha_client_filter", storage },
-  filterReducer
-);
+const persistedFilterReducer = generatePersistedReducer({
+  key: "mimitha_client_filter",
+  reducer: filterReducer,
+  whitelist: ["activeFilter"],
+});
 
-const persistedCartReducer = persistReducer(
-  { key: "mimitha_client_cart", storage },
-  shoppingCartReducer
-);
+const persistedCartReducer = generatePersistedReducer({
+  key: "mimitha_client_cart",
+  reducer: shoppingCartReducer,
+});
 
-const persistedUserReducer = persistReducer(
-  { key: "mimitha_client_user", storage },
-  userReducer
-);
+const persistedUserReducer = generatePersistedReducer({
+  key: "mimitha_client_user",
+  reducer: userReducer,
+});
+
+const persistedAuthReducer = generatePersistedReducer({
+  key: "mimitha_client_auth",
+  reducer: authReducer,
+  whitelist: ["openPopup", "authOnGoingProcess"],
+});
 
 const rootReducer = combineReducers({
   editor: persistedEditorReducer,
@@ -46,7 +53,7 @@ const rootReducer = combineReducers({
   landing: landingReducer,
   nav: navReducer,
   shoppingCart: persistedCartReducer,
-  auth: authReducer,
+  auth: persistedAuthReducer,
   // user
   user: persistedUserReducer,
   userFavorites: userFavoritesReducer,
@@ -54,3 +61,15 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
+
+function generatePersistedReducer({ key, whitelist = [], reducer }) {
+  const config = {
+    key,
+    storage,
+    version: 1,
+  };
+
+  if (whitelist[0]) config.whitelist = whitelist;
+
+  return persistReducer(config, reducer);
+}

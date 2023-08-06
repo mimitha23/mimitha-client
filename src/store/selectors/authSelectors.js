@@ -1,9 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-const selectedForgotPasswordForm = ({ auth }) => ({
-  email: auth.forgotPasswordForm.email,
-});
-
 const selectedLoginForm = ({ auth }) => ({
   email: auth.loginForm.email,
   password: auth.loginForm.password,
@@ -16,6 +12,15 @@ const selectedRegisterForm = ({ auth }) => ({
   confirm_password: auth.registerForm.confirm_password,
 });
 
+const selectedForgotPasswordForm = ({ auth }) => ({
+  email: auth.forgotPasswordForm.email,
+});
+
+const selectedUpdatePasswordForm = ({ auth }) => ({
+  password: auth.updatePasswordForm.password,
+  confirm_password: auth.updatePasswordForm.confirm_password,
+});
+
 const selectedAuthStatus = ({ auth }) => ({
   loading: auth.status.loading,
   error: auth.status.error,
@@ -26,11 +31,6 @@ export const selectIsOpenPopup = ({ auth }) => auth.openPopup;
 
 export const selectAuthOnGoingProcess = ({ auth }) => auth.authOnGoingProcess;
 
-export const selectForgotPasswordForm = createSelector(
-  selectedForgotPasswordForm,
-  (form) => form
-);
-
 export const selectLoginForm = createSelector(
   selectedLoginForm,
   (form) => form
@@ -38,6 +38,16 @@ export const selectLoginForm = createSelector(
 
 export const selectRegisterForm = createSelector(
   selectedRegisterForm,
+  (form) => form
+);
+
+export const selectForgotPasswordForm = createSelector(
+  selectedForgotPasswordForm,
+  (form) => form
+);
+
+export const selectUpdatePasswordForm = createSelector(
+  selectedUpdatePasswordForm,
   (form) => form
 );
 
