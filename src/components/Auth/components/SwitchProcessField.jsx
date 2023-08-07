@@ -19,7 +19,7 @@ export default function SwitchProcessField({
       authActions.changeAuthOnGoingProcess(
         onGoingProcess === AUTH_PROCESSES.authorization
           ? AUTH_PROCESSES.registration
-          : AUTH_PROCESSES.registration
+          : AUTH_PROCESSES.authorization
       )
     );
 

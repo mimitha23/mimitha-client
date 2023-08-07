@@ -10,12 +10,13 @@ import {
 import { useRegistrationQuery } from "hooks/api/Auth";
 import { authActions } from "store/reducers/authReducer";
 
-import { CloseXIcon } from "components/Layouts/Icons";
 import { Spinner } from "components/Layouts";
+import FormContainer from "./components/FormContainer";
 import GoogleButton from "./components/GoogleButton";
 import FormDevider from "./components/FormDevider";
-import SwitchProcessField from "./components/SwitchProcessField";
 import FormInputField from "./components/FormInputField";
+import FormError from "./components/FormError";
+import AuthActionsBox from "./components/AuthActionsBox";
 
 export default function RegisterForm({ onClosePopup }) {
   const dispatch = useDispatch();
@@ -38,16 +39,7 @@ export default function RegisterForm({ onClosePopup }) {
   }, []);
 
   return (
-    <form
-      className="auth-popup__form reg"
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
-    >
-      <button className="auth-popup__close-btn" onClick={onClosePopup}>
-        <CloseXIcon />
-      </button>
-
+    <FormContainer className="reg" onClosePopup={onClosePopup}>
       <FormInputField
         id="email"
         label={t("auth.email")}
@@ -92,25 +84,20 @@ export default function RegisterForm({ onClosePopup }) {
         onChange={handleForm}
       />
 
-      {status.error && (
-        <blockquote className="auth-popup__form-field--message">
-          {status.message}
-        </blockquote>
-      )}
+      {status.error && <FormError message={status.message} />}
 
-      <div className="login__register__box">
-        <button className="login-btn" onClick={registration}>
-          {t("auth.registration")}
-        </button>
-
-        <SwitchProcessField onSwitchProcess={onSwitchProcess} />
-      </div>
+      <AuthActionsBox
+        submitBtnCaption={t("auth.registration")}
+        onSubmit={registration}
+        onSwitchProcess={onSwitchProcess}
+        showSwitch={true}
+      />
 
       <FormDevider />
 
       <GoogleButton />
 
       {status.loading && <Spinner />}
-    </form>
+    </FormContainer>
   );
 }

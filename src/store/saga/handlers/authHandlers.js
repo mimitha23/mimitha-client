@@ -2,11 +2,11 @@ import { call, put } from "redux-saga/effects";
 import { authAPI } from "store/saga/api";
 import { authActions } from "store/reducers/authReducer";
 import { userActions } from "store/reducers/user/userReducer";
-import { errorController, pretendLoading } from "store/saga/handlers/helpers";
+import { errorController } from "store/saga/handlers/helpers";
 
 export function* login({ payload }) {
   try {
-    const { data } = yield call(authAPI.login, payload);
+    const { data } = yield call(authAPI.loginQuery, payload);
     yield put(userActions.setUser(data));
     yield put(authActions.cleanUpAuth());
   } catch (error) {
@@ -20,7 +20,7 @@ export function* login({ payload }) {
 
 export function* logout() {
   try {
-    yield call(authAPI.logout);
+    yield call(authAPI.logoutQuery);
     yield put(userActions.resetUser());
     yield put(authActions.setSuccess());
   } catch (error) {
@@ -35,7 +35,7 @@ export function* logout() {
 export function* googleLogin({ payload }) {
   try {
     console.log(payload);
-    // const { data } = yield call(authAPI.googleLogin, payload);
+    // const { data } = yield call(authAPI.googleLoginQuery, payload);
     yield put(authActions.cleanUpAuth());
     // yield put(userActions.setUser(data));
     yield put(authActions.setSuccess());
@@ -50,7 +50,7 @@ export function* googleLogin({ payload }) {
 
 export function* registration({ payload }) {
   try {
-    const { data } = yield call(authAPI.registration, payload);
+    const { data } = yield call(authAPI.registrationQuery, payload);
     yield put(userActions.setUser(data));
     yield put(authActions.cleanUpAuth());
   } catch (error) {
@@ -64,8 +64,7 @@ export function* registration({ payload }) {
 
 export function* forgotPassword({ payload }) {
   try {
-    console.log(payload);
-    yield pretendLoading();
+    yield call(authAPI.forgotPasswordQuery, payload);
     yield put(authActions.setForgotPassword());
     yield put(authActions.setSuccess());
   } catch (error) {
@@ -79,8 +78,7 @@ export function* forgotPassword({ payload }) {
 
 export function* confirmEmail({ payload }) {
   try {
-    console.log(payload);
-    yield pretendLoading();
+    yield call(authAPI.confirmEmailQuery, payload);
     yield put(authActions.setConfirmEmail());
     yield put(authActions.setSuccess());
   } catch (error) {
@@ -94,8 +92,7 @@ export function* confirmEmail({ payload }) {
 
 export function* updatePassword({ payload }) {
   try {
-    console.log(payload);
-    yield pretendLoading();
+    yield call(authAPI.updatePasswordQuery, payload);
     yield put(authActions.setUpdatePassword());
     yield put(authActions.setSuccess());
   } catch (error) {

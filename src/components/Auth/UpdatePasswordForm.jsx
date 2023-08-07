@@ -10,9 +10,11 @@ import {
 import { useUpdatePasswordQuery } from "hooks/api/Auth";
 import { authActions } from "store/reducers/authReducer";
 
-import { CloseXIcon } from "components/Layouts/Icons";
 import { Spinner } from "components/Layouts";
 import FormInputField from "./components/FormInputField";
+import FormContainer from "./components/FormContainer";
+import FormError from "./components/FormError";
+import AuthActionsBox from "./components/AuthActionsBox";
 
 export default function UpdatePasswordForm({ onClosePopup }) {
   const dispatch = useDispatch();
@@ -39,16 +41,7 @@ export default function UpdatePasswordForm({ onClosePopup }) {
   }, []);
 
   return (
-    <form
-      className="auth-popup__form reg"
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
-    >
-      <button className="auth-popup__close-btn" onClick={onClosePopup}>
-        <CloseXIcon />
-      </button>
-
+    <FormContainer className="reg" onClosePopup={onClosePopup}>
       <FormInputField
         id="password"
         label={t("auth.password")}
@@ -71,19 +64,14 @@ export default function UpdatePasswordForm({ onClosePopup }) {
         onChange={handleForm}
       />
 
-      {status.error && (
-        <blockquote className="auth-popup__form-field--message">
-          {status.message}
-        </blockquote>
-      )}
+      {status.error && <FormError message={status.message} />}
 
-      <div className="login__register__box">
-        <button className="login-btn" onClick={updatePassword}>
-          {t("auth.update_password")}
-        </button>
-      </div>
+      <AuthActionsBox
+        onSubmit={updatePassword}
+        submitBtnCaption={t("auth.update_password")}
+      />
 
       {status.loading && <Spinner />}
-    </form>
+    </FormContainer>
   );
 }

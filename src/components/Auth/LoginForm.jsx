@@ -11,11 +11,12 @@ import { useLoginQuery } from "hooks/api/Auth";
 import { authActions } from "store/reducers/authReducer";
 
 import { Spinner } from "components/Layouts";
-import { CloseXIcon } from "components/Layouts/Icons";
+import FormContainer from "./components/FormContainer";
 import FormInputField from "./components/FormInputField";
 import FormDevider from "./components/FormDevider";
-import SwitchProcessField from "./components/SwitchProcessField";
 import GoogleButton from "./components/GoogleButton";
+import FormError from "./components/FormError";
+import AuthActionsBox from "./components/AuthActionsBox";
 
 export default function LoginForm({ onClosePopup }) {
   const dispatch = useDispatch();
@@ -38,16 +39,7 @@ export default function LoginForm({ onClosePopup }) {
   }, []);
 
   return (
-    <form
-      className="auth-popup__form auth"
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
-    >
-      <button className="auth-popup__close-btn" onClick={onClosePopup}>
-        <CloseXIcon />
-      </button>
-
+    <FormContainer className="auth" onClosePopup={onClosePopup}>
       <FormInputField
         id="email"
         label={t("auth.email")}
@@ -70,28 +62,21 @@ export default function LoginForm({ onClosePopup }) {
         onChange={handleForm}
       />
 
-      {status.error && (
-        <blockquote className="auth-popup__form-field--message">
-          {status.message}
-        </blockquote>
-      )}
+      {status.error && <FormError message={status.message} />}
 
-      <div className="login__register__box">
-        <button className="login-btn" onClick={login}>
-          {t("auth.login")}
-        </button>
-
-        <SwitchProcessField
-          onSwitchProcess={onSwitchProcess}
-          showForgotPassword={true}
-        />
-      </div>
+      <AuthActionsBox
+        submitBtnCaption={t("auth.login")}
+        onSubmit={login}
+        showSwitch={true}
+        showForgotPassword={true}
+        onSwitchProcess={onSwitchProcess}
+      />
 
       <FormDevider />
 
       <GoogleButton />
 
       {status.loading && <Spinner />}
-    </form>
+    </FormContainer>
   );
 }

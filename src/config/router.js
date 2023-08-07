@@ -13,21 +13,21 @@ export const Router = [
     name: "home-page",
     element: <Pages.LandingPage />,
   },
-  {
-    path: PATHS.gallery.fullPath,
-    name: "gallery-page",
-    element: <Pages.GalleryPage />,
-  },
-  {
-    path: PATHS.goes_on.fullPath,
-    name: "goes-on-page",
-    element: <Pages.GoesOnPage />,
-  },
-  {
-    path: PATHS.goes_on_tutorial.fullPath,
-    name: "goes-on-tutorial-page",
-    element: <Pages.GoesOnTutorialPage />,
-  },
+  // {
+  //   path: PATHS.gallery.fullPath,
+  //   name: "gallery-page",
+  //   element: <Pages.GalleryPage />,
+  // },
+  // {
+  //   path: PATHS.goes_on.fullPath,
+  //   name: "goes-on-page",
+  //   element: <Pages.GoesOnPage />,
+  // },
+  // {
+  //   path: PATHS.goes_on_tutorial.fullPath,
+  //   name: "goes-on-tutorial-page",
+  //   element: <Pages.GoesOnTutorialPage />,
+  // },
   {
     path: PATHS.cart.fullPath,
     name: "cart-page",
@@ -63,9 +63,9 @@ export const Router = [
     name: "editor-page",
     element: <Pages.EditorPage />,
   },
-  {
-    path: PATHS.fit_products.fullPath({}),
-    name: "fit-product-page",
-    element: <Pages.ProductFitPage />,
-  },
+  // {
+  //   path: PATHS.fit_products.fullPath({}),
+  //   name: "fit-product-page",
+  //   element: <Pages.ProductFitPage />,
+  // },
 ];

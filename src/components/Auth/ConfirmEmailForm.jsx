@@ -7,8 +7,10 @@ import { useSelector } from "react-redux";
 import { selectAuthStatus } from "store/selectors/authSelectors";
 import { useConfirmEmailQuery } from "hooks/api/Auth";
 
+import FormContainer from "./components/FormContainer";
 import { Spinner } from "components/Layouts";
-import { CloseXIcon } from "components/Layouts/Icons";
+import FormError from "./components/FormError";
+import AuthActionsBox from "./components/AuthActionsBox";
 
 export default function ConfirmEmailForm({ onClosePopup }) {
   const { t } = useTranslation();
@@ -25,16 +27,7 @@ export default function ConfirmEmailForm({ onClosePopup }) {
   }, []);
 
   return (
-    <form
-      className="auth-popup__form auth"
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
-    >
-      <button className="auth-popup__close-btn" onClick={onClosePopup}>
-        <CloseXIcon />
-      </button>
-
+    <FormContainer className="auth" onClosePopup={onClosePopup}>
       <div className="otp-box">
         <OtpInput
           value={pin}
@@ -52,37 +45,25 @@ export default function ConfirmEmailForm({ onClosePopup }) {
           )}
         />
 
-        {error.hasError && (
-          <blockquote className="auth-popup__form-field--message">
-            {error.pin.message}
-          </blockquote>
-        )}
+        {error.hasError && <FormError message={error.pin.message} />}
       </div>
 
-      {status.error && (
-        <blockquote className="auth-popup__form-field--message">
-          {status.message}
-        </blockquote>
-      )}
+      {status.error && <FormError message={status.message} />}
 
-      <div className="login__register__box">
+      <AuthActionsBox
+        submitBtnCaption={t("auth.confirm")}
+        onSubmit={(e) => {
+          e.preventDefault();
+          confirmEmail(pin);
+        }}
+      >
         <div className="registration-suggestion confirm-email">
           <span>{t("auth.confirm_email_message_primary")}</span>
           <span>{t("auth.confirm_email_message_secondary")}</span>
         </div>
-
-        <button
-          className="login-btn"
-          onClick={(e) => {
-            e.preventDefault();
-            confirmEmail(pin);
-          }}
-        >
-          {t("auth.confirm")}
-        </button>
-      </div>
+      </AuthActionsBox>
 
       {status.loading && <Spinner />}
-    </form>
+    </FormContainer>
   );
 }

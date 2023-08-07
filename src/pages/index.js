@@ -5,18 +5,18 @@ export const ActiveProductPage = lazy(() =>
   import("./ActiveProductPage/ActiveProductPage")
 );
 export const EditorPage = lazy(() => import("./EditorPage/EditorPage"));
-export const ProductFitPage = lazy(() =>
-  import("./ProductFitPage/ProductFitPage")
-);
+// export const ProductFitPage = lazy(() =>
+//   import("./ProductFitPage/ProductFitPage")
+// );
 export const AllProductsPage = lazy(() =>
   import("./AllProductsPage/AllProductsPage")
 );
 export const CartPage = lazy(() => import("./Cart/CartPage"));
-export const GalleryPage = lazy(() => import("./GalleryPage/GalleryPage"));
-export const GoesOnPage = lazy(() => import("./GoesOnPage/GoesOnPage"));
-export const GoesOnTutorialPage = lazy(() =>
-  import("./GoesOnTutorialPage/GoesOnTutorialPage")
-);
+// export const GalleryPage = lazy(() => import("./GalleryPage/GalleryPage"));
+// export const GoesOnPage = lazy(() => import("./GoesOnPage/GoesOnPage"));
+// export const GoesOnTutorialPage = lazy(() =>
+//   import("./GoesOnTutorialPage/GoesOnTutorialPage")
+// );
 export const UserFavoritesPage = lazy(() =>
   import("./UserFavoritesPage/UserFavoritesPage")
 );

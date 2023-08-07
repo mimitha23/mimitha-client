@@ -11,8 +11,11 @@ import { useForgotPasswordQuery } from "hooks/api/Auth";
 import { authActions, AUTH_PROCESSES } from "store/reducers/authReducer";
 
 import { Spinner } from "components/Layouts";
-import { CloseXIcon, ArrowLeftIcon } from "components/Layouts/Icons";
 import FormInputField from "./components/FormInputField";
+import FormContainer from "./components/FormContainer";
+import { ArrowLeftIcon } from "components/Layouts/Icons";
+import FormError from "./components/FormError";
+import AuthActionsBox from "./components/AuthActionsBox";
 
 export default function ForgotPasswordForm({ onClosePopup }) {
   const dispatch = useDispatch();
@@ -40,16 +43,7 @@ export default function ForgotPasswordForm({ onClosePopup }) {
   }, []);
 
   return (
-    <form
-      className="auth-popup__form auth"
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
-    >
-      <button className="auth-popup__close-btn" onClick={onClosePopup}>
-        <CloseXIcon />
-      </button>
-
+    <FormContainer className="auth" onClosePopup={onClosePopup}>
       <button className="auth-popup__back-btn" onClick={onBack}>
         <ArrowLeftIcon />
         <span>{t("auth.login")}</span>
@@ -66,19 +60,14 @@ export default function ForgotPasswordForm({ onClosePopup }) {
         onChange={handleForm}
       />
 
-      {status.error && (
-        <blockquote className="auth-popup__form-field--message">
-          {status.message}
-        </blockquote>
-      )}
+      {status.error && <FormError message={status.message} />}
 
-      <div className="login__register__box">
-        <button className="login-btn" onClick={forgotPassword}>
-          {t("auth.send")}
-        </button>
-      </div>
+      <AuthActionsBox
+        submitBtnCaption={t("auth.send")}
+        onSubmit={forgotPassword}
+      />
 
       {status.loading && <Spinner />}
-    </form>
+    </FormContainer>
   );
 }

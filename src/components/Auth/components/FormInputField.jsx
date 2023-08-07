@@ -1,6 +1,7 @@
 import { useState, memo } from "react";
-import { useTranslation } from "react-i18next";
-import { EyeShowIcon, EyeHideIcon } from "components/Layouts/Icons";
+
+import ShowPasswordButton from "./ShowPasswordButton";
+import FormError from "./FormError";
 
 export default memo(function FormInputField({
   type,
@@ -12,8 +13,6 @@ export default memo(function FormInputField({
   onChange,
   placeholder,
 }) {
-  const { t } = useTranslation();
-
   const [passwordInputType, setPasswordInputType] = useState("password");
 
   return (
@@ -34,35 +33,15 @@ export default memo(function FormInputField({
         />
 
         {type === "password" && (
-          <button
-            title={
-              type === "password" && passwordInputType === "password"
-                ? t("auth.show_password")
-                : type === "password" && passwordInputType === "text"
-                ? t("auth.hide_password")
-                : ""
-            }
-            onClick={(e) => {
-              e.preventDefault();
-              setPasswordInputType((prev) =>
-                prev === "password" ? "text" : "password"
-              );
-            }}
-          >
-            {passwordInputType === "password" ? (
-              <EyeShowIcon />
-            ) : (
-              <EyeHideIcon />
-            )}
-          </button>
+          <ShowPasswordButton
+            type={type}
+            passwordInputType={passwordInputType}
+            setPasswordInputType={setPasswordInputType}
+          />
         )}
       </div>
 
-      {error.hasError && (
-        <blockquote className="auth-popup__form-field--message">
-          {error.message}
-        </blockquote>
-      )}
+      {error.hasError && <FormError message={error.message} />}
     </div>
   );
 });
