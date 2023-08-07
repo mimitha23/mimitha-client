@@ -12,7 +12,9 @@ export default function useGoogleLoginQuery() {
 
       const userCredentials = await signInWithGooglePopUp();
 
-      console.log(userCredentials);
+      if (!userCredentials) return;
+
+      dispatch(authActions.googleLogin(userCredentials));
     } catch (error) {
       console.log(error);
     }

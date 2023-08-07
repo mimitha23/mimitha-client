@@ -85,7 +85,12 @@ const authSlice = createSlice({
     googleLogin: {
       prepare(payload) {
         return {
-          payload: prepareCredentialsForAuth(payload),
+          payload: {
+            email: payload.email,
+            username: payload.username.split(" ").join("."),
+            fullname: payload.username,
+            profilePicture: payload.profilePicture,
+          },
         };
       },
 

@@ -34,10 +34,9 @@ export function* logout() {
 
 export function* googleLogin({ payload }) {
   try {
-    console.log(payload);
-    // const { data } = yield call(authAPI.googleLoginQuery, payload);
+    const { data } = yield call(authAPI.googleLoginQuery, payload);
+    yield put(userActions.setUser(data));
     yield put(authActions.cleanUpAuth());
-    // yield put(userActions.setUser(data));
     yield put(authActions.setSuccess());
   } catch (error) {
     yield errorController({
