@@ -10,12 +10,20 @@ export const SearchBarResults = styled.div`
   width: 100%;
   height: calc(100vh - ${({ theme }) => theme.app.nav_h});
 
+  @media (${({ theme }) => theme.media.mobile}) {
+    height: 100vh;
+  }
+
   .search-bar__result-box__content {
     height: 100%;
     display: flex;
     flex-direction: column;
     background: ${({ theme }) => theme.colors.black_tr_05};
     backdrop-filter: blur(5px);
+
+    @media (${({ theme }) => theme.media.mobile}) {
+      backdrop-filter: none;
+    }
   }
 
   .search-bar__result-box__content-head {
@@ -66,6 +74,10 @@ export const SearchBarResults = styled.div`
 
     @media (${({ theme }) => theme.media.tablet_sm}) {
       justify-content: center;
+    }
+
+    @media (${({ theme }) => theme.media.mobile}) {
+      grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
     }
   }
 `;

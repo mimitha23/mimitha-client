@@ -10,12 +10,20 @@ export const Logo = styled.figure`
     partialNav
       ? css`
           width: 5rem;
+
+          @media (${({ theme }) => theme.media.mobile}) {
+            display: flex;
+          }
         `
       : css`
           width: 10rem;
 
-          @media (${({ theme }) => theme.media.tablet_sm}) ) {
+          @media (${({ theme }) => theme.media.tablet_sm}) {
             width: 8rem;
+          }
+
+          @media (${({ theme }) => theme.media.mobile}) {
+            display: none;
           }
         `};
 

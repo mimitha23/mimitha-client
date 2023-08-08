@@ -9,7 +9,8 @@ export const Path = styled.div`
   span {
     display: flex;
     align-items: center;
-    line-height: 1;
+    line-height: 1.3;
+    height: max-content;
 
     a {
       position: relative;
@@ -49,5 +50,13 @@ export const Path = styled.div`
     font-weight: 700;
     font-size: ${({ theme }) => theme.fontSize.xl};
     color: ${({ theme }) => theme.colors.blue};
+  }
+
+  .title-path {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
   }
 `;

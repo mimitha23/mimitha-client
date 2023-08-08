@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { animatePopUpAndScale } from "styles/helpers";
 
 export const CartContainer = styled.div`
-  padding-top: ${({ theme }) => theme.app.nav_h_full};
+  padding-top: ${({ theme }) => theme.app.nav_h};
   height: 100vh;
   max-height: 100vh;
   display: flex;

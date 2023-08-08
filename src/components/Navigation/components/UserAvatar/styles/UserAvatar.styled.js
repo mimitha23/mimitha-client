@@ -44,6 +44,10 @@ export const UserAvatar = styled.div`
     gap: 0.5rem;
     ${animateMoveTop};
 
+    @media (${({ theme }) => theme.media.mobile}) {
+      width: 35rem;
+    }
+
     .user__dropdown-item {
       display: flex;
       align-items: center;

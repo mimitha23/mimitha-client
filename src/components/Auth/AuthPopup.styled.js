@@ -20,6 +20,8 @@ const animate_auth_form = keyframes`
   }
 `;
 
+const form_field_w_tablet = "36rem";
+
 export const AuthPopup = styled.div`
   position: fixed;
   z-index: 1000;
@@ -29,12 +31,24 @@ export const AuthPopup = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media (${({ theme }) => theme.media.tablet_sm}) {
+    align-items: flex-start;
+  }
+
   .animate-layover {
     width: 10rem;
     height: 10rem;
     border-radius: 100%;
     background: ${({ theme }) => theme.gradients.backdrop_gradient};
     animation: ${animate_auth_popup} 0.3s ease forwards;
+
+    @media (${({ theme }) => theme.media.tablet_sm}) {
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: transparent;
+      animation: none;
+    }
   }
 
   .auth-popup__form {
@@ -52,12 +66,14 @@ export const AuthPopup = styled.div`
     transition: all 0.3s ease;
     overflow: hidden;
 
-    &.reg {
-      max-height: 68rem;
-    }
-
-    &.auth {
-      max-height: 48rem;
+    @media (${({ theme }) => theme.media.tablet_sm}) {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      animation: none;
     }
 
     .auth-popup__back-btn,
@@ -94,6 +110,10 @@ export const AuthPopup = styled.div`
       flex-direction: column;
       gap: 0.5rem;
       position: relative;
+
+      @media (${({ theme }) => theme.media.tablet_sm}) {
+        width: ${form_field_w_tablet};
+      }
 
       &--label {
         font-size: ${({ theme }) => theme.fontSize.md};
@@ -180,6 +200,10 @@ export const AuthPopup = styled.div`
       flex-direction: column;
       gap: 0.5rem;
 
+      @media (${({ theme }) => theme.media.tablet_sm}) {
+        width: ${form_field_w_tablet};
+      }
+
       .registration-suggestion {
         color: ${({ theme }) => theme.colors.blue};
         font-size: ${({ theme }) => theme.fontSize.md};
@@ -209,6 +233,10 @@ export const AuthPopup = styled.div`
       border-radius: 0.5rem;
       transition: all 0.3s ease-out;
 
+      @media (${({ theme }) => theme.media.tablet_sm}) {
+        width: ${form_field_w_tablet};
+      }
+
       &:hover {
         filter: brightness(110%);
       }
@@ -229,6 +257,10 @@ export const AuthPopup = styled.div`
       display: flex;
       align-items: center;
       gap: 0.75rem;
+
+      @media (${({ theme }) => theme.media.tablet_sm}) {
+        width: ${form_field_w_tablet};
+      }
 
       hr {
         width: 100%;

@@ -37,7 +37,7 @@ export default function BookmarksList() {
         </span>
       </button>
 
-      {showList && (
+      {list[0] && showList && (
         <ul className="bookmarks__list">
           {list.map((item) => (
             <li key={item._id}>
@@ -53,6 +53,10 @@ export default function BookmarksList() {
             </li>
           ))}
         </ul>
+      )}
+
+      {!list[0] && showList && (
+        <span className="empty-list">{t("user_list.no_list")}</span>
       )}
     </Styled.BookmarksList>
   );

@@ -27,6 +27,16 @@ export const BookmarksList = styled.li`
     }
   }
 
+  .empty-list {
+    display: block;
+    font-size: ${({ theme }) => theme.fontSize.sm};
+    text-align: center;
+    text-wrap: balance;
+    opacity: 0.5;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+
   .bookmarks__list {
     padding: 0.5rem 0.5rem 0.5rem 3rem;
     display: flex;

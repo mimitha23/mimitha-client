@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { animateMoveLeft } from "styles/helpers";
 
 export const AllProductsContainer = styled.main`
-  padding-top: ${({ theme }) => theme.app.nav_h_full};
+  padding-top: ${({ theme }) => theme.app.nav_h};
   min-height: 100vh;
 
   .wrapper-container {
@@ -21,6 +21,10 @@ export const AllProductsContainer = styled.main`
     background: ${({ theme }) => theme.colors.bg};
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
     transition: all 0.2s linear;
+
+    @media (${({ theme }) => theme.media.mobile}) {
+      padding: 1rem;
+    }
 
     [data-filter-container] {
       column-gap: 4rem;
@@ -45,6 +49,11 @@ export const AllProductsContainer = styled.main`
     ${animateMoveLeft({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};
+
+    @media (${({ theme }) => theme.media.mobile}) {
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+      padding: 0 1rem 2rem;
+    }
   }
 
   @media (${({ theme }) => theme.media.tablet_sm}) {

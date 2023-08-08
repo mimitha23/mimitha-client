@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { useStartAuth } from "hooks/api/Auth";
+import { useIsAuthenticated } from "hooks/auth";
 import { authActions, AUTH_PROCESSES } from "store/reducers/authReducer";
 import { selectAuthOnGoingProcess } from "store/selectors/authSelectors";
 
@@ -29,6 +30,12 @@ export default function AuthPopUp() {
     onGoingProcess === AUTH_PROCESSES.update_password;
 
   const { delayAuth } = useStartAuth();
+
+  const { isAuthenticated, loading } = useIsAuthenticated();
+
+  useEffect(() => {
+    if (isAuthenticated) dispatch(authActions.cleanUpAuth());
+  }, [isAuthenticated, loading]);
 
   useEffect(() => {
     return () => {

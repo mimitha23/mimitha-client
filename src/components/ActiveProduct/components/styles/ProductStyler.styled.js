@@ -134,6 +134,7 @@ export const ColorPicker = styled.li`
   cursor: pointer;
   background: ${({ color }) => color || ""};
   transition: all 0.2s ease;
+  z-index: auto;
 
   &:not(.active-color):hover {
     border-radius: 0.2rem;

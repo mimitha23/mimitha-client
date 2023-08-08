@@ -28,6 +28,8 @@ export default function AppThemeProvider({ children }) {
   }
 
   function changeNavHeight(partial) {
+    const windowWidth = window.innerWidth;
+
     setAppTheme((prev) => ({
       ...prev,
       theme: {
@@ -36,7 +38,9 @@ export default function AppThemeProvider({ children }) {
           ...prev.theme.app,
           nav_h: partial
             ? prev.theme.app.nav_h_partial
-            : prev.theme.app.nav_h_full,
+            : windowWidth > 500
+            ? prev.theme.app.nav_h_full
+            : prev.theme.app.nav_h_full_mobile,
         },
       },
     }));

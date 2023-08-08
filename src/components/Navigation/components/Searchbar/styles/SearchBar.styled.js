@@ -2,20 +2,24 @@ import styled from "styled-components";
 
 export const SearchBar = styled.div`
   width: 25rem;
-  height: 5rem;
   border-bottom: 2px solid ${({ theme }) => theme.colors.text};
   color: ${({ theme }) => theme.colors.text};
   margin-left: auto;
   background: ${({ theme }) => theme.colors.bg};
 
-  &.active_bar .search-bar__inp-field .search__close-btn {
-    display: block;
+  &.active_bar {
+    height: 5rem;
+
+    .search-bar__wrapper {
+      height: 5rem;
+    }
+
+    .search-bar__inp-field .search__close-btn {
+      display: block;
+    }
   }
 
   .search-bar__wrapper {
-    /* position: relative; */
-    height: 5rem;
-
     .search-warning {
       position: absolute;
       z-index: 1;

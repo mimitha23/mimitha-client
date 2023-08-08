@@ -3,5 +3,6 @@
   "create_list_placeholder": "ლისტის სახელი",
   "delete_list": "წაშალე ლისტი",
   "empty_list_message": "ლისტში პროდუქტები არ მოიძებნება.",
-  "bookmarks": "სანიშნეები"
+  "bookmarks": "სანიშნეები",
+  "no_list": "ლისტი არ მოიძებნება"
 }

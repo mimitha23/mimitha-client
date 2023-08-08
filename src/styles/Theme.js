@@ -4,6 +4,7 @@ const BaseTheme = {
     container: "1280px",
     nav_h: "15rem",
     nav_h_full: "15rem",
+    nav_h_full_mobile: "12rem",
     nav_h_partial: "7.5rem",
     section_animation_duration: "0.3s",
   },

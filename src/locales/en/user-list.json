@@ -3,5 +3,6 @@
   "create_list_placeholder": "list name",
   "delete_list": "Delete list",
   "empty_list_message": "There are no products into the list.",
-  "bookmarks": "Bookmarks"
+  "bookmarks": "Bookmarks",
+  "no_list": "There are no lists"
 }

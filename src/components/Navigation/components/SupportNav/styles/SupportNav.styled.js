@@ -28,6 +28,10 @@ export const SupportNav = styled.div`
   transform: translateY(-200%) scale(0.5);
   opacity: 0;
 
+  @media (${({ theme }) => theme.media.mobile}) {
+    margin-bottom: unset;
+  }
+
   ${({ partialNav }) =>
     partialNav
       ? css`
@@ -36,5 +40,10 @@ export const SupportNav = styled.div`
         `
       : css`
           animation: ${animateShowSupportNav} 0.2s linear forwards;
+
+          @media (${({ theme }) => theme.media.mobile}) {
+            justify-content: space-between;
+            width: 100%;
+          }
         `};
 `;

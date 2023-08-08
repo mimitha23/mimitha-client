@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const EditorContainer = styled.div`
-  padding-top: ${({ theme }) => theme.app.nav_h_full};
+  padding-top: ${({ theme }) => theme.app.nav_h};
 
   .editor-main {
     display: flex;

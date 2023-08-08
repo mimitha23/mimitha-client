@@ -58,7 +58,9 @@ export default memo(function Path({ showSearch }) {
       )}
 
       {locationState.title[currentLocale] && (
-        <span>{locationState.title[currentLocale]}</span>
+        <span className="title-path" title={locationState.title[currentLocale]}>
+          {locationState.title[currentLocale]}
+        </span>
       )}
 
       {locationState.sale && <span className="sale-path">Mimita Hot Sale</span>}

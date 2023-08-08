@@ -25,6 +25,10 @@ export const Navigation = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (${({ theme }) => theme.media.mobile}) {
+      gap: 1rem;
+    }
   }
 
   .main-nav {
@@ -40,7 +44,7 @@ export const Navigation = styled.nav`
     display: flex;
     align-items: flex-end;
     gap: 4rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
   }
 
   @media (${({ theme }) => theme.media.desktop}) {
