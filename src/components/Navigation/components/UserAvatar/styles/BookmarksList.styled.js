@@ -11,9 +11,11 @@ export const BookmarksList = styled.li`
     width: 100%;
     transition: all 0.2s ease;
 
-    &:hover {
-      background: ${({ theme }) => theme.colors.blue};
-      color: ${({ theme }) => theme.colors.white};
+    @media (hover: hover) {
+      &:hover {
+        background: ${({ theme }) => theme.colors.blue};
+        color: ${({ theme }) => theme.colors.white};
+      }
     }
 
     .user__dropdown-item--icon {
@@ -57,9 +59,11 @@ export const BookmarksList = styled.li`
         color: ${({ theme }) => theme.colors.blue};
       }
 
-      &:not(.active):hover {
-        background: ${({ theme }) => theme.colors.blue};
-        color: ${({ theme }) => theme.colors.white};
+      @media (hover: hover) {
+        &:not(.active):hover {
+          background: ${({ theme }) => theme.colors.blue};
+          color: ${({ theme }) => theme.colors.white};
+        }
       }
 
       .icon {

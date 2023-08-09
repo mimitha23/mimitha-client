@@ -9,6 +9,7 @@ import {
   I18nextProvider,
   AppProvider,
   AppPortalsProvider,
+  CurrencyProvider,
 } from "providers";
 import { store, persistore } from "./store";
 
@@ -20,11 +21,13 @@ createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <AppThemeProvider>
           <I18nextProvider>
-            <AppProvider>
-              <AppPortalsProvider>
-                <App />
-              </AppPortalsProvider>
-            </AppProvider>
+            <CurrencyProvider>
+              <AppProvider>
+                <AppPortalsProvider>
+                  <App />
+                </AppPortalsProvider>
+              </AppProvider>
+            </CurrencyProvider>
           </I18nextProvider>
         </AppThemeProvider>
       </BrowserRouter>

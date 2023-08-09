@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -13,7 +14,7 @@ import * as Styled from "./styles/CardFig.styled";
 
 export default function CardFig({
   productId,
-  img,
+  assets,
   alt,
   linkState,
   showAddToList,
@@ -47,14 +48,25 @@ export default function CardFig({
     openAddToListPopup({ productId });
   }
 
+  const [thumbnailIndex, setThumbnailIndex] = useState(0);
+
   return (
-    <Styled.CardFig className="product-fig">
+    <Styled.CardFig
+      className="product-fig"
+      onMouseEnter={() => setThumbnailIndex(1)}
+      onMouseLeave={() => setThumbnailIndex(0)}
+    >
       <Link
         to={PATHS.active_product.fullPath({ productId })}
         state={setLocationState({ ...linkState })}
         className="card-fig__link"
       >
-        <img src={img} alt={alt[currentLocale]} loading="lazy" />
+        <img
+          src={assets[thumbnailIndex]}
+          alt={alt[currentLocale]}
+          loading="lazy"
+        />
+        {/* <img src={assets[1]} alt={alt[currentLocale]} loading="lazy" /> */}
         <SaveToListButtons
           onAddToFavorites={onAddToFavorites}
           onAddToList={onAddToList}

@@ -20,7 +20,13 @@ export const FigActions = styled.div`
     opacity: 0.4;
     transition: opacity 0.3s ease;
 
-    &:hover {
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    @media (hover: none) {
       opacity: 1;
     }
   }

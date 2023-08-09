@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
 
 import { selectCartSum } from "store/selectors/cartSelectors";
+import { useCurrencyContext } from "providers/CurrencyProvider";
 import { shoppingCartActions } from "store/reducers/shoppingCartReducer";
 
 import * as Styled from "./styles/CartFooter.styled";
@@ -10,6 +11,7 @@ export default function CartFooter({ onBuy, isEmpty }) {
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
+  const { currencySymbol, convertPrice } = useCurrencyContext();
 
   const sum = useSelector(selectCartSum);
 
@@ -24,10 +26,12 @@ export default function CartFooter({ onBuy, isEmpty }) {
           {t("cart.products_total_quantity")} &mdash; {sum.productsAmount}
         </span>
         <span className="delivery-price">
-          {t("cart.products_total_amount")} &mdash; {sum.productsTotalPrice} ₾
+          {t("cart.products_total_amount")} &mdash;{" "}
+          {convertPrice(sum.productsTotalPrice)} {currencySymbol}
         </span>
         <span className="delivery-price">
-          {t("crossover.delivery_price")} &mdash; 5₾
+          {t("crossover.delivery_price")} &mdash; {convertPrice(5)}
+          {currencySymbol}
         </span>
       </div>
 

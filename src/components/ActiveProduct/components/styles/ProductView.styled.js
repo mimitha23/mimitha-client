@@ -114,10 +114,16 @@ export const ProductView = styled.div`
       transition: all 0.2s ease-out;
       padding: 0.5rem;
 
-      &.active,
-      &:hover {
+      &.active {
         transform: scale(1.1);
         box-shadow: ${({ theme }) => theme.shadow.bottom_right_md_dark};
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: ${({ theme }) => theme.shadow.bottom_right_md_dark};
+        }
       }
 
       &.active {

@@ -10,10 +10,12 @@ export const buttonPrimary = () => css`
   color: ${({ theme }) => theme.colors.white};
   transition: all 0.2s ease;
 
-  :hover {
-    box-shadow: ${({ theme }) => theme.shadow.bottom_right_md_dark};
-    color: ${({ theme }) => theme.colors.text};
-    background-color: ${({ theme }) => theme.colors.bg};
+  @media (hover: hover) {
+    :hover {
+      box-shadow: ${({ theme }) => theme.shadow.bottom_right_md_dark};
+      color: ${({ theme }) => theme.colors.text};
+      background-color: ${({ theme }) => theme.colors.bg};
+    }
   }
 
   @media (${({ theme }) => theme.media.tablet_sm}) {

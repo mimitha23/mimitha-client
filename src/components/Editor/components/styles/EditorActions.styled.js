@@ -3,7 +3,9 @@ import { buttonPrimary, animateMoveLeft, animateMoveTop } from "styles/helpers";
 
 export const EditorActionsContainer = styled.div`
   flex: 1;
-  height: 100%;
+  min-height: 100%;
+  align-self: stretch;
+  position: relative;
 
   .editor-actions__list {
     display: flex;
@@ -16,8 +18,8 @@ export const EditorActionsContainer = styled.div`
 
   .finish-btn {
     position: absolute;
-    right: 4rem;
-    bottom: 3rem;
+    right: 0;
+    bottom: 0;
     text-transform: capitalize;
     ${buttonPrimary};
     ${animateMoveTop({

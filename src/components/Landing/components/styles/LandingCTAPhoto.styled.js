@@ -79,7 +79,15 @@ export const LandingCTAPhoto = styled.div`
         transform: scale(0.85);
       }
 
-      :hover {
+      @media (hover: hover) {
+        :hover {
+          img {
+            transform: scale(1);
+          }
+        }
+      }
+
+      @media (hover: none) {
         img {
           transform: scale(1);
         }

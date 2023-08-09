@@ -3,14 +3,17 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
 import { PATHS } from "config/routes";
+import { useCurrencyContext } from "providers/CurrencyProvider";
 import { useTranslationContext } from "providers/I18nextProvider";
 import { selectActiveProductHeader } from "store/selectors/activeProductSelectors";
 
 import * as Styled from "./styles/ProductHeading.styled";
 
 export default function ProductHeading({ productId }) {
-  const { currentLocale } = useTranslationContext();
   const { t } = useTranslation();
+
+  const { currencySymbol, convertPrice } = useCurrencyContext();
+  const { currentLocale } = useTranslationContext();
 
   const { title, price, isEditable } = useSelector(selectActiveProductHeader);
 
@@ -23,7 +26,7 @@ export default function ProductHeading({ productId }) {
       <div className="price-and-edit__container">
         <div className="product-price">
           <span>
-            {t("crossover.price")}: {price} ₾
+            {t("crossover.price")}: {convertPrice(price)} {currencySymbol}
           </span>
         </div>
 

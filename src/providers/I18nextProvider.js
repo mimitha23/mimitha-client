@@ -6,7 +6,7 @@ const i18nextContext = createContext({
   currentLocale: "",
 });
 
-export default function I18nextProvier({ children }) {
+export default function I18nextProvider({ children }) {
   const [currentLocale, setCurrentLocale] = useState(i18next.language);
 
   function changeLocale(locale) {

@@ -40,13 +40,15 @@ export const FitCombinationContainer = styled.div`
     cursor: pointer;
     position: relative;
 
-    :hover {
-      .fit-view__fig-box__remove-btn--box {
-        display: block;
-      }
+    @media (hover: hover) {
+      :hover {
+        .fit-view__fig-box__remove-btn--box {
+          display: block;
+        }
 
-      .fit-view__fig {
-        border-color: royalblue;
+        .fit-view__fig {
+          border-color: royalblue;
+        }
       }
     }
 

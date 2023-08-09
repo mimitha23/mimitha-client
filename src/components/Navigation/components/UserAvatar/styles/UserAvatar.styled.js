@@ -88,10 +88,12 @@ export const UserAvatar = styled.div`
         }
       }
 
-      &--btn:hover,
-      &:hover {
-        background: ${({ theme }) => theme.colors.blue};
-        color: ${({ theme }) => theme.colors.white};
+      @media (hover: hover) {
+        &--btn:hover,
+        &:hover {
+          background: ${({ theme }) => theme.colors.blue};
+          color: ${({ theme }) => theme.colors.white};
+        }
       }
     }
   }

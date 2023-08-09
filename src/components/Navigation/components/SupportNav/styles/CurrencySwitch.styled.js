@@ -22,13 +22,22 @@ export const CurrencySwitch = styled.div`
     padding: 0.5rem;
     top: calc(100% + 0.5rem);
     background: ${({ theme }) => theme.colors.bg};
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     ${animateMoveBottom};
 
     li {
       cursor: pointer;
 
-      &:hover {
+      &.active {
         color: ${({ theme }) => theme.colors.blue};
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: ${({ theme }) => theme.colors.blue};
+        }
       }
     }
   }

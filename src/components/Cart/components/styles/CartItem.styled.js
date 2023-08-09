@@ -34,16 +34,47 @@ export const CartItem = styled.div`
         opacity: 0;
         pointer-events: none;
         text-align: center;
+
+        .icon {
+          display: none;
+        }
       }
     }
 
-    &:hover .cart-item__fig--layover {
-      bottom: 0;
+    @media (hover: hover) {
+      &:hover .cart-item__fig--layover {
+        bottom: 0;
 
-      a {
-        pointer-events: all;
-        opacity: 1;
-        transition-delay: 0.3s;
+        a {
+          pointer-events: all;
+          opacity: 1;
+          transition-delay: 0.3s;
+        }
+      }
+    }
+
+    @media (hover: none) {
+      .cart-item__fig--layover {
+        bottom: 0;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 100%;
+
+        a {
+          pointer-events: all;
+          opacity: 1;
+
+          .text {
+            display: none;
+          }
+
+          .icon {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            font-size: 2rem;
+          }
+        }
       }
     }
   }
@@ -152,12 +183,14 @@ export const CartItem = styled.div`
     position: absolute;
     top: 1rem;
     right: 1rem;
-    font-size: 2rem;
+    font-size: 2.8rem;
     transition: all 0.15s ease;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.blue};
-      transform: scale(1.25);
+    @media (hover: hover) {
+      &:hover {
+        color: ${({ theme }) => theme.colors.blue};
+        transform: scale(1.25);
+      }
     }
   }
 

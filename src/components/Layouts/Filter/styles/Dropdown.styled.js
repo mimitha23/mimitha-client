@@ -71,10 +71,12 @@ export const Dropdown = styled.div`
         color: ${({ theme }) => theme.colors.white};
       }
 
-      &:not(.active):hover {
-        background: ${({ theme }) => theme.colors.text};
-        color: ${({ theme }) => theme.colors.bg};
-        border-radius: 0.5rem;
+      @media (hover: hover) {
+        &:not(.active):hover {
+          background: ${({ theme }) => theme.colors.text};
+          color: ${({ theme }) => theme.colors.bg};
+          border-radius: 0.5rem;
+        }
       }
 
       button {

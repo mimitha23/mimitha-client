@@ -84,8 +84,10 @@ export const AuthPopup = styled.div`
       font-size: 2.4rem;
       transition: all 0.2s ease;
 
-      &:hover {
-        color: ${({ theme }) => theme.colors.blue};
+      @media (hover: hover) {
+        &:hover {
+          color: ${({ theme }) => theme.colors.blue};
+        }
       }
     }
 
@@ -237,8 +239,10 @@ export const AuthPopup = styled.div`
         width: ${form_field_w_tablet};
       }
 
-      &:hover {
-        filter: brightness(110%);
+      @media (hover: hover) {
+        &:hover {
+          filter: brightness(110%);
+        }
       }
     }
 

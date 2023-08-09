@@ -42,9 +42,11 @@ export const AddToListPopup = styled.div`
       padding: 0.5rem;
       border-radius: 0.5rem;
 
-      &:not(.active):hover {
-        background: ${({ theme }) => theme.colors.blue};
-        color: ${({ theme }) => theme.colors.white};
+      @media (hover: hover) {
+        &:not(.active):hover {
+          background: ${({ theme }) => theme.colors.blue};
+          color: ${({ theme }) => theme.colors.white};
+        }
       }
 
       &.active {
@@ -66,9 +68,19 @@ export const AddToListPopup = styled.div`
       visibility: hidden;
     }
 
-    li:hover {
-      span:last-child {
-        visibility: visible;
+    @media (hover: hover) {
+      li:hover {
+        span:last-child {
+          visibility: visible;
+        }
+      }
+    }
+
+    @media (hover: none) {
+      li {
+        span:last-child {
+          visibility: visible;
+        }
       }
     }
   }

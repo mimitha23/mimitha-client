@@ -125,9 +125,11 @@ export const NavDropdownBlock = styled.div`
       }
     }
 
-    :not(.dropdown-nav__routes-list--item.active) a:hover {
-      background: ${({ theme }) => theme.colors.text};
-      color: ${({ theme }) => theme.colors.bg};
+    @media (hover: hover) {
+      :not(.dropdown-nav__routes-list--item.active) a:hover {
+        background: ${({ theme }) => theme.colors.text};
+        color: ${({ theme }) => theme.colors.bg};
+      }
     }
 
     &.active {

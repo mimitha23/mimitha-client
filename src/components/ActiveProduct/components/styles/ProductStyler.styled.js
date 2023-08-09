@@ -70,9 +70,11 @@ export const ProductStyler = styled.div`
         background: ${({ theme }) => theme.colors.black};
       }
 
-      :not(.active-size):hover {
-        color: ${({ theme }) => theme.colors.bg};
-        background-color: ${({ theme }) => theme.colors.text};
+      @media (hover: hover) {
+        :not(.active-size):hover {
+          color: ${({ theme }) => theme.colors.bg};
+          background-color: ${({ theme }) => theme.colors.text};
+        }
       }
     }
   }
@@ -136,8 +138,10 @@ export const ColorPicker = styled.li`
   transition: all 0.2s ease;
   z-index: auto;
 
-  &:not(.active-color):hover {
-    border-radius: 0.2rem;
+  @media (hover: hover) {
+    &:not(.active-color):hover {
+      border-radius: 0.2rem;
+    }
   }
 
   &.active-color {

@@ -21,6 +21,10 @@ export const CardContent = styled.div`
       overflow: hidden;
       line-clamp: 1;
       -webkit-line-clamp: 1;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
     }
   }
 
@@ -74,6 +78,7 @@ export const CardContent = styled.div`
     margin-top: auto;
     border-radius: 0.5rem;
     box-shadow: ${({ theme }) => theme.shadow.bottom_right_md_dark};
+    margin-top: 0;
 
     svg {
       width: 2.5rem;
@@ -86,6 +91,7 @@ export const CardContent = styled.div`
     width: 100%;
     height: 2px;
     background: ${({ theme }) => theme.colors.text};
+    margin-top: auto;
   }
 
   .product-edit__and__fit-box {
@@ -104,6 +110,7 @@ export const CardContent = styled.div`
       width: 100%;
       text-transform: uppercase;
       box-shadow: ${({ theme }) => theme.shadow.bottom_right_md_dark};
+      margin-bottom: 0.5rem;
 
       a {
         display: inline-block;

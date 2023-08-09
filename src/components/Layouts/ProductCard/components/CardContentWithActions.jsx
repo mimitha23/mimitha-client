@@ -25,15 +25,11 @@ export default function CardContentWithActions({
 
       <SoldOut soldOut={soldOut} />
 
+      {isEditable && <CardActions productId={productId} />}
+
+      <hr className="product-content__devider" />
+
       <AddToCart onAddToCart={onAddToCart} />
-
-      {isEditable && (
-        <>
-          <hr className="product-content__devider" />
-
-          <CardActions productId={productId} />
-        </>
-      )}
     </>
   );
 }

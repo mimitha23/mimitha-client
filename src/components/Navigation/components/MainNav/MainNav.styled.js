@@ -39,9 +39,11 @@ export const MainNavList = styled.nav`
           display: none;
         }
 
-        :hover {
-          background: ${({ theme }) => theme.colors.text};
-          color: ${({ theme }) => theme.colors.bg};
+        @media (hover: hover) {
+          :hover {
+            background: ${({ theme }) => theme.colors.text};
+            color: ${({ theme }) => theme.colors.bg};
+          }
         }
       }
 

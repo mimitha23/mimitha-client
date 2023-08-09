@@ -23,11 +23,13 @@ export default function controlSliderScrollBehavior({
   if (docIndexToQuery === 0) {
     sliderContainer.scrollTo({
       left: 0,
+      top: 0,
       behavior: "smooth",
     });
   } else if (docIndexToQuery === itemsQuantity) {
     sliderContainer.scrollTo({
       left: sliderContainer.scrollWidth,
+      top: sliderContainer.scrollHeight,
       behavior: "smooth",
     });
   } else {

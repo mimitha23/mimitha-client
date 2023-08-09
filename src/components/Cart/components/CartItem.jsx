@@ -3,18 +3,20 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import { PATHS } from "config/routes";
+import { useCurrencyContext } from "providers/CurrencyProvider";
 import { useTranslationContext } from "providers/I18nextProvider";
 import { shoppingCartActions } from "store/reducers/shoppingCartReducer";
 
 import CartItemDetailsBoxContainer from "./CartItemDetailsBoxContainer";
 import CartItemDetailsControlProductAmount from "./CartItemDetailsControlProductAmount";
-import { CloseXIcon } from "components/Layouts/Icons/index";
+import { CloseXIcon, EyeShowIcon } from "components/Layouts/Icons/index";
 import * as Styled from "./styles/CartItem.styled";
 
 export default function CartItem({ product }) {
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
+  const { currencySymbol, convertPrice } = useCurrencyContext();
   const { currentLocale } = useTranslationContext();
 
   function onProductQuantity(value) {
@@ -39,7 +41,10 @@ export default function CartItem({ product }) {
           <Link
             to={PATHS.active_product.fullPath({ productId: product.productId })}
           >
-            {t("cart.view_product")}
+            <span className="text">{t("cart.view_product")}</span>
+            <span className="icon">
+              <EyeShowIcon />
+            </span>
           </Link>
         </div>
       </figure>
@@ -64,13 +69,17 @@ export default function CartItem({ product }) {
 
         <CartItemDetailsBoxContainer title={t("crossover.price")}>
           <span>
-            <strong>{product.price} ₾</strong>
+            <strong>
+              {convertPrice(product.price)} {currencySymbol}
+            </strong>
           </span>
         </CartItemDetailsBoxContainer>
 
         <CartItemDetailsBoxContainer title={t("crossover.total_price")}>
           <span>
-            <strong>{product.price * product.quantity} ₾</strong>
+            <strong>
+              {convertPrice(product.price) * product.quantity} {currencySymbol}
+            </strong>
           </span>
         </CartItemDetailsBoxContainer>
 

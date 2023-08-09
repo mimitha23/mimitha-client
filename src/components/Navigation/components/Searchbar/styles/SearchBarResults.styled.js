@@ -41,7 +41,13 @@ export const SearchBarResults = styled.div`
     a {
       color: royalblue;
 
-      :hover {
+      @media (hover: hover) {
+        :hover {
+          text-decoration: underline;
+        }
+      }
+
+      @media (hover: none) {
         text-decoration: underline;
       }
     }
