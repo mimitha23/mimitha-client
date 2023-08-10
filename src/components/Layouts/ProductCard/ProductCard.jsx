@@ -55,6 +55,7 @@ export default function ProductCard({
                 title={product.title}
                 price={product.price}
                 productId={product._id}
+                registeredProductId={product.product._id}
                 soldOut={product.soldOut}
                 isEditable={product.product.isEditable}
                 onAddToCart={onAddToCart}

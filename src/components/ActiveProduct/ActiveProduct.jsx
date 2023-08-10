@@ -42,7 +42,7 @@ export default function ActiveProduct() {
             </div>
 
             <div className="product-main__product-info">
-              <ProductHeading productId={productId} />
+              <ProductHeading />
               <ProductDescription />
               <ProductStyler productId={productId} />
               <ProductShippingInfo />

@@ -82,3 +82,6 @@ export const selectActiveProductInfoForShoppingCart = createSelector(
   selectedActiveProductInfoForShoppingCart,
   (info) => info
 );
+
+export const selectProductRegistrationId = ({ activeProduct }) =>
+  activeProduct.product.productId;

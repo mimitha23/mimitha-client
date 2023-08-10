@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { PATHS } from "config/routes";
 
-export default function CardActions({ productId }) {
+export default function CardActions({ productId, registeredProductId }) {
   const { t } = useTranslation();
 
   return (
@@ -14,7 +14,9 @@ export default function CardActions({ productId }) {
       </button> */}
 
       <button className="edit-btn">
-        <Link to={PATHS.edit_product.fullPath({ productId })}>
+        <Link
+          to={PATHS.edit_product.fullPath({ productId: registeredProductId })}
+        >
           {t("crossover.edit")}
         </Link>
       </button>

@@ -10,6 +10,7 @@ export default function CardContentWithActions({
   price,
   soldOut,
   productId,
+  registeredProductId,
   isEditable,
   onAddToCart,
   linkState,
@@ -25,7 +26,12 @@ export default function CardContentWithActions({
 
       <SoldOut soldOut={soldOut} />
 
-      {isEditable && <CardActions productId={productId} />}
+      {isEditable && (
+        <CardActions
+          productId={productId}
+          registeredProductId={registeredProductId}
+        />
+      )}
 
       <hr className="product-content__devider" />
 
