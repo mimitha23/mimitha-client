@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+
+import { selectEditorVariants } from "store/selectors/editorSelectors";
 import { PATHS } from "config/routes";
 
 import EditorActionDropdown from "./EditorActionDropdown";
@@ -11,17 +14,25 @@ export default function EditorActions({ productId }) {
 
   const [activeDropdown, setActiveDropdown] = useState(false);
 
+  const editorVariants = useSelector(selectEditorVariants);
+
+  console.log(editorVariants);
+
   return (
     <Styled.EditorActionsContainer>
       <div className="editor-actions__list">
-        <EditorActionDropdown
-          name="ჯიბე"
-          variantType="pocket"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
+        {editorVariants &&
+          Object.keys(editorVariants).map((variant) => (
+            <EditorActionDropdown
+              key={variant._id}
+              name="ჯიბე"
+              variantType="pocket"
+              activeDropdown={activeDropdown}
+              setActiveDropdown={setActiveDropdown}
+            />
+          ))}
 
-        <EditorActionDropdown
+        {/* <EditorActionDropdown
           name="ელვა"
           variantType="zipper"
           activeDropdown={activeDropdown}
@@ -47,7 +58,7 @@ export default function EditorActions({ productId }) {
           variantType="collar"
           activeDropdown={activeDropdown}
           setActiveDropdown={setActiveDropdown}
-        />
+        /> */}
       </div>
 
       <Link
