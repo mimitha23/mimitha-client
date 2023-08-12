@@ -1,9 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-import { selectEditorStatus } from "store/selectors/editorSelectors";
+import {
+  selectEditorStatus,
+  selectActiveConfig,
+} from "store/selectors/editorSelectors";
 import { editorActions } from "store/reducers/editorReducer";
 
 // import { useFitProduct } from "hooks/layoutBase";
@@ -21,13 +24,12 @@ export default function Editor() {
   const dispatch = useDispatch();
 
   const status = useSelector(selectEditorStatus);
+  const activeConfig = useSelector(selectActiveConfig);
 
-  const { productId } = useParams();
+  const { productId: registeredProductId } = useParams();
 
   useEffect(() => {
-    dispatch(
-      editorActions.getProductToEdit({ registeredProductId: productId })
-    );
+    dispatch(editorActions.getProductToEdit({ registeredProductId }));
   }, []);
 
   return (
@@ -41,8 +43,8 @@ export default function Editor() {
 
         {!status.loading && (
           <div className="editor-main">
-            <EditorView />
-            <EditorActions productId={productId} />
+            <EditorView media={activeConfig.assets} />
+            <EditorActions productId={activeConfig._id} />
           </div>
         )}
 

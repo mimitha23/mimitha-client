@@ -4,6 +4,8 @@ import { controlStatus as status } from "./helpers";
 const initialState = {
   availableProducts: [],
 
+  activeConfigId: "",
+
   activeConfig: null,
 
   variants: null,
@@ -19,6 +21,10 @@ const editorSlice = createSlice({
   name: "mimita-editor",
   initialState,
   reducers: {
+    setActiveConfigId(state, { payload }) {
+      state.activeConfigId = payload;
+    },
+
     getProductToEdit: {
       prepare: (payload) => {
         return {
@@ -49,6 +55,9 @@ const editorSlice = createSlice({
 
       state.variants = variants;
       state.availableProducts = payload.docs;
+      state.activeConfig = payload.docs.find(
+        (product) => product._id === state.activeConfigId
+      );
     },
 
     setError(state, { payload }) {

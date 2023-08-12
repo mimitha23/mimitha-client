@@ -1,25 +1,39 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
   selectActiveProductHeader,
   selectProductRegistrationId,
 } from "store/selectors/activeProductSelectors";
 import { PATHS } from "config/routes";
+import { editorActions } from "store/reducers/editorReducer";
 import { useCurrencyContext } from "providers/CurrencyProvider";
 import { useTranslationContext } from "providers/I18nextProvider";
 
 import * as Styled from "./styles/ProductHeading.styled";
 
-export default function ProductHeading() {
+export default function ProductHeading({ productId }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { t } = useTranslation();
 
-  const { currencySymbol, convertPrice } = useCurrencyContext();
   const { currentLocale } = useTranslationContext();
+  const { currencySymbol, convertPrice } = useCurrencyContext();
 
   const { title, price, isEditable } = useSelector(selectActiveProductHeader);
   const productRegistrationId = useSelector(selectProductRegistrationId);
+
+  function onEdit() {
+    navigate(
+      PATHS.edit_product.fullPath({
+        productId: productRegistrationId,
+      })
+    );
+
+    dispatch(editorActions.setActiveConfigId(productId));
+  }
 
   return (
     <Styled.ProductHeadingContainer>
@@ -35,14 +49,9 @@ export default function ProductHeading() {
         </div>
 
         {isEditable && (
-          <Link
-            to={PATHS.edit_product.fullPath({
-              productId: productRegistrationId,
-            })}
-            className="edit-link"
-          >
+          <button onClick={onEdit} className="edit-link">
             {t("crossover.edit")}
-          </Link>
+          </button>
         )}
       </div>
     </Styled.ProductHeadingContainer>

@@ -16,49 +16,20 @@ export default function EditorActions({ productId }) {
 
   const editorVariants = useSelector(selectEditorVariants);
 
-  console.log(editorVariants);
-
   return (
     <Styled.EditorActionsContainer>
       <div className="editor-actions__list">
         {editorVariants &&
-          Object.keys(editorVariants).map((variant) => (
+          Object.keys(editorVariants).map((key) => (
             <EditorActionDropdown
-              key={variant._id}
-              name="ჯიბე"
-              variantType="pocket"
+              key={editorVariants[key]._id}
+              name={editorVariants[key].type}
+              variantType={editorVariants[key].type}
+              variants={editorVariants[key].variants}
               activeDropdown={activeDropdown}
               setActiveDropdown={setActiveDropdown}
             />
           ))}
-
-        {/* <EditorActionDropdown
-          name="ელვა"
-          variantType="zipper"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <EditorActionDropdown
-          name="ღილი"
-          variantType="button"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <EditorActionDropdown
-          name="მანჟეტი"
-          variantType="cuff"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <EditorActionDropdown
-          name="საყელო"
-          variantType="collar"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        /> */}
       </div>
 
       <Link

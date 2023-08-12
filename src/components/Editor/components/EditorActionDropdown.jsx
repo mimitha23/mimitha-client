@@ -2,6 +2,7 @@ import * as Styled from "./styles/EditorActionDropdown.styled";
 
 export default function EditorActionDropdown({
   variantType,
+  variants,
   setActiveDropdown,
   activeDropdown,
   name,
@@ -20,14 +21,14 @@ export default function EditorActionDropdown({
       </button>
       {variantType === activeDropdown && (
         <div className="dropdown-body">
-          {[
-            "/assets/icons/pocket.png",
-            "/assets/icons/pocket.png",
-            "/assets/icons/pocket.png",
-          ].map((variant, i) => (
-            <button key={`${variant}--${i}`}>
+          {variants.map((variant, i) => (
+            <button key={variant._id}>
               <figure>
-                <img src={variant} alt={variant} title={variant} />
+                <img
+                  src={variant.icon}
+                  alt={variant.description}
+                  title={variant.description}
+                />
               </figure>
             </button>
           ))}
