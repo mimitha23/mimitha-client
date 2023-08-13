@@ -26,13 +26,14 @@ export default function ProductHeading({ productId }) {
   const productRegistrationId = useSelector(selectProductRegistrationId);
 
   function onEdit() {
+    if (!productId) return;
+
+    dispatch(editorActions.setActiveConfigId(productId));
     navigate(
       PATHS.edit_product.fullPath({
         productId: productRegistrationId,
       })
     );
-
-    dispatch(editorActions.setActiveConfigId(productId));
   }
 
   return (

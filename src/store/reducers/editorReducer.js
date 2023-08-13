@@ -25,6 +25,32 @@ const editorSlice = createSlice({
       state.activeConfigId = payload;
     },
 
+    changeConfig(state, { payload: { currentVariantId, newVariantId } }) {
+      const filterActiveConfigIds = () =>
+        state.activeConfig.variants.filter(
+          (variant) => variant !== currentVariantId
+        );
+
+      const newVariationIds = state.activeConfig.variants.includes(newVariantId)
+        ? [...filterActiveConfigIds()]
+        : [...filterActiveConfigIds(), newVariantId];
+
+      const availableProduct = state.availableProducts.find(
+        (product) =>
+          product.variants.every((variant) =>
+            newVariationIds.includes(variant)
+          ) &&
+          newVariationIds.every((variant) => product.variants.includes(variant))
+      );
+
+      if (availableProduct) {
+        state.activeConfig = availableProduct;
+        state.activeConfigId = availableProduct._id;
+      } else {
+      }
+    },
+
+    // API
     getProductToEdit: {
       prepare: (payload) => {
         return {
@@ -43,12 +69,14 @@ const editorSlice = createSlice({
       const variants = {};
 
       payload.allVariants
-        .map((variant) => variant._id)
-        .forEach((key) => {
-          const variant = payload.allVariants.find((v) => v._id === key);
-          variants[key.split(" ").join("_")] = {
-            type: key,
+        .map((variant) => variant.type)
+        .forEach((type) => {
+          const variant = payload.allVariants.find((v) => v.type === type);
+          variants[type.split(" ").join("_")] = {
             _id: nanoid(),
+            type,
+            label_ka: variant.label_ka,
+            label_en: variant.label_en,
             variants: variant.variants,
           };
         });
@@ -60,12 +88,21 @@ const editorSlice = createSlice({
       );
     },
 
+    // REQUEST STATUS SETTERS
     setError(state, { payload }) {
       state.status = status.error(payload.message);
     },
 
     setSuccess(state) {
       state.status = status.success();
+    },
+
+    // RESET
+    resetEditor(state) {
+      state.activeConfig = initialState.activeConfig;
+      state.activeConfigId = initialState.activeConfigId;
+      state.availableProducts = initialState.availableProducts;
+      state.variants = initialState.variants;
     },
   },
 });

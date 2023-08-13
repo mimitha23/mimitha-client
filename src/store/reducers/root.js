@@ -20,7 +20,7 @@ import userListsReducer from "./user/userListsReducer";
 const persistedEditorReducer = generatePersistedReducer({
   key: "mimitha_client_editor",
   reducer: editorReducer,
-  whitelist: ["activeConfig", "status"],
+  whitelist: ["activeConfigId", "status"],
 });
 
 const persistedFilterReducer = generatePersistedReducer({

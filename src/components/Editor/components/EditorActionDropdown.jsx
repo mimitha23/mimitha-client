@@ -1,34 +1,57 @@
+import { useEditorContext } from "providers/EditorProvider";
+
+import EditorDropdownTriggerButton from "./EditorDropdownTriggerButton";
 import * as Styled from "./styles/EditorActionDropdown.styled";
 
-export default function EditorActionDropdown({
-  variantType,
-  variants,
-  setActiveDropdown,
-  activeDropdown,
-  name,
-}) {
+export default function EditorActionDropdown({ variant }) {
+  const {
+    activeDropdown,
+    currentLocale,
+    activeVariants,
+    onChangeConfig,
+    detectUnrecognizedVariants,
+  } = useEditorContext();
+
+  const activeVariant = variant.variants.find((variant) =>
+    activeVariants.includes(variant._id)
+  );
+
+  const unrecognizedIds = detectUnrecognizedVariants({
+    activeVariantId: activeVariant?._id,
+    dropdownVariants: variant.variants,
+  });
+
   return (
     <Styled.EditorActionDropdownContainer>
-      <button
-        onClick={() =>
-          setActiveDropdown(variantType === activeDropdown ? "" : variantType)
-        }
-        className={`dropdown-trigger__btn ${
-          variantType === activeDropdown ? "active-dropdown" : ""
-        }`}
-      >
-        {name}
-      </button>
-      {variantType === activeDropdown && (
+      <EditorDropdownTriggerButton
+        variantType={variant.type}
+        caption={variant[[`label_${currentLocale}`]]}
+      />
+
+      {variant.type === activeDropdown && (
         <div className="dropdown-body">
-          {variants.map((variant, i) => (
-            <button key={variant._id}>
+          {variant.variants.map((variant, i) => (
+            <button
+              key={variant._id}
+              className={`variant__option-btn ${
+                activeVariant?._id === variant._id ? "active" : ""
+              } ${
+                unrecognizedIds.includes(variant._id)
+                  ? "unrecognized"
+                  : "available"
+              }`}
+              title={variant[`description_${currentLocale}`]}
+              onClick={() =>
+                onChangeConfig({
+                  currentVariantId: activeVariant?._id,
+                  newVariantId: variant._id,
+                })
+              }
+            >
               <figure>
-                <img
-                  src={variant.icon}
-                  alt={variant.description}
-                  title={variant.description}
-                />
+                <svg>
+                  <image xlinkHref={variant.icon} alt={variant.description} />
+                </svg>
               </figure>
             </button>
           ))}

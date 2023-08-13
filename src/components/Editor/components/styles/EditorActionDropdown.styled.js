@@ -29,7 +29,7 @@ export const EditorActionDropdownContainer = styled.div`
 
   .dropdown-body {
     width: 100%;
-    min-height: 6rem;
+    min-height: 6.5rem;
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -37,6 +37,47 @@ export const EditorActionDropdownContainer = styled.div`
     background: ${({ theme }) => theme.colors.white};
     border: 1px solid ${({ theme }) => theme.colors.gray_shade};
     ${animateMoveBottom};
+
+    .variant__option-btn {
+      svg {
+        height: 3.5rem;
+        width: 4rem;
+      }
+
+      svg image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .variant__option-btn.active {
+      border-bottom: 2px solid ${({ theme }) => theme.colors.blue};
+    }
+
+    @media (hover: hover) {
+      transition: all 0.2s ease-out;
+
+      .variant__option-btn.available:not(.active):hover {
+        border-bottom: 2px solid ${({ theme }) => theme.colors.green};
+      }
+
+      .variant__option-btn.unrecognized:hover {
+        border-bottom: 2px solid ${({ theme }) => theme.colors.red};
+      }
+    }
+
+    @media (hover: none) {
+      transition: all 0.2s ease-out;
+
+      .variant__option-btn.available:not(.active) {
+        border-bottom: 2px solid ${({ theme }) => theme.colors.green};
+      }
+
+      .variant__option-btn.unrecognized {
+        border-bottom: 2px solid ${({ theme }) => theme.colors.red};
+      }
+    }
   }
 
   @media (${({ theme }) => theme.media.desktop_lg}) {

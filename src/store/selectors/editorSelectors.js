@@ -10,6 +10,8 @@ export const selectEditorVariants = ({ editor }) => editor.variants;
 
 export const selectActiveConfig = ({ editor }) => editor.activeConfig;
 
+export const selectAvailableProducts = ({ editor }) => editor.availableProducts;
+
 export const selectEditorStatus = createSelector(
   selectedEditorStatus,
   (status) => status
