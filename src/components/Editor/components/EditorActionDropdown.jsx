@@ -1,5 +1,6 @@
 import { useEditorContext } from "providers/EditorProvider";
 
+import EditorOptionButton from "./EditorOptionButton";
 import EditorDropdownTriggerButton from "./EditorDropdownTriggerButton";
 import * as Styled from "./styles/EditorActionDropdown.styled";
 
@@ -8,7 +9,6 @@ export default function EditorActionDropdown({ variant }) {
     activeDropdown,
     currentLocale,
     activeVariants,
-    onChangeConfig,
     detectUnrecognizedVariants,
   } = useEditorContext();
 
@@ -30,30 +30,13 @@ export default function EditorActionDropdown({ variant }) {
 
       {variant.type === activeDropdown && (
         <div className="dropdown-body">
-          {variant.variants.map((variant, i) => (
-            <button
+          {variant.variants.map((variant) => (
+            <EditorOptionButton
               key={variant._id}
-              className={`variant__option-btn ${
-                activeVariant?._id === variant._id ? "active" : ""
-              } ${
-                unrecognizedIds.includes(variant._id)
-                  ? "unrecognized"
-                  : "available"
-              }`}
-              title={variant[`description_${currentLocale}`]}
-              onClick={() =>
-                onChangeConfig({
-                  currentVariantId: activeVariant?._id,
-                  newVariantId: variant._id,
-                })
-              }
-            >
-              <figure>
-                <svg>
-                  <image xlinkHref={variant.icon} alt={variant.description} />
-                </svg>
-              </figure>
-            </button>
+              variant={variant}
+              activeVariant={activeVariant}
+              unrecognizedIds={unrecognizedIds}
+            />
           ))}
         </div>
       )}
