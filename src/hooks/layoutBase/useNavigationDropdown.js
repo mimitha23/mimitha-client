@@ -69,10 +69,10 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
   ///////////////////////////
   // 3.0 Fetch Navigation //
   /////////////////////////
-  useEffect(() => {
-    if (!activeDropDown) return;
-    dispatch(navActions.getNav(activeDropDown));
-  }, [activeDropDown]);
+  // useEffect(() => {
+  //   if (!activeDropDown) return;
+  //   dispatch(navActions.getNav(activeDropDown));
+  // }, [activeDropDown]);
 
   return {
     width,

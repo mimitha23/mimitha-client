@@ -1,37 +1,37 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
-import { useLandingQuery } from "hooks/api";
+// import { useEffect } from "react";
+// import { useLandingQuery } from "hooks/api";
 
-import { Container, Spinner } from "components/Layouts/index";
+// import { Container, Spinner } from "components/Layouts/index";
 import LandingCTAPhoto from "./components/LandingCTAPhoto";
-import MimithaPackages from "./components/MimithaPackages";
-import PopularProducts from "./components/PopularProducts";
+// import MimithaPackages from "./components/MimithaPackages";
+// import PopularProducts from "./components/PopularProducts";
 import * as Styled from "./Landing.styled";
 
 export default function Landing() {
-  const { status, getLanding, resetLanding } = useLandingQuery();
+  // const { status, getLanding, resetLanding } = useLandingQuery();
 
-  useEffect(() => {
-    getLanding();
+  // useEffect(() => {
+  //   getLanding();
 
-    return () => {
-      resetLanding();
-    };
-  }, []);
+  //   return () => {
+  //     resetLanding();
+  //   };
+  // }, []);
 
   return (
     <Styled.LandingContainer>
-      {!status.loading && (
+      {!false && (
         <>
           <LandingCTAPhoto />
-          <Container>
+          {/* <Container>
             <MimithaPackages />
             <PopularProducts />
-          </Container>
+          </Container> */}
         </>
       )}
 
-      {status.loading && <Spinner />}
+      {/* {status.loading && <Spinner />} */}
     </Styled.LandingContainer>
   );
 }

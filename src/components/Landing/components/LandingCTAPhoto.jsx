@@ -1,5 +1,5 @@
 // import { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // import graphic_cards from "lib/create-your-style-graphic-cards.json";
@@ -13,8 +13,8 @@ export default function LandingCTAPhoto() {
 
   return (
     <Styled.LandingCTAPhoto>
-      <button
-        to={"/products/:productId"}
+      <Link
+        to={"/products"}
         className="cta-link"
         // onClick={() => setActiveCTA_Modal(true)}
       >
@@ -23,7 +23,7 @@ export default function LandingCTAPhoto() {
           <span>{t("landing.create_your_style.your")}</span>
           <span>{t("landing.create_your_style.style")}</span>
         </div>
-      </button>
+      </Link>
 
       {/* <ModalWindow
         activeModal={activeCTA_Modal}

@@ -4,7 +4,7 @@ import { useActiveProductQuery } from "hooks/api";
 import {
   // EditorFitButtons,s
   ContainerFull,
-  Path,
+  // Path,
   Spinner,
 } from "components/Layouts";
 import {
@@ -13,8 +13,8 @@ import {
   ProductStyler,
   ProductShippingInfo,
   ProductView,
-  ProductFooter,
-  RelatedProducts,
+  // ProductFooter,
+  // RelatedProducts,
 } from "./components";
 import * as Styled from "./ActiveProductContainer.styled";
 
@@ -25,7 +25,7 @@ export default function ActiveProduct() {
 
   return (
     <Styled.ActiveProductContainer>
-      <Path />
+      {/* <Path /> */}
       {!status.loading && (
         <ContainerFull>
           {/* <div className="active-product__fit-buttons--box">
@@ -46,11 +46,11 @@ export default function ActiveProduct() {
               <ProductDescription />
               <ProductStyler productId={productId} />
               <ProductShippingInfo />
-              <ProductFooter />
+              {/* <ProductFooter /> */}
             </div>
           </div>
 
-          <RelatedProducts />
+          {/* <RelatedProducts /> */}
         </ContainerFull>
       )}
 

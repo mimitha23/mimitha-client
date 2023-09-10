@@ -17,7 +17,7 @@ export const AllProductsContainer = styled.main`
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 1rem 3rem 2rem 3rem;
+    /* padding: 1rem 3rem 2rem 3rem; */
     background: ${({ theme }) => theme.colors.bg};
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
     transition: all 0.2s linear;
@@ -45,7 +45,7 @@ export const AllProductsContainer = styled.main`
     display: grid;
     gap: 6rem 4rem;
     grid-template-columns: repeat(auto-fit, minmax(32rem, max-content));
-    justify-content: space-between;
+    justify-content: start;
     ${animateMoveLeft({
       duration: ({ theme }) => theme.app.section_animation_duration,
     })};

@@ -8,10 +8,10 @@ import {
   SupportNav,
   MainNav,
   SearchBar,
-  ShoppingCardButton,
+  // ShoppingCardButton,
   BurgerButton,
 } from "./components";
-import * as Styled from "./Navigation.styled";
+import * as Styled from "./styles/Navigation.styled";
 
 export default memo(function Navigation() {
   const { partialNav } = useHideNavOnScroll();
@@ -30,7 +30,7 @@ export default memo(function Navigation() {
           />
           <div className="main_nav--right">
             <SearchBar />
-            <ShoppingCardButton />
+            {/* <ShoppingCardButton /> */}
             <BurgerButton setActiveBurgerNav={setActiveBurgerNav} />
           </div>
         </div>

@@ -5,25 +5,28 @@ import { selectAllProducts } from "store/selectors/productSelectors";
 import {
   ContainerFull,
   ProductCard,
-  Filter,
-  Path,
+  // Filter,
+  // Path,
   Spinner,
 } from "components/Layouts";
 import * as Styled from "./AllProducts.styled";
 
 export default function AllProducts() {
   const allProducts = useSelector(selectAllProducts);
-  const { status, state } = useAllProductsQuery();
+  const {
+    status,
+    //  state
+  } = useAllProductsQuery();
 
   return (
     <Styled.AllProductsContainer>
       <header className="all-products__header">
-        <Path showSearch={true} />
+        {/* <Path showSearch={true} /> */}
 
-        <Filter
+        {/* <Filter
           showProductTypeFilter={state?.productType?.query ? false : true}
           showGenderFilter={!["men", "women"].includes(state?.category)}
-        />
+        /> */}
       </header>
 
       {!status.loading && (

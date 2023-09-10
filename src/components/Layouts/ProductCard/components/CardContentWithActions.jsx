@@ -1,5 +1,5 @@
 import CardActions from "./CardActions";
-import AddToCart from "./AddToCart";
+// import AddToCart from "./AddToCart";
 // import CurrencySwitch from "./CurrencySwitch";
 import Price from "./Price";
 import ProductTitle from "./ProductTitle";
@@ -12,7 +12,7 @@ export default function CardContentWithActions({
   productId,
   registeredProductId,
   isEditable,
-  onAddToCart,
+  // onAddToCart,
   linkState,
 }) {
   return (
@@ -33,9 +33,9 @@ export default function CardContentWithActions({
         />
       )}
 
-      <hr className="product-content__devider" />
+      {/* <hr className="product-content__devider" /> */}
 
-      <AddToCart onAddToCart={onAddToCart} />
+      {/* <AddToCart onAddToCart={onAddToCart} /> */}
     </>
   );
 }

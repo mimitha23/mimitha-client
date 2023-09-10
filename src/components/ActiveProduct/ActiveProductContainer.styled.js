@@ -33,7 +33,7 @@ export const ActiveProductContainer = styled.div`
     align-items: flex-start;
     gap: 4rem;
     padding-bottom: 6rem;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.text};
+    /* border-bottom: 2px solid ${({ theme }) => theme.colors.text}; */
 
     &__product-view {
       flex: 1;

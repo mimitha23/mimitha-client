@@ -1,22 +1,17 @@
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import {
   selectActiveProductHeader,
   selectProductRegistrationId,
 } from "store/selectors/activeProductSelectors";
-import { PATHS } from "config/routes";
-import { editorActions } from "store/reducers/editorReducer";
 import { useCurrencyContext } from "providers/CurrencyProvider";
 import { useTranslationContext } from "providers/I18nextProvider";
+import { useOnStartEdit } from "hooks/events";
 
 import * as Styled from "./styles/ProductHeading.styled";
 
 export default function ProductHeading({ productId }) {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const { t } = useTranslation();
 
   const { currentLocale } = useTranslationContext();
@@ -25,15 +20,11 @@ export default function ProductHeading({ productId }) {
   const { title, price, isEditable } = useSelector(selectActiveProductHeader);
   const productRegistrationId = useSelector(selectProductRegistrationId);
 
+  const onStartEdit = useOnStartEdit();
+
   function onEdit() {
     if (!productId) return;
-
-    dispatch(editorActions.setActiveConfigId(productId));
-    navigate(
-      PATHS.edit_product.fullPath({
-        productId: productRegistrationId,
-      })
-    );
+    onStartEdit({ productId, productRegistrationId });
   }
 
   return (
