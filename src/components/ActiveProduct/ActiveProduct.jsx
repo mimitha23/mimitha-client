@@ -1,8 +1,8 @@
 import { useActiveProductQuery } from "hooks/api";
-// import { useFitProduct } from "hooks/layoutBase";
+import { useFitProduct } from "hooks/layoutBase";
 
 import {
-  // EditorFitButtons,s
+  EditorFitButtons,
   ContainerFull,
   // Path,
   Spinner,
@@ -11,7 +11,7 @@ import {
   ProductHeading,
   ProductDescription,
   ProductStyler,
-  ProductShippingInfo,
+  // ProductShippingInfo,
   ProductView,
   // ProductFooter,
   // RelatedProducts,
@@ -21,20 +21,20 @@ import * as Styled from "./ActiveProductContainer.styled";
 export default function ActiveProduct() {
   const { status, productId } = useActiveProductQuery();
 
-  // const { handleFitMannequin, handleFitModel, activeFit } = useFitProduct();
+  const { handleFitMannequin, handleFitModel, activeFit } = useFitProduct();
 
   return (
     <Styled.ActiveProductContainer>
       {/* <Path /> */}
       {!status.loading && (
         <ContainerFull>
-          {/* <div className="active-product__fit-buttons--box">
+          <div className="active-product__fit-buttons--box">
             <EditorFitButtons
               activeFit={activeFit}
               onModel={handleFitModel}
               onMannequin={handleFitMannequin}
             />
-          </div> */}
+          </div>
 
           <div className="product-main">
             <div className="product-main__product-view">
@@ -45,7 +45,7 @@ export default function ActiveProduct() {
               <ProductHeading productId={productId} />
               <ProductDescription />
               <ProductStyler productId={productId} />
-              <ProductShippingInfo />
+              {/* <ProductShippingInfo /> */}
               {/* <ProductFooter /> */}
             </div>
           </div>

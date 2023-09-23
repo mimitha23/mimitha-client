@@ -39,7 +39,7 @@ export default function ProductCard({
         <>
           <CardFig
             productId={product._id}
-            assets={product.assets}
+            assets={product.thumbnails}
             alt={product.title}
             showAddToList={showAddToList}
             linkState={{

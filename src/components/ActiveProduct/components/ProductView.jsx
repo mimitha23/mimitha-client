@@ -2,28 +2,28 @@
 import { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { useFavoritesQuery } from "hooks/api/user";
+// import { useFavoritesQuery } from "hooks/api/user";
 import { useTranslationContext } from "providers/I18nextProvider";
 import { selectActiveProductAssets } from "store/selectors/activeProductSelectors";
-import { selectAllUserFavoritesIds } from "store/selectors/user/userFavoritesSelector";
+// import { selectAllUserFavoritesIds } from "store/selectors/user/userFavoritesSelector";
 
 import controlSliderScrollBehavior from "./functions/controlSliderScrollBehavior";
 
-import { CircleButton } from "components/Layouts";
+// import { CircleButton } from "components/Layouts";
 import { ArrowLeftIcon, ArrowRightIcon } from "components/Layouts/Icons";
-import { HeartIcon } from "components/Layouts/Icons";
+// import { HeartIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ProductView.styled";
 
 export default function ProductView({ productId }) {
   const { currentLocale } = useTranslationContext();
   const { assets, alt } = useSelector(selectActiveProductAssets);
 
-  const { addToFavoritesQuery } = useFavoritesQuery();
+  // const { addToFavoritesQuery } = useFavoritesQuery();
 
-  const allUserFavorites = useSelector(selectAllUserFavoritesIds);
-  const isSavedToFavorites = allUserFavorites.some(
-    (product) => product._id === productId
-  );
+  // const allUserFavorites = useSelector(selectAllUserFavoritesIds);
+  // const isSavedToFavorites = allUserFavorites.some(
+  //   (product) => product._id === productId
+  // );
 
   const [sliderIndex, setSliderIndex] = useState(0);
   const [sliderIndexLastSnapShot, setSliderIndexLastSnapShot] = useState(0);
@@ -91,12 +91,12 @@ export default function ProductView({ productId }) {
           <ArrowRightIcon />
         </button>
 
-        <CircleButton
+        {/* <CircleButton
           className={isSavedToFavorites ? "is-saved-to-favorites" : ""}
           onClick={() => addToFavoritesQuery({ productId })}
         >
           <HeartIcon />
-        </CircleButton>
+        </CircleButton> */}
       </figure>
     </Styled.ProductView>
   );
