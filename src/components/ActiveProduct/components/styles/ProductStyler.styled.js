@@ -5,10 +5,11 @@ export const ProductStyler = styled.div`
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  border: 2px solid ${({ theme }) => theme.colors.text};
+  border: 1px solid ${({ theme }) => theme.colors.gray_tint};
   background-color: ${({ theme }) =>
     theme.mode === "light" ? theme.colors.gray_tint : theme.colors.gray_shade};
   border-radius: 0.5rem;
+  box-shadow: ${({ theme }) => theme.shadow.bottom_right_md_dark};
 
   .moderators__container,
   .fit-and-questions__container {

@@ -25,6 +25,8 @@ const initialState = {
     soldOut: "",
     rating: "",
     assets: [],
+    mannequin: "",
+    modelVideo: "",
     productId: "",
     productType: {
       ka: "",
@@ -107,6 +109,8 @@ const activeProductsSlice = createSlice({
         soldOut: payload.soldOut,
         rating: payload.rating,
         assets: payload.assets,
+        mannequin: payload.mannequin,
+        modelVideo: payload.modelVideo,
         productId: payload.product._id,
         productType: payload.product.productType,
         gender: payload.product.gender,

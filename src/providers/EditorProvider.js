@@ -16,6 +16,14 @@ const EditorContext = createContext({
   setActiveDropdown: () => {},
   currentLocale: "",
   activeVariants: null,
+  viewMode: "IMAGE",
+  onChangeViewMode: () => {},
+  viewMedia: {
+    type: "",
+    src: "",
+  },
+  isCleanUpProcess: false,
+  onVideoEnd: () => {},
   editorVariants: [],
   onChangeConfig: ({ currentVariantId, newVariantId }) => {},
   detectUnrecognizedVariants: ({ dropdownVariants, activeVariantId }) => {},
@@ -25,8 +33,8 @@ export default function EditorProvider({ children }) {
   const dispatch = useDispatch();
   const { currentLocale } = useTranslationContext();
 
-  const editorVariants = useSelector(selectEditorVariants);
   const activeConfig = useSelector(selectActiveConfig);
+  const editorVariants = useSelector(selectEditorVariants);
   const availableProducts = useSelector(selectAvailableProducts);
 
   //////////////////////////
@@ -47,8 +55,75 @@ export default function EditorProvider({ children }) {
   /////////////////////
   const [activeDropdown, setActiveDropdown] = useState(false);
 
+  const viewMode = useSelector(({ editor }) => editor.editor_change_by_mode);
+
+  const [isCleanUpProcess, setIsCleanUpProcess] = useState(false);
+  const [configChangeEventParamsSnapshot, setConfigChangeEventParamsSnapshot] =
+    useState({
+      currentVariantId: "",
+      newVariantId: "",
+    });
+  const [viewMedia, setViewMedia] = useState({
+    type: "",
+    src: "",
+  });
+
+  useEffect(() => {
+    if (viewMode === "IMAGE")
+      setViewMedia((prev) => ({
+        ...prev,
+        type: "IMAGE",
+        src: activeConfig.assets[0],
+      }));
+    else if (viewMode === "VIDEO")
+      setViewMedia((prev) => ({
+        ...prev,
+        type: "VIDEO",
+        src: activeConfig.placingVideo,
+      }));
+  }, [activeConfig]);
+
+  function onVideoEnd() {
+    dispatch(editorActions.changeConfig(configChangeEventParamsSnapshot));
+
+    setIsCleanUpProcess(false);
+
+    setConfigChangeEventParamsSnapshot({
+      currentVariantId: "",
+      newVariantId: "",
+    });
+  }
+
+  function onChangeViewMode() {
+    dispatch(
+      editorActions.changeMode(viewMode === "VIDEO" ? "IMAGE" : "VIDEO")
+    );
+
+    setViewMedia((prev) => ({
+      ...prev,
+      type: "VIDEO",
+      src: activeConfig.placingVideo,
+    }));
+  }
+
   function onChangeConfig({ currentVariantId, newVariantId }) {
-    dispatch(editorActions.changeConfig({ currentVariantId, newVariantId }));
+    if (viewMode === "IMAGE") {
+      dispatch(editorActions.changeConfig({ currentVariantId, newVariantId }));
+    } else if (viewMode === "VIDEO") {
+      setIsCleanUpProcess(true);
+
+      setConfigChangeEventParamsSnapshot((prev) => ({
+        ...prev,
+        currentVariantId,
+        newVariantId,
+      }));
+
+      setViewMedia((prev) => ({
+        ...prev,
+        type: "VIDEO",
+        src: activeConfig.pickUpVideo,
+      }));
+    }
   }
 
   function detectUnrecognizedVariants({ dropdownVariants, activeVariantId }) {
@@ -91,6 +166,11 @@ export default function EditorProvider({ children }) {
         setActiveDropdown,
         currentLocale,
         editorVariants,
+        viewMode,
+        onChangeViewMode,
+        viewMedia,
+        isCleanUpProcess,
+        onVideoEnd,
         activeVariants: activeConfig?.variants || [],
         onChangeConfig,
         detectUnrecognizedVariants,

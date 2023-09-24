@@ -18,8 +18,8 @@ export default function EditorFitButtons({ onModel, onMannequin, activeFit }) {
       isOpen: false,
     });
 
-    if (activeFitModal.name === "mannequin") onMannequin(true);
-    else if (activeFitModal.name === "model") onModel(true);
+    if (activeFitModal.name === "mannequin") onMannequin({ reset: true });
+    else if (activeFitModal.name === "model") onModel({ reset: true });
   }
 
   return (
@@ -56,7 +56,16 @@ export default function EditorFitButtons({ onModel, onMannequin, activeFit }) {
       >
         <div className="fit-product__modal-box">
           <figure className="fit-product__modal-box--fig">
-            <img src={activeFit} alt="" />
+            {activeFitModal.name === "mannequin" ? (
+              <img src={activeFit} alt="product media" />
+            ) : (
+              <video
+                src={activeFit}
+                alt="product media"
+                controls={true}
+                autoPlay={true}
+              />
+            )}
           </figure>
         </div>
       </ModalWindow>

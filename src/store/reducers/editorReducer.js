@@ -6,7 +6,18 @@ const initialState = {
 
   activeConfigId: "",
 
-  activeConfig: null,
+  editor_change_by_mode: "IMAGE",
+
+  activeConfig: {
+    _id: "",
+    isPublic: false,
+    variants: [],
+    assets: [],
+    mannequin: "",
+    modelVideo: "",
+    placingVideo: "",
+    pickUpVideo: "",
+  },
 
   variants: null,
 
@@ -50,6 +61,10 @@ const editorSlice = createSlice({
       }
     },
 
+    changeMode(state, { payload }) {
+      state.editor_change_by_mode = payload;
+    },
+
     // API
     getProductToEdit: {
       prepare: (payload) => {
@@ -83,9 +98,9 @@ const editorSlice = createSlice({
 
       state.variants = variants;
       state.availableProducts = payload.docs;
-      state.activeConfig = payload.docs.find(
-        (product) => product._id === state.activeConfigId
-      );
+      state.activeConfig =
+        payload.docs.find((product) => product._id === state.activeConfigId) ||
+        initialState.activeConfig;
     },
 
     // REQUEST STATUS SETTERS

@@ -6,6 +6,7 @@ export const EditorContainer = styled.div`
 
   [data-container-full] {
     display: flex;
+    flex-direction: column;
     width: 100%;
   }
 

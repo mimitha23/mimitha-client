@@ -34,6 +34,11 @@ const selectedActiveProductInfoForShoppingCart = ({ activeProduct }) => ({
   size: activeProduct.activeSize,
 });
 
+const selectedProductMannequinAndModel = ({ activeProduct }) => ({
+  mannequin: activeProduct.product.mannequin,
+  modelVideo: activeProduct.product.modelVideo,
+});
+
 // EXPORTS
 export const selectActiveProductAssets = ({ activeProduct }) => ({
   assets: activeProduct.product.assets,
@@ -85,3 +90,8 @@ export const selectActiveProductInfoForShoppingCart = createSelector(
 
 export const selectProductRegistrationId = ({ activeProduct }) =>
   activeProduct.product.productId;
+
+export const selectProductMannequinAndModel = createSelector(
+  selectedProductMannequinAndModel,
+  (memorized) => memorized
+);

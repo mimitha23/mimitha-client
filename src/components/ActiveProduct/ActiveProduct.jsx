@@ -1,5 +1,9 @@
-import { useActiveProductQuery } from "hooks/api";
+import { useSelector } from "react-redux";
+
 import { useFitProduct } from "hooks/layoutBase";
+import { useActiveProductQuery } from "hooks/api";
+
+import { selectProductMannequinAndModel } from "store/selectors/activeProductSelectors";
 
 import {
   EditorFitButtons,
@@ -23,6 +27,8 @@ export default function ActiveProduct() {
 
   const { handleFitMannequin, handleFitModel, activeFit } = useFitProduct();
 
+  const { mannequin, modelVideo } = useSelector(selectProductMannequinAndModel);
+
   return (
     <Styled.ActiveProductContainer>
       {/* <Path /> */}
@@ -31,8 +37,8 @@ export default function ActiveProduct() {
           <div className="active-product__fit-buttons--box">
             <EditorFitButtons
               activeFit={activeFit}
-              onModel={handleFitModel}
-              onMannequin={handleFitMannequin}
+              onModel={() => handleFitModel({ src: modelVideo })}
+              onMannequin={() => handleFitMannequin({ src: mannequin })}
             />
           </div>
 

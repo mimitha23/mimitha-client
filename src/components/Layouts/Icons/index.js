@@ -1,4 +1,4 @@
-import { BiSearchAlt, BiHistory } from "react-icons/bi";
+import { BiSearchAlt, BiHistory, BiImages } from "react-icons/bi";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -39,6 +39,7 @@ import {
   MdLogin,
   MdLogout,
   MdFolderDelete,
+  MdVideoLibrary,
 } from "react-icons/md";
 
 import {
@@ -75,6 +76,7 @@ const FilterOffIcon = MdOutlineFilterListOff;
 const HeartIcon = AiFillHeart;
 const HistoryIcon = BiHistory;
 const InstagramIcon = FaInstagram;
+const ImageIcon = BiImages;
 const LockIcon = HiOutlineLockClosed;
 const LoginIcon = MdLogin;
 const LogoutIcon = MdLogout;
@@ -89,6 +91,7 @@ const ShoppingCartIcon = FaShoppingCart;
 const UnlockIcon = HiOutlineLockOpen;
 const MuteIcon = VscMute;
 const UnmuteIcon = VscUnmute;
+const VideoIcon = MdVideoLibrary;
 
 export {
   ArrowLeftIcon,
@@ -116,6 +119,7 @@ export {
   HeartIcon,
   HistoryIcon,
   InstagramIcon,
+  ImageIcon,
   LockIcon,
   LoginIcon,
   LogoutIcon,
@@ -130,4 +134,5 @@ export {
   ShoppingCartIcon,
   UnlockIcon,
   UnmuteIcon,
+  VideoIcon,
 };

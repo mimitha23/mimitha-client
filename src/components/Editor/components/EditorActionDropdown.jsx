@@ -5,18 +5,13 @@ import EditorDropdownTriggerButton from "./EditorDropdownTriggerButton";
 import * as Styled from "./styles/EditorActionDropdown.styled";
 
 export default function EditorActionDropdown({ variant }) {
-  const {
-    activeDropdown,
-    currentLocale,
-    activeVariants,
-    detectUnrecognizedVariants,
-  } = useEditorContext();
+  const editor = useEditorContext();
 
   const activeVariant = variant.variants.find((variant) =>
-    activeVariants.includes(variant._id)
+    editor.activeVariants.includes(variant._id)
   );
 
-  const unrecognizedIds = detectUnrecognizedVariants({
+  const unrecognizedIds = editor.detectUnrecognizedVariants({
     activeVariantId: activeVariant?._id,
     dropdownVariants: variant.variants,
   });
@@ -25,10 +20,10 @@ export default function EditorActionDropdown({ variant }) {
     <Styled.EditorActionDropdownContainer>
       <EditorDropdownTriggerButton
         variantType={variant.type}
-        caption={variant[[`label_${currentLocale}`]]}
+        caption={variant[[`label_${editor.currentLocale}`]]}
       />
 
-      {variant.type === activeDropdown && (
+      {variant.type === editor.activeDropdown && (
         <div className="dropdown-body">
           {variant.variants.map((variant) => (
             <EditorOptionButton

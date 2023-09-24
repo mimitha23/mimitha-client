@@ -6,11 +6,25 @@ const selectedEditorStatus = ({ editor }) => ({
   message: editor.status.message,
 });
 
+const selectedActiveConfig = ({ editor }) => ({
+  _id: editor.activeConfig._id,
+  isPublic: editor.activeConfig.isPublic,
+  variants: editor.activeConfig.variants,
+  assets: editor.activeConfig.assets,
+  mannequin: editor.activeConfig.mannequin,
+  modelVideo: editor.activeConfig.modelVideo,
+  placingVideo: editor.activeConfig.placingVideo,
+  pickUpVideo: editor.activeConfig.pickUpVideo,
+});
+
 export const selectEditorVariants = ({ editor }) => editor.variants;
 
-export const selectActiveConfig = ({ editor }) => editor.activeConfig;
-
 export const selectAvailableProducts = ({ editor }) => editor.availableProducts;
+
+export const selectActiveConfig = createSelector(
+  selectedActiveConfig,
+  (config) => config
+);
 
 export const selectEditorStatus = createSelector(
   selectedEditorStatus,

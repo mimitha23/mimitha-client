@@ -26,6 +26,7 @@ export const ProductView = styled.div`
     background: ${({ theme }) => theme.colors.white};
     border: 1px solid ${({ theme }) => theme.colors.gray_shade};
     border-radius: 1rem;
+    box-shadow: ${({ theme }) => theme.shadow.bottom_right_md_dark};
 
     @media (${({ theme }) => theme.media.desktop}) {
       order: 1;
