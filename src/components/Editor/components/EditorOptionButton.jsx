@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { useEditorContext } from "providers/EditorProvider";
+import { useTranslation } from "react-i18next";
 
 export default function EditorOptionButton({
   variant,
   activeVariant,
   unrecognizedIds,
 }) {
+  const { t } = useTranslation();
+
   const { currentLocale, onChangeConfig } = useEditorContext();
 
   const isActiveVariant = activeVariant?._id === variant._id;
@@ -41,7 +44,7 @@ export default function EditorOptionButton({
 
     const timeoutId = setTimeout(() => {
       setShowUnrecognizedMessage((prev) => false);
-    }, 3000);
+    }, 4000);
 
     return () => {
       clearTimeout(timeoutId);
@@ -66,7 +69,9 @@ export default function EditorOptionButton({
 
       {showUnrecognizedMessage && (
         <p className={`unrecognized__message ${unRecognizedMessagePosition}`}>
-          some message here
+          {t("crossover.variant_conflict", {
+            variant: variant[`description_${currentLocale}`],
+          })}
         </p>
       )}
     </button>

@@ -40,5 +40,6 @@
   "yes": "yes",
   "delete_popup": "Are you sure you want to delete this",
   "list": "list",
-  "gender": "gender"
+  "gender": "gender",
+  "variant_conflict": "{{variant}} has conflict. Try to remove some selected variant and come back later."
 }
