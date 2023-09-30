@@ -7,7 +7,7 @@ export default function Logo({ partialNav }) {
   return (
     <Styled.Logo partialNav={partialNav}>
       <Link to={PATHS.home.fullPath}>
-        <img src="./assets/mimitha-logo-small.png" alt="mimita" />
+        <img src="/assets/mimitha-logo-small.png" alt="mimita" />
       </Link>
     </Styled.Logo>
   );
