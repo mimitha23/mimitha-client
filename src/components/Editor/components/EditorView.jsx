@@ -1,11 +1,39 @@
+import { useEditorContext } from "providers/EditorProvider";
+
 import * as Styled from "./styles/EditorView.styled";
+import { VideoIcon } from "components/Layouts/Icons";
 
 export default function EditorView() {
+  const {
+    viewMode,
+    onChangeViewMode,
+    viewMedia,
+    onVideoEnd,
+    isCleanUpProcess,
+  } = useEditorContext();
+
   return (
     <Styled.EditorViewContainer>
       <figure className="editor-fig">
-        <img src="/assets/products/hood-belly-pocket-black.webp" alt="" />
+        {viewMedia.type === "IMAGE" ? (
+          <img src={viewMedia.src} alt="" />
+        ) : (
+          <video
+            src={viewMedia.src}
+            autoPlay={true}
+            {...(isCleanUpProcess ? { onEnded: onVideoEnd } : "")}
+          />
+        )}
       </figure>
+
+      <button
+        onClick={onChangeViewMode}
+        className={`editor__view-mode--btn ${
+          viewMode === "VIDEO" ? "active" : ""
+        }`}
+      >
+        <VideoIcon />
+      </button>
     </Styled.EditorViewContainer>
   );
 }

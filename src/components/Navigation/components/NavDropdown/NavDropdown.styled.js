@@ -3,7 +3,7 @@ import { animateMoveTop } from "styles/helpers/animations";
 
 export const NavDropdown = styled.nav`
   position: fixed;
-  z-index: -1;
+  z-index: 99;
   top: calc(${({ theme }) => theme.app.nav_h} - 2px);
   border-top: 2px solid ${({ theme }) => theme.colors.text};
   left: 0;
@@ -123,11 +123,17 @@ export const NavDropdownBlock = styled.div`
         content: "-";
         margin-right: 2rem;
       }
+    }
 
-      :hover {
+    @media (hover: hover) {
+      :not(.dropdown-nav__routes-list--item.active) a:hover {
         background: ${({ theme }) => theme.colors.text};
         color: ${({ theme }) => theme.colors.bg};
       }
+    }
+
+    &.active {
+      color: ${({ theme }) => theme.colors.blue} !important;
     }
   }
 `;

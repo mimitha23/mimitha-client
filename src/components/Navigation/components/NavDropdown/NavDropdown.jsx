@@ -1,9 +1,15 @@
-import navDropdownData from "lib/nav-dropdown.json";
+import { useSelector } from "react-redux";
+
+import { selectNavStatus } from "store/selectors/navSelectors";
+
+import { Spinner } from "components/Layouts";
 import NavDropdownRoutes from "./NavDropdownRoutes";
-import NavDropdownProducts from "./NavDropdownProducts";
+// import NavDropdownProducts from "./NavDropdownProducts";
 import * as Styled from "./NavDropdown.styled";
 
-export default function NavDropdown({ activeDropDown }) {
+export default function NavDropdown() {
+  const status = useSelector(selectNavStatus);
+
   return (
     <Styled.NavDropdown className="active-modal nav-dropdown--backdrop">
       <div
@@ -11,12 +17,15 @@ export default function NavDropdown({ activeDropDown }) {
         onClick={(e) => e.stopPropagation()}
         onMouseOver={(e) => e.stopPropagation()}
       >
-        <NavDropdownRoutes
-          nav={navDropdownData.nav}
-          activeDropDown={activeDropDown}
-        />
+        {!status.loading && (
+          <>
+            <NavDropdownRoutes />
 
-        <NavDropdownProducts products={navDropdownData.products} />
+            {/* <NavDropdownProducts products={navDropdownData.products} /> */}
+          </>
+        )}
+
+        {status.loading && <Spinner />}
       </div>
     </Styled.NavDropdown>
   );

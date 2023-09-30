@@ -11,9 +11,11 @@ export const GalleryList = styled.ul`
     position: relative;
     transition: all 0.3s ease;
 
-    &:hover {
-      .gallery-fig__img {
-        transform: scale(1.2);
+    @media (hover: hover) {
+      &:hover {
+        .gallery-fig__img {
+          transform: scale(1.2);
+        }
       }
     }
 

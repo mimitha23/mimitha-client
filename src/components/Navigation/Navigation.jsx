@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import { useHideNavOnScroll } from "hooks/domBase/index";
 import { useBurgerNavigation } from "hooks/layoutBase/index";
 
@@ -6,12 +8,12 @@ import {
   SupportNav,
   MainNav,
   SearchBar,
-  ShoppingCardButton,
+  // ShoppingCardButton,
   BurgerButton,
 } from "./components";
-import * as Styled from "./Navigation.styled";
+import * as Styled from "./styles/Navigation.styled";
 
-export default function Navigation() {
+export default memo(function Navigation() {
   const { partialNav } = useHideNavOnScroll();
   const { activeBurgerNav, setActiveBurgerNav } = useBurgerNavigation();
 
@@ -28,11 +30,11 @@ export default function Navigation() {
           />
           <div className="main_nav--right">
             <SearchBar />
-            <ShoppingCardButton />
+            {/* <ShoppingCardButton /> */}
             <BurgerButton setActiveBurgerNav={setActiveBurgerNav} />
           </div>
         </div>
       </div>
     </Styled.Navigation>
   );
-}
+});

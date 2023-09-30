@@ -3,7 +3,7 @@ import { useScrollToTop } from "hooks/domBase";
 import { Navigation, Footer } from "components/index";
 import AllProducts from "components/AllProducts/AllProducts";
 
-function AllProductsPage() {
+export default function AllProductsPage() {
   useScrollToTop();
 
   return (
@@ -14,5 +14,3 @@ function AllProductsPage() {
     </>
   );
 }
-
-export default AllProductsPage;

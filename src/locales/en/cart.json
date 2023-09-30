@@ -1,0 +1,14 @@
+{
+  "increase_product_quantity_warning": "You can't buy more than {{max}} product at once.",
+  "increase_product_quantity": "Increase product quantity.",
+  "decrease_product_quantity_warning": "Product's quantity shouldn't be less than 1. Otherwise remove product from cart.",
+  "decrease_product_quantity": "Decrease product quantity.",
+  "no_products_in_basket": "There are no products in basket.",
+  "products_total_quantity": "products total quantity",
+  "products_total_amount": "products total amount",
+  "delivery_price": "delivery price",
+  "clean_basket": "clean up basket",
+  "basket": "basket",
+  "view_product": "View Product",
+  "orders_history": "Order history"
+}

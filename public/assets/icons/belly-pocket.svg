@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1093"
+  height="1093" viewBox="0 0 1093 1093">
+  <defs>
+    <style>
+      .cls-1 {
+      fill: #fff;
+      stroke: #a9a9a9;
+      stroke-width: 1px;
+      fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="left_pocket" data-name="left pocket" class="cls-1"
+    d="M406.721,748.3c6.709,1.628,3.542,38.408-7.074,82.149s-24.66,77.881-31.368,76.253-3.542-38.408,7.074-82.149S400.013,746.671,406.721,748.3Z" />
+  <path id="right_pocket" data-name="right  pocket" class="cls-1"
+    d="M698.836,747.519c6.775-1.326,19.28,33.407,27.931,77.579s10.172,81.056,3.4,82.383-19.28-33.407-27.931-77.579S692.061,748.846,698.836,747.519Z" />
+  <path id="belly_pocket_line_top" data-name="belly pocket line top" class="cls-1"
+    d="M404,751v-1a353.862,353.862,0,0,0,291,0v1A344.911,344.911,0,0,1,404,751Z" />
+  <path id="belly_ppocket_line_bottom" data-name="belly ppocket line bottom" class="cls-1"
+    d="M397,908v-1a353.862,353.862,0,0,0,291,0v1A344.911,344.911,0,0,1,397,908Z" />
+</svg>

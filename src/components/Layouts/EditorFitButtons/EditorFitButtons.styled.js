@@ -15,21 +15,24 @@ export const EditorFitButtonsContainer = styled.div`
   }
 
   .fit-product__modal-box {
-    min-width: 5rem;
-    min-height: 5rem;
+    min-width: 25rem;
+    min-height: 25rem;
     max-width: 50rem;
     max-height: 90vh;
     padding-top: 1rem;
 
     &--fig {
       width: 100%;
+      height: 100%;
       max-height: calc(90vh - 3.5rem);
       border-radius: 0.5rem;
       overflow: hidden;
 
-      img {
-        width: 100%;
-        height: 100%;
+      img,
+      video {
+        max-width: 100%;
+        max-height: 100%;
+        aspect-ratio: 4/5;
         object-fit: contain;
       }
     }

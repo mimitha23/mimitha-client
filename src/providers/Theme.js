@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "styles/GlobalStyles";
 import { DarkTheme, LightTheme } from "styles/Theme";
+import { MIMITHA_THEME_KEY } from "config/consts";
 
 const ThemeContext = createContext({
   mode: true,
@@ -23,10 +24,12 @@ export default function AppThemeProvider({ children }) {
       theme: mode ? LightTheme : DarkTheme,
     }));
 
-    localStorage.setItem("mimitha_theme", JSON.stringify(mode));
+    localStorage.setItem(MIMITHA_THEME_KEY, JSON.stringify(mode));
   }
 
   function changeNavHeight(partial) {
+    const windowWidth = window.innerWidth;
+
     setAppTheme((prev) => ({
       ...prev,
       theme: {
@@ -35,7 +38,9 @@ export default function AppThemeProvider({ children }) {
           ...prev.theme.app,
           nav_h: partial
             ? prev.theme.app.nav_h_partial
-            : prev.theme.app.nav_h_full,
+            : windowWidth > 500
+            ? prev.theme.app.nav_h_full
+            : prev.theme.app.nav_h_full_mobile,
         },
       },
     }));
@@ -43,13 +48,16 @@ export default function AppThemeProvider({ children }) {
 
   // set locally saved theme on mount
   useEffect(() => {
-    const mimitha_theme_local = localStorage.getItem("mimitha_theme");
+    const mimitha_theme_local = localStorage.getItem(MIMITHA_THEME_KEY);
     const mode = mimitha_theme_local
       ? JSON.parse(mimitha_theme_local || "")
       : "";
 
     if (typeof mode !== "boolean")
-      localStorage.setItem("mimitha_theme", JSON.stringify(appTheme.lightMode));
+      localStorage.setItem(
+        MIMITHA_THEME_KEY,
+        JSON.stringify(appTheme.lightMode)
+      );
     else if (typeof mode === "boolean" && mode !== appTheme.lightMode)
       setAppTheme(
         mode === true

@@ -1,56 +1,35 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { PATHS } from "config/routes";
 
+import { useEditorContext } from "providers/EditorProvider";
+import { PATHS } from "config/routes";
 import EditorActionDropdown from "./EditorActionDropdown";
 import * as Styled from "./styles/EditorActions.styled";
 
-export default function EditorActions() {
+export default function EditorActions({ productId }) {
   const { t } = useTranslation();
 
-  const [activeDropdown, setActiveDropdown] = useState(false);
+  const { editorVariants } = useEditorContext();
 
   return (
     <Styled.EditorActionsContainer>
       <div className="editor-actions__list">
-        <EditorActionDropdown
-          name="ჯიბე"
-          variantType="pocket"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <EditorActionDropdown
-          name="ელვა"
-          variantType="zipper"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <EditorActionDropdown
-          name="ღილი"
-          variantType="button"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <EditorActionDropdown
-          name="მანჟეტი"
-          variantType="cuff"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <EditorActionDropdown
-          name="საყელო"
-          variantType="collar"
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
+        {editorVariants &&
+          Object.keys(editorVariants)
+            .sort()
+            .map((key) => (
+              <EditorActionDropdown
+                key={editorVariants[key]._id}
+                variant={editorVariants[key]}
+              />
+            ))}
       </div>
 
-      <Link to={PATHS.active_product.fullPath({})} className="finish-btn">
+      <Link
+        to={PATHS.active_product.fullPath({ productId })}
+        state={{ productId }}
+        className="finish-btn"
+      >
         {t("crossover.finish_edit")}
       </Link>
     </Styled.EditorActionsContainer>

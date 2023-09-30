@@ -9,6 +9,7 @@
     "sale": "sale"
   },
   "searchbar": {
-    "placeholder": "If you search, you'll find..."
+    "placeholder": "If you search, you'll find...",
+    "search_warning": "Please enter only the latin, or only the georgian letters in to the search field."
   }
 }

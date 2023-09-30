@@ -1,0 +1,287 @@
+import styled, { keyframes } from "styled-components";
+
+const animate_auth_popup = keyframes`
+  0%{
+    opacity: 0;
+    transform: scale(1);
+  } 100% {
+    opacity: 1;
+    transform: scale(50);
+  }
+`;
+
+const animate_auth_form = keyframes`
+  0%{
+    opacity: 0;
+    transform: translateY(2rem);
+  } 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const form_field_w_tablet = "36rem";
+
+export const AuthPopup = styled.div`
+  position: fixed;
+  z-index: 1000;
+  background: transparent;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (${({ theme }) => theme.media.tablet_sm}) {
+    align-items: flex-start;
+  }
+
+  .animate-layover {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    background: ${({ theme }) => theme.gradients.backdrop_gradient};
+    animation: ${animate_auth_popup} 0.3s ease forwards;
+
+    @media (${({ theme }) => theme.media.tablet_sm}) {
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: transparent;
+      animation: none;
+    }
+  }
+
+  .auth-popup__form {
+    background: ${({ theme }) => theme.colors.white};
+    padding: 6rem 2rem 4rem 2rem;
+    border-radius: 1rem;
+    width: min(42rem, 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    box-shadow: ${({ theme }) => theme.shadow.radial_lg_dark};
+    position: relative;
+    opacity: 0;
+    animation: ${animate_auth_form} 0.2s 0.2s ease-out forwards;
+    transition: all 0.3s ease;
+    overflow: hidden;
+
+    @media (${({ theme }) => theme.media.tablet_sm}) {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      animation: none;
+    }
+
+    .auth-popup__back-btn,
+    .auth-popup__close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2.4rem;
+      transition: all 0.2s ease;
+
+      @media (hover: hover) {
+        &:hover {
+          color: ${({ theme }) => theme.colors.blue};
+        }
+      }
+    }
+
+    .auth-popup__back-btn {
+      left: 1rem;
+      right: auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      span {
+        display: flex;
+        align-items: center;
+        font-size: ${({ theme }) => theme.fontSize.base};
+        color: ${({ theme }) => theme.colors.blue};
+        text-decoration: underline;
+      }
+    }
+
+    &-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+
+      @media (${({ theme }) => theme.media.tablet_sm}) {
+        width: ${form_field_w_tablet};
+      }
+
+      &--label {
+        font-size: ${({ theme }) => theme.fontSize.md};
+        font-weight: 600;
+        margin-left: 0.5rem;
+        position: absolute;
+        background: ${({ theme }) => theme.colors.bg};
+        padding: 0 0.45rem;
+        transform: translate(0.25rem, -60%);
+      }
+
+      &--input---box {
+        border: 1px solid ${({ theme }) => theme.colors.gray_shade};
+        display: flex;
+        align-items: center;
+        padding-right: 1rem;
+        border-radius: 0.5rem;
+
+        button {
+          font-size: 2.2rem;
+          transform: translateY(0.25rem);
+          outline: none;
+        }
+      }
+
+      &--input {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 4rem;
+        padding: 0.5rem 1rem;
+        outline: none;
+        background-color: ${({ theme }) => theme.colors.white};
+        border-radius: inherit;
+
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 30px white inset !important;
+        }
+
+        &::placeholder {
+          font-style: italic;
+          opacity: 0.6;
+          font-size: ${({ theme }) => theme.fontSize.sm};
+        }
+      }
+
+      &--message {
+        text-align: center;
+        text-wrap: balance;
+        font-size: ${({ theme }) => theme.fontSize.sm};
+        color: ${({ theme }) => theme.colors.red};
+      }
+    }
+
+    .otp-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .otp-inp {
+        border: 1px solid ${({ theme }) => theme.colors.gray_shade};
+        width: 4rem !important;
+        height: 4rem !important;
+        outline: none;
+        text-align: center;
+        border-radius: 0.5rem;
+
+        &::placeholder {
+          font-weight: bold;
+          font-size: ${({ theme }) => theme.fontSize.lg};
+          transform: translateY(0.5rem);
+        }
+
+        &:focus {
+          border: 1px solid ${({ theme }) => theme.colors.blue};
+        }
+      }
+    }
+
+    .login__register__box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      @media (${({ theme }) => theme.media.tablet_sm}) {
+        width: ${form_field_w_tablet};
+      }
+
+      .registration-suggestion {
+        color: ${({ theme }) => theme.colors.blue};
+        font-size: ${({ theme }) => theme.fontSize.md};
+        text-align: center;
+        text-wrap: balance;
+
+        &.confirm-email {
+          margin-bottom: 1rem;
+        }
+
+        span {
+          display: inline-block;
+          font-size: ${({ theme }) => theme.fontSize.sm};
+        }
+
+        button {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .login-btn {
+      background: ${({ theme }) => theme.colors.blue};
+      color: ${({ theme }) => theme.colors.white};
+      height: 4rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease-out;
+
+      @media (${({ theme }) => theme.media.tablet_sm}) {
+        width: ${form_field_w_tablet};
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          filter: brightness(110%);
+        }
+      }
+    }
+
+    .google-login--btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      span:last-child {
+        transform: translateY(0.2rem);
+      }
+    }
+
+    .auth-popup__form-devider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      @media (${({ theme }) => theme.media.tablet_sm}) {
+        width: ${form_field_w_tablet};
+      }
+
+      hr {
+        width: 100%;
+        height: 1px;
+      }
+
+      span {
+        transform: translateY(-20%);
+      }
+    }
+
+    [data-spinner] {
+      position: absolute;
+      inset: 0;
+      width: auto;
+      height: auto;
+      background: ${({ theme }) => theme.colors.black_tr_02};
+    }
+  }
+`;

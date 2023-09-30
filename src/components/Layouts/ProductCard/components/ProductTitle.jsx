@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import { useTranslationContext } from "providers/I18nextProvider";
 import { PATHS } from "config/routes";
 
-export default function ProductTitle({ title }) {
+export default function ProductTitle({ title, productId, linkState }) {
   const { currentLocale } = useTranslationContext();
 
   return (
     <h2 className="product-title" title={title[currentLocale]}>
       <Link
-        to={PATHS.active_product.fullPath({})}
+        to={PATHS.active_product.fullPath({ productId })}
         className="product-content__title-link"
+        state={{ ...linkState }}
       >
         {title[currentLocale]}
       </Link>

@@ -1,11 +1,25 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
 import { PATHS } from "config/routes";
+import { activeProductActions } from "store/reducers/activeProductReducer";
+import { selectActiveProductStyler } from "store/selectors/activeProductSelectors";
 
 import * as Styled from "./styles/ProductStyler.styled";
 
-export default function ProductStyler() {
+export default function ProductStyler({ productId }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { t } = useTranslation();
+
+  const {
+    size,
+    activeSize,
+    availableColors,
+    color: activeProductColor,
+  } = useSelector(selectActiveProductStyler);
 
   return (
     <Styled.ProductStyler>
@@ -15,15 +29,24 @@ export default function ProductStyler() {
             {t("crossover.color_range")}
           </h2>
 
-          <div className="product-styler__colorizer-box__colors-container">
-            {["black", "grey", "orange", "purple", "white"].map((color) => (
+          <ul className="product-styler__colorizer-box__colors-container">
+            {availableColors.map((color) => (
               <Styled.ColorPicker
-                color={color}
-                className={color === "orange" ? "active-color" : ""}
-                key={`colorizer-${color}`}
+                key={color._id}
+                color={color.hex}
+                onClick={() =>
+                  navigate(
+                    PATHS.active_product.fullPath({
+                      productId: color.productId,
+                    })
+                  )
+                }
+                className={
+                  color.hex === activeProductColor.hex ? "active-color" : ""
+                }
               />
             ))}
-          </div>
+          </ul>
         </div>
 
         <div className="product-styler__size-box">
@@ -31,25 +54,31 @@ export default function ProductStyler() {
             {t("crossover.size_range")}
           </h2>
 
-          <div className="product-styler__size-box__sizes-container">
-            {["xxs", "xs", "s", "m", "l", "xl", "xxl"].map((size) => (
-              <span
-                key={`size-${size}`}
-                className={`size ${size === "xs" ? "active-size" : ""}`}
+          <ul className="product-styler__size-box__sizes-container">
+            {size.map((size) => (
+              <li
+                key={size._id}
+                onClick={() => dispatch(activeProductActions.setSize(size._id))}
+                className={`size ${
+                  size.size === activeSize.size ? "active-size" : ""
+                }`}
               >
-                {size}
-              </span>
+                <span>{size.size}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
 
       <div className="fit-and-questions__container">
-        <Link to={PATHS.fit_products.fullPath({})} className="fit-btn">
+        {/* <Link
+          to={PATHS.fit_products.fullPath({ productId })}
+          className="fit-btn"
+        >
           {t("crossover.goes_on")}
-        </Link>
+        </Link> */}
 
-        <div>
+        <div className="qa-box">
           <p>{t("crossover.how_choose_right_size")}</p>
           <p>{t("crossover.indicate_your_size")}</p>
         </div>

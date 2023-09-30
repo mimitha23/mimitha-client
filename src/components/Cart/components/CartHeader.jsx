@@ -14,7 +14,7 @@ export default function CartHeader() {
         <span className="cart-header__title-icon">
           <ShoppingCartIcon />
         </span>
-        <span>{t("crossover.basket")}</span>
+        <span>{t("cart.basket")}</span>
       </span>
 
       <button onClick={() => navigate(-1)} className="cart-header__back-btn">

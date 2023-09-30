@@ -1,9 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-  setGallerySliderActiveImageIndex,
-  closeGallerySlider,
-} from "store/reducers/gallerySlice";
+import { galleryActions } from "store/reducers/galleryReducer";
 import { selectGalleryState } from "store/selectors/gallerySelector";
 
 import { ModalWindow } from "components/Layouts/index";
@@ -19,12 +16,12 @@ export default function SliderModal() {
     useSelector(selectGalleryState);
 
   const handleSlider = (index) =>
-    dispatch(setGallerySliderActiveImageIndex(index));
+    dispatch(galleryActions.setGallerySliderActiveImageIndex(index));
 
   return (
     <ModalWindow
       activeModal={galleryModalIsActive}
-      closeModal={() => dispatch(closeGallerySlider())}
+      closeModal={() => dispatch(galleryActions.closeGallerySlider())}
     >
       <Styled.SliderModal>
         <div className="gallery-modal__fig-box">

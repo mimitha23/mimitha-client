@@ -1,27 +1,31 @@
-import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import { selectNavDropdown } from "store/selectors/navSelectors";
 
 import { useTranslationContext } from "providers/I18nextProvider";
 import { useLocationState } from "hooks/utils/index";
 
 import * as Styled from "./NavDropdown.styled";
 
-export default function NavDropdownRoutes({ nav, activeDropDown }) {
+export default function NavDropdownRoutes() {
   const { currentLocale } = useTranslationContext();
-  const { setLocationState } = useLocationState();
+  const { setLocationState, getLocationStateDefaults, state } =
+    useLocationState();
+  const locationStateDefaults = getLocationStateDefaults();
+
+  const dropdown = useSelector(selectNavDropdown);
 
   return (
     <div className="dropdown-nav__routes-container">
-      {nav.map((block) => (
+      {dropdown.blocks.map((block) => (
         <Styled.NavDropdownBlock
-          key={uuid()}
+          key={block._id}
           routesLength={
-            Object.values(block.title)?.[0]
-              ? block.routes.length + 7
-              : block.routes.length
+            block.routes?.[0] ? block.routes.length + 7 : block.routes.length
           }
         >
-          {Object.values(block.title)?.[0] && (
+          {block.title && (
             <span className="dropdown-nav__routes-head">
               {block.title[currentLocale]}
             </span>
@@ -29,16 +33,21 @@ export default function NavDropdownRoutes({ nav, activeDropDown }) {
 
           <ul className="dropdown-nav__routes-list">
             {block.routes.map((route) => (
-              <li key={uuid()} className="dropdown-nav__routes-list--item">
+              <li
+                key={route._id}
+                className={`dropdown-nav__routes-list--item ${
+                  state?.productType?.query === route.query ? "active" : ""
+                }`}
+              >
                 <Link
                   to="/products"
                   state={setLocationState({
-                    search_for: activeDropDown,
-                    query: route.query,
-                    queryLabel: route.label,
+                    category: dropdown.category,
+                    productType: route,
+                    title: locationStateDefaults.title,
                   })}
                 >
-                  {route.label[currentLocale]}
+                  {route[currentLocale]}
                 </Link>
               </li>
             ))}

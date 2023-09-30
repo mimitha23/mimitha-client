@@ -31,13 +31,19 @@ export const MainNavList = styled.nav`
         cursor: pointer;
         transition: all 0.2s ease-in;
 
+        &.active {
+          color: ${({ theme }) => theme.colors.blue};
+        }
+
         &__icon {
           display: none;
         }
 
-        :hover {
-          background: ${({ theme }) => theme.colors.text};
-          color: ${({ theme }) => theme.colors.bg};
+        @media (hover: hover) {
+          :hover {
+            background: ${({ theme }) => theme.colors.text};
+            color: ${({ theme }) => theme.colors.bg};
+          }
         }
       }
 

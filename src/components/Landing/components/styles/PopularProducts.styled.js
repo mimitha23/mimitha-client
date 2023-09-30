@@ -59,4 +59,10 @@ export const PopularProducts = styled.div`
       gap: 5rem;
     }
   }
+
+  @media (${({ theme }) => theme.media.mobile}) {
+    .popular-products__container {
+      grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    }
+  }
 `;

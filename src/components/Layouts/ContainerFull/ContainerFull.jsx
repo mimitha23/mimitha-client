@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ContainerFullEl = styled.div`
+const ContainerFullEl = styled.section`
   min-height: calc(100vh - ${({ theme }) => theme.app.nav_h});
   padding: 4rem 3rem;
 

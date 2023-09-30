@@ -23,6 +23,7 @@ export const Spinner = styled.div`
     border-radius: 100%;
     border: 0.5rem solid ${({ theme }) => theme.colors.gray_shade};
     background: url(/assets/mimitha-logo-small.png);
+    background-color: ${({ theme }) => theme.colors.white};
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

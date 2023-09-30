@@ -19,6 +19,7 @@ export default function SearchBarField({
       >
         <SearchIcon />
       </label>
+
       <input
         type="text"
         placeholder={t("navigation.searchbar.placeholder")}
@@ -28,6 +29,7 @@ export default function SearchBarField({
         onChange={(e) => setSearch(e.target.value)}
         onFocus={() => setActiveResults(true)}
       />
+
       <button className="search-icon search__close-btn" onClick={onSearchClose}>
         <CloseXIcon />
       </button>

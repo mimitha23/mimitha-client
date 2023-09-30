@@ -11,54 +11,40 @@ export const ProductFooterContainer = styled.div`
     display: flex;
     align-items: flex-end;
     gap: 1rem;
+    position: relative;
 
-    .product-footer__btn-caption {
+    &.active {
+      color: ${({ theme }) => theme.colors.blue};
+    }
+
+    &-caption {
       text-decoration: underline;
       text-underline-offset: 0.65rem;
       text-transform: capitalize;
       font-size: ${({ theme }) => theme.fontSize.lg};
     }
-  }
 
-  .polygonal-btn {
-    position: relative;
-    width: 3rem;
-    height: 3rem;
-    background: black;
-    clip-path: polygon(
-      50% 0%,
-      90% 20%,
-      100% 60%,
-      75% 100%,
-      25% 100%,
-      0% 60%,
-      10% 20%
-    );
-
-    &::after {
-      content: "";
+    &-badge {
       position: absolute;
-      left: 0.1rem;
-      top: 0.1rem;
-      width: 2.8rem;
-      height: 2.8rem;
-      background: cyan;
-      clip-path: polygon(
-        50% 0%,
-        90% 20%,
-        100% 60%,
-        75% 100%,
-        25% 100%,
-        0% 60%,
-        10% 20%
-      );
+      top: 0;
+      right: 0;
+      transform: translate(50%, -30%);
+      width: 2rem;
+      height: 2rem;
+      background: ${({ theme }) => theme.colors.text};
+      color: ${({ theme }) => theme.colors.bg};
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: ${({ theme }) => theme.fontSize.sm};
     }
-  }
 
-  .bag-icon {
-    line-height: 1;
-    font-size: 3.2rem;
-    transform: translateY(0.25rem);
+    .icon {
+      line-height: 1;
+      font-size: 3.2rem;
+      transform: translateY(0.25rem);
+    }
   }
 
   @media (${({ theme }) => theme.media.tablet_sm}) {

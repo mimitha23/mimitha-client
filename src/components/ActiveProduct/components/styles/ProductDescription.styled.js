@@ -21,12 +21,32 @@ export const EditorDescription = styled.div`
     span:first-child {
       text-transform: capitalize;
     }
-  }
 
-  .product-description__info-devider {
-    width: 9rem;
-    margin: 0.5rem;
-    border: 1px solid ${({ theme }) => theme.colors.text};
+    .product-description__info-devider {
+      width: 9rem;
+      margin: 0.5rem;
+      border: 1px solid ${({ theme }) => theme.colors.text};
+    }
+
+    .details_list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      li {
+        &:after {
+          content: " / ";
+        }
+        &:before {
+          content: "-";
+          opacity: 0;
+        }
+
+        &:last-child::after {
+          content: none;
+        }
+      }
+    }
   }
 
   .product-description__sold {

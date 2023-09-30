@@ -3,14 +3,14 @@ import { useState } from "react";
 export default function useFitProduct() {
   const [activeFit, setActiveFit] = useState("");
 
-  function handleFitMannequin(reset = false) {
+  function handleFitMannequin({ reset = false, src }) {
     if (reset) return setActiveFit("");
-    setActiveFit("/assets/images/mannequin.jpg");
+    setActiveFit(src);
   }
 
-  function handleFitModel(reset = false) {
+  function handleFitModel({ reset = false, src }) {
     if (reset) return setActiveFit("");
-    setActiveFit("/assets/images/model.webp");
+    setActiveFit(src);
   }
 
   return { handleFitMannequin, handleFitModel, activeFit };

@@ -5,10 +5,11 @@ export const ProductStyler = styled.div`
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  border: 2px solid ${({ theme }) => theme.colors.text};
+  border: 1px solid ${({ theme }) => theme.colors.gray_tint};
   background-color: ${({ theme }) =>
     theme.mode === "light" ? theme.colors.gray_tint : theme.colors.gray_shade};
   border-radius: 0.5rem;
+  box-shadow: ${({ theme }) => theme.shadow.bottom_right_md_dark};
 
   .moderators__container,
   .fit-and-questions__container {
@@ -35,8 +36,10 @@ export const ProductStyler = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    gap: 1rem;
     font-size: 1.4rem;
     text-transform: uppercase;
+    margin-top: 1rem;
 
     .size {
       width: 50px;
@@ -45,11 +48,12 @@ export const ProductStyler = styled.div`
       justify-content: center;
       font-weight: 500;
       color: ${({ theme }) => theme.colors.black};
-      border-right: 2px solid ${({ theme }) => theme.colors.black};
       cursor: pointer;
       transition: all 0.2s ease;
+      position: relative;
 
       &.active-size {
+        position: relative;
         color: ${({ theme }) => theme.colors.white};
         background-color: ${({ theme }) => theme.colors.black};
       }
@@ -58,9 +62,20 @@ export const ProductStyler = styled.div`
         border: 0;
       }
 
-      :not(.active-size):hover {
-        color: ${({ theme }) => theme.colors.bg};
-        background-color: ${({ theme }) => theme.colors.text};
+      &:not(:last-child):after {
+        content: " ";
+        position: absolute;
+        right: -0.55rem;
+        height: 100%;
+        width: 2px;
+        background: ${({ theme }) => theme.colors.black};
+      }
+
+      @media (hover: hover) {
+        :not(.active-size):hover {
+          color: ${({ theme }) => theme.colors.bg};
+          background-color: ${({ theme }) => theme.colors.text};
+        }
       }
     }
   }
@@ -71,15 +86,19 @@ export const ProductStyler = styled.div`
     justify-content: space-between;
     align-items: flex-end;
 
-    p {
-      cursor: pointer;
-      letter-spacing: 0.6px;
-      font-size: ${({ theme }) => theme.fontSize.base};
-      font-weight: 500;
-      color: ${({ theme }) => theme.colors.text};
+    .qa-box {
+      margin-top: auto;
 
-      ::first-letter {
-        text-transform: capitalize;
+      p {
+        cursor: pointer;
+        letter-spacing: 0.6px;
+        font-size: ${({ theme }) => theme.fontSize.base};
+        font-weight: 500;
+        color: ${({ theme }) => theme.colors.text};
+
+        ::first-letter {
+          text-transform: capitalize;
+        }
       }
     }
   }
@@ -110,7 +129,7 @@ export const ProductStyler = styled.div`
   }
 `;
 
-export const ColorPicker = styled.span`
+export const ColorPicker = styled.li`
   position: relative;
   width: 3.5rem;
   height: 3.5rem;
@@ -118,9 +137,12 @@ export const ColorPicker = styled.span`
   cursor: pointer;
   background: ${({ color }) => color || ""};
   transition: all 0.2s ease;
+  z-index: auto;
 
-  &:not(.active-color):hover {
-    border-radius: 0.2rem;
+  @media (hover: hover) {
+    &:not(.active-color):hover {
+      border-radius: 0.2rem;
+    }
   }
 
   &.active-color {

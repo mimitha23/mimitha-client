@@ -4,6 +4,7 @@ const BaseTheme = {
     container: "1280px",
     nav_h: "15rem",
     nav_h_full: "15rem",
+    nav_h_full_mobile: "12rem",
     nav_h_partial: "7.5rem",
     section_animation_duration: "0.3s",
   },
@@ -18,9 +19,12 @@ const BaseTheme = {
     gray_shade: "rgba(215, 215, 215, 1)",
     gray_tint: "rgba(240, 240, 240, 1)",
     white: "#fff",
+    blue: "#1481ee",
     black: "#000",
     black_tr_05: "rgba(0,0,0,0.5)",
     black_tr_02: "rgba(0,0,0,0.2)",
+    red: "#d01345",
+    green: "#26E066",
   },
   gradients: {
     backdrop_gradient:

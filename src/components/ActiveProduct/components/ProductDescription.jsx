@@ -1,8 +1,19 @@
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+
+import { useTranslationContext } from "providers/I18nextProvider";
+import { selectActiveProductDescription } from "store/selectors/activeProductSelectors";
+
+import ProductDescriptionDetailsBox from "./ProductDescriptionDetailsBox";
 import * as Styled from "./styles/ProductDescription.styled";
 
 export default function ProductDescription() {
   const { t } = useTranslation();
+
+  const { currentLocale } = useTranslationContext();
+  const { seasons, soldOut, styles, textures } = useSelector(
+    selectActiveProductDescription
+  );
 
   return (
     <Styled.EditorDescription>
@@ -10,41 +21,32 @@ export default function ProductDescription() {
         {t("crossover.product_description")}
       </h2>
 
-      <div className="product-description__box">
-        <span>{t("crossover.style")}</span>
+      <ProductDescriptionDetailsBox label={t("crossover.style")}>
+        {styles.map((style) => (
+          <li key={style._id}>{style[currentLocale]}</li>
+        ))}
+      </ProductDescriptionDetailsBox>
 
-        <hr className="product-description__info-devider"></hr>
+      <ProductDescriptionDetailsBox label={t("crossover.season")}>
+        {seasons.map((season) => (
+          <li key={season._id}>{season[currentLocale]}</li>
+        ))}
+      </ProductDescriptionDetailsBox>
 
-        <span>
-          <span>ყოველდღიური / </span>
-          <span>სპორტული / </span>
-          <span>მსუბუქი</span>
-        </span>
-      </div>
-
-      <div className="product-description__box">
-        <span>{t("crossover.season")}</span>
-
-        <hr className="product-description__info-devider"></hr>
-
-        <span>
-          <span>შემოდგომა / </span>
-          <span>საზაფხულო</span>
-        </span>
-      </div>
-
-      <div className="product-description__box">
-        <span>{t("crossover.texture")}</span>
-
-        <hr className="product-description__info-devider"></hr>
-
-        <span>100% ბამბა</span>
-      </div>
+      <ProductDescriptionDetailsBox label={t("crossover.texture")}>
+        {textures.map((texture) => (
+          <li key={texture._id}>
+            <span>{texture.percentage}%</span>
+            &nbsp;
+            <span>{texture[currentLocale]}</span>
+          </li>
+        ))}
+      </ProductDescriptionDetailsBox>
 
       <div className="product-description__sold">
         <span>{t("crossover.items_sold_out")}</span>
         &nbsp;
-        <span>167</span>
+        <span>{soldOut}</span>
       </div>
     </Styled.EditorDescription>
   );

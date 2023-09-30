@@ -3,7 +3,7 @@ import { buttonPrimary } from "styles/helpers";
 
 export const GoesOn = styled.main`
   padding: 6rem 1rem;
-  padding-top: calc(${({ theme }) => theme.app.nav_h_full} + 2rem);
+  padding-top: calc(${({ theme }) => theme.app.nav_h} + 2rem);
   min-height: 100vh;
   display: flex;
 

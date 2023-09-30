@@ -1,20 +1,40 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useTranslation } from "react-i18next";
-// import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
+import {
+  selectFilters,
+  selectActiveFilters,
+} from "store/selectors/filterSelectors";
 import { useFilter } from "hooks/layoutBase";
-// import { selectFilters } from "store/selectors/filterSelectors";
-import { filter } from "lib";
+import { filterActions } from "store/reducers/filterReducer";
+import { useTranslationContext } from "providers/I18nextProvider";
 
 import Dropdown from "./Dropdown";
 import FilterToggle from "./FilterToggle";
 import * as Styled from "./styles/Filter.styled";
 
-export default function Filter() {
+export default memo(function Filter({
+  showProductTypeFilter,
+  showGenderFilter,
+}) {
+  const dispatch = useDispatch();
+
   const { t } = useTranslation();
+  const { currentLocale } = useTranslationContext();
 
   const { activeFilterDropdown, activateFilter } = useFilter();
-  // const { productType, season, style, texture } = useSelector(selectFilters);
+
+  const {
+    activeProductTypes,
+    activeSeasons,
+    activeSort,
+    activeStyles,
+    activeTextures,
+    activeGender,
+  } = useSelector(selectActiveFilters);
+  const { productTypes, seasons, styles, textures, sort, gender } =
+    useSelector(selectFilters);
 
   const [openFilter, setOpenFilter] = useState(false);
 
@@ -29,42 +49,84 @@ export default function Filter() {
           dropdownType="SORT"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "SORT"}
-          caption={t("crossover.sort")}
-          data={filter.sort}
+          label={t("crossover.sort")}
+          captionKey={currentLocale}
+          list={sort}
+          activeList={activeSort}
+          onSelect={(value) =>
+            dispatch(filterActions.setFilter({ key: "sort", value }))
+          }
         />
 
-        <Dropdown
-          dropdownType="PRODUCT_TYPE"
-          activateFilter={activateFilter}
-          isActive={activeFilterDropdown === "PRODUCT_TYPE"}
-          caption={t("crossover.product_type")}
-          data={filter.productType}
-        />
+        {showGenderFilter && (
+          <Dropdown
+            dropdownType="GENDER"
+            activateFilter={activateFilter}
+            isActive={activeFilterDropdown === "GENDER"}
+            label={t("crossover.gender")}
+            captionKey={currentLocale}
+            list={gender}
+            activeList={activeGender}
+            onSelect={(value) =>
+              dispatch(filterActions.setFilter({ key: "gender", value }))
+            }
+          />
+        )}
+
+        {showProductTypeFilter && (
+          <Dropdown
+            dropdownType="PRODUCT_TYPE"
+            activateFilter={activateFilter}
+            isActive={activeFilterDropdown === "PRODUCT_TYPE"}
+            label={t("crossover.product_type")}
+            captionKey={currentLocale}
+            list={productTypes}
+            activeList={activeProductTypes}
+            onSelect={(value) =>
+              dispatch(filterActions.setFilter({ key: "productTypes", value }))
+            }
+          />
+        )}
 
         <Dropdown
           dropdownType="SEASON"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "SEASON"}
-          caption={t("crossover.season")}
-          data={filter.season}
+          label={t("crossover.season")}
+          captionKey={currentLocale}
+          list={seasons}
+          activeList={activeSeasons}
+          onSelect={(value) =>
+            dispatch(filterActions.setFilter({ key: "seasons", value }))
+          }
         />
 
         <Dropdown
           dropdownType="TEXTURE"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "TEXTURE"}
-          caption={t("crossover.texture")}
-          data={filter.texture}
+          label={t("crossover.texture")}
+          captionKey={currentLocale}
+          list={textures}
+          activeList={activeTextures}
+          onSelect={(value) =>
+            dispatch(filterActions.setFilter({ key: "textures", value }))
+          }
         />
 
         <Dropdown
           dropdownType="STYLE"
           activateFilter={activateFilter}
           isActive={activeFilterDropdown === "STYLE"}
-          caption={t("crossover.style")}
-          data={filter.style}
+          label={t("crossover.style")}
+          captionKey={currentLocale}
+          list={styles}
+          activeList={activeStyles}
+          onSelect={(value) =>
+            dispatch(filterActions.setFilter({ key: "styles", value }))
+          }
         />
       </div>
     </Styled.FilterContainer>
   );
-}
+});

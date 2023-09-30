@@ -1,0 +1,13 @@
+{
+  "increase_product_quantity_warning": "თქვენ არ შეგიძლიათ ერთჯერადად {{max}} პროდუქტზე მეტის შეძენა.",
+  "increase_product_quantity": "გაზარდეთ პროდუქტის რაოდენობა",
+  "decrease_product_quantity_warning": "პროდუქტის რაოდენობა არ შეიძლება შეადგენდეს 1_ზე ნაკლებს. სხვა შემთხვევაში ამოიღეთ პროდუქტი კალათიდან.",
+  "decrease_product_quantity": "შეამცირეთ პროდუქტის რაოდენობა",
+  "no_products_in_basket": "კალათაში პროდუქტები არ მოიძებნება",
+  "products_total_quantity": "პროდუქტების ჯამური რაოდენობა",
+  "products_total_amount": "პროდუქტების ჯამური ფასი",
+  "clean_basket": "კალათის გასუფთავება",
+  "basket": "კალათა",
+  "view_product": "ნახე პროდუქტი",
+  "orders_history": "შეკვეთების ისტორია"
+}

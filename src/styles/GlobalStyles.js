@@ -74,4 +74,31 @@ export const GlobalStyles = createGlobalStyle`
     color:inherit;
     font-size:inherit;
   }
+
+  html body a:focus,
+  html body a:active,
+  html body a:hover,
+  html body a:visited,
+  html body input:focus,
+  html body input:active,
+  html body input:hover,
+  html body input:visited,
+  html body textarea:focus,
+  html body textarea:active,
+  html body textarea:hover,
+  html body textarea:visited,
+  html body button:focus,
+  html body button:active,
+  html body button:hover,
+  html body button:visited {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 `;

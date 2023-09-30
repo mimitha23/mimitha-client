@@ -1,4 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
+import { selectShoppingCart } from "store/selectors/cartSelectors";
 
 import CartBody from "./components/CartBody";
 import CartFooter from "./components/CartFooter";
@@ -7,17 +11,22 @@ import { ModalWindow } from "components/Layouts/index";
 import * as Styled from "./Cart.styled";
 
 export default function Cart() {
-  const [activeBankinModal, setActiveBankinModal] = useState(false);
+  const [activeBankingModal, setActiveBankingModal] = useState(false);
+  const cart = useSelector(selectShoppingCart);
+
   return (
     <Styled.CartContainer>
       <div className="cart">
         <CartHeader />
-        <CartBody />
-        <CartFooter onBuy={() => setActiveBankinModal(true)} />
+        <CartBody products={cart} />
+        <CartFooter
+          onBuy={() => setActiveBankingModal(true)}
+          isEmpty={cart[0] ? false : true}
+        />
       </div>
       <ModalWindow
-        activeModal={activeBankinModal}
-        closeModal={() => setActiveBankinModal(false)}
+        activeModal={activeBankingModal}
+        closeModal={() => setActiveBankingModal(false)}
       >
         <div className="cart__banking-modal">enter banking info and etc.</div>
       </ModalWindow>
