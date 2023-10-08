@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 
 import { signInWithGooglePopUp } from "service/firebase";
-import { authActions } from "store/reducers/authReducer";
+import { authActions } from "store/reducers/auth.reducer";
 
 export default function useGoogleLoginQuery() {
   const dispatch = useDispatch();

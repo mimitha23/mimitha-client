@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import {
   selectEditorStatus,
   selectActiveConfig,
-} from "store/selectors/editorSelectors";
+} from "store/selectors/editor.selectors";
 
 import { useFitProduct } from "hooks/layoutBase";
 

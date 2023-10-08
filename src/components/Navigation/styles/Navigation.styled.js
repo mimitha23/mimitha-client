@@ -17,6 +17,7 @@ export const Navigation = styled.nav`
   .burger-btn {
     font-size: 3rem;
     display: none;
+    margin-top: -4px;
   }
 
   .nav-actions {
@@ -42,7 +43,7 @@ export const Navigation = styled.nav`
 
   .main_nav--right {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 4rem;
     padding-bottom: 1.5rem;
   }
@@ -63,6 +64,7 @@ export const Navigation = styled.nav`
 
     .main_nav--right {
       gap: 2rem;
+      justify-content: flex-end;
     }
   }
 `;

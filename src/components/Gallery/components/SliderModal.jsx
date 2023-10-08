@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { galleryActions } from "store/reducers/galleryReducer";
-import { selectGalleryState } from "store/selectors/gallerySelector";
+import { galleryActions } from "store/reducers/gallery.reducer";
+import { selectGalleryState } from "store/selectors/gallery.selector";
 
 import { ModalWindow } from "components/Layouts/index";
 

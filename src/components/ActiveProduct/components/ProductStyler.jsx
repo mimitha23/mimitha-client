@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { PATHS } from "config/routes";
-import { activeProductActions } from "store/reducers/activeProductReducer";
-import { selectActiveProductStyler } from "store/selectors/activeProductSelectors";
+import { activeProductActions } from "store/reducers/activeProduct.reducer";
+import { selectActiveProductStyler } from "store/selectors/activeProduct.selectors";
 
 import * as Styled from "./styles/ProductStyler.styled";
 

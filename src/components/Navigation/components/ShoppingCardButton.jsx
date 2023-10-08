@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import { PATHS } from "config/routes";
 import { useCurrencyContext } from "providers/CurrencyProvider";
-import { selectCartSum } from "store/selectors/cartSelectors";
+import { selectCartSum } from "store/selectors/cart.selectors";
 
 import { ShoppingCartIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ShoppingCard.styed";

@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { errorController } from "./helpers";
 import { productsAPI } from "../api";
-import { productsActions } from "store/reducers/produtsReducer";
+import { productsActions } from "store/reducers/produts.reducer";
 
 export function* getProducts({ payload }) {
   try {

@@ -4,7 +4,7 @@ import OtpInput from "react-otp-input";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import { selectAuthStatus } from "store/selectors/authSelectors";
+import { selectAuthStatus } from "store/selectors/auth.selectors";
 import { useConfirmEmailQuery } from "hooks/api/Auth";
 
 import FormContainer from "./components/FormContainer";

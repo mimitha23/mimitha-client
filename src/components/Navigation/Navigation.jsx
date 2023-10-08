@@ -1,7 +1,9 @@
 import { memo } from "react";
 
-import { useHideNavOnScroll } from "hooks/domBase/index";
-import { useBurgerNavigation } from "hooks/layoutBase/index";
+import {
+  useBurgerNavigation,
+  useHideNavOnScroll,
+} from "hooks/layoutBase/index";
 
 import {
   Logo,

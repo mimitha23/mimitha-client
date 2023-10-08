@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectForgotPasswordForm } from "store/selectors/authSelectors";
+import { selectForgotPasswordForm } from "store/selectors/auth.selectors";
 import { ValidateForgotPassword } from "utils/validators/Auth";
-import { authActions } from "store/reducers/authReducer";
+import { authActions } from "store/reducers/auth.reducer";
 
 export default function useForgotPasswordQuery() {
   const dispatch = useDispatch();

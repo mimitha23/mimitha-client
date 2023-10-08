@@ -7,9 +7,9 @@ import {
   selectActiveConfig,
   selectEditorVariants,
   selectAvailableProducts,
-} from "store/selectors/editorSelectors";
+} from "store/selectors/editor.selectors";
 import { useTranslationContext } from "./I18nextProvider";
-import { editorActions } from "store/reducers/editorReducer";
+import { editorActions } from "store/reducers/editor.reducer";
 
 const EditorContext = createContext({
   activeDropdown: false,

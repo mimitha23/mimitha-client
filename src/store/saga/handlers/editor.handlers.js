@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { errorController } from "./helpers";
 import { editorAPI } from "../api";
-import { editorActions } from "store/reducers/editorReducer";
+import { editorActions } from "store/reducers/editor.reducer";
 
 export function* getProductToEdit({ payload }) {
   try {

@@ -1,7 +1,7 @@
-export * as landingHandlers from "./landingHandlers";
-export * as productHandlers from "./productHandlers";
-export * as activeProductHandlers from "./activeProductHandlers";
-export * as navHandlers from "./navHandlers";
-export * as filterHandlers from "./filterHandlers";
-export * as authHandlers from "./authHandlers";
-export * as editorHandlers from "./editorHandlers";
+export * as landingHandlers from "./landing.handlers";
+export * as productHandlers from "./product.handlers";
+export * as activeProductHandlers from "./activeProduct.handlers";
+export * as navHandlers from "./nav.handlers";
+export * as filterHandlers from "./filter.handlers";
+export * as authHandlers from "./auth.handlers";
+export * as editorHandlers from "./editor.handlers";

@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { selectActiveFilterDropdown } from "store/selectors/filterSelectors";
-import { filterActions } from "store/reducers/filterReducer";
+import { selectActiveFilterDropdown } from "store/selectors/filter.selectors";
+import { filterActions } from "store/reducers/filter.reducer";
 
 export default function useFilter() {
   const dispatch = useDispatch();

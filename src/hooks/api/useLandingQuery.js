@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { landingActions } from "store/reducers/landingReducer";
-import { selectLandingStatus } from "store/selectors/landingSelectors";
+import { landingActions } from "store/reducers/landing.reducer";
+import { selectLandingStatus } from "store/selectors/landing.selectors";
 
 export default function useLandingQuery() {
   const dispatch = useDispatch();

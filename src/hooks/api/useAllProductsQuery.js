@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useLocationState } from "hooks/utils";
-import { productsActions } from "store/reducers/produtsReducer";
-import { filterActions } from "store/reducers/filterReducer";
+import { productsActions } from "store/reducers/produts.reducer";
+import { filterActions } from "store/reducers/filter.reducer";
 
-import { selectActiveFilters } from "store/selectors/filterSelectors";
-import { selectProductsStatus } from "store/selectors/productSelectors";
+import { selectActiveFilters } from "store/selectors/filter.selectors";
+import { selectProductsStatus } from "store/selectors/product.selectors";
 
 export default function useAllProductsQuery() {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { authActions, AUTH_PROCESSES } from "store/reducers/authReducer";
-import { selectAuthOnGoingProcess } from "store/selectors/authSelectors";
+import { authActions, AUTH_PROCESSES } from "store/reducers/auth.reducer";
+import { selectAuthOnGoingProcess } from "store/selectors/auth.selectors";
 
 export default function SwitchProcessField({
   onSwitchProcess,

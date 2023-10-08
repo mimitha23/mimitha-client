@@ -1,8 +1,8 @@
 import { createContext } from "react";
 import { useSelector } from "react-redux";
 
-import { selectIsOpenPopup } from "store/selectors/authSelectors";
-import { selectProductToAddToListId } from "store/selectors/user/userListsSelectors";
+import { selectIsOpenPopup } from "store/selectors/auth.selectors";
+import { selectProductToAddToListId } from "store/selectors/user/userLists.selectors";
 
 import AuthPopUp from "components/Auth/AuthPopUp";
 import { AddToListPopup } from "components/Layouts";

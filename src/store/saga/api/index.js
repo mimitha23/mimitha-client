@@ -1,7 +1,7 @@
-export * as landingAPI from "./landingAPI";
-export * as productsAPI from "./productsAPI";
-export * as activeProductAPI from "./activeProductAPI";
-export * as navAPI from "./navAPI";
-export * as filterAPI from "./filterAPI";
-export * as authAPI from "./authAPI";
-export * as editorAPI from "./editorAPI";
+export * as landingAPI from "./landing.api";
+export * as productsAPI from "./products.api";
+export * as activeProductAPI from "./activeProduct.api";
+export * as navAPI from "./nav.api";
+export * as filterAPI from "./filter.api";
+export * as authAPI from "./auth.api";
+export * as editorAPI from "./editor.api";

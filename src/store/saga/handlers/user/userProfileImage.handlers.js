@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { userProfileImageAPI } from "store/saga/api/user";
-import { userActions } from "store/reducers/user/userReducer";
-import { userProfileImageActions } from "store/reducers/user/userProfileImageReducer";
+import { userActions } from "store/reducers/user/user.reducer";
+import { userProfileImageActions } from "store/reducers/user/userProfileImage.reducer";
 import { errorController } from "store/saga/handlers/helpers";
 
 export function* changeProfileImage({ payload }) {

@@ -1,44 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { useStartAuth } from "../Auth";
-import { useIsAuthenticated } from "hooks/auth";
-import { selectAllUserLists } from "store/selectors/user/userListsSelectors";
-import { userListsActions } from "store/reducers/user/userListsReducer";
+import { userListsActions } from "store/reducers/user/userLists.reducer";
+import { selectAllUserLists } from "store/selectors/user/userLists.selectors";
 
 export default function useAddToListQuery() {
   const dispatch = useDispatch();
 
-  const { startAuth } = useStartAuth();
-  const { isAuthenticated } = useIsAuthenticated();
-
   const allUserLists = useSelector(selectAllUserLists);
 
-  function openAddToListPopup({ productId }) {
-    if (!isAuthenticated) return startAuth();
-
-    dispatch(userListsActions.setProductToAddToListId(productId));
-  }
-
-  function onStartListCreation() {
-    dispatch(userListsActions.setStartListCreation(true));
-  }
-
-  function onCancelListCreation() {
-    dispatch(userListsActions.setCancelListCreation());
-  }
-
-  function onSetNewListTitle(value) {
-    dispatch(userListsActions.setListTitle(value));
-  }
-
-  function cleanUpUserLists() {
-    dispatch(userListsActions.resetUserLists());
-  }
-
   // Queries
-  function createListQuery({ title, productId }) {
+  const createListQuery = ({ title, productId }) =>
     dispatch(userListsActions.createList({ title, productId }));
-  }
 
   function addToListQuery({ productId, listId }) {
     const listIndex = allUserLists.findIndex(
@@ -50,24 +22,15 @@ export default function useAddToListQuery() {
     else dispatch(userListsActions.addToList({ productId, listId }));
   }
 
-  function getAllListsQuery() {
-    dispatch(userListsActions.getAllList());
-  }
+  const getAllListsQuery = () => dispatch(userListsActions.getAllList());
 
-  function getListQuery(listId) {
+  const getListQuery = (listId) =>
     dispatch(userListsActions.getAllFromList({ listId }));
-  }
 
-  function deleteListQuery(listId) {
+  const deleteListQuery = (listId) =>
     dispatch(userListsActions.deleteList({ listId }));
-  }
 
   return {
-    openAddToListPopup,
-    onStartListCreation,
-    onCancelListCreation,
-    onSetNewListTitle,
-    cleanUpUserLists,
     addToListQuery,
     getAllListsQuery,
     createListQuery,

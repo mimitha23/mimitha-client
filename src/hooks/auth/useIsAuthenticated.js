@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import { jwt } from "utils";
 
-import { userActions } from "store/reducers/user/userReducer";
+import { userActions } from "store/reducers/user/user.reducer";
 import { PATHS, PUBLIC_ROUTES } from "config/routes";
-import { selectUser } from "store/selectors/user/userSelectors";
+import { selectUser } from "store/selectors/user/user.selectors";
 
 export default function useIsAuthenticated(redirectUnauthorized = false) {
   const dispatch = useDispatch();

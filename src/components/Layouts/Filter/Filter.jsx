@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectFilters,
   selectActiveFilters,
-} from "store/selectors/filterSelectors";
+} from "store/selectors/filter.selectors";
 import { useFilter } from "hooks/layoutBase";
-import { filterActions } from "store/reducers/filterReducer";
+import { filterActions } from "store/reducers/filter.reducer";
 import { useTranslationContext } from "providers/I18nextProvider";
 
 import Dropdown from "./Dropdown";
@@ -33,6 +33,7 @@ export default memo(function Filter({
     activeTextures,
     activeGender,
   } = useSelector(selectActiveFilters);
+
   const { productTypes, seasons, styles, textures, sort, gender } =
     useSelector(selectFilters);
 

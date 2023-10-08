@@ -2,24 +2,15 @@ import { useSelector } from "react-redux";
 
 import { useFitProduct } from "hooks/layoutBase";
 import { useActiveProductQuery } from "hooks/api";
-
-import { selectProductMannequinAndModel } from "store/selectors/activeProductSelectors";
+import { selectProductMannequinAndModel } from "store/selectors/activeProduct.selectors";
 
 import {
   EditorFitButtons,
   ContainerFull,
-  // Path,
+  Path,
   Spinner,
 } from "components/Layouts";
-import {
-  ProductHeading,
-  ProductDescription,
-  ProductStyler,
-  // ProductShippingInfo,
-  ProductView,
-  // ProductFooter,
-  // RelatedProducts,
-} from "./components";
+import * as UI from "./components";
 import * as Styled from "./ActiveProductContainer.styled";
 
 export default function ActiveProduct() {
@@ -31,7 +22,7 @@ export default function ActiveProduct() {
 
   return (
     <Styled.ActiveProductContainer>
-      {/* <Path /> */}
+      <Path />
       {!status.loading && (
         <ContainerFull>
           <div className="active-product__fit-buttons--box">
@@ -44,15 +35,15 @@ export default function ActiveProduct() {
 
           <div className="product-main">
             <div className="product-main__product-view">
-              <ProductView productId={productId} />
+              <UI.ProductView productId={productId} />
             </div>
 
             <div className="product-main__product-info">
-              <ProductHeading productId={productId} />
-              <ProductDescription />
-              <ProductStyler productId={productId} />
+              <UI.ProductHeading productId={productId} />
+              <UI.ProductDescription />
+              <UI.ProductStyler productId={productId} />
               {/* <ProductShippingInfo /> */}
-              {/* <ProductFooter /> */}
+              <UI.ProductFooter />
             </div>
           </div>
 

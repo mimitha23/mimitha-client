@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { selectNavStatus } from "store/selectors/navSelectors";
+import { selectNavStatus } from "store/selectors/nav.selectors";
 
 import { Spinner } from "components/Layouts";
 import NavDropdownRoutes from "./NavDropdownRoutes";

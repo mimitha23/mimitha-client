@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import {
   selectRelatedProducts,
   selectRelatedProductsStatus,
-} from "store/selectors/activeProductSelectors";
+} from "store/selectors/activeProduct.selectors";
 
 import { MultipleSlider, Spinner } from "components/Layouts";
 import * as Styled from "./styles/RelatedProducts.styled";

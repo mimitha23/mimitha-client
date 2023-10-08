@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { authActions } from "store/reducers/authReducer";
+import { authActions } from "store/reducers/auth.reducer";
 
 export default function useLogoutQuery() {
   const dispatch = useDispatch();

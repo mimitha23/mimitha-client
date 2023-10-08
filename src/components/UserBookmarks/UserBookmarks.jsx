@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import {
   selectUserList,
   selectUserListStatus,
-} from "store/selectors/user/userListsSelectors";
+} from "store/selectors/user/userLists.selectors";
 import { useUserListQuery } from "hooks/api/user";
 
 import UserBookmarksHeader from "./UserBookmarksHeader";

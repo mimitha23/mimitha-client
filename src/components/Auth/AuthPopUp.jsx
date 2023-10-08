@@ -5,8 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { useStartAuth } from "hooks/api/Auth";
 import { useIsAuthenticated } from "hooks/auth";
-import { authActions, AUTH_PROCESSES } from "store/reducers/authReducer";
-import { selectAuthOnGoingProcess } from "store/selectors/authSelectors";
+import { authActions, AUTH_PROCESSES } from "store/reducers/auth.reducer";
+import { selectAuthOnGoingProcess } from "store/selectors/auth.selectors";
 
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";

@@ -1,5 +1,5 @@
 import { takeLatest } from "redux-saga/effects";
-import { navActions } from "store/reducers/navReducer";
+import { navActions } from "store/reducers/nav.reducer";
 import { navHandlers } from "../handlers";
 
 export default function* navSaga() {

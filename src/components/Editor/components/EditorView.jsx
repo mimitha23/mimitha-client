@@ -21,6 +21,9 @@ export default function EditorView() {
           <video
             src={viewMedia.src}
             autoPlay={true}
+            muted={true}
+            controls={false}
+            playsInline={true}
             {...(isCleanUpProcess ? { onEnded: onVideoEnd } : "")}
           />
         )}

@@ -3,7 +3,7 @@ import { persistStore } from "redux-persist";
 import rootReducer from "./reducers/root";
 
 import createSagaMiddleWare from "redux-saga";
-import initSagas from "./saga/initSagas";
+import initSagas from "./saga/init.saga";
 
 const sagaMiddleware = createSagaMiddleWare();
 const middlewares = [sagaMiddleware];

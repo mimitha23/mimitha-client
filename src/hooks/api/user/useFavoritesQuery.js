@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useStartAuth } from "../Auth";
 import { useIsAuthenticated } from "hooks/auth";
-import { userFavoritesActions } from "store/reducers/user/userFavoritesReducer";
-import { selectAllUserFavoritesIds } from "store/selectors/user/userFavoritesSelector";
+import { userFavoritesActions } from "store/reducers/user/userFavorites.reducer";
+import { selectAllUserFavoritesIds } from "store/selectors/user/userFavorites.selector";
 
 export default function useFavoritesQuery() {
   const dispatch = useDispatch();

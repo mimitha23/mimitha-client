@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { useSelector } from "react-redux";
-import { selectGallery } from "store/selectors/gallerySelector";
+import { selectGallery } from "store/selectors/gallery.selector";
 
 import GalleryFig from "./GalleryFig";
 import FigActions from "./FigActions";

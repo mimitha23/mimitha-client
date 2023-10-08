@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { selectNavDropdown } from "store/selectors/navSelectors";
+import { selectNavDropdown } from "store/selectors/nav.selectors";
 
 import { useTranslationContext } from "providers/I18nextProvider";
 import { useLocationState } from "hooks/utils/index";

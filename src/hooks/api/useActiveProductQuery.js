@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { activeProductActions } from "store/reducers/activeProductReducer";
-import { selectActiveProductStatus } from "store/selectors/activeProductSelectors";
+import { activeProductActions } from "store/reducers/activeProduct.reducer";
+import { selectActiveProductStatus } from "store/selectors/activeProduct.selectors";
 
 export default function useActiveProductQuery() {
   const dispatch = useDispatch();
