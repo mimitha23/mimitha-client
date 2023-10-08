@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 // import { useFavoritesQuery } from "hooks/api/user";
 import { useTranslationContext } from "providers/I18nextProvider";
-import { selectActiveProductAssets } from "store/selectors/activeProductSelectors";
+import { selectActiveProductAssets } from "store/selectors/activeProduct.selectors";
 // import { selectAllUserFavoritesIds } from "store/selectors/user/userFavoritesSelector";
 
 import controlSliderScrollBehavior from "./functions/controlSliderScrollBehavior";

@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { authAPI } from "store/saga/api";
-import { authActions } from "store/reducers/authReducer";
-import { userActions } from "store/reducers/user/userReducer";
+import { authActions } from "store/reducers/auth.reducer";
+import { userActions } from "store/reducers/user/user.reducer";
 import { errorController } from "store/saga/handlers/helpers";
 
 export function* login({ payload }) {

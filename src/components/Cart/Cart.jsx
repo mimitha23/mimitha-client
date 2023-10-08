@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { selectShoppingCart } from "store/selectors/cartSelectors";
+import { selectShoppingCart } from "store/selectors/cart.selectors";
 
 import CartBody from "./components/CartBody";
 import CartFooter from "./components/CartFooter";

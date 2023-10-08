@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUpdatePasswordForm } from "store/selectors/authSelectors";
+import { selectUpdatePasswordForm } from "store/selectors/auth.selectors";
 import { ValidateUpdatePassword } from "utils/validators/Auth";
-import { authActions } from "store/reducers/authReducer";
+import { authActions } from "store/reducers/auth.reducer";
 
 export default function useUpdatePasswordQuery() {
   const dispatch = useDispatch();

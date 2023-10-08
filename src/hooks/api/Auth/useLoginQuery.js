@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoginForm } from "store/selectors/authSelectors";
+import { selectLoginForm } from "store/selectors/auth.selectors";
 import { ValidateLogin } from "utils/validators/Auth";
-import { authActions } from "store/reducers/authReducer";
+import { authActions } from "store/reducers/auth.reducer";
 
 export default function useLoginQuery() {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { errorController } from "./helpers";
 import { landingAPI } from "../api";
-import { landingActions } from "store/reducers/landingReducer";
+import { landingActions } from "store/reducers/landing.reducer";
 
 export function* getLanding() {
   try {

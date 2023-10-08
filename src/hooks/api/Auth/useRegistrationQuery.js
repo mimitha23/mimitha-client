@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectRegisterForm } from "store/selectors/authSelectors";
+import { selectRegisterForm } from "store/selectors/auth.selectors";
 import { ValidateRegistration } from "utils/validators/Auth";
-import { authActions } from "store/reducers/authReducer";
+import { authActions } from "store/reducers/auth.reducer";
 
 export default function useRegistrationQuery() {
   const dispatch = useDispatch();

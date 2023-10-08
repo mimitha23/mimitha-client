@@ -6,9 +6,9 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectAuthStatus,
   selectForgotPasswordForm,
-} from "store/selectors/authSelectors";
+} from "store/selectors/auth.selectors";
 import { useForgotPasswordQuery } from "hooks/api/Auth";
-import { authActions, AUTH_PROCESSES } from "store/reducers/authReducer";
+import { authActions, AUTH_PROCESSES } from "store/reducers/auth.reducer";
 
 import { Spinner } from "components/Layouts";
 import FormInputField from "./components/FormInputField";

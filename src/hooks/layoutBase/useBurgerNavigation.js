@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { useWindowDimention } from "hooks/domBase/index";
+import { useWindowDimension } from "hooks/domBase/index";
 
 export default function useBurgerNavigation() {
-  const { width } = useWindowDimention();
+  const { width } = useWindowDimension();
 
   const [activeBurgerNav, setActiveBurgerNav] = useState(null);
 
   /////////////////////////////////////////////////////////////////////////
-  // 1.0) Controll BurgerMenu Based On Window Width And Active Dropdown //
+  // 1.0) Control BurgerMenu Based On Window Width And Active Dropdown //
   ///////////////////////////////////////////////////////////////////////
 
   useEffect(() => {

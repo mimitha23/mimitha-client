@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { filterActions } from "store/reducers/filterReducer";
+import { filterActions } from "store/reducers/filter.reducer";
 import { filterAPI } from "store/saga/api";
 import { errorController } from "store/saga/handlers/helpers";
 

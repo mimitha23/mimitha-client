@@ -6,9 +6,9 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectLoginForm,
   selectAuthStatus,
-} from "store/selectors/authSelectors";
+} from "store/selectors/auth.selectors";
 import { useLoginQuery } from "hooks/api/Auth";
-import { authActions } from "store/reducers/authReducer";
+import { authActions } from "store/reducers/auth.reducer";
 
 import { Spinner } from "components/Layouts";
 import FormContainer from "./components/FormContainer";

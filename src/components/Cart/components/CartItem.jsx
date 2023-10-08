@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { PATHS } from "config/routes";
 import { useCurrencyContext } from "providers/CurrencyProvider";
 import { useTranslationContext } from "providers/I18nextProvider";
-import { shoppingCartActions } from "store/reducers/shoppingCartReducer";
+import { shoppingCartActions } from "store/reducers/shoppingCart.reducer";
 
 import CartItemDetailsBoxContainer from "./CartItemDetailsBoxContainer";
 import CartItemDetailsControlProductAmount from "./CartItemDetailsControlProductAmount";

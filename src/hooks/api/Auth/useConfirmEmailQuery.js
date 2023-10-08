@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ValidateConfirmEmail } from "utils/validators/Auth";
-import { authActions } from "store/reducers/authReducer";
+import { authActions } from "store/reducers/auth.reducer";
 
 export default function useConfirmEmailQuery() {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { takeLatest } from "redux-saga/effects";
 import { activeProductHandlers } from "../handlers";
-import { activeProductActions } from "store/reducers/activeProductReducer";
+import { activeProductActions } from "store/reducers/activeProduct.reducer";
 
 export default function* activeProductSaga() {
   yield takeLatest(

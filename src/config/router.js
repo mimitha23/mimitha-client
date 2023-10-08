@@ -48,16 +48,16 @@ export const Router = [
     name: "active-product-page",
     element: <Pages.ActiveProductPage />,
   },
-  // {
-  //   path: PATHS.favorites.fullPath,
-  //   name: "user-favorites--page",
-  //   element: <Pages.UserFavoritesPage />,
-  // },
-  // {
-  //   path: PATHS.bookmarks.fullPath({}),
-  //   name: "user-bookmarks-page",
-  //   element: <Pages.UserBookmarksPage />,
-  // },
+  {
+    path: PATHS.favorites.fullPath,
+    name: "user-favorites--page",
+    element: <Pages.UserFavoritesPage />,
+  },
+  {
+    path: PATHS.bookmarks.fullPath({}),
+    name: "user-bookmarks-page",
+    element: <Pages.UserBookmarksPage />,
+  },
   {
     path: PATHS.edit_product.fullPath({}),
     name: "editor-page",

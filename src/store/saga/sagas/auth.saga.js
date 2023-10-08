@@ -1,5 +1,5 @@
 import { takeLatest } from "redux-saga/effects";
-import { authActions } from "store/reducers/authReducer";
+import { authActions } from "store/reducers/auth.reducer";
 import { authHandlers } from "store/saga/handlers";
 
 export default function* authSaga() {

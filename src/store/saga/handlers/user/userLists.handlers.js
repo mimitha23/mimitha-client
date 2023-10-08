@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { userListAPI } from "store/saga/api/user";
-import { userListsActions } from "store/reducers/user/userListsReducer";
+import { userListsActions } from "store/reducers/user/userLists.reducer";
 import { errorController } from "store/saga/handlers/helpers";
 
 export function* createList({ payload }) {

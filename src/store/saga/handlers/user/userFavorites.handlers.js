@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { userFavoritesAPI } from "store/saga/api/user";
-import { userFavoritesActions } from "store/reducers/user/userFavoritesReducer";
+import { userFavoritesActions } from "store/reducers/user/userFavorites.reducer";
 import { errorController } from "store/saga/handlers/helpers";
 
 export function* addToFavorites({ payload }) {

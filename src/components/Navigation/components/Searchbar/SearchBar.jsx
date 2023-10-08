@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { productsActions } from "store/reducers/produtsReducer";
+import { productsActions } from "store/reducers/produts.reducer";
 
 import SearchBarField from "./SearchBarField";
 import SearchBarResults from "./SearchBarResults";

@@ -1,73 +1,37 @@
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
 
-import {
-  selectAllUserLists,
-  selectProductToAddToListId,
-  selectCreatingListTitle,
-  selectIsCreatingList,
-} from "store/selectors/user/userListsSelectors";
-import { useUserListQuery } from "hooks/api/user";
+import { useUserListEvents } from "hooks/events";
+import { selectProductToAddToListId } from "store/selectors/user/userLists.selectors";
 
-import { CloseXIcon } from "components/Layouts/Icons";
 import UserLists from "./UserLists";
 import CreateListField from "./CreateListField";
 import CreateListButton from "./CreateListButton";
+import { CloseXIcon } from "components/Layouts/Icons";
 import * as Styled from "./AddToListPopup.styled";
 
 export default function AddToListPopup() {
-  const allUserLists = useSelector(selectAllUserLists);
   const productToAddToListId = useSelector(selectProductToAddToListId);
-  const isCreatingList = useSelector(selectIsCreatingList);
-  const creatingListTitle = useSelector(selectCreatingListTitle);
 
-  const {
-    openAddToListPopup,
-    onStartListCreation,
-    onCancelListCreation,
-    onSetNewListTitle,
-    createListQuery,
-    addToListQuery,
-  } = useUserListQuery(productToAddToListId);
-
-  function onClosePopup() {
-    openAddToListPopup({ productId: "" });
-    if (isCreatingList) onCancelListCreation();
-  }
+  const { closeAddToListPopup, isCreatingList } = useUserListEvents();
 
   return createPortal(
-    <Styled.AddToListPopup className="active-modal" onClick={onClosePopup}>
+    <Styled.AddToListPopup
+      className="active-modal"
+      onClick={closeAddToListPopup}
+    >
       <div onClick={(e) => e.stopPropagation()} className="user-lists__popup">
-        <button className="close-btn" onClick={onClosePopup}>
+        <button className="close-btn" onClick={closeAddToListPopup}>
           <CloseXIcon />
         </button>
 
-        <UserLists
-          allUserLists={allUserLists}
-          productToAddToListId={productToAddToListId}
-          onAddToList={(listId) =>
-            addToListQuery({
-              listId,
-              productId: productToAddToListId,
-            })
-          }
-        />
+        <UserLists productToAddToListId={productToAddToListId} />
 
         {isCreatingList && (
-          <CreateListField
-            value={creatingListTitle}
-            onChange={(e) => onSetNewListTitle(e.target.value)}
-            onCancel={onCancelListCreation}
-            onCreate={() =>
-              createListQuery({
-                title: creatingListTitle,
-                productId: productToAddToListId,
-              })
-            }
-          />
+          <CreateListField productToAddToListId={productToAddToListId} />
         )}
 
-        {!isCreatingList && <CreateListButton onClick={onStartListCreation} />}
+        {!isCreatingList && <CreateListButton />}
       </div>
     </Styled.AddToListPopup>,
     document.getElementById("portal")

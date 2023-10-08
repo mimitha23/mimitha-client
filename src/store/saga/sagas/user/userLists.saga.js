@@ -1,5 +1,5 @@
 import { takeLatest } from "redux-saga/effects";
-import { userListsActions } from "store/reducers/user/userListsReducer";
+import { userListsActions } from "store/reducers/user/userLists.reducer";
 import { userListsHandlers } from "store/saga/handlers/user";
 
 export default function* userListsSaga() {

@@ -2,20 +2,20 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import editorReducer from "./editorReducer";
-import filterReducer from "./filterReducer";
-import galleryReducer from "./galleryReducer";
-import activeProductReducer from "./activeProductReducer";
-import produtsReducer from "./produtsReducer";
-import landingReducer from "./landingReducer";
-import navReducer from "./navReducer";
-import shoppingCartReducer from "./shoppingCartReducer";
-import authReducer from "./authReducer";
+import editorReducer from "./editor.reducer";
+import filterReducer from "./filter.reducer";
+import galleryReducer from "./gallery.reducer";
+import activeProductReducer from "./activeProduct.reducer";
+import produtsReducer from "./produts.reducer";
+import landingReducer from "./landing.reducer";
+import navReducer from "./nav.reducer";
+import shoppingCartReducer from "./shoppingCart.reducer";
+import authReducer from "./auth.reducer";
 
 // user
-import userReducer from "./user/userReducer";
-import userFavoritesReducer from "./user/userFavoritesReducer";
-import userListsReducer from "./user/userListsReducer";
+import userReducer from "./user/user.reducer";
+import userFavoritesReducer from "./user/userFavorites.reducer";
+import userListsReducer from "./user/userLists.reducer";
 
 const persistedEditorReducer = generatePersistedReducer({
   key: "mimitha_client_editor",

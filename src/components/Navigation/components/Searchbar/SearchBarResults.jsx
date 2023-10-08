@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import {
   selectProductsSearchResult,
   selectProductsSearchStatus,
-} from "store/selectors/productSelectors";
+} from "store/selectors/product.selectors";
 import { PATHS } from "config/routes";
 import { useLocationState } from "hooks/utils";
 

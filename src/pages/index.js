@@ -17,12 +17,12 @@ export const AllProductsPage = lazy(() =>
 // export const GoesOnTutorialPage = lazy(() =>
 //   import("./GoesOnTutorialPage/GoesOnTutorialPage")
 // );
-// export const UserFavoritesPage = lazy(() =>
-//   import("./UserFavoritesPage/UserFavoritesPage")
-// );
+export const UserFavoritesPage = lazy(() =>
+  import("./UserFavoritesPage/UserFavoritesPage")
+);
 // export const OrderHistoryPage = lazy(() =>
 //   import("./OrderHistoryPage/OrderHistoryPage")
 // );
-// export const UserBookmarksPage = lazy(() =>
-//   import("./UserBookmarksPage/UserBookmarksPage")
-// );
+export const UserBookmarksPage = lazy(() =>
+  import("./UserBookmarksPage/UserBookmarksPage")
+);

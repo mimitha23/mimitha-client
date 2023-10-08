@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 
 import { PATHS } from "config/routes";
-import { selectUserListsTitlesAndIds } from "store/selectors/user/userListsSelectors";
+import { selectUserListsTitlesAndIds } from "store/selectors/user/userLists.selectors";
 
 import {
   BookmarkIcon,

@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
 
-import { selectCartSum } from "store/selectors/cartSelectors";
+import { selectCartSum } from "store/selectors/cart.selectors";
 import { useCurrencyContext } from "providers/CurrencyProvider";
-import { shoppingCartActions } from "store/reducers/shoppingCartReducer";
+import { shoppingCartActions } from "store/reducers/shoppingCart.reducer";
 
 import * as Styled from "./styles/CartFooter.styled";
 

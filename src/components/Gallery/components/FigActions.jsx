@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { galleryActions } from "store/reducers/galleryReducer";
+import { galleryActions } from "store/reducers/gallery.reducer";
 import { PATHS } from "config/routes";
 
 import { OpenIcon, OpenInNewIcon } from "components/Layouts/Icons/index";

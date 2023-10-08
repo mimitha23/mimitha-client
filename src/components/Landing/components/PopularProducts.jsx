@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import { selectLandingPopularProducts } from "store/selectors/landingSelectors";
+import { selectLandingPopularProducts } from "store/selectors/landing.selectors";
 
 import { ProductCard } from "components/Layouts";
 import * as Styled from "./styles/PopularProducts.styled";

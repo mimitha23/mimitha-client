@@ -1,5 +1,5 @@
 import { takeLatest } from "redux-saga/effects";
-import { userOrdersActions } from "store/reducers/user/userOrdersReducer";
+import { userOrdersActions } from "store/reducers/user/userOrders.reducer";
 import { userOrdersHandlers } from "store/saga/handlers/user";
 
 export default function* userProfileImageSaga() {

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { galleryActions } from "store/reducers/galleryReducer";
+import { galleryActions } from "store/reducers/gallery.reducer";
 import calcImageDimention from "functions/calcImageDimention";
 
 import SliderModal from "./components/SliderModal";

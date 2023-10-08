@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import { useIsAuthenticated } from "hooks/auth";
 import { useLogoutQuery } from "hooks/api/Auth";
-import { selectUser } from "store/selectors/user/userSelectors";
+import { selectUser } from "store/selectors/user/user.selectors";
 
 import { PATHS } from "config/routes";
 import { useClickOutside } from "hooks/domBase";

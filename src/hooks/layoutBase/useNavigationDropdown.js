@@ -2,14 +2,14 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { navActions } from "store/reducers/navReducer";
-import { useWindowDimention } from "hooks/domBase/index";
+import { navActions } from "store/reducers/nav.reducer";
+import { useWindowDimension } from "hooks/domBase/index";
 import { MAIN_NAV_DROPDOWN_ROUTES } from "config/consts";
 
 export default function useNavigationDropdown({ activeBurgerNav }) {
   const dispatch = useDispatch();
 
-  const { width } = useWindowDimention();
+  const { width } = useWindowDimension();
   const [activeDropDown, setActiveDropDown] = useState("");
 
   ///////////////////////////////////////////////
@@ -69,10 +69,10 @@ export default function useNavigationDropdown({ activeBurgerNav }) {
   ///////////////////////////
   // 3.0 Fetch Navigation //
   /////////////////////////
-  // useEffect(() => {
-  //   if (!activeDropDown) return;
-  //   dispatch(navActions.getNav(activeDropDown));
-  // }, [activeDropDown]);
+  useEffect(() => {
+    if (!activeDropDown) return;
+    dispatch(navActions.getNav(activeDropDown));
+  }, [activeDropDown]);
 
   return {
     width,

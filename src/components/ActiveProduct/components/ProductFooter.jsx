@@ -1,44 +1,28 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import useAddToListQuery from "hooks/api/user/useUserListQuery";
-import { shoppingCartActions } from "store/reducers/shoppingCartReducer";
-import { selectAllUserLists } from "store/selectors/user/userListsSelectors";
-import { selectShoppingCart } from "store/selectors/cartSelectors";
-import { selectActiveProductInfoForShoppingCart } from "store/selectors/activeProductSelectors";
+import {
+  useUserListEvents,
+  // useAddToCart
+} from "hooks/events";
+import { selectActiveProductInfoForShoppingCart } from "store/selectors/activeProduct.selectors";
 
-import { BagIcon, BookmarkAddIcon } from "components/Layouts/Icons";
+import {
+  // BagIcon,
+  BookmarkAddIcon,
+} from "components/Layouts/Icons";
 import * as Styled from "./styles/ProductFooter.styled";
 
 function ProductFooter() {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const product = useSelector(selectActiveProductInfoForShoppingCart);
-  const userLists = useSelector(selectAllUserLists);
-  const cart = useSelector(selectShoppingCart);
 
-  const { openAddToListPopup } = useAddToListQuery();
+  // const { onAddToCart, checkIsInCart } = useAddToCart();
+  const { openAddToListPopup, checkIsSavedToList } = useUserListEvents();
 
-  function onAddToCart() {
-    dispatch(
-      shoppingCartActions.addToCart({
-        productId: product._id,
-        color: product.color,
-        size: product.size,
-        price: product.price,
-        title: product.title,
-        thumbnail: product.thumbnail,
-        quantity: 1,
-      })
-    );
-  }
-
-  const isSavedToList = userLists.find((list) =>
-    list.products.includes(product._id)
-  );
-
-  const isIntoCart = cart.find((item) => item.productId === product._id);
+  // const isInCartProduct = checkIsInCart(product._id);
+  const isSavedToList = checkIsSavedToList(product._id);
 
   return (
     <Styled.ProductFooterContainer>
@@ -54,9 +38,9 @@ function ProductFooter() {
         </span>
       </button>
 
-      <button
-        className={`product-footer__btn ${isIntoCart ? "active" : ""}`}
-        onClick={onAddToCart}
+      {/* <button
+        className={`product-footer__btn ${isInCartProduct ? "active" : ""}`}
+        onClick={() => onAddToCart(product)}
       >
         <span className="product-footer__btn-caption">
           {t("crossover.add_to_card")}
@@ -64,12 +48,12 @@ function ProductFooter() {
         <span className="icon">
           <BagIcon />
         </span>
-        {isIntoCart && (
+        {isInCartProduct && (
           <span className="product-footer__btn-badge">
-            {isIntoCart.quantity}
+            {isInCartProduct.quantity}
           </span>
         )}
-      </button>
+      </button> */}
     </Styled.ProductFooterContainer>
   );
 }

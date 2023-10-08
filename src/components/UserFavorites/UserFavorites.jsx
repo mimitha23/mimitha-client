@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import {
   selectAllUserFavorites,
   selectUserFavoritesStatus,
-} from "store/selectors/user/userFavoritesSelector";
+} from "store/selectors/user/userFavorites.selector";
 import { useFavoritesQuery } from "hooks/api/user";
 
 import { ProductCard, Spinner } from "components/Layouts";

@@ -1,4 +1,4 @@
-export * as userProfileImageAPI from "./userProfileImageAPI";
-export * as userFavoritesAPI from "./userFavoritesAPI";
-export * as userListAPI from "./userListAPI";
-export * as userOrdersAPI from "./userOrdersAPI";
+export * as userProfileImageAPI from "./userProfileImage.api";
+export * as userFavoritesAPI from "./userFavorites.api";
+export * as userListAPI from "./userList.api";
+export * as userOrdersAPI from "./userOrders.api";

@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { errorController } from "./helpers";
-import { navActions } from "store/reducers/navReducer";
+import { navActions } from "store/reducers/nav.reducer";
 import { navAPI } from "../api";
 
 export function* getNav({ payload }) {
