@@ -16,7 +16,7 @@ export default function ProductDescription() {
   );
 
   return (
-    <Styled.EditorDescription>
+    <Styled.ProductDescription>
       <h2 className="product-description__title">
         {t("crossover.product_description")}
       </h2>
@@ -48,6 +48,6 @@ export default function ProductDescription() {
         &nbsp;
         <span>{soldOut}</span>
       </div>
-    </Styled.EditorDescription>
+    </Styled.ProductDescription>
   );
 }

@@ -1,15 +1,17 @@
 import { useTranslation } from "react-i18next";
-import { BagIcon } from "components/Layouts/Icons";
 
-export default function AddToCart({ onAddToCart }) {
+import { BagIcon } from "components/Layouts/Icons";
+import * as Styled from "./styles/AddToCartButton.styled";
+
+export default function AddToCartButton({ onAddToCart }) {
   const { t } = useTranslation();
 
   return (
-    <button className="add-to-cart__btn" onClick={onAddToCart}>
+    <Styled.AddToCartButton onClick={onAddToCart}>
       <span>{t("crossover.add_to_card")}</span>
       <span>
         <BagIcon />
       </span>
-    </button>
+    </Styled.AddToCartButton>
   );
 }

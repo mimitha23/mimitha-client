@@ -1,60 +1,38 @@
-import { v4 as uuid } from "uuid";
-import { useTranslationContext } from "providers/I18nextProvider";
-
-import * as Styled from "./styles/Dropdown.styled";
+import DropdownBody from "./components/DropdownBody";
+import DropdownTriggerButton from "./components/DropdownTriggerButton";
 
 export default function Dropdown({
+  list,
+  label,
+  isActive,
+  onSelect,
+  captionKey,
+  activeList,
   dropdownType,
   activateFilter,
-  isActive,
-  label,
-  captionKey,
-  list,
-  activeList,
-  onSelect,
 }) {
-  const { currentLocale } = useTranslationContext();
-
   return (
-    <Styled.Dropdown
+    <div
       data-filter-dropdown
       className={activeList[0] ? "active" : ""}
+      style={{ position: "relative" }}
     >
-      <button
-        onClick={() => activateFilter({ filterType: dropdownType })}
-        className={`filter-dropdown__trigger-btn ${
-          isActive ? "active-dropdown" : ""
-        }`}
-      >
-        <span
-          title={
-            activeList[0]
-              ? activeList[activeList.length - 1][currentLocale]
-              : label
-          }
-        >
-          {activeList[0]
-            ? activeList[activeList.length - 1][currentLocale]
-            : label}
-        </span>
-      </button>
+      <DropdownTriggerButton
+        label={label}
+        isActive={isActive}
+        activeList={activeList}
+        dropdownType={dropdownType}
+        activateFilter={activateFilter}
+      />
 
       {isActive && (
-        <ul className="filter-dropdown__body">
-          {list?.map((item) => (
-            <li
-              key={uuid()}
-              className={`filter-dropdown__list-item ${
-                activeList.some((activeItem) => activeItem.ka === item.ka)
-                  ? "active"
-                  : ""
-              }`}
-            >
-              <button onClick={() => onSelect(item)}>{item[captionKey]}</button>
-            </li>
-          ))}
-        </ul>
+        <DropdownBody
+          list={list}
+          onSelect={onSelect}
+          captionKey={captionKey}
+          activeList={activeList}
+        />
       )}
-    </Styled.Dropdown>
+    </div>
   );
 }

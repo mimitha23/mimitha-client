@@ -1,7 +1,12 @@
-export { default as ProductHeading } from "./ProductHeading";
+export { default as EditorFitButtons } from "./EditorFitButtons";
 export { default as ProductDescription } from "./ProductDescription";
-export { default as ProductStyler } from "./ProductStyler";
-export { default as ProductShippingInfo } from "./ProductShippingInfo";
-export { default as ProductView } from "./ProductView";
+export { default as ProductDescriptionDetailsBox } from "./ProductDescriptionDetailsBox";
 export { default as ProductFooter } from "./ProductFooter";
+export { default as ProductHeading } from "./ProductHeading";
+export { default as ProductInfo } from "./ProductInfo";
+export { default as ProductShippingInfo } from "./ProductShippingInfo";
+export { default as ProductStyler } from "./ProductStyler";
+export { default as ProductView } from "./ProductView";
+export { default as ProductViewThumbnails } from "./ProductViewThumbnails";
+export { default as ProductViewFigure } from "./ProductViewFigure";
 export { default as RelatedProducts } from "./RelatedProducts";

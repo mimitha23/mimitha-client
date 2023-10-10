@@ -9,9 +9,9 @@ const ContainerFullEl = styled.section`
   }
 `;
 
-export default function ContainerFull({ children, className }) {
+export default function ContainerFull({ children, className, ...props }) {
   return (
-    <ContainerFullEl data-container-full className={className || ""}>
+    <ContainerFullEl data-container-full className={className || ""} {...props}>
       {children}
     </ContainerFullEl>
   );

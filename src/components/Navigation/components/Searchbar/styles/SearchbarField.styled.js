@@ -36,4 +36,27 @@ export const SearchBarField = styled.div`
   .search__close-btn {
     display: none;
   }
+
+  &.active_bar .search__close-btn {
+    display: block;
+  }
+
+  @media (${({ theme }) => theme.media.mobile}) {
+    &.active_bar {
+      height: 5rem;
+      padding: 0 1rem;
+
+      .search--input {
+        display: block;
+      }
+    }
+
+    .search-icon {
+      font-size: ${({ theme }) => theme.fontSize.h3};
+    }
+
+    .search--input {
+      display: none;
+    }
+  }
 `;

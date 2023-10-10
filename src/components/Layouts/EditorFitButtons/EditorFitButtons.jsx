@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { ModalWindow } from "..";
+import * as UI from "./components/index";
 import * as Styled from "./EditorFitButtons.styled";
 
 export default function EditorFitButtons({ onModel, onMannequin, activeFit }) {
@@ -11,16 +11,6 @@ export default function EditorFitButtons({ onModel, onMannequin, activeFit }) {
     name: "",
     isOpen: false,
   });
-
-  function onModalClose() {
-    setActiveFitModal({
-      name: "",
-      isOpen: false,
-    });
-
-    if (activeFitModal.name === "mannequin") onMannequin({ reset: true });
-    else if (activeFitModal.name === "model") onModel({ reset: true });
-  }
 
   return (
     <Styled.EditorFitButtonsContainer data-editor-fit-buttons>
@@ -50,25 +40,13 @@ export default function EditorFitButtons({ onModel, onMannequin, activeFit }) {
         {t("crossover.fit_model")}
       </button>
 
-      <ModalWindow
-        activeModal={activeFitModal.isOpen}
-        closeModal={onModalClose}
-      >
-        <div className="fit-product__modal-box">
-          <figure className="fit-product__modal-box--fig">
-            {activeFitModal.name === "mannequin" ? (
-              <img src={activeFit} alt="product media" />
-            ) : (
-              <video
-                src={activeFit}
-                alt="product media"
-                controls={true}
-                autoPlay={true}
-              />
-            )}
-          </figure>
-        </div>
-      </ModalWindow>
+      <UI.FitModal
+        activeFit={activeFit}
+        onModel={onModel}
+        onMannequin={onMannequin}
+        activeFitModal={activeFitModal}
+        setActiveFitModal={setActiveFitModal}
+      />
     </Styled.EditorFitButtonsContainer>
   );
 }

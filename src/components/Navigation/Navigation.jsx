@@ -5,15 +5,8 @@ import {
   useHideNavOnScroll,
 } from "hooks/layoutBase/index";
 
-import {
-  Logo,
-  SupportNav,
-  MainNav,
-  SearchBar,
-  // ShoppingCardButton,
-  BurgerButton,
-} from "./components";
-import * as Styled from "./styles/Navigation.styled";
+import * as UI from "./components";
+import * as Styled from "./Navigation.styled";
 
 export default memo(function Navigation() {
   const { partialNav } = useHideNavOnScroll();
@@ -21,22 +14,26 @@ export default memo(function Navigation() {
 
   return (
     <Styled.Navigation partialNav={partialNav}>
-      <Logo partialNav={partialNav} />
-      <div className="nav-actions">
-        <SupportNav partialNav={partialNav} />
+      <UI.Logo partialNav={partialNav} />
 
-        <div className="main-nav">
-          <MainNav
+      <Styled.NavActionsBox>
+        <UI.SupportNav partialNav={partialNav} />
+
+        <Styled.MainNavBox>
+          <UI.MainNav
             activeBurgerNav={activeBurgerNav}
             onBurgerClose={() => setActiveBurgerNav(false)}
           />
-          <div className="main_nav--right">
-            <SearchBar />
-            {/* <ShoppingCardButton /> */}
-            <BurgerButton setActiveBurgerNav={setActiveBurgerNav} />
-          </div>
-        </div>
-      </div>
+
+          <Styled.MainNavBoxActions>
+            <UI.SearchBar />
+
+            {/* <UI.ShoppingCardButton /> */}
+
+            <UI.BurgerButton setActiveBurgerNav={setActiveBurgerNav} />
+          </Styled.MainNavBoxActions>
+        </Styled.MainNavBox>
+      </Styled.NavActionsBox>
     </Styled.Navigation>
   );
 });

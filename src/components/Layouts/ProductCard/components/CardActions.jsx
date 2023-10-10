@@ -1,7 +1,10 @@
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import { PATHS } from "config/routes";
 import { useOnStartEdit } from "hooks/events";
+
+import * as Styled from "./styles/CardActions.styled";
 
 export default function CardActions({ productId, registeredProductId }) {
   const { t } = useTranslation();
@@ -14,7 +17,7 @@ export default function CardActions({ productId, registeredProductId }) {
   }
 
   return (
-    <div className="product-edit__and__fit-box">
+    <Styled.CardActions>
       {/* <button className="edit-btn">
         <Link to={PATHS.fit_products.fullPath({ productId })}>
           {t("crossover.goes_on")}
@@ -28,6 +31,6 @@ export default function CardActions({ productId, registeredProductId }) {
           {t("crossover.edit")}
         </Link>
       </button>
-    </div>
+    </Styled.CardActions>
   );
 }

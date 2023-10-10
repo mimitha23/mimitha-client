@@ -5,7 +5,7 @@ import { PATHS } from "config/routes";
 import { useLocationState } from "hooks/utils";
 import { useTranslationContext } from "providers/I18nextProvider";
 
-import SaveToListButtons from "./SaveToListButtons";
+import * as UI from "./index";
 import * as Styled from "./styles/CardFig.styled";
 
 export default function CardFig({
@@ -37,7 +37,7 @@ export default function CardFig({
           loading="lazy"
         />
 
-        <SaveToListButtons
+        <UI.SaveToListButtons
           productId={productId}
           showAddToList={showAddToList}
         />

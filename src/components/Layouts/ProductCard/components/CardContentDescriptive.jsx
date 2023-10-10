@@ -1,7 +1,4 @@
-import Price from "./Price";
-import ProductTitle from "./ProductTitle";
-import CurrencySwitch from "./CurrencySwitch";
-import SoldOut from "./SoldOut";
+import * as UI from "./index";
 
 export default function CardContentDescriptive({
   price,
@@ -12,12 +9,15 @@ export default function CardContentDescriptive({
 }) {
   return (
     <>
-      <ProductTitle title={title} productId={productId} linkState={linkState} />
-      <div className="product-card__price-currency--box">
-        <Price price={price} />
-        <CurrencySwitch />
-      </div>
-      <SoldOut soldOut={soldOut} />
+      <UI.ProductTitle
+        title={title}
+        productId={productId}
+        linkState={linkState}
+      />
+
+      <UI.PriceBox price={price} />
+
+      <UI.SoldOut soldOut={soldOut} />
     </>
   );
 }

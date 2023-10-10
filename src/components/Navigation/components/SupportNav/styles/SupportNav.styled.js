@@ -47,3 +47,11 @@ export const SupportNav = styled.div`
           }
         `};
 `;
+
+export const ThemeSwitch = styled.div`
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;

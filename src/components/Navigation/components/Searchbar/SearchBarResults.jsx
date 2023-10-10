@@ -1,64 +1,28 @@
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { selectProductsSearchResult } from "store/selectors/product.selectors";
 
-import {
-  selectProductsSearchResult,
-  selectProductsSearchStatus,
-} from "store/selectors/product.selectors";
-import { PATHS } from "config/routes";
-import { useLocationState } from "hooks/utils";
-
-import { ProductCard, Spinner } from "components/Layouts";
+import SearchBarResultsList from "./SearchBarResultsList";
+import SearchBarResultsHeader from "./SearchBarResultsHeader";
 import * as Styled from "./styles/SearchBarResults.styled";
 
-export default function SearchBarResults({ onSearchClose, search }) {
+export default function SearchBarResults({
+  search,
+  activeClass,
+  onSearchClose,
+}) {
   const result = useSelector(selectProductsSearchResult);
-  const status = useSelector(selectProductsSearchStatus);
-
-  const { setLocationState, getLocationStateDefaults } = useLocationState();
-  const locationStateDefaults = getLocationStateDefaults();
 
   return (
-    <Styled.SearchBarResults className="search-bar__result-box active-modal">
+    <Styled.SearchBarResults className={`${activeClass} active-modal`}>
       <div className="search-bar__result-box__content" onClick={onSearchClose}>
-        <div
-          className="search-bar__result-box__content-head"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {result[0] && (
-            <>
-              <span>{result.length} search results</span>
-              <Link
-                to={PATHS.products.fullPath}
-                state={setLocationState({
-                  search,
-                  title: locationStateDefaults.title,
-                  category: locationStateDefaults.category,
-                  productType: locationStateDefaults.productType,
-                })}
-                onClick={onSearchClose}
-              >
-                view all
-              </Link>
-            </>
-          )}
-        </div>
+        <SearchBarResultsHeader
+          search={search}
+          searchAmount={result.length}
+          onSearchClose={onSearchClose}
+          showResults={result[0] ? true : false}
+        />
 
-        <div
-          className="search-bar__result-box__content-list"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {!status.loading &&
-            result.map((product) => (
-              <ProductCard
-                key={product._id}
-                product={product}
-                showAddToList={false}
-              />
-            ))}
-
-          {status.loading && <Spinner />}
-        </div>
+        <SearchBarResultsList result={result} />
       </div>
     </Styled.SearchBarResults>
   );

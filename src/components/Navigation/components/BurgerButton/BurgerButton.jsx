@@ -1,8 +1,9 @@
 import { BurgerIcon } from "components/Layouts/Icons/index";
+import * as Styled from "./BurgerButton.styled";
 
 export default function BurgerButton({ setActiveBurgerNav }) {
   return (
-    <button
+    <Styled.BurgerButton
       className="burger-btn"
       onClick={() =>
         setActiveBurgerNav((prev) =>
@@ -11,6 +12,6 @@ export default function BurgerButton({ setActiveBurgerNav }) {
       }
     >
       <BurgerIcon />
-    </button>
+    </Styled.BurgerButton>
   );
 }

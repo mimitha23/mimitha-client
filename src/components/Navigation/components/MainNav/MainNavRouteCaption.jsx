@@ -19,14 +19,12 @@ export default function MainNavRouteCaption({
     <Link
       {...(linkState && { state: linkState })}
       to={isDirectLink ? PATHS.products.fullPath : ""}
-      className={`categories-nav__list-item--caption-box ${
-        state?.category === route ? "active" : ""
-      }`}
+      className={`caption-box ${state?.category === route ? "active" : ""}`}
     >
-      <span className="categories-nav__list-item--caption-box__caption">
+      <span className="caption-box__caption">
         {t(`navigation.main.${route}`)}
       </span>
-      <span className="categories-nav__list-item--caption-box__icon">
+      <span className="caption-box__icon">
         <ArrowBottomIcon />
       </span>
     </Link>

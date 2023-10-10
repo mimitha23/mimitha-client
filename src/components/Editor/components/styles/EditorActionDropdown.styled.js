@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { animateMoveBottom, dropdownRectingle } from "styles/helpers";
+import { animateMoveBottom, dropdownRectangle } from "styles/helpers";
 
 export const EditorActionDropdownContainer = styled.div`
   width: 100%;
@@ -14,11 +14,11 @@ export const EditorActionDropdownContainer = styled.div`
     background: ${({ theme }) => theme.colors.bg};
     border-radius: 0.5rem;
     transition: all 0.2s ease;
-    ${dropdownRectingle({
+    ${dropdownRectangle({
       buttonWidth: "50%",
       buttonBorderWidth: "2px",
-      rectingleHeight: "6rem",
-      rectingleBorderWidth: "2px",
+      rectangleHeight: "6rem",
+      rectangleBorderWidth: "2px",
     })}
 
     &.active-dropdown {
@@ -133,22 +133,22 @@ export const EditorActionDropdownContainer = styled.div`
 
   @media (${({ theme }) => theme.media.desktop_lg}) {
     .dropdown-trigger__btn {
-      ${dropdownRectingle({
+      ${dropdownRectangle({
         buttonWidth: "98%",
         buttonBorderWidth: "2px",
-        rectingleHeight: "4.5rem",
-        rectingleBorderWidth: "2px",
+        rectangleHeight: "4.5rem",
+        rectangleBorderWidth: "2px",
       })}
     }
   }
 
   @media (${({ theme }) => theme.media.mobile}) {
     .dropdown-trigger__btn {
-      ${dropdownRectingle({
+      ${dropdownRectangle({
         buttonWidth: "95%",
         buttonBorderWidth: "2px",
-        rectingleHeight: "4.5rem",
-        rectingleBorderWidth: "2px",
+        rectangleHeight: "4.5rem",
+        rectangleBorderWidth: "2px",
       })}
     }
   }

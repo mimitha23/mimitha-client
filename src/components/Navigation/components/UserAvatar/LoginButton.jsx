@@ -1,12 +1,13 @@
 import { useStartAuth } from "hooks/api/Auth";
 import { LoginIcon } from "components/Layouts/Icons";
+import * as Styled from "./styles/LoginButton.styled";
 
 export default function LoginButton() {
   const { startAuth } = useStartAuth();
 
   return (
-    <button onClick={startAuth} className="nav__login-btn" title="log in">
+    <Styled.LoginButton onClick={startAuth} title="log in">
       <LoginIcon />
-    </button>
+    </Styled.LoginButton>
   );
 }

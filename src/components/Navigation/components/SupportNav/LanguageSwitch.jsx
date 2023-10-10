@@ -1,29 +1,28 @@
-import { useTranslationContext } from "providers/I18nextProvider";
+import { Fragment } from "react";
+import { v4 as uuid } from "uuid";
 
-import * as Styled from "./styles/LanguageSwitch";
+import { MIMITHA_LOCALES } from "config/consts";
+
+import { useTranslationContext } from "providers/I18nextProvider";
+import * as Styled from "./styles/LanguageSwitch.styled";
 
 export default function LanguageSwitch() {
   const { changeLocale, currentLocale } = useTranslationContext();
 
   return (
     <Styled.LanguageSwitch>
-      <button
-        className={`language-switch__btn ${
-          currentLocale === "ka" ? "active_locale" : ""
-        }`}
-        onClick={() => changeLocale("ka")}
-      >
-        GE
-      </button>
-      <hr className="language-switch__devider" />
-      <button
-        className={`language-switch__btn ${
-          currentLocale === "en" ? "active_locale" : ""
-        }`}
-        onClick={() => changeLocale("en")}
-      >
-        EN
-      </button>
+      {MIMITHA_LOCALES.map((lang, index) => (
+        <Fragment key={uuid()}>
+          <Styled.LanguageSwitchButton
+            className={currentLocale === lang ? "active_locale" : ""}
+            onClick={() => changeLocale(lang)}
+          >
+            {lang.toUpperCase()}
+          </Styled.LanguageSwitchButton>
+
+          {index === 0 && <hr className="language-switch__devider" />}
+        </Fragment>
+      ))}
     </Styled.LanguageSwitch>
   );
 }

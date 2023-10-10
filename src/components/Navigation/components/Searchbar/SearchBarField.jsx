@@ -6,13 +6,14 @@ import * as Styled from "./styles/SearchbarField.styled";
 export default function SearchBarField({
   search,
   setSearch,
+  activeClass,
   setActiveResults,
   onSearchClose,
 }) {
   const { t } = useTranslation();
 
   return (
-    <Styled.SearchBarField className="search-bar__inp-field">
+    <Styled.SearchBarField className={activeClass}>
       <label
         className="search-icon search-label"
         onClick={() => setActiveResults(true)}

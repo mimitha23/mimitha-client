@@ -1,9 +1,4 @@
-import CardActions from "./CardActions";
-// import AddToCart from "./AddToCart";
-// import CurrencySwitch from "./CurrencySwitch";
-import Price from "./Price";
-import ProductTitle from "./ProductTitle";
-import SoldOut from "./SoldOut";
+import * as UI from "./index";
 
 export default function CardContentWithActions({
   title,
@@ -17,25 +12,26 @@ export default function CardContentWithActions({
 }) {
   return (
     <>
-      <ProductTitle title={title} productId={productId} linkState={linkState} />
+      <UI.ProductTitle
+        title={title}
+        productId={productId}
+        linkState={linkState}
+      />
 
-      <div className="product-card__price-currency--box">
-        <Price price={price} />
-        {/* <CurrencySwitch /> */}
-      </div>
+      <UI.PriceBox price={price} />
 
-      <SoldOut soldOut={soldOut} />
+      <UI.SoldOut soldOut={soldOut} />
 
       {isEditable && (
-        <CardActions
+        <UI.CardActions
           productId={productId}
           registeredProductId={registeredProductId}
         />
       )}
 
-      {/* <hr className="product-content__devider" /> */}
+      {/* <UI.Divider /> */}
 
-      {/* <AddToCart onAddToCart={onAddToCart} /> */}
+      {/* <UI.AddToCartButton onAddToCart={onAddToCart} /> */}
     </>
   );
 }

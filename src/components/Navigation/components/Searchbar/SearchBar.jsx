@@ -49,25 +49,32 @@ export default function SearchBar() {
     };
   }, [search]);
 
+  const activeClass = activeResults ? "active_bar" : "";
+
   return (
-    <Styled.SearchBar className={activeResults ? "active_bar" : "toto"}>
+    <Styled.SearchBar className={activeClass}>
       <div className="search-bar__wrapper">
         <SearchBarField
           search={search}
           setSearch={setSearch}
+          activeClass={activeClass}
           setActiveResults={setActiveResults}
           onSearchClose={onSearchClose}
         />
 
         {isBilingualSearch && (
-          <div className="search-warning">
+          <Styled.SearchWarning>
             {t("navigation.searchbar.search_warning")}
-          </div>
+          </Styled.SearchWarning>
         )}
       </div>
 
       {activeResults && (
-        <SearchBarResults onSearchClose={onSearchClose} search={search} />
+        <SearchBarResults
+          onSearchClose={onSearchClose}
+          search={search}
+          activeClass={activeClass}
+        />
       )}
     </Styled.SearchBar>
   );

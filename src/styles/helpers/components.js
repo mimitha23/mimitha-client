@@ -24,17 +24,17 @@ export const buttonPrimary = () => css`
   }
 `;
 
-export const dropdownRectingle = ({
+export const dropdownRectangle = ({
   buttonWidth,
   buttonBorderWidth,
-  rectingleHeight,
-  rectingleBorderWidth = "2px",
+  rectangleHeight,
+  rectangleBorderWidth = "2px",
 }) => {
   return css`
     position: relative;
     z-index: 2;
-    width: calc(${buttonWidth} - ${rectingleHeight} / 2);
-    height: ${rectingleHeight};
+    width: calc(${buttonWidth} - ${rectangleHeight} / 2);
+    height: ${rectangleHeight};
 
     &::after {
       content: "";
@@ -42,13 +42,13 @@ export const dropdownRectingle = ({
       z-index: 1;
       top: -${buttonBorderWidth};
       right: 0;
-      transform: translateX(calc(50% - ${rectingleBorderWidth} * 2));
+      transform: translateX(calc(50% - ${rectangleBorderWidth} * 2));
       height: 0;
       width: 0;
-      border-top: calc(${rectingleHeight} + 0.1rem) solid
+      border-top: calc(${rectangleHeight} + 0.1rem) solid
         ${({ theme }) => theme.colors.text};
-      border-left: ${rectingleHeight} solid transparent;
-      border-right: ${rectingleHeight} solid transparent;
+      border-left: ${rectangleHeight} solid transparent;
+      border-right: ${rectangleHeight} solid transparent;
     }
 
     &::before {
@@ -57,20 +57,20 @@ export const dropdownRectingle = ({
       z-index: 2;
       top: calc(${buttonBorderWidth} / 2);
       right: 0;
-      transform: translateX(calc(50% - ${rectingleBorderWidth} * 2));
+      transform: translateX(calc(50% - ${rectangleBorderWidth} * 2));
       height: 0;
       width: 0;
-      border-top: calc(${rectingleHeight} - 4 * ${rectingleBorderWidth}) solid
+      border-top: calc(${rectangleHeight} - 4 * ${rectangleBorderWidth}) solid
         ${({ theme }) => theme.colors.bg};
-      border-left: calc(${rectingleHeight} - 4 * ${rectingleBorderWidth}) solid
+      border-left: calc(${rectangleHeight} - 4 * ${rectangleBorderWidth}) solid
         transparent;
-      border-right: calc(${rectingleHeight} - 4 * ${rectingleBorderWidth}) solid
+      border-right: calc(${rectangleHeight} - 4 * ${rectangleBorderWidth}) solid
         transparent;
       transition: all 0.2s ease;
     }
 
     &.active-dropdown::before {
-      border-top: calc(${rectingleHeight} - 4 * ${rectingleBorderWidth}) solid
+      border-top: calc(${rectangleHeight} - 4 * ${rectangleBorderWidth}) solid
         ${({ theme }) => theme.colors.text};
     }
   `;

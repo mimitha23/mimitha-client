@@ -7,7 +7,7 @@ import { useCurrencyContext } from "providers/CurrencyProvider";
 import { selectCartSum } from "store/selectors/cart.selectors";
 
 import { ShoppingCartIcon } from "components/Layouts/Icons";
-import * as Styled from "./styles/ShoppingCard.styed";
+import * as Styled from "./ShoppingCardButton.styled";
 
 export default function ShoppingCardButton() {
   const sum = useSelector(selectCartSum);
