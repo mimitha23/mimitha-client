@@ -4,11 +4,10 @@ import {
   selectEditorStatus,
   selectActiveConfig,
 } from "store/selectors/editor.selectors";
-
 import { useFitProduct } from "hooks/layoutBase";
 
-import { EditorFitButtons, Spinner, ContainerFull } from "components/Layouts";
-import { EditorView, EditorActions } from "./components";
+import * as UI from "./components";
+import { FitButtons, Spinner, ContainerFull } from "components/Layouts";
 import * as Styled from "./Editor.styled";
 
 export default function Editor() {
@@ -20,7 +19,7 @@ export default function Editor() {
   return (
     <Styled.EditorContainer>
       <ContainerFull>
-        <EditorFitButtons
+        <FitButtons
           activeFit={activeFit}
           onModel={() => handleFitModel({ src: activeConfig.modelVideo })}
           onMannequin={() =>
@@ -30,9 +29,9 @@ export default function Editor() {
 
         {!status.loading && activeConfig && (
           <div className="editor-main">
-            <EditorView />
+            <UI.EditorView />
 
-            <EditorActions productId={activeConfig._id} />
+            <UI.EditorActions productId={activeConfig._id} />
           </div>
         )}
 

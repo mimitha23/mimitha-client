@@ -1,10 +1,11 @@
 import { useEditorContext } from "providers/EditorProvider";
+import * as Styled from "./styles/EditorDropdownTriggerButton.styled";
 
 export default function EditorDropdownTriggerButton({ variantType, caption }) {
   const { setActiveDropdown, activeDropdown } = useEditorContext();
 
   return (
-    <button
+    <Styled.EditorDropdownTriggerButton
       onClick={() =>
         setActiveDropdown(variantType === activeDropdown ? "" : variantType)
       }
@@ -18,6 +19,6 @@ export default function EditorDropdownTriggerButton({ variantType, caption }) {
           &nbsp;&mdash;&nbsp;{activeVariant[`description_${currentLocale}`]}
         </span>
       )} */}
-    </button>
+    </Styled.EditorDropdownTriggerButton>
   );
 }

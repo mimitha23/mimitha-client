@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { buttonPrimary } from "styles/helpers";
 
-export const EditorFitButtonsContainer = styled.div`
+export const FitButtonsContainer = styled.div`
   margin-bottom: 4rem;
   width: 100%;
   display: flex;

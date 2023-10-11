@@ -13,7 +13,7 @@ export default function ActiveProduct() {
 
       {!status.loading && (
         <ContainerFull>
-          <UI.EditorFitButtons />
+          <UI.FitButtons />
 
           <div className="product-main">
             <UI.ProductView productId={productId} />

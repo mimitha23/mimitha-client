@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import * as UI from "./components/index";
-import * as Styled from "./EditorFitButtons.styled";
+import * as Styled from "./FitButtons.styled";
 
-export default function EditorFitButtons({ onModel, onMannequin, activeFit }) {
+export default function FitButtons({ onModel, onMannequin, activeFit }) {
   const { t } = useTranslation();
 
   const [activeFitModal, setActiveFitModal] = useState({
@@ -13,7 +13,7 @@ export default function EditorFitButtons({ onModel, onMannequin, activeFit }) {
   });
 
   return (
-    <Styled.EditorFitButtonsContainer data-editor-fit-buttons>
+    <Styled.FitButtonsContainer data-editor-fit-buttons>
       <button
         className="fit-btn"
         onClick={() => {
@@ -47,6 +47,6 @@ export default function EditorFitButtons({ onModel, onMannequin, activeFit }) {
         activeFitModal={activeFitModal}
         setActiveFitModal={setActiveFitModal}
       />
-    </Styled.EditorFitButtonsContainer>
+    </Styled.FitButtonsContainer>
   );
 }

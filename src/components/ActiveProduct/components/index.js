@@ -1,4 +1,4 @@
-export { default as EditorFitButtons } from "./EditorFitButtons";
+export { default as FitButtons } from "./FitButtons";
 export { default as ProductDescription } from "./ProductDescription";
 export { default as ProductDescriptionDetailsBox } from "./ProductDescriptionDetailsBox";
 export { default as ProductFooter } from "./ProductFooter";

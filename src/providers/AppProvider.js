@@ -9,8 +9,8 @@ import { useFavoritesQuery, useUserListQuery } from "hooks/api/user";
 const AppContext = createContext({});
 
 export default function AppProvider({ children }) {
-  const { getAllFavoritesIdsQuery, cleanUpUserFavorites } = useFavoritesQuery();
-  const { getAllListsQuery, cleanUpUserLists } = useUserListQuery();
+  const { getAllFavoritesIdsQuery } = useFavoritesQuery();
+  const { getAllListsQuery } = useUserListQuery();
 
   const { isAuthenticated, loading } = useIsAuthenticated();
   const { redirectIfUnauthorized } = useRestrictUnauthorized();
@@ -25,9 +25,6 @@ export default function AppProvider({ children }) {
     if (isAuthenticated) {
       getAllFavoritesIdsQuery();
       getAllListsQuery();
-    } else {
-      cleanUpUserFavorites();
-      cleanUpUserLists();
     }
   }, [isAuthenticated]);
 

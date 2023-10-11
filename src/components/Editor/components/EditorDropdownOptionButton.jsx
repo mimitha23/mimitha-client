@@ -1,14 +1,15 @@
 import { useState, useEffect, useRef } from "react";
-import { useEditorContext } from "providers/EditorProvider";
-import { useTranslation } from "react-i18next";
 
-export default function EditorOptionButton({
+import { useEditorContext } from "providers/EditorProvider";
+
+import * as UI from "./";
+import * as Styled from "./styles/EditorDropdownOptionButton.styled";
+
+export default function EditorDropdownOptionButton({
   variant,
   activeVariant,
   unrecognizedIds,
 }) {
-  const { t } = useTranslation();
-
   const { currentLocale, onChangeConfig } = useEditorContext();
 
   const isActiveVariant = activeVariant?._id === variant._id;
@@ -52,14 +53,13 @@ export default function EditorOptionButton({
   }, [showUnrecognizedMessage]);
 
   return (
-    <button
+    <Styled.EditorDropdownOptionButton
       ref={buttonRef}
-      className={`variant__option-btn ${isActiveVariant ? "active" : ""} ${
+      onClick={handleOnClick}
+      title={variant[`description_${currentLocale}`]}
+      className={`${isActiveVariant ? "active" : ""} ${
         isUnrecognizedVariant ? "unrecognized" : "available"
       }`}
-      title={variant[`description_${currentLocale}`]}
-      onClick={handleOnClick}
-      key={variant._id}
     >
       <figure>
         <svg>
@@ -68,12 +68,11 @@ export default function EditorOptionButton({
       </figure>
 
       {showUnrecognizedMessage && (
-        <p className={`unrecognized__message ${unRecognizedMessagePosition}`}>
-          {t("crossover.variant_conflict", {
-            variant: variant[`description_${currentLocale}`],
-          })}
-        </p>
+        <UI.EditorDropdownOptionButtonTooltip
+          description={variant[`description_${currentLocale}`]}
+          unRecognizedMessagePosition={unRecognizedMessagePosition}
+        />
       )}
-    </button>
+    </Styled.EditorDropdownOptionButton>
   );
 }

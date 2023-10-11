@@ -1,2 +1,11 @@
-export { default as EditorView } from "./EditorView";
+export { default as EditorDropdown } from "./EditorDropdown";
+export { default as EditorDropdownOptionsList } from "./EditorDropdownOptionsList";
 export { default as EditorActions } from "./EditorActions";
+export { default as EditorDropdownsList } from "./EditorDropdownsList";
+export { default as EditorDropdownTriggerButton } from "./EditorDropdownTriggerButton";
+export { default as EditorDropdownOptionButton } from "./EditorDropdownOptionButton";
+export { default as EditorDropdownOptionButtonTooltip } from "./EditorDropdownOptionButtonTooltip";
+export { default as EditorView } from "./EditorView";
+export { default as EditorViewFigure } from "./EditorViewFigure";
+export { default as FinishEditButton } from "./FinishEditButton";
+export { default as ViewModeButton } from "./ViewModeButton";

@@ -9,11 +9,11 @@ const BaseTheme = {
     section_animation_duration: "0.3s",
   },
   media: {
-    desktop_lg: "max-width:105em",
-    desktop: "max-width:80em",
-    tablet: "max-width:60em",
-    tablet_sm: "max-width:42.5em",
-    mobile: "max-width:30em",
+    desktop_lg: "max-width:105em", //1680px
+    desktop: "max-width:80em", // 1280px
+    tablet: "max-width:60em", // 960px
+    tablet_sm: "max-width:42.5em", // 680px
+    mobile: "max-width:30em", // 450px
   },
   colors: {
     gray_shade: "rgba(215, 215, 215, 1)",
