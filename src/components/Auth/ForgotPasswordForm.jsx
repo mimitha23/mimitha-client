@@ -1,73 +1,61 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import {
-  selectAuthStatus,
-  selectForgotPasswordForm,
-} from "store/selectors/auth.selectors";
+import { Controller } from "react-hook-form";
 import { useForgotPasswordQuery } from "hooks/api/Auth";
+import { selectAuthStatus } from "store/selectors/auth.selectors";
 import { authActions, AUTH_PROCESSES } from "store/reducers/auth.reducer";
 
+import * as UI from "./components";
 import { Spinner } from "components/Layouts";
-import FormInputField from "./components/FormInputField";
-import FormContainer from "./components/FormContainer";
 import { ArrowLeftIcon } from "components/Layouts/Icons";
-import FormError from "./components/FormError";
-import AuthActionsBox from "./components/AuthActionsBox";
 
 export default function ForgotPasswordForm({ onClosePopup }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const form = useSelector(selectForgotPasswordForm);
   const status = useSelector(selectAuthStatus);
 
-  const { forgotPassword, error, resetError } = useForgotPasswordQuery();
+  const { form, forgotPasswordQuery } = useForgotPasswordQuery();
 
   const onBack = () => {
-    error.hasError && resetError();
+    form.reset();
     dispatch(
       authActions.changeAuthOnGoingProcess(AUTH_PROCESSES.authorization)
     );
   };
 
-  const handleForm = useCallback((e) => {
-    dispatch(
-      authActions.setForgotPasswordForm({
-        key: e.target.name,
-        value: e.target.value,
-      })
-    );
-  }, []);
-
   return (
-    <FormContainer onClosePopup={onClosePopup}>
+    <UI.FormContainer
+      onClosePopup={onClosePopup}
+      onSubmit={forgotPasswordQuery}
+    >
       <button className="auth-popup__back-btn" onClick={onBack}>
         <ArrowLeftIcon />
         <span>{t("auth.login")}</span>
       </button>
 
-      <FormInputField
-        id="email"
-        label={t("auth.email")}
-        type="email"
+      <Controller
         name="email"
-        placeholder="user@io.com"
-        value={form.email}
-        error={error.email}
-        onChange={handleForm}
+        control={form.control}
+        render={({ field, fieldState: { error } }) => (
+          <UI.FormInputField
+            id="email"
+            label={t("auth.email")}
+            type="email"
+            placeholder="user@io.com"
+            fieldProps={{ ...field }}
+            error={error}
+          />
+        )}
       />
 
-      {status.error && <FormError message={status.message} />}
+      {status.error && <UI.FormError message={status.message} />}
 
-      <AuthActionsBox
-        submitBtnCaption={t("auth.send")}
-        onSubmit={forgotPassword}
-      />
+      <UI.AuthActionsBox submitBtnCaption={t("auth.send")} />
 
       {status.loading && <Spinner />}
-    </FormContainer>
+    </UI.FormContainer>
   );
 }

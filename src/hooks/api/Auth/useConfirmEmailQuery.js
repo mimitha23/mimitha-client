@@ -1,33 +1,16 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { ValidateConfirmEmail } from "utils/validators/Auth";
+
 import { authActions } from "store/reducers/auth.reducer";
+import useConfirmEmailForm from "utils/zod/confirmEmailValidation";
 
 export default function useConfirmEmailQuery() {
   const dispatch = useDispatch();
 
-  const confirmEmailValidation = new ValidateConfirmEmail();
-  const [error, setError] = useState(confirmEmailValidation.error);
-  const defaultError = { ...confirmEmailValidation.error };
+  const form = useConfirmEmailForm();
 
-  function resetError() {
-    confirmEmailValidation.error = { ...defaultError };
-    setError(defaultError);
-  }
+  const confirmEmailQuery = form.handleSubmit((values) =>
+    dispatch(authActions.confirmEmail(values))
+  );
 
-  function confirmEmail(value) {
-    const { error: validation } = confirmEmailValidation
-      .validate({
-        pin: value,
-      })
-      .validateMinSixCharacter();
-
-    setError((prev) => ({ ...prev, ...validation }));
-
-    if (validation.hasError) return;
-
-    dispatch(authActions.confirmEmail({ pin: value }));
-  }
-
-  return { confirmEmail, error, resetError };
+  return { confirmEmailQuery, form };
 }

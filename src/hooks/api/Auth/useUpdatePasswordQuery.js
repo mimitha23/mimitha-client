@@ -1,36 +1,16 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectUpdatePasswordForm } from "store/selectors/auth.selectors";
-import { ValidateUpdatePassword } from "utils/validators/Auth";
+import { useDispatch } from "react-redux";
+
 import { authActions } from "store/reducers/auth.reducer";
+import useUpdatePasswordForm from "utils/zod/updatePasswordValidation";
 
 export default function useUpdatePasswordQuery() {
   const dispatch = useDispatch();
 
-  const form = useSelector(selectUpdatePasswordForm);
+  const form = useUpdatePasswordForm();
 
-  const updatePasswordValidation = new ValidateUpdatePassword();
-  const [error, setError] = useState(updatePasswordValidation.error);
-  const defaultError = { ...updatePasswordValidation.error };
+  const updatePasswordQuery = form.handleSubmit((values) =>
+    dispatch(authActions.updatePassword(values))
+  );
 
-  function resetError() {
-    updatePasswordValidation.error = { ...defaultError };
-    setError(defaultError);
-  }
-
-  function updatePassword(e) {
-    e.preventDefault();
-
-    const { error: validation } = updatePasswordValidation
-      .validate(form)
-      .validateConfirmPassword();
-
-    setError((prev) => ({ ...prev, ...validation }));
-
-    if (validation.hasError) return;
-
-    dispatch(authActions.updatePassword({ password: form.password }));
-  }
-
-  return { updatePassword, error, resetError };
+  return { updatePasswordQuery, form };
 }

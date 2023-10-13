@@ -1,20 +1,23 @@
+import { forwardRef } from "react";
 import OtpInput from "react-otp-input";
 
 import * as UI from "./";
 import * as Styled from "./styles/OTPField.styled";
 
-export default function OTPField({ pin, setPin, error }) {
+const OTPField = forwardRef(({ fieldProps, onChange, error }, ref) => {
   return (
     <Styled.OTPField>
       <OtpInput
-        value={pin}
-        onChange={setPin}
         numInputs={6}
+        {...fieldProps}
+        onChange={(value) => onChange(+value)}
         renderSeparator={<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>}
         renderInput={(props) => (
           <input
             {...{
               ...props,
+              // ref,
+              type: "number",
               className: "otp-inp",
               placeholder: "*",
             }}
@@ -22,7 +25,9 @@ export default function OTPField({ pin, setPin, error }) {
         )}
       />
 
-      {error.hasError && <UI.FormError message={error.pin.message} />}
+      {error && <UI.FormError message={error?.message} />}
     </Styled.OTPField>
   );
-}
+});
+
+export default OTPField;

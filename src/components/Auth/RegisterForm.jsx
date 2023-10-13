@@ -1,103 +1,98 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import {
-  selectRegisterForm,
-  selectAuthStatus,
-} from "store/selectors/auth.selectors";
+import { Controller } from "react-hook-form";
 import { useRegistrationQuery } from "hooks/api/Auth";
-import { authActions } from "store/reducers/auth.reducer";
+import { selectAuthStatus } from "store/selectors/auth.selectors";
 
+import * as UI from "./components";
 import { Spinner } from "components/Layouts";
-import FormContainer from "./components/FormContainer";
-import GoogleButton from "./components/GoogleButton";
-import FormDevider from "./components/FormDevider";
-import FormInputField from "./components/FormInputField";
-import FormError from "./components/FormError";
-import AuthActionsBox from "./components/AuthActionsBox";
 
 export default function RegisterForm({ onClosePopup }) {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const form = useSelector(selectRegisterForm);
   const status = useSelector(selectAuthStatus);
 
-  const { registration, error, resetError } = useRegistrationQuery();
+  const { form, registrationQuery } = useRegistrationQuery();
 
-  const onSwitchProcess = () => error.hasError && resetError();
-
-  const handleForm = useCallback((e) => {
-    dispatch(
-      authActions.setRegisterForm({
-        key: e.target.name,
-        value: e.target.value,
-      })
-    );
-  }, []);
+  const onSwitchProcess = () => form.reset();
 
   return (
-    <FormContainer onClosePopup={onClosePopup}>
-      <FormInputField
-        id="email"
-        label={t("auth.email")}
-        type="email"
+    <UI.FormContainer onClosePopup={onClosePopup} onSubmit={registrationQuery}>
+      <Controller
         name="email"
-        placeholder="user@io.com"
-        value={form.email}
-        onChange={handleForm}
-        error={error.email}
+        control={form.control}
+        render={({ field, fieldState: { error } }) => (
+          <UI.FormInputField
+            id="email"
+            label={t("auth.email")}
+            type="email"
+            placeholder="user@io.com"
+            fieldProps={{ ...field }}
+            error={error}
+          />
+        )}
       />
 
-      <FormInputField
-        id="username"
-        label={t("auth.username")}
-        type="text"
+      <Controller
         name="username"
-        placeholder="user.mimitha"
-        error={error.username}
-        value={form.username}
-        onChange={handleForm}
+        control={form.control}
+        render={({ field, fieldState: { error } }) => (
+          <UI.FormInputField
+            id="username"
+            label={t("auth.username")}
+            type="text"
+            placeholder="user.mimitha"
+            fieldProps={{ ...field }}
+            error={error}
+          />
+        )}
       />
 
-      <FormInputField
-        id="password"
-        label={t("auth.password")}
-        type="password"
+      <Controller
         name="password"
-        placeholder="******"
-        error={error.password}
-        value={form.password}
-        onChange={handleForm}
+        control={form.control}
+        render={({ field, fieldState: { error } }) => (
+          <UI.FormInputField
+            id="password"
+            label={t("auth.password")}
+            type="password"
+            placeholder="******"
+            fieldProps={{ ...field }}
+            error={error}
+          />
+        )}
       />
 
-      <FormInputField
-        id="confirm-password"
-        label={t("auth.confirm_password")}
-        type="password"
-        name="confirm_password"
-        placeholder="******"
-        error={error.confirm_password}
-        value={form.confirm_password}
-        onChange={handleForm}
+      <Controller
+        name="confirmPassword"
+        control={form.control}
+        render={({ field, fieldState: { error } }) => (
+          <UI.FormInputField
+            id="confirm-password"
+            label={t("auth.confirm_password")}
+            type="password"
+            placeholder="******"
+            fieldProps={{ ...field }}
+            error={error}
+          />
+        )}
       />
 
-      {status.error && <FormError message={status.message} />}
+      {status.error && <UI.FormError message={status.message} />}
 
-      <AuthActionsBox
+      <UI.AuthActionsBox
         submitBtnCaption={t("auth.registration")}
-        onSubmit={registration}
         onSwitchProcess={onSwitchProcess}
         showSwitch={true}
       />
 
-      <FormDevider />
+      <UI.FormDevider />
 
-      <GoogleButton />
+      <UI.GoogleButton />
 
       {status.loading && <Spinner />}
-    </FormContainer>
+    </UI.FormContainer>
   );
 }

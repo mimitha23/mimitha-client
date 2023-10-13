@@ -2,9 +2,10 @@
 import { createContext, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import { useIsAuthenticated, useRestrictUnauthorized } from "hooks/auth";
 import { RouterHistory } from "config/router";
 import { useFavoritesQuery, useUserListQuery } from "hooks/api/user";
+import { useIsAuthenticated, useRestrictUnauthorized } from "hooks/auth";
+import { useUserFavoritesEvents, useUserListEvents } from "hooks/events";
 
 const AppContext = createContext({});
 
@@ -19,12 +20,18 @@ export default function AppProvider({ children }) {
   RouterHistory.location = useLocation();
   RouterHistory.redirectIfUnauthorized = redirectIfUnauthorized;
 
+  const { cleanUpUserLists } = useUserListEvents();
+  const { cleanUpUserFavorites } = useUserFavoritesEvents();
+
   useEffect(() => {
     if (loading) return;
 
     if (isAuthenticated) {
       getAllFavoritesIdsQuery();
       getAllListsQuery();
+    } else {
+      cleanUpUserFavorites();
+      cleanUpUserLists();
     }
   }, [isAuthenticated]);
 

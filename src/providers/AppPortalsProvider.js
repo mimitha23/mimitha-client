@@ -10,8 +10,8 @@ import { AddToListPopup } from "components/Layouts";
 const AppPortalsContext = createContext({});
 
 export default function AppPortalsProvider({ children }) {
-  const productToAddToListId = useSelector(selectProductToAddToListId);
   const openAuthPopup = useSelector(selectIsOpenPopup);
+  const productToAddToListId = useSelector(selectProductToAddToListId);
 
   return (
     <AppPortalsContext.Provider value={{}}>

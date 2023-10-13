@@ -15,6 +15,10 @@ export const OTPField = styled.div`
     text-align: center;
     border-radius: 0.5rem;
 
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+
     &::placeholder {
       font-weight: bold;
       font-size: ${({ theme }) => theme.fontSize.lg};

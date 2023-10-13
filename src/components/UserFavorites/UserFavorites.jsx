@@ -8,6 +8,7 @@ import {
   selectUserFavoritesStatus,
 } from "store/selectors/user/userFavorites.selector";
 import { useFavoritesQuery } from "hooks/api/user";
+import { useUserFavoritesEvents } from "hooks/events";
 
 import { Spinner, EmptyMessage } from "components/Layouts";
 import FavoritesList from "./FavoritesList";
@@ -20,9 +21,14 @@ export default function UserFavorites() {
   const products = useSelector(selectAllUserFavorites);
 
   const { getAllFavoritesQuery } = useFavoritesQuery();
+  const { cleanUpUserFavoritesList } = useUserFavoritesEvents();
 
   useEffect(() => {
     getAllFavoritesQuery();
+
+    return () => {
+      cleanUpUserFavoritesList();
+    };
   }, []);
 
   return (

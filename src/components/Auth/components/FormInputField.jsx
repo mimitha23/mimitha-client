@@ -6,11 +6,9 @@ import * as Styled from "./styles/FormInputField.styled";
 export default memo(function FormInputField({
   type,
   id,
-  name,
   label,
-  value,
+  fieldProps,
   error,
-  onChange,
   placeholder,
 }) {
   const [passwordInputType, setPasswordInputType] = useState("password");
@@ -26,10 +24,8 @@ export default memo(function FormInputField({
           id={id}
           className="form-field__input"
           type={type === "password" ? passwordInputType : type}
-          name={name}
-          value={value}
-          onChange={onChange}
           placeholder={placeholder || ""}
+          {...fieldProps}
         />
 
         {type === "password" && (
@@ -41,7 +37,7 @@ export default memo(function FormInputField({
         )}
       </div>
 
-      {error.hasError && <UI.FormError message={error.message} />}
+      {error && <UI.FormError message={error?.message} />}
     </Styled.FormInputField>
   );
 });
