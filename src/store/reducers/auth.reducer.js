@@ -13,27 +13,6 @@ const initialState = {
   openPopup: false,
   authOnGoingProcess: AUTH_PROCESSES.authorization,
 
-  loginForm: {
-    email: "",
-    password: "",
-  },
-
-  registerForm: {
-    email: "",
-    username: "",
-    password: "",
-    confirm_password: "",
-  },
-
-  forgotPasswordForm: {
-    email: "",
-  },
-
-  updatePasswordForm: {
-    password: "",
-    confirm_password: "",
-  },
-
   status: {
     loading: false,
     error: false,
@@ -51,22 +30,6 @@ const authSlice = createSlice({
 
     changeAuthOnGoingProcess(state, { payload }) {
       state.authOnGoingProcess = payload;
-    },
-
-    setLoginForm(state, { payload: { key, value } }) {
-      state.loginForm[key] = value;
-    },
-
-    setRegisterForm(state, { payload: { key, value } }) {
-      state.registerForm[key] = value;
-    },
-
-    setForgotPasswordForm(state, { payload: { key, value } }) {
-      state.forgotPasswordForm[key] = value;
-    },
-
-    setUpdatePasswordForm(state, { payload: { key, value } }) {
-      state.updatePasswordForm[key] = value;
     },
 
     // API
@@ -129,7 +92,6 @@ const authSlice = createSlice({
 
     setForgotPassword(state) {
       state.authOnGoingProcess = AUTH_PROCESSES.confirm_email;
-      state.forgotPasswordForm = initialState.forgotPasswordForm;
     },
 
     confirmEmail: {
@@ -166,7 +128,6 @@ const authSlice = createSlice({
 
     setUpdatePassword(state) {
       state.authOnGoingProcess = AUTH_PROCESSES.authorization;
-      state.updatePasswordForm = initialState.updatePasswordForm;
     },
 
     // REQUEST STATUS SETTERS
@@ -179,15 +140,7 @@ const authSlice = createSlice({
     },
 
     // RESET
-    resetForms(state) {
-      state.loginForm = initialState.loginForm;
-      state.registerForm = initialState.registerForm;
-    },
-
     cleanUpAuth(state) {
-      state.loginForm = initialState.loginForm;
-      state.registerForm = initialState.registerForm;
-      state.forgotPasswordForm = initialState.forgotPasswordForm;
       state.openPopup = false;
       state.authOnGoingProcess = AUTH_PROCESSES.authorization;
       state.status = status.success();

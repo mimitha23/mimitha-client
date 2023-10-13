@@ -42,7 +42,10 @@ export default function useUserListEvents() {
     dispatch(userListsActions.setListTitle(value));
 
   // CleanUp
-  const cleanUpUserLists = () => dispatch(userListsActions.resetUserLists());
+  const cleanUpUserLists = () => dispatch(userListsActions.cleanUpUserLists());
+
+  const cleanUpUserActiveList = () =>
+    dispatch(userListsActions.cleanUpUserActiveList());
 
   // Utils
   const userLists = useSelector(selectAllUserLists);
@@ -63,6 +66,7 @@ export default function useUserListEvents() {
     newListTitle,
     // CleanUp
     cleanUpUserLists,
+    cleanUpUserActiveList,
     // Utils
     checkIsSavedToList,
   };

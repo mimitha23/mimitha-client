@@ -25,7 +25,6 @@ export default function SwitchProcessField({
       )
     );
 
-    dispatch(authActions.resetForms());
     onSwitchProcess();
   }
 

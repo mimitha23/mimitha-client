@@ -3,7 +3,6 @@ import * as Styled from "./styles/AuthActionsBox.styled";
 
 export default function AuthActionsBox({
   children,
-  onSubmit,
   submitBtnCaption,
   onSwitchProcess,
   showSwitch = false,
@@ -13,7 +12,7 @@ export default function AuthActionsBox({
     <Styled.AuthActionsBox>
       {children}
 
-      <UI.LoginButton onSubmit={onSubmit} submitBtnCaption={submitBtnCaption} />
+      <UI.LoginButton submitBtnCaption={submitBtnCaption} />
 
       {showSwitch && (
         <UI.SwitchProcessField

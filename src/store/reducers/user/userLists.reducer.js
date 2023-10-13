@@ -167,10 +167,14 @@ const userListsSlice = createSlice({
     },
 
     // Cleaners
-    resetUserLists(state) {
+    cleanUpUserLists(state) {
       Object.keys(initialState).forEach(
         (key) => (state[key] = initialState[key])
       );
+    },
+
+    cleanUpUserActiveList(state) {
+      state.list = initialState.list;
     },
   },
 });

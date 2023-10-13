@@ -90,10 +90,14 @@ const userFavoritesSlice = createSlice({
     },
 
     // cleaners
-    resetUserFavorites(state) {
+    cleanUpUserFavorites(state) {
       Object.keys(initialState).forEach(
         (key) => (state[key] = initialState[key])
       );
+    },
+
+    cleanUpUserFavoritesList(state) {
+      state.favorites = initialState.favorites;
     },
   },
 });

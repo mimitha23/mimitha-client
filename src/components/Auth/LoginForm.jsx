@@ -1,82 +1,68 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import {
-  selectLoginForm,
-  selectAuthStatus,
-} from "store/selectors/auth.selectors";
 import { useLoginQuery } from "hooks/api/Auth";
-import { authActions } from "store/reducers/auth.reducer";
+import { Controller } from "react-hook-form";
+import { selectAuthStatus } from "store/selectors/auth.selectors";
 
+import * as UI from "./components";
 import { Spinner } from "components/Layouts";
-import FormContainer from "./components/FormContainer";
-import FormInputField from "./components/FormInputField";
-import FormDevider from "./components/FormDevider";
-import GoogleButton from "./components/GoogleButton";
-import FormError from "./components/FormError";
-import AuthActionsBox from "./components/AuthActionsBox";
 
 export default function LoginForm({ onClosePopup }) {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const form = useSelector(selectLoginForm);
   const status = useSelector(selectAuthStatus);
 
-  const { login, error, resetError } = useLoginQuery();
-
-  const onSwitchProcess = () => error.hasError && resetError();
-
-  const handleForm = useCallback((e) => {
-    dispatch(
-      authActions.setLoginForm({
-        key: e.target.name,
-        value: e.target.value,
-      })
-    );
-  }, []);
+  const { form, loginQuery } = useLoginQuery();
+  const onSwitchProcess = () => form.reset();
 
   return (
-    <FormContainer onClosePopup={onClosePopup}>
-      <FormInputField
-        id="email"
-        label={t("auth.email")}
-        type="email"
+    <UI.FormContainer onClosePopup={onClosePopup} onSubmit={loginQuery}>
+      <Controller
         name="email"
-        placeholder="user@io.com"
-        value={form.email}
-        error={error.email}
-        onChange={handleForm}
+        control={form.control}
+        render={({ field, fieldState: { error } }) => (
+          <UI.FormInputField
+            id="email"
+            type="email"
+            label={t("auth.email")}
+            placeholder="user@io.com"
+            fieldProps={{ ...field }}
+            error={error}
+          />
+        )}
       />
 
-      <FormInputField
-        id="password"
-        label={t("auth.password")}
-        type="password"
+      <Controller
         name="password"
-        placeholder="******"
-        error={error.password}
-        value={form.password}
-        onChange={handleForm}
+        control={form.control}
+        render={({ field, fieldState: { error } }) => (
+          <UI.FormInputField
+            id="password"
+            label={t("auth.password")}
+            type="password"
+            placeholder="******"
+            fieldProps={{ ...field }}
+            error={error}
+          />
+        )}
       />
 
-      {status.error && <FormError message={status.message} />}
+      {status.error && <UI.FormError message={status.message} />}
 
-      <AuthActionsBox
+      <UI.AuthActionsBox
         submitBtnCaption={t("auth.login")}
-        onSubmit={login}
         showSwitch={true}
         showForgotPassword={true}
         onSwitchProcess={onSwitchProcess}
       />
 
-      <FormDevider />
+      <UI.FormDevider />
 
-      <GoogleButton />
+      <UI.GoogleButton />
 
       {status.loading && <Spinner />}
-    </FormContainer>
+    </UI.FormContainer>
   );
 }

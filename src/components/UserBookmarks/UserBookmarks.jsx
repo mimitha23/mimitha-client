@@ -9,6 +9,7 @@ import {
   selectUserListStatus,
 } from "store/selectors/user/userLists.selectors";
 import { useUserListQuery } from "hooks/api/user";
+import { useUserListEvents } from "hooks/events";
 
 import UserBookmarksHeader from "./components/UserBookmarksHeader";
 import { EmptyMessage, Spinner } from "components/Layouts";
@@ -24,10 +25,17 @@ export default function UserBookmarks() {
   const list = useSelector(selectUserList);
 
   const { getListQuery, deleteListQuery } = useUserListQuery();
+  const { cleanUpUserActiveList } = useUserListEvents();
 
   useEffect(() => {
     getListQuery(listId);
   }, [listId]);
+
+  useEffect(() => {
+    return () => {
+      cleanUpUserActiveList();
+    };
+  }, []);
 
   return (
     <Styled.UserBookmarks>

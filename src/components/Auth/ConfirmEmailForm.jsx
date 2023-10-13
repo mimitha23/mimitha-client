@@ -1,52 +1,52 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
-
-import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
-import { selectAuthStatus } from "store/selectors/auth.selectors";
+import { Controller } from "react-hook-form";
 import { useConfirmEmailQuery } from "hooks/api/Auth";
+import { selectAuthStatus } from "store/selectors/auth.selectors";
 
-import FormContainer from "./components/FormContainer";
+import * as UI from "./components";
 import { Spinner } from "components/Layouts";
-import FormError from "./components/FormError";
-import AuthActionsBox from "./components/AuthActionsBox";
-import OTPField from "./components/OTPField";
 
 export default function ConfirmEmailForm({ onClosePopup }) {
   const { t } = useTranslation();
 
   const status = useSelector(selectAuthStatus);
-  const { confirmEmail, error, resetError } = useConfirmEmailQuery();
-
-  const [pin, setPin] = useState("");
+  const { form, confirmEmailQuery } = useConfirmEmailQuery();
 
   useEffect(() => {
     return () => {
-      resetError();
+      form.reset();
     };
   }, []);
 
   return (
-    <FormContainer onClosePopup={onClosePopup}>
-      <OTPField pin={pin} setPin={setPin} error={error} />
+    <UI.FormContainer onClosePopup={onClosePopup} onSubmit={confirmEmailQuery}>
+      <Controller
+        name="pin"
+        control={form.control}
+        render={({
+          field: { onChange, ref, ...field },
+          fieldState: { error },
+        }) => (
+          <UI.OTPField
+            fieldProps={{ ...field }}
+            ref={ref}
+            onChange={onChange}
+            error={error}
+          />
+        )}
+      />
 
-      {status.error && <FormError message={status.message} />}
+      {status.error && <UI.FormError message={status.message} />}
 
-      <AuthActionsBox
-        submitBtnCaption={t("auth.confirm")}
-        onSubmit={(e) => {
-          e.preventDefault();
-          confirmEmail(pin);
-        }}
-      >
-        <div className="registration-suggestion confirm-email">
-          <span>{t("auth.confirm_email_message_primary")}</span>
-          <span>{t("auth.confirm_email_message_secondary")}</span>
-        </div>
-      </AuthActionsBox>
+      <UI.AuthActionsBox submitBtnCaption={t("auth.confirm")}>
+        <UI.ConfirmEmailWarning />
+      </UI.AuthActionsBox>
 
       {status.loading && <Spinner />}
-    </FormContainer>
+    </UI.FormContainer>
   );
 }
