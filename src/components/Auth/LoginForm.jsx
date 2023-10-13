@@ -39,7 +39,7 @@ export default function LoginForm({ onClosePopup }) {
   }, []);
 
   return (
-    <FormContainer className="auth" onClosePopup={onClosePopup}>
+    <FormContainer onClosePopup={onClosePopup}>
       <FormInputField
         id="email"
         label={t("auth.email")}

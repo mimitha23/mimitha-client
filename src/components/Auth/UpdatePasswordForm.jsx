@@ -41,7 +41,7 @@ export default function UpdatePasswordForm({ onClosePopup }) {
   }, []);
 
   return (
-    <FormContainer className="reg" onClosePopup={onClosePopup}>
+    <FormContainer onClosePopup={onClosePopup}>
       <FormInputField
         id="password"
         label={t("auth.password")}

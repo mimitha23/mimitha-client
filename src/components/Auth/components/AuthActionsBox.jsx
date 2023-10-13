@@ -1,4 +1,5 @@
-import SwitchProcessField from "./SwitchProcessField";
+import * as UI from "./";
+import * as Styled from "./styles/AuthActionsBox.styled";
 
 export default function AuthActionsBox({
   children,
@@ -9,19 +10,17 @@ export default function AuthActionsBox({
   showForgotPassword = false,
 }) {
   return (
-    <div className="login__register__box">
+    <Styled.AuthActionsBox>
       {children}
 
-      <button className="login-btn" onClick={onSubmit}>
-        {submitBtnCaption}
-      </button>
+      <UI.LoginButton onSubmit={onSubmit} submitBtnCaption={submitBtnCaption} />
 
       {showSwitch && (
-        <SwitchProcessField
+        <UI.SwitchProcessField
           onSwitchProcess={onSwitchProcess}
           showForgotPassword={showForgotPassword}
         />
       )}
-    </div>
+    </Styled.AuthActionsBox>
   );
 }

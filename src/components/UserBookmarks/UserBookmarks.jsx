@@ -10,8 +10,9 @@ import {
 } from "store/selectors/user/userLists.selectors";
 import { useUserListQuery } from "hooks/api/user";
 
-import UserBookmarksHeader from "./UserBookmarksHeader";
-import { ProductCard, Spinner } from "components/Layouts";
+import UserBookmarksHeader from "./components/UserBookmarksHeader";
+import { EmptyMessage, Spinner } from "components/Layouts";
+import BookmarksList from "./components/BookmarksList";
 import * as Styled from "./UserBookmarks.styled";
 
 export default function UserBookmarks() {
@@ -37,20 +38,10 @@ export default function UserBookmarks() {
             onDelete={() => deleteListQuery(listId)}
           />
 
-          {list.products[0] && (
-            <ul className="user-bookmarks__list">
-              {list.products.map((product) => (
-                <li key={product._id}>
-                  <ProductCard product={product} />
-                </li>
-              ))}
-            </ul>
-          )}
+          {list.products[0] && <BookmarksList list={list} />}
 
           {!list.products[0] && (
-            <p className="user-bookmarks__empty-msg">
-              {t("user_list.empty_list_message")}
-            </p>
+            <EmptyMessage message={t("user_list.empty_list_message")} />
           )}
         </>
       )}

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { DeletionPopup } from "components/Layouts";
 import { OpenFolderIcon, DeleteFolderIcon } from "components/Layouts/Icons";
+import * as Styled from "./styles/UserBookmarksHeader.styled";
 
 export default function UserBookmarksHeader({ title, onDelete }) {
   const { t } = useTranslation();
@@ -21,18 +22,15 @@ export default function UserBookmarksHeader({ title, onDelete }) {
   }
 
   return (
-    <header className="user-bookmarks__header">
-      <span className="user-bookmarks__header-title">
+    <Styled.UserBookmarksHeader>
+      <span className="bookmarks-header__title">
         <span>
           <OpenFolderIcon />
         </span>
         &mdash;
         <span>{title}</span>
       </span>
-      <button
-        className="user-bookmarks__header__delete-btn"
-        onClick={onStartDelete}
-      >
+      <button className="bookmarks-header__delete-btn" onClick={onStartDelete}>
         <span>
           <DeleteFolderIcon />
         </span>
@@ -46,6 +44,6 @@ export default function UserBookmarksHeader({ title, onDelete }) {
           targetName={t("crossover.list")}
         />
       )}
-    </header>
+    </Styled.UserBookmarksHeader>
   );
 }

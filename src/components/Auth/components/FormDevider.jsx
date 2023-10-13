@@ -1,13 +1,14 @@
 import { useTranslation } from "react-i18next";
+import * as Styled from "./styles/FormDevider.styled";
 
 export default function FormDevider() {
   const { t } = useTranslation();
 
   return (
-    <div className="auth-popup__form-devider">
+    <Styled.FormDevider>
       <hr />
       <span>{t("auth.or")}</span>
       <hr />
-    </div>
+    </Styled.FormDevider>
   );
 }

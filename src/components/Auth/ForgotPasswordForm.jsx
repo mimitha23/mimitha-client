@@ -43,7 +43,7 @@ export default function ForgotPasswordForm({ onClosePopup }) {
   }, []);
 
   return (
-    <FormContainer className="auth" onClosePopup={onClosePopup}>
+    <FormContainer onClosePopup={onClosePopup}>
       <button className="auth-popup__back-btn" onClick={onBack}>
         <ArrowLeftIcon />
         <span>{t("auth.login")}</span>

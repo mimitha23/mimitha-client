@@ -8,11 +8,8 @@ import { useIsAuthenticated } from "hooks/auth";
 import { authActions, AUTH_PROCESSES } from "store/reducers/auth.reducer";
 import { selectAuthOnGoingProcess } from "store/selectors/auth.selectors";
 
-import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
-import ForgotPasswordForm from "./ForgotPasswordForm";
-import ConfirmEmailForm from "./ConfirmEmailForm";
-import UpdatePasswordForm from "./UpdatePasswordForm";
+import * as UI from "./components";
+import * as FormType from "./";
 import * as Styled from "./AuthPopup.styled";
 
 export default function AuthPopUp() {
@@ -48,15 +45,26 @@ export default function AuthPopUp() {
       className="portal-container active-modal"
       onClick={delayAuth}
     >
-      <div className="animate-layover"></div>
-      {isAuthenticationProcess && <LoginForm onClosePopup={delayAuth} />}
-      {isRegistrationProcess && <RegisterForm onClosePopup={delayAuth} />}
-      {isForgotPasswordProcess && (
-        <ForgotPasswordForm onClosePopup={delayAuth} />
+      <UI.AnimateLayover />
+
+      {isAuthenticationProcess && (
+        <FormType.LoginForm onClosePopup={delayAuth} />
       )}
-      {isConfirmEmailProcess && <ConfirmEmailForm onClosePopup={delayAuth} />}
+
+      {isRegistrationProcess && (
+        <FormType.RegisterForm onClosePopup={delayAuth} />
+      )}
+
+      {isForgotPasswordProcess && (
+        <FormType.ForgotPasswordForm onClosePopup={delayAuth} />
+      )}
+
+      {isConfirmEmailProcess && (
+        <FormType.ConfirmEmailForm onClosePopup={delayAuth} />
+      )}
+
       {isUpdatePasswordProcess && (
-        <UpdatePasswordForm onClosePopup={delayAuth} />
+        <FormType.UpdatePasswordForm onClosePopup={delayAuth} />
       )}
     </Styled.AuthPopup>,
     document.getElementById("portal")

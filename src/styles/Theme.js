@@ -7,6 +7,7 @@ const BaseTheme = {
     nav_h_full_mobile: "12rem",
     nav_h_partial: "7.5rem",
     section_animation_duration: "0.3s",
+    form_field_w_tablet: "36rem",
   },
   media: {
     desktop_lg: "max-width:105em", //1680px

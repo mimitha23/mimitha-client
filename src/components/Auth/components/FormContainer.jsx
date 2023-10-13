@@ -1,9 +1,9 @@
 import { CloseXIcon } from "components/Layouts/Icons";
+import * as Styled from "./styles/FormContainer.styled";
 
-export default function FormContainer({ children, className, onClosePopup }) {
+export default function FormContainer({ children, onClosePopup }) {
   return (
-    <form
-      className={`auth-popup__form ${className || ""}`}
+    <Styled.FormContainer
       onClick={(e) => {
         e.stopPropagation();
       }}
@@ -12,6 +12,6 @@ export default function FormContainer({ children, className, onClosePopup }) {
         <CloseXIcon />
       </button>
       {children}
-    </form>
+    </Styled.FormContainer>
   );
 }

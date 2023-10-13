@@ -39,7 +39,7 @@ export default function RegisterForm({ onClosePopup }) {
   }, []);
 
   return (
-    <FormContainer className="reg" onClosePopup={onClosePopup}>
+    <FormContainer onClosePopup={onClosePopup}>
       <FormInputField
         id="email"
         label={t("auth.email")}

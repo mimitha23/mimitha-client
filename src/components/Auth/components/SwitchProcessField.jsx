@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import { authActions, AUTH_PROCESSES } from "store/reducers/auth.reducer";
 import { selectAuthOnGoingProcess } from "store/selectors/auth.selectors";
 
+import * as Styled from "./styles/SwitchProcessField.styled";
+
 export default function SwitchProcessField({
   onSwitchProcess,
   showForgotPassword,
@@ -28,36 +30,34 @@ export default function SwitchProcessField({
   }
 
   return (
-    <>
-      <div className="registration-suggestion">
-        <div>
-          <span>
-            {onGoingProcess === "authorization"
-              ? t("auth.not_have_an_account")
-              : onGoingProcess === "registration"
-              ? t("auth.have_an_account")
-              : ""}
-          </span>
-          &nbsp;
-          <button onClick={onSwitch}>
-            {onGoingProcess === "authorization"
-              ? t("auth.registration")
-              : onGoingProcess === "registration"
-              ? t("auth.login")
-              : ""}
-          </button>
-        </div>
-
-        {showForgotPassword && (
-          <button
-            onClick={() =>
-              dispatch(authActions.changeAuthOnGoingProcess("forgot_password"))
-            }
-          >
-            {t("auth.forgot_password")}
-          </button>
-        )}
+    <Styled.SwitchProcessField>
+      <div>
+        <span>
+          {onGoingProcess === "authorization"
+            ? t("auth.not_have_an_account")
+            : onGoingProcess === "registration"
+            ? t("auth.have_an_account")
+            : ""}
+        </span>
+        &nbsp;
+        <button onClick={onSwitch}>
+          {onGoingProcess === "authorization"
+            ? t("auth.registration")
+            : onGoingProcess === "registration"
+            ? t("auth.login")
+            : ""}
+        </button>
       </div>
-    </>
+
+      {showForgotPassword && (
+        <button
+          onClick={() =>
+            dispatch(authActions.changeAuthOnGoingProcess("forgot_password"))
+          }
+        >
+          {t("auth.forgot_password")}
+        </button>
+      )}
+    </Styled.SwitchProcessField>
   );
 }

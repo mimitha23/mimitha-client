@@ -1,7 +1,7 @@
 import { useState, memo } from "react";
 
-import ShowPasswordButton from "./ShowPasswordButton";
-import FormError from "./FormError";
+import * as UI from "./";
+import * as Styled from "./styles/FormInputField.styled";
 
 export default memo(function FormInputField({
   type,
@@ -16,15 +16,15 @@ export default memo(function FormInputField({
   const [passwordInputType, setPasswordInputType] = useState("password");
 
   return (
-    <div className="auth-popup__form-field">
-      <label htmlFor={id} className="auth-popup__form-field--label">
+    <Styled.FormInputField>
+      <label htmlFor={id} className="form-field__label">
         {label}
       </label>
 
-      <div className="auth-popup__form-field--input---box">
+      <div className="form-field__input-box">
         <input
           id={id}
-          className="auth-popup__form-field--input"
+          className="form-field__input"
           type={type === "password" ? passwordInputType : type}
           name={name}
           value={value}
@@ -33,7 +33,7 @@ export default memo(function FormInputField({
         />
 
         {type === "password" && (
-          <ShowPasswordButton
+          <UI.ShowPasswordButton
             type={type}
             passwordInputType={passwordInputType}
             setPasswordInputType={setPasswordInputType}
@@ -41,7 +41,7 @@ export default memo(function FormInputField({
         )}
       </div>
 
-      {error.hasError && <FormError message={error.message} />}
-    </div>
+      {error.hasError && <UI.FormError message={error.message} />}
+    </Styled.FormInputField>
   );
 });

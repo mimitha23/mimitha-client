@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
+
 import { EyeShowIcon, EyeHideIcon } from "components/Layouts/Icons";
+import * as Styled from "./styles/ShowPasswordButton.styled";
 
 export default function ShowPasswordButton({
   type,
@@ -9,7 +11,7 @@ export default function ShowPasswordButton({
   const { t } = useTranslation();
 
   return (
-    <button
+    <Styled.ShowPasswordButton
       title={
         type === "password" && passwordInputType === "password"
           ? t("auth.show_password")
@@ -25,6 +27,6 @@ export default function ShowPasswordButton({
       }}
     >
       {passwordInputType === "password" ? <EyeShowIcon /> : <EyeHideIcon />}
-    </button>
+    </Styled.ShowPasswordButton>
   );
 }

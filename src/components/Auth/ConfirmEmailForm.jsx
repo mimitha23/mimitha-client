@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import OtpInput from "react-otp-input";
+
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
@@ -11,6 +11,7 @@ import FormContainer from "./components/FormContainer";
 import { Spinner } from "components/Layouts";
 import FormError from "./components/FormError";
 import AuthActionsBox from "./components/AuthActionsBox";
+import OTPField from "./components/OTPField";
 
 export default function ConfirmEmailForm({ onClosePopup }) {
   const { t } = useTranslation();
@@ -27,26 +28,8 @@ export default function ConfirmEmailForm({ onClosePopup }) {
   }, []);
 
   return (
-    <FormContainer className="auth" onClosePopup={onClosePopup}>
-      <div className="otp-box">
-        <OtpInput
-          value={pin}
-          onChange={setPin}
-          numInputs={6}
-          renderSeparator={<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>}
-          renderInput={(props) => (
-            <input
-              {...{
-                ...props,
-                className: "otp-inp",
-                placeholder: "*",
-              }}
-            />
-          )}
-        />
-
-        {error.hasError && <FormError message={error.pin.message} />}
-      </div>
+    <FormContainer onClosePopup={onClosePopup}>
+      <OTPField pin={pin} setPin={setPin} error={error} />
 
       {status.error && <FormError message={status.message} />}
 

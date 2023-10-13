@@ -1,12 +1,14 @@
 import { useTranslation } from "react-i18next";
 import { useGoogleLoginQuery } from "hooks/api/Auth";
 
+import * as Styled from "./styles/GoogleButton.styled";
+
 export default function GoogleButton() {
   const { t } = useTranslation();
   const { googleLogin } = useGoogleLoginQuery();
 
   return (
-    <button className="login-btn google-login--btn" onClick={googleLogin}>
+    <Styled.GoogleButton onClick={googleLogin}>
       <span>{t("auth.google_auth")}</span>
       <span>
         <svg
@@ -33,6 +35,6 @@ export default function GoogleButton() {
           />
         </svg>
       </span>
-    </button>
+    </Styled.GoogleButton>
   );
 }
