@@ -37,27 +37,16 @@ const editorSlice = createSlice({
     },
 
     changeConfig(state, { payload: { currentVariantId, newVariantId } }) {
-      const filterActiveConfigIds = () =>
-        state.activeConfig.variants.filter(
-          (variant) => variant !== currentVariantId
-        );
-
-      const newVariationIds = state.activeConfig.variants.includes(newVariantId)
-        ? [...filterActiveConfigIds()]
-        : [...filterActiveConfigIds(), newVariantId];
-
-      const availableProduct = state.availableProducts.find(
-        (product) =>
-          product.variants.every((variant) =>
-            newVariationIds.includes(variant)
-          ) &&
-          newVariationIds.every((variant) => product.variants.includes(variant))
-      );
+      const { availableProduct } = checkConfigAvailability({
+        newVariantId,
+        currentVariantId,
+        activeConfig: state.activeConfig,
+        availableProducts: state.availableProducts,
+      });
 
       if (availableProduct) {
         state.activeConfig = availableProduct;
         state.activeConfigId = availableProduct._id;
-      } else {
       }
     },
 
@@ -124,3 +113,25 @@ const editorSlice = createSlice({
 
 export default editorSlice.reducer;
 export const editorActions = editorSlice.actions;
+
+export function checkConfigAvailability({
+  activeConfig,
+  currentVariantId,
+  newVariantId,
+  availableProducts,
+}) {
+  const filterActiveConfigIds = () =>
+    activeConfig.variants.filter((variant) => variant !== currentVariantId);
+
+  const newVariationIds = activeConfig.variants.includes(newVariantId)
+    ? [...filterActiveConfigIds()]
+    : [...filterActiveConfigIds(), newVariantId];
+
+  const availableProduct = availableProducts.find(
+    (product) =>
+      product.variants.every((variant) => newVariationIds.includes(variant)) &&
+      newVariationIds.every((variant) => product.variants.includes(variant))
+  );
+
+  return { availableProduct };
+}

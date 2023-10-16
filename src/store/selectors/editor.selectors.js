@@ -17,16 +17,23 @@ const selectedActiveConfig = ({ editor }) => ({
   pickUpVideo: editor.activeConfig.pickUpVideo,
 });
 
-export const selectEditorVariants = ({ editor }) => editor.variants;
+const selectEditorVariants = ({ editor }) => editor.variants;
 
-export const selectAvailableProducts = ({ editor }) => editor.availableProducts;
+const selectAvailableProducts = ({ editor }) => editor.availableProducts;
 
-export const selectActiveConfig = createSelector(
+const selectActiveConfig = createSelector(
   selectedActiveConfig,
   (config) => config
 );
 
-export const selectEditorStatus = createSelector(
+const selectEditorStatus = createSelector(
   selectedEditorStatus,
   (status) => status
 );
+
+export {
+  selectEditorVariants,
+  selectAvailableProducts,
+  selectActiveConfig,
+  selectEditorStatus,
+};
