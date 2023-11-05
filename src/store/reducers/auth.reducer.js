@@ -62,8 +62,6 @@ const authSlice = createSlice({
       },
     },
 
-    logout(state) {},
-
     registration: {
       prepare(payload) {
         return {
@@ -75,6 +73,8 @@ const authSlice = createSlice({
         state.status = status.loading();
       },
     },
+
+    logout(state) {},
 
     forgotPassword: {
       prepare(payload) {

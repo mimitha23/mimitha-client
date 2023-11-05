@@ -6,7 +6,7 @@ import decode from "jwt-decode";
 import { jwt } from "utils";
 
 import { userActions } from "store/reducers/user/user.reducer";
-import { PATHS, PUBLIC_ROUTES } from "config/routes";
+import { PATHS, PUBLIC_ROUTES } from "config/paths";
 import { selectUser } from "store/selectors/user/user.selectors";
 
 export default function useIsAuthenticated(redirectUnauthorized = false) {

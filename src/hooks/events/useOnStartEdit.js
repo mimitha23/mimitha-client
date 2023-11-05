@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { PATHS } from "config/routes";
+import { PATHS } from "config/paths";
 import { editorActions } from "store/reducers/editor.reducer";
 
 export default function useOnStartEdit() {

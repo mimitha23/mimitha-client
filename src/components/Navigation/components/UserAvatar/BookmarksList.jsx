@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
-import { PATHS } from "config/routes";
+import { PATHS } from "config/paths";
 
 import { FolderIcon, OpenFolderIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/BookmarksList.styled";

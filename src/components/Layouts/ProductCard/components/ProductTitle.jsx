@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { PATHS } from "config/routes";
+import { DYNAMIC_PATHS } from "config/paths";
 import { useTranslationContext } from "providers/I18nextProvider";
 
 import * as Styled from "./styles/ProductTitle.styled";
@@ -11,7 +11,7 @@ export default function ProductTitle({ title, productId, linkState }) {
   return (
     <Styled.ProductTitle className="product-title" title={title[currentLocale]}>
       <Link
-        to={PATHS.active_product.fullPath({ productId })}
+        to={DYNAMIC_PATHS.active_product_page(productId)}
         className="product-content__title-link"
         state={{ ...linkState }}
       >

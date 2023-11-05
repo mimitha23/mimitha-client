@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { PATHS } from "config/routes";
+import { DYNAMIC_PATHS } from "config/paths";
 import { useLocationState } from "hooks/utils";
 import { useTranslationContext } from "providers/I18nextProvider";
 
@@ -27,7 +27,7 @@ export default function CardFig({
       onMouseLeave={() => setThumbnailIndex(0)}
     >
       <Link
-        to={PATHS.active_product.fullPath({ productId })}
+        to={DYNAMIC_PATHS.active_product_page(productId)}
         state={setLocationState({ ...linkState })}
         className="card-fig__link"
       >

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { controlStatus as status } from "store/reducers/helpers";
 
-import { PATHS } from "config/routes";
+import { PATHS } from "config/paths";
 import { RouterHistory } from "config/router";
 
 const initialState = {

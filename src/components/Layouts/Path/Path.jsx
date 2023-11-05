@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { PATHS } from "config/routes";
+import { PATHS } from "config/paths";
 import { useLocationState } from "hooks/utils/index";
 import { useTranslationContext } from "providers/I18nextProvider";
 

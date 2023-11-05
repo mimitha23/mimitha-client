@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { galleryActions } from "store/reducers/gallery.reducer";
-import { PATHS } from "config/routes";
+import { PATHS } from "config/paths";
 
 import { OpenIcon, OpenInNewIcon } from "components/Layouts/Icons/index";
 import * as Styled from "./styles/FigActions.styled";

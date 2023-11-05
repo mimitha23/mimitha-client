@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { PATHS } from "config/routes";
+import { PATHS } from "config/paths";
 import { activeProductActions } from "store/reducers/activeProduct.reducer";
 import { selectActiveProductStyler } from "store/selectors/activeProduct.selectors";
 

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useLocationState } from "hooks/utils";
-import { productsActions } from "store/reducers/produts.reducer";
+import { productsActions } from "store/reducers/products.reducer";
 import { filterActions } from "store/reducers/filter.reducer";
 
 import { selectActiveFilters } from "store/selectors/filter.selectors";

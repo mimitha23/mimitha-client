@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { PATHS } from "config/routes";
+import { DYNAMIC_PATHS } from "config/paths";
 import { useOnStartEdit } from "hooks/events";
 
 import * as Styled from "./styles/CardActions.styled";
@@ -25,9 +25,7 @@ export default function CardActions({ productId, registeredProductId }) {
       </button> */}
 
       <button className="edit-btn" onClick={onEdit}>
-        <Link
-          to={PATHS.edit_product.fullPath({ productId: registeredProductId })}
-        >
+        <Link to={DYNAMIC_PATHS.edit_product_page(productId)}>
           {t("crossover.edit")}
         </Link>
       </button>

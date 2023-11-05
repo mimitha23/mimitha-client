@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-import { PATHS } from "config/routes";
+import { PATHS } from "config/paths";
 import { useCurrencyContext } from "providers/CurrencyProvider";
 import { useTranslationContext } from "providers/I18nextProvider";
 import { shoppingCartActions } from "store/reducers/shoppingCart.reducer";
