@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "store/hooks";
 
 import { authActions } from "store/reducers/auth.reducer";
 import useRegistrationForm from "utils/zod/registerValidation";
 
 export default function useRegistrationQuery() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const form = useRegistrationForm();
 

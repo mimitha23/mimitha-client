@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "store/hooks";
 
 import { useStartAuth } from "hooks/api/Auth";
 import { useIsAuthenticated } from "hooks/auth";
-import { authActions, AUTH_PROCESSES } from "store/reducers/auth.reducer";
+import { authActions } from "store/reducers/auth.reducer";
+import { AUTH_PROCESSES } from "interface/store/auth.reducer.types";
 import { selectAuthOnGoingProcess } from "store/selectors/auth.selectors";
 
 import * as UI from "./components";
@@ -13,18 +14,18 @@ import * as FormType from ".";
 import * as Styled from "./AuthPopup.styled";
 
 const AuthPopUp: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const onGoingProcess = useSelector(selectAuthOnGoingProcess);
+  const onGoingProcess = useAppSelector(selectAuthOnGoingProcess);
 
   const isAuthenticationProcess =
-    onGoingProcess === AUTH_PROCESSES.authorization;
+    onGoingProcess === AUTH_PROCESSES.AUTHORIZATION;
   const isForgotPasswordProcess =
-    onGoingProcess === AUTH_PROCESSES.forgot_password;
-  const isRegistrationProcess = onGoingProcess === AUTH_PROCESSES.registration;
-  const isConfirmEmailProcess = onGoingProcess === AUTH_PROCESSES.confirm_email;
+    onGoingProcess === AUTH_PROCESSES.FORGOT_PASSWORD;
+  const isRegistrationProcess = onGoingProcess === AUTH_PROCESSES.REGISTRATION;
+  const isConfirmEmailProcess = onGoingProcess === AUTH_PROCESSES.CONFIRM_EMAIl;
   const isUpdatePasswordProcess =
-    onGoingProcess === AUTH_PROCESSES.update_password;
+    onGoingProcess === AUTH_PROCESSES.UPDATE_PASSWORD;
 
   const { delayAuth } = useStartAuth();
 

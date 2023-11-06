@@ -12,10 +12,9 @@ export default memo(function Path({ showSearch }) {
   const { t } = useTranslation();
   const { currentLocale } = useTranslationContext();
 
-  const { getLocationState, setLocationState, getLocationStateDefaults } =
+  const { getLocationState, setLocationState, locationStateDefaults } =
     useLocationState();
   const locationState = getLocationState();
-  const locationStateDefaults = getLocationStateDefaults();
 
   return (
     <Styled.Path data-user-track-path>

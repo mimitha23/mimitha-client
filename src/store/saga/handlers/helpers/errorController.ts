@@ -6,7 +6,7 @@ import { AxiosError } from "axios";
 interface SetErrorArgsT {
   location: string;
   error: AxiosError | Error;
-  errorSetter: ActionCreatorWithPayload<any>;
+  errorSetter?: ActionCreatorWithPayload<any>;
   errorSetterArgs?: { [key: string]: string };
 }
 
@@ -23,7 +23,7 @@ export default function* errorController({
       message = error.response?.data.message || "";
     else if (error instanceof Error) message = error.message;
 
-    yield put(errorSetter({ ...errorSetterArgs, message }));
+    if (errorSetter) yield put(errorSetter({ ...errorSetterArgs, message }));
 
     if (ENV !== "DEV") return;
 

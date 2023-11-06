@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "store/hooks";
 
 import { signInWithGooglePopUp } from "service/firebase";
 import { authActions } from "store/reducers/auth.reducer";
 
 export default function useGoogleLoginQuery() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   async function googleLogin(e: React.MouseEvent) {
     try {

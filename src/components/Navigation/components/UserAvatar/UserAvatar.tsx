@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "store/hooks";
 
 import { useIsAuthenticated } from "hooks/auth";
 import { useClickOutside } from "hooks/domBase";
@@ -18,7 +18,7 @@ const UserAvatar: React.FC = () => {
     setShowUserDropdown(false);
   });
 
-  const user = useSelector(selectUser);
+  const user = useAppSelector(selectUser);
 
   return (
     <Styled.UserAvatar ref={container_ref}>

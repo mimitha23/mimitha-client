@@ -14,9 +14,13 @@ const SupportNav: React.FC<SupportNavT> = ({ partialNav }) => {
   return (
     <Styled.SupportNav partialNav={partialNav}>
       <ThemeSwitch />
+
       <CurrencySwitch />
+
       <LanguageSwitch />
+
       <SocialNetworks />
+
       <UserAvatar />
     </Styled.SupportNav>
   );

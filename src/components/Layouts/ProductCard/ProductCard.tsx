@@ -4,7 +4,7 @@ import * as Styled from "./ProductCard.styled";
 import { ProductShortInfoT } from "interface/DB/product.types";
 
 interface ProductCardT {
-  cardType?: "withActions";
+  cardType?: "withActions" | "descriptive";
   product: ProductShortInfoT;
   showAddToList?: boolean;
 }

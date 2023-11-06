@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "store/hooks";
 
 import { useLoginQuery } from "hooks/api/Auth";
 import { Controller } from "react-hook-form";
@@ -16,7 +16,7 @@ interface LoginFormT {
 const LoginForm: React.FC<LoginFormT> = ({ onClosePopup }) => {
   const { t } = useTranslation();
 
-  const status = useSelector(selectAuthStatus);
+  const status = useAppSelector(selectAuthStatus);
 
   const { form, loginQuery } = useLoginQuery();
   const onSwitchProcess = () => form.reset();

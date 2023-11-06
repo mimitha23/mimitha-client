@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "store/hooks";
 
 import { Controller } from "react-hook-form";
 import { useRegistrationQuery } from "hooks/api/Auth";
@@ -16,7 +16,7 @@ interface RegisterFormT {
 const RegisterForm: React.FC<RegisterFormT> = ({ onClosePopup }) => {
   const { t } = useTranslation();
 
-  const status = useSelector(selectAuthStatus);
+  const status = useAppSelector(selectAuthStatus);
 
   const { form, registrationQuery } = useRegistrationQuery();
 

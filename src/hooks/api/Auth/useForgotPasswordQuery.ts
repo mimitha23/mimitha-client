@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "store/hooks";
 
 import { authActions } from "store/reducers/auth.reducer";
 import useForgotPasswordForm from "utils/zod/forgotPasswordValidation";
 
 export default function useForgotPasswordQuery() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const form = useForgotPasswordForm();
 

@@ -2,7 +2,7 @@ import { useScrollToTop } from "hooks/domBase";
 import { Navigation, Footer } from "components";
 import ProductFit from "components/ProductFit/ProductFit";
 
-function ProductFitPage() {
+const ProductFitPage: React.FC = () => {
   useScrollToTop();
 
   return (
@@ -12,6 +12,6 @@ function ProductFitPage() {
       <Footer />
     </>
   );
-}
+};
 
 export default ProductFitPage;

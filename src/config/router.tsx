@@ -2,10 +2,18 @@ import * as Pages from "pages";
 import { PATHS } from "./paths";
 import { RouterT } from "interface/router.types";
 
-export const RouterHistory = {
+import { Location, NavigateFunction } from "react-router-dom";
+
+interface RouterHistoryT {
+  location: Location | null;
+  navigate: NavigateFunction;
+  redirectIfUnauthorized: () => Promise<void>;
+}
+
+export const RouterHistory: RouterHistoryT = {
   location: null,
-  navigate: null,
-  redirectIfUnauthorized: null,
+  navigate: () => {},
+  redirectIfUnauthorized: async () => {},
 };
 
 export const Router: Array<RouterT> = [
@@ -16,29 +24,34 @@ export const Router: Array<RouterT> = [
     children: [],
   },
   // {
-  //   path: PATHS.gallery.fullPath,
+  //   path: PATHS.gallery_page,
   //   name: "gallery-page",
   //   element: <Pages.GalleryPage />,
+  //   children: [],
   // },
   // {
   //   path: PATHS.goes_on.fullPath,
   //   name: "goes-on-page",
   //   element: <Pages.GoesOnPage />,
+  // children: [],
   // },
   // {
   //   path: PATHS.goes_on_tutorial.fullPath,
   //   name: "goes-on-tutorial-page",
   //   element: <Pages.GoesOnTutorialPage />,
+  // children: [],
   // },
   // {
   //   path: PATHS.cart.fullPath,
   //   name: "cart-page",
   //   element: <Pages.CartPage />,
+  // children: [],
   // },
   // {
   //   path: PATHS.order_history.fullPath,
   //   name: "order-history",
   //   element: <Pages.OrderHistoryPage />,
+  // children: [],
   // },
   {
     path: PATHS.products_page,
@@ -75,4 +88,10 @@ export const Router: Array<RouterT> = [
   //   name: "fit-product-page",
   //   element: <Pages.ProductFitPage />,
   // },
+  {
+    path: "*",
+    name: "not-found-page",
+    element: <Pages.NotFoundPage />,
+    children: [],
+  },
 ];

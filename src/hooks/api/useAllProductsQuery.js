@@ -65,7 +65,7 @@ export default function useAllProductsQuery() {
   // cleaner
   useEffect(() => {
     return () => {
-      dispatch(productsActions.resetProducts());
+      dispatch(productsActions.cleanUpAllProducts());
       dispatch(filterActions.resetState());
     };
   }, []);

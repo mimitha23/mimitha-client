@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "store/hooks";
 import { useTranslation } from "react-i18next";
 
 import { Controller } from "react-hook-form";
@@ -17,7 +17,7 @@ interface ConfirmEmailFormT {
 const ConfirmEmailForm: React.FC<ConfirmEmailFormT> = ({ onClosePopup }) => {
   const { t } = useTranslation();
 
-  const status = useSelector(selectAuthStatus);
+  const status = useAppSelector(selectAuthStatus);
   const { form, confirmEmailQuery } = useConfirmEmailQuery();
 
   useEffect(() => {

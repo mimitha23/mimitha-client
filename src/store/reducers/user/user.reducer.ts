@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // import { controlStatus as status } from "../helpers";
-import { jwt } from "utils";
+
+import { UserT } from "interface/DB/user.types";
 import { UserStateT } from "interface/store/user.reducer.types";
 
 const initialState: UserStateT = {
@@ -17,17 +18,15 @@ const userSlice = createSlice({
   name: "mimitha-user",
   initialState,
   reducers: {
-    setUser(state, { payload }: PayloadAction<any>) {
-      state.user = { ...payload.user, isAuthenticated: true };
-      jwt.setJWT(payload.accessToken);
+    setUser(state, { payload }: PayloadAction<UserT>) {
+      state.user = { ...payload, isAuthenticated: true };
     },
 
-    resetUser(state) {
+    cleanUpUser(state) {
       state.user = initialState.user;
-      jwt.removeJWT();
     },
 
-    setProfilePicture(state) {},
+    setProfilePicture() {},
   },
 });
 

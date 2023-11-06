@@ -1,5 +1,4 @@
-import { useSelector } from "react-redux";
-
+import { useAppSelector } from "store/hooks";
 import { selectNavStatus } from "store/selectors/nav.selectors";
 
 import { Spinner } from "components/Layouts";
@@ -8,7 +7,7 @@ import NavDropdownRoutes from "./NavDropdownRoutes";
 import * as Styled from "./NavDropdown.styled";
 
 const NavDropdown = () => {
-  const status = useSelector(selectNavStatus);
+  const status = useAppSelector(selectNavStatus);
 
   return (
     <Styled.NavDropdown className="active-modal nav-dropdown--backdrop">

@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "store/hooks";
 import { selectProductsSearchResult } from "store/selectors/product.selectors";
 
 import SearchBarResultsList from "./SearchBarResultsList";
@@ -16,7 +16,7 @@ const SearchBarResults: React.FC<SearchBarResultsT> = ({
   activeClass,
   onSearchClose,
 }) => {
-  const result = useSelector(selectProductsSearchResult);
+  const result = useAppSelector(selectProductsSearchResult);
 
   return (
     <Styled.SearchBarResults className={`${activeClass} active-modal`}>

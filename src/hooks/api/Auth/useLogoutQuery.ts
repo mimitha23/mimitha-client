@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "store/hooks";
+
 import { authActions } from "store/reducers/auth.reducer";
 
 export default function useLogoutQuery() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   function logout(e: React.MouseEvent) {
     e.preventDefault();

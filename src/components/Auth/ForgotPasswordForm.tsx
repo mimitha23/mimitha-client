@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "store/hooks";
 
 import { Controller } from "react-hook-form";
 import { useForgotPasswordQuery } from "hooks/api/Auth";
+import { authActions } from "store/reducers/auth.reducer";
 import { selectAuthStatus } from "store/selectors/auth.selectors";
-import { authActions, AUTH_PROCESSES } from "store/reducers/auth.reducer";
+import { AUTH_PROCESSES } from "interface/store/auth.reducer.types";
 
 import * as UI from "./components";
 import { Spinner } from "components/Layouts";
@@ -18,17 +19,17 @@ interface ForgotPasswordFormT {
 const ForgotPasswordForm: React.FC<ForgotPasswordFormT> = ({
   onClosePopup,
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
-  const status = useSelector(selectAuthStatus);
+  const status = useAppSelector(selectAuthStatus);
 
   const { form, forgotPasswordQuery } = useForgotPasswordQuery();
 
   const onBack = () => {
     form.reset();
     dispatch(
-      authActions.changeAuthOnGoingProcess(AUTH_PROCESSES.authorization)
+      authActions.changeAuthOnGoingProcess(AUTH_PROCESSES.AUTHORIZATION)
     );
   };
 

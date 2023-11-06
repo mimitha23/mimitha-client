@@ -40,3 +40,10 @@ export type MimithaCurrencyT = (typeof MIMITHA_CURRENCIES)[number];
 
 export type MimithaCurrencySymbolT =
   (typeof MIMITHA_CURRENCIES_SYMBOLS)[number];
+
+export interface DecodedUserT {
+  iat: number;
+  exp: number;
+  email: string;
+  _is: string;
+}

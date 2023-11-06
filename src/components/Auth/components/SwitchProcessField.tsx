@@ -1,7 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { useAppSelector, useAppDispatch } from "store/hooks";
 
-import { authActions, AUTH_PROCESSES } from "store/reducers/auth.reducer";
+import { authActions } from "store/reducers/auth.reducer";
+import { AUTH_PROCESSES } from "interface/store/auth.reducer.types";
 import { selectAuthOnGoingProcess } from "store/selectors/auth.selectors";
 
 import * as Styled from "./styles/SwitchProcessField.styled";
@@ -15,18 +16,18 @@ const SwitchProcessField: React.FC<SwitchProcessFieldT> = ({
   onSwitchProcess = () => {},
   showForgotPassword,
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
-  const onGoingProcess = useSelector(selectAuthOnGoingProcess);
+  const onGoingProcess = useAppSelector(selectAuthOnGoingProcess);
 
   function onSwitch(e: React.MouseEvent) {
     e.preventDefault();
     dispatch(
       authActions.changeAuthOnGoingProcess(
-        onGoingProcess === AUTH_PROCESSES.authorization
-          ? AUTH_PROCESSES.registration
-          : AUTH_PROCESSES.authorization
+        onGoingProcess === AUTH_PROCESSES.AUTHORIZATION
+          ? AUTH_PROCESSES.REGISTRATION
+          : AUTH_PROCESSES.AUTHORIZATION
       )
     );
 

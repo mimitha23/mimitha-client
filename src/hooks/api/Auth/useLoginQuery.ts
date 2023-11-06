@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "store/hooks";
 
 import useLoginForm from "utils/zod/loginValidation";
 import { authActions } from "store/reducers/auth.reducer";
 
 export default function useLoginQuery() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const form = useLoginForm();
 

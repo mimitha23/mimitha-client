@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "store/hooks";
 
 import { authActions } from "store/reducers/auth.reducer";
 import useUpdatePasswordForm from "utils/zod/updatePasswordValidation";
 
 export default function useUpdatePasswordQuery() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const form = useUpdatePasswordForm();
 
