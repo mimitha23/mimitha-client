@@ -1,4 +1,4 @@
-export default function LearnMore() {
+const LearnMore: React.FC = () => {
   return (
     <div className="footer__learn-more">
       <figure
@@ -14,4 +14,6 @@ export default function LearnMore() {
       </p>
     </div>
   );
-}
+};
+
+export default LearnMore;

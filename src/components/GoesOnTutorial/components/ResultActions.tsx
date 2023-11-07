@@ -1,6 +1,14 @@
 import Explain from "./Explain";
 
-export default function ResultActions({ explainBuyNow, explainAddToCart }) {
+interface ResultActionsT {
+  explainBuyNow: boolean;
+  explainAddToCart: boolean;
+}
+
+const ResultActions: React.FC<ResultActionsT> = ({
+  explainBuyNow,
+  explainAddToCart,
+}) => {
   return (
     <div className="generator_result-actions">
       <button
@@ -31,4 +39,6 @@ export default function ResultActions({ explainBuyNow, explainAddToCart }) {
       </button>
     </div>
   );
-}
+};
+
+export default ResultActions;

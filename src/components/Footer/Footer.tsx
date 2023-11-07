@@ -4,7 +4,7 @@ import LearnMore from "./LearnMore";
 import ExtraInformation from "./ExtraInformation";
 import * as Styled from "./Footer.styled";
 
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
     <Styled.Footer>
       <div className="footer__content-wrapper">
@@ -16,4 +16,6 @@ export default function Footer() {
       <Copyright />
     </Styled.Footer>
   );
-}
+};
+
+export default Footer;

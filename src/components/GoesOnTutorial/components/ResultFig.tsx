@@ -1,4 +1,4 @@
-export default function ResultFig() {
+const ResultFig: React.FC = () => {
   return (
     <div className="generator_result-fig--container">
       <figure className="generator_result-fig">
@@ -6,4 +6,6 @@ export default function ResultFig() {
       </figure>
     </div>
   );
-}
+};
+
+export default ResultFig;

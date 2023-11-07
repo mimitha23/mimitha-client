@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-import { PATHS } from "config/paths";
+import { DYNAMIC_PATHS } from "config/paths";
 import { useCurrencyContext } from "providers/CurrencyProvider";
 import { useTranslationContext } from "providers/I18nextProvider";
 import { shoppingCartActions } from "store/reducers/shoppingCart.reducer";
@@ -38,9 +38,7 @@ export default function CartItem({ product }) {
       <figure className="cart-item__fig">
         <img src={product.thumbnail} alt={product.title[currentLocale]} />
         <div className="cart-item__fig--layover">
-          <Link
-            to={PATHS.active_product.fullPath({ productId: product.productId })}
-          >
+          <Link to={DYNAMIC_PATHS.active_product_page(product.productId)}>
             <span className="text">{t("cart.view_product")}</span>
             <span className="icon">
               <EyeShowIcon />

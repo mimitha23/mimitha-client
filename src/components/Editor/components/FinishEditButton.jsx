@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { PATHS } from "config/paths";
+import { DYNAMIC_PATHS } from "config/paths";
 
 import * as Styled from "./styles/FinishEditButton.styled";
 
@@ -10,7 +10,7 @@ export default function FinishEditButton({ productId }) {
   return (
     <Styled.FinishEditButton>
       <Link
-        to={PATHS.active_product.fullPath({ productId })}
+        to={DYNAMIC_PATHS.active_product_page(productId)}
         state={{ productId }}
         className="finish-btn"
       >

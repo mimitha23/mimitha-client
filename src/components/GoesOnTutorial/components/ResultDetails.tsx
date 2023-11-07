@@ -1,4 +1,4 @@
-export default function ResultDetails() {
+const ResultDetails: React.FC = () => {
   return (
     <div className="generator_result-product--info">
       <div className="generator_result-product--info__box">
@@ -14,4 +14,6 @@ export default function ResultDetails() {
       </div>
     </div>
   );
-}
+};
+
+export default ResultDetails;

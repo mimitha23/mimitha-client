@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-export default function ExtraInformation() {
+const ExtraInformation: React.FC = () => {
   const { t } = useTranslation();
 
   return (
@@ -13,4 +13,6 @@ export default function ExtraInformation() {
       </ul>
     </div>
   );
-}
+};
+
+export default ExtraInformation;

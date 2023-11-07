@@ -1,6 +1,6 @@
 import { FacebookIcon, InstagramIcon } from "components/Layouts/Icons/index";
 
-export default function SocialIcons() {
+const SocialIcons: React.FC = () => {
   return (
     <div className="footer__social-networks">
       <p>Follow Us</p>
@@ -10,4 +10,6 @@ export default function SocialIcons() {
       </div>
     </div>
   );
-}
+};
+
+export default SocialIcons;

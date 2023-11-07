@@ -1,9 +1,9 @@
-// import { useAddToCart } from "hooks/events";
+import { useAddToCart } from "hooks/events";
 import * as UI from "./index";
 import * as Styled from "./styles/CardContent.styled";
 
 export default function CardContent({ product, cardType }) {
-  // const { onAddToCart } = useAddToCart();
+  const { onAddToCart } = useAddToCart();
 
   return (
     <Styled.CardContent cardType={cardType}>
@@ -15,12 +15,12 @@ export default function CardContent({ product, cardType }) {
           registeredProductId={product.product._id}
           soldOut={product.soldOut}
           isEditable={product.product.isEditable}
-          // onAddToCart={() =>
-          //   onAddToCart({
-          //     ...product,
-          //     size: product.size.find((s) => s.amount > 0),
-          //   })
-          // }
+          onAddToCart={() =>
+            onAddToCart({
+              ...product,
+              size: product.size.find((s) => s.amount > 0),
+            })
+          }
           linkState={{
             title: product.title,
             category: product.product.category.query,

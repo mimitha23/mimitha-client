@@ -1,7 +1,15 @@
-import { LockIcon, UnlockIcon, EditIcon } from "components/Layouts/Icons";
-import Explain from "./Explain";
+import {
+  LockIcon,
+  EditIcon,
+  // UnlockIcon,
+} from "components/Layouts/Icons";
 
-export default function BodyPart({ img, part, explainLock, explainEdit }) {
+interface BodyPartT {
+  img: string;
+  part: string;
+}
+
+const BodyPart: React.FC<BodyPartT> = ({ img, part }) => {
   return (
     <div className={`generator__body-part generator-${part}`}>
       <div className="generator__body-part__fig-box">
@@ -10,32 +18,12 @@ export default function BodyPart({ img, part, explainLock, explainEdit }) {
         </figure>
       </div>
 
-      <button
-        className="generator__body-part--block"
-        style={{ position: "relative" }}
-      >
+      <button className="generator__body-part--block">
         <LockIcon />
-        {explainLock && (
-          <Explain
-            position="bottom"
-            step="explainLock"
-            description="click lock button and do whatever you want"
-          />
-        )}
       </button>
 
-      <button
-        className="generator__body-part--edit"
-        style={{ position: "relative" }}
-      >
+      <button className="generator__body-part--edit">
         <EditIcon />
-        {explainEdit && (
-          <Explain
-            step="explainEdit"
-            position="bottom"
-            description="click edit button"
-          />
-        )}
       </button>
 
       <div className="generator__body-part--details">
@@ -61,4 +49,6 @@ export default function BodyPart({ img, part, explainLock, explainEdit }) {
       </div>
     </div>
   );
-}
+};
+
+export default BodyPart;

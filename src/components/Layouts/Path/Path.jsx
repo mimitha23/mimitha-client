@@ -21,7 +21,7 @@ export default memo(function Path({ showSearch }) {
       {locationState.category && (
         <span>
           <Link
-            to={PATHS.products.fullPath}
+            to={PATHS.products_page}
             state={setLocationState({
               category: locationState.category,
               productType: locationStateDefaults.productType,
@@ -37,7 +37,7 @@ export default memo(function Path({ showSearch }) {
       {locationState.productType.query && (
         <span>
           <Link
-            to={PATHS.products.fullPath}
+            to={PATHS.products_page}
             state={setLocationState({
               title: locationStateDefaults.title,
               productType: locationState.productType,

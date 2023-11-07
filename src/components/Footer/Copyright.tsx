@@ -1,4 +1,4 @@
-export default function Copyright() {
+const Copyright: React.FC = () => {
   return (
     <div className="copyright">
       <p>
@@ -7,4 +7,6 @@ export default function Copyright() {
       </p>
     </div>
   );
-}
+};
+
+export default Copyright;

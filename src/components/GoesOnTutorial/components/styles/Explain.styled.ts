@@ -1,10 +1,6 @@
-import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 
-import { useGoesOnTutorialContext } from "providers/GoesOnTutorialContext";
-import { MuteIcon, UnmuteIcon } from "components/Layouts/Icons";
-
-const ExplainContainer = styled.div`
+export const Explain = styled.div<{ position: string }>`
   position: absolute;
   background: royalblue;
   color: #fff;
@@ -81,48 +77,3 @@ const ExplainContainer = styled.div`
     right: 0.5rem;
   }
 `;
-
-export default function Explain({
-  description,
-  position,
-  step,
-  showPrev = true,
-}) {
-  const { nextStep, previousStep } = useGoesOnTutorialContext();
-  const [mute, setMute] = useState(false);
-  const [audio, setAudio] = useState(
-    new Audio("/assets/audio/shinamanakena.mp3")
-  );
-
-  useEffect(() => {
-    audio.type = "audio/mp3";
-    audio.play();
-
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, [audio]);
-
-  useEffect(() => {
-    audio.muted = mute ? true : false;
-  }, [mute, audio]);
-
-  return (
-    <ExplainContainer position={position}>
-      <button className="mute-btn" onClick={() => setMute((prev) => !prev)}>
-        {mute ? <MuteIcon /> : <UnmuteIcon />}
-      </button>
-
-      <p>{description}</p>
-
-      <div className="btn-box">
-        {showPrev && (
-          <button onClick={() => previousStep(step)}>go back</button>
-        )}
-
-        <button onClick={() => nextStep(step)}>okey</button>
-      </div>
-    </ExplainContainer>
-  );
-}
