@@ -1,3 +1,5 @@
+import { LocationStateT } from "interface/common.types";
+
 export interface ProductShortInfoT {
   _id: string;
   color: ProductColorT;
@@ -44,4 +46,8 @@ export type ProductShortInfoRootProductTypeT = NestedFieldsCommonT;
 export interface SearchProductsArgsT {
   search: string;
   locale: string;
+}
+
+export interface GetAllProductsArgsT extends LocationStateT {
+  filter?: string;
 }

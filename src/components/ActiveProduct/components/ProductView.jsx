@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { useTranslationContext } from "providers/I18nextProvider";
+import { useTranslationContext } from "providers/globals/I18nextProvider";
 import { selectActiveProductAssets } from "store/selectors/activeProduct.selectors";
 import controlSliderScrollBehavior from "./functions/controlSliderScrollBehavior";
 

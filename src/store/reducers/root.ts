@@ -28,12 +28,6 @@ const persistedEditorReducer = generatePersistedReducer({
   whitelist: ["activeConfigId", "editor_change_by_mode"],
 });
 
-const persistedFilterReducer = generatePersistedReducer({
-  key: "mimitha_client_filter",
-  reducer: filterReducer,
-  whitelist: ["activeFilter"],
-});
-
 const persistedCartReducer = generatePersistedReducer({
   key: "mimitha_client_cart",
   reducer: shoppingCartReducer,
@@ -52,7 +46,7 @@ const persistedAuthReducer = generatePersistedReducer({
 
 const rootReducer = combineReducers({
   editor: persistedEditorReducer,
-  filter: persistedFilterReducer,
+  filter: filterReducer,
   gallery: galleryReducer,
   activeProduct: activeProductReducer,
   products: produtsReducer,

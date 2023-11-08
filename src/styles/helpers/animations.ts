@@ -1,6 +1,14 @@
-import { css } from "styled-components";
+import { css, DefaultTheme } from "styled-components";
 
-export const animateMoveBottom = ({ diff = "-1rem", duration = "0.2s" }) => css`
+interface AnimateT {
+  diff?: string;
+  duration?: string | ((args: { theme: DefaultTheme }) => string);
+}
+
+export const animateMoveBottom = ({
+  diff = "-1rem",
+  duration = "0.2s",
+}: AnimateT) => css`
   animation: moveBottom ${duration} none;
 
   @keyframes moveBottom {
@@ -15,7 +23,10 @@ export const animateMoveBottom = ({ diff = "-1rem", duration = "0.2s" }) => css`
   }
 `;
 
-export const animateMoveTop = ({ diff = "1rem", duration = "0.2s" }) => css`
+export const animateMoveTop = ({
+  diff = "1rem",
+  duration = "0.2s",
+}: AnimateT) => css`
   animation: moveTop ${duration} none;
 
   @keyframes moveTop {
@@ -30,7 +41,10 @@ export const animateMoveTop = ({ diff = "1rem", duration = "0.2s" }) => css`
   }
 `;
 
-export const animateMoveRight = ({ diff = "-1rem", duration = "0.2s" }) => css`
+export const animateMoveRight = ({
+  diff = "-1rem",
+  duration = "0.2s",
+}: AnimateT) => css`
   animation: moveRight ${duration} none;
 
   @keyframes moveRight {
@@ -45,7 +59,10 @@ export const animateMoveRight = ({ diff = "-1rem", duration = "0.2s" }) => css`
   }
 `;
 
-export const animateMoveLeft = ({ diff = "1rem", duration = "0.2s" }) => css`
+export const animateMoveLeft = ({
+  diff = "1rem",
+  duration = "0.2s",
+}: AnimateT) => css`
   animation: moveLeft ${duration} none;
 
   @keyframes moveLeft {
@@ -60,7 +77,7 @@ export const animateMoveLeft = ({ diff = "1rem", duration = "0.2s" }) => css`
   }
 `;
 
-export const animatePopUpAndScale = ({ duration = "0.2s" }) => css`
+export const animatePopUpAndScale = ({ duration = "0.2s" }: AnimateT) => css`
   animation: popUpAndScale ${duration} ease none;
 
   @keyframes popUpAndScale {

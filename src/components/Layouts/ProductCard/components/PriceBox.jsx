@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useCurrencyContext } from "providers/CurrencyProvider";
+import { useCurrencyContext } from "providers/globals/CurrencyProvider";
 
 // import * as UI from "./index";
 import * as Styled from "./styles/PriceBox.styled";

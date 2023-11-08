@@ -28,7 +28,7 @@ export default memo(function Navigation() {
           <Styled.MainNavBoxActions>
             <UI.SearchBar />
 
-            <UI.ShoppingCardButton />
+            {/* <UI.ShoppingCardButton /> */}
 
             <UI.BurgerButton setActiveBurgerNav={setActiveBurgerNav} />
           </Styled.MainNavBoxActions>

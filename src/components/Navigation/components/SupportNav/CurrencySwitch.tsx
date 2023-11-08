@@ -2,7 +2,7 @@ import { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 import { MIMITHA_CURRENCIES } from "config/consts";
-import { useCurrencyContext } from "providers/CurrencyProvider";
+import { useCurrencyContext } from "providers/globals/CurrencyProvider";
 
 import { MimithaCurrencyT } from "interface/common.types";
 

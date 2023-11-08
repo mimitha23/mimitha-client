@@ -41,14 +41,14 @@ export const Router: Array<RouterT> = [
   //   element: <Pages.GoesOnTutorialPage />,
   //   children: [],
   // },
-  {
-    path: PATHS.cart_page,
-    name: "cart-page",
-    element: <Pages.CartPage />,
-    children: [],
-  },
   // {
-  //   path: PATHS.order_history.fullPath,
+  //   path: PATHS.cart_page,
+  //   name: "cart-page",
+  //   element: <Pages.CartPage />,
+  //   children: [],
+  // },
+  // {
+  //   path: PATHS.order_history_page,
   //   name: "order-history",
   //   element: <Pages.OrderHistoryPage />,
   //   children: [],
@@ -84,9 +84,10 @@ export const Router: Array<RouterT> = [
     children: [],
   },
   // {
-  //   path: PATHS.fit_products.fullPath({}),
+  //   path: PATHS.fit_product_page,
   //   name: "fit-product-page",
   //   element: <Pages.ProductFitPage />,
+  //   children: [],
   // },
   {
     path: "*",

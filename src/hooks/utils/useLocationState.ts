@@ -48,6 +48,5 @@ export default function useLocationState() {
     setLocationState,
     getLocationState,
     locationStateDefaults,
-    state,
   };
 }

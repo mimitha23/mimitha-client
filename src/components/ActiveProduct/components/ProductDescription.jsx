@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { useTranslationContext } from "providers/I18nextProvider";
+import { useTranslationContext } from "providers/globals/I18nextProvider";
 import { selectActiveProductDescription } from "store/selectors/activeProduct.selectors";
 
 import ProductDescriptionDetailsBox from "./ProductDescriptionDetailsBox";

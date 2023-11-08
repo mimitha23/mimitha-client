@@ -1,4 +1,4 @@
-import { useEditorContext } from "providers/EditorProvider";
+import { useEditorContext } from "providers/editor/EditorProvider";
 
 import { VideoIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/ViewModeButton.styled";

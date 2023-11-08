@@ -1,16 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "store/hooks";
 
 import { PATHS } from "config/paths";
-import { useCurrencyContext } from "providers/CurrencyProvider";
+import { useCurrencyContext } from "providers/globals/CurrencyProvider";
 import { selectCartSum } from "store/selectors/cart.selectors";
 
 import { ShoppingCartIcon } from "components/Layouts/Icons";
 import * as Styled from "./ShoppingCardButton.styled";
 
 const ShoppingCardButton: React.FC = () => {
-  const sum = useSelector(selectCartSum);
+  const sum = useAppSelector(selectCartSum);
 
   const { currencySymbol, convertPrice } = useCurrencyContext();
 

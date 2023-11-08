@@ -1,4 +1,4 @@
-import { useEditorContext } from "providers/EditorProvider";
+import { useEditorContext } from "providers/editor/EditorProvider";
 import * as Styled from "./styles/EditorViewFigure.styled";
 
 export default function EditorViewFigure() {

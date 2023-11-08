@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAppSelector } from "store/hooks";
 
 import { selectNavDropdown } from "store/selectors/nav.selectors";
 
-import { useTranslationContext } from "providers/I18nextProvider";
+import { useTranslationContext } from "providers/globals/I18nextProvider";
 import { useLocationState } from "hooks/utils/index";
 
 import * as Styled from "./NavDropdown.styled";
 
 const NavDropdownRoutes = () => {
+  const { state } = useLocation();
+
   const { currentLocale } = useTranslationContext();
 
-  const { setLocationState, locationStateDefaults, state } = useLocationState();
+  const { setLocationState, locationStateDefaults } = useLocationState();
 
   const dropdown = useAppSelector(selectNavDropdown);
 

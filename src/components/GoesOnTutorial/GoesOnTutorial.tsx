@@ -5,7 +5,7 @@ import ResultDetails from "./components/ResultDetails";
 import ResultActions from "./components/ResultActions";
 import Explain from "./components/Explain";
 
-import { useGoesOnTutorialContext } from "providers/GoesOnTutorialContext";
+import { useGoesOnTutorialContext } from "providers/goesOn/GoesOnTutorialContext";
 
 const GoesOnTutorial: React.FC = () => {
   const { state } = useGoesOnTutorialContext();

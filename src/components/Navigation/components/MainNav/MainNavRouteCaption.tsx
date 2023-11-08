@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { PATHS } from "config/paths";
-import { useLocationState } from "hooks/utils";
 
 import { ArrowBottomIcon } from "components/Layouts/Icons/index";
 
@@ -21,7 +20,7 @@ const MainNavRouteCaption: React.FC<MainNavRouteCaptionT> = ({
 }) => {
   const { t } = useTranslation();
 
-  const { state } = useLocationState();
+  const { state } = useLocation();
 
   return (
     <Link

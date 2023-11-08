@@ -5,8 +5,8 @@ import {
   selectActiveProductHeader,
   selectProductRegistrationId,
 } from "store/selectors/activeProduct.selectors";
-import { useCurrencyContext } from "providers/CurrencyProvider";
-import { useTranslationContext } from "providers/I18nextProvider";
+import { useCurrencyContext } from "providers/globals/CurrencyProvider";
+import { useTranslationContext } from "providers/globals/I18nextProvider";
 import { useOnStartEdit } from "hooks/events";
 
 import * as Styled from "./styles/ProductHeading.styled";

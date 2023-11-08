@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 
 import { MIMITHA_LOCALES } from "config/consts";
 
-import { useTranslationContext } from "providers/I18nextProvider";
+import { useTranslationContext } from "providers/globals/I18nextProvider";
 import * as Styled from "./styles/LanguageSwitch.styled";
 
 const LanguageSwitch: React.FC = () => {

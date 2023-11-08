@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { DYNAMIC_PATHS } from "config/paths";
-import { useTranslationContext } from "providers/I18nextProvider";
+import { useTranslationContext } from "providers/globals/I18nextProvider";
 
 import * as Styled from "./styles/ProductTitle.styled";
 

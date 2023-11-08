@@ -7,7 +7,7 @@ export default function CardContentWithActions({
   productId,
   registeredProductId,
   isEditable,
-  onAddToCart,
+  // onAddToCart,
   linkState,
 }) {
   return (
@@ -29,9 +29,9 @@ export default function CardContentWithActions({
         />
       )}
 
-      <UI.Divider />
+      {/* <UI.Divider /> */}
 
-      <UI.AddToCartButton onAddToCart={onAddToCart} />
+      {/* <UI.AddToCartButton onAddToCart={onAddToCart} /> */}
     </>
   );
 }

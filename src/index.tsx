@@ -5,12 +5,12 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import {
-  Theme as AppThemeProvider,
-  I18nextProvider,
   AppProvider,
-  AppPortalsProvider,
+  I18nextProvider,
   CurrencyProvider,
-} from "providers";
+  AppPortalsProvider,
+  Theme as AppThemeProvider,
+} from "providers/globals";
 import { store, persistore } from "./store/store";
 
 import App from "./App";

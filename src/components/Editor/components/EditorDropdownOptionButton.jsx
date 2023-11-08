@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-import { useEditorContext } from "providers/EditorProvider";
+import { useEditorContext } from "providers/editor/EditorProvider";
 
 import * as UI from "./";
 import * as Styled from "./styles/EditorDropdownOptionButton.styled";

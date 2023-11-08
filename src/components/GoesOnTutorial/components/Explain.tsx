@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { useGoesOnTutorialContext } from "providers/GoesOnTutorialContext";
+import { useGoesOnTutorialContext } from "providers/goesOn/GoesOnTutorialContext";
 import { MuteIcon, UnmuteIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/Explain.styled";
 
-import { GoesOnTutorialStepT } from "providers/GoesOnTutorialContext";
+import { GoesOnTutorialStepT } from "providers/goesOn/GoesOnTutorialContext";
 
 interface ExplainT {
   description: string;
