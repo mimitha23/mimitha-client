@@ -23,9 +23,9 @@ export interface LocationStateOptionalT {
   category?: string;
   search?: string;
   productType?: {
-    query: string;
     ka: string;
     en: string;
+    query: string;
   };
   title?: {
     ka: string;

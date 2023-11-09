@@ -28,7 +28,9 @@ export default function useLocationState() {
     sale: "",
   };
 
-  const setLocationState = (args: LocationStateOptionalT): LocationStateT => ({
+  const setLocationState = (
+    args: Partial<LocationStateOptionalT>
+  ): LocationStateT => ({
     category: args.category || locationStateDefaults.category,
     productType: args.productType || locationStateDefaults.productType,
     title: args.title || locationStateDefaults.title,

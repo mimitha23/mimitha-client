@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
-import { useLandingQuery } from "hooks/api";
+// import { useEffect } from "react";
+// import { useLandingQuery } from "hooks/api";
 
 // import { Container, Spinner } from "components/Layouts/index";
 import LandingCTAPhoto from "./components/LandingCTAPhoto";
@@ -9,19 +9,15 @@ import LandingCTAPhoto from "./components/LandingCTAPhoto";
 import * as Styled from "./Landing.styled";
 
 const Landing: React.FC = () => {
-  const {
-    // status,
-    getLanding,
-    resetLanding,
-  } = useLandingQuery();
+  // const { status, getLanding, resetLanding } = useLandingQuery();
 
-  useEffect(() => {
-    getLanding();
+  // useEffect(() => {
+  //   getLanding();
 
-    return () => {
-      resetLanding();
-    };
-  }, []);
+  //   return () => {
+  //     resetLanding();
+  //   };
+  // }, []);
 
   return (
     <Styled.LandingContainer>

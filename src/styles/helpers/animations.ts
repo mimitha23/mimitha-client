@@ -1,4 +1,9 @@
-import { css, DefaultTheme } from "styled-components";
+import {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemeProps,
+} from "styled-components";
 
 interface AnimateT {
   diff?: string;
@@ -8,7 +13,7 @@ interface AnimateT {
 export const animateMoveBottom = ({
   diff = "-1rem",
   duration = "0.2s",
-}: AnimateT) => css`
+}: AnimateT): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   animation: moveBottom ${duration} none;
 
   @keyframes moveBottom {
@@ -26,7 +31,7 @@ export const animateMoveBottom = ({
 export const animateMoveTop = ({
   diff = "1rem",
   duration = "0.2s",
-}: AnimateT) => css`
+}: AnimateT): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   animation: moveTop ${duration} none;
 
   @keyframes moveTop {
@@ -44,7 +49,7 @@ export const animateMoveTop = ({
 export const animateMoveRight = ({
   diff = "-1rem",
   duration = "0.2s",
-}: AnimateT) => css`
+}: AnimateT): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   animation: moveRight ${duration} none;
 
   @keyframes moveRight {
@@ -62,7 +67,7 @@ export const animateMoveRight = ({
 export const animateMoveLeft = ({
   diff = "1rem",
   duration = "0.2s",
-}: AnimateT) => css`
+}: AnimateT): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   animation: moveLeft ${duration} none;
 
   @keyframes moveLeft {
@@ -77,7 +82,9 @@ export const animateMoveLeft = ({
   }
 `;
 
-export const animatePopUpAndScale = ({ duration = "0.2s" }: AnimateT) => css`
+export const animatePopUpAndScale = ({
+  duration = "0.2s",
+}: AnimateT): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   animation: popUpAndScale ${duration} ease none;
 
   @keyframes popUpAndScale {
