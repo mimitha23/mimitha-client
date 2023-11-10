@@ -14,14 +14,14 @@ const UserAvatar: React.FC = () => {
   const { isAuthenticated } = useIsAuthenticated();
 
   const [showUserDropdown, setShowUserDropdown] = useState(false);
-  const container_ref = useClickOutside(showUserDropdown, () => {
+  const containerRef = useClickOutside<HTMLDivElement>(showUserDropdown, () => {
     setShowUserDropdown(false);
   });
 
   const user = useAppSelector(selectUser);
 
   return (
-    <Styled.UserAvatar ref={container_ref}>
+    <Styled.UserAvatar ref={containerRef}>
       {!isAuthenticated && <LoginButton />}
 
       {isAuthenticated && (

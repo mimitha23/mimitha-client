@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "store/hooks";
 
 import { useFitProduct } from "hooks/layoutBase";
 import { selectProductMannequinAndModel } from "store/selectors/activeProduct.selectors";
@@ -9,7 +9,9 @@ import * as Styled from "./styles/FitButtons.styled";
 const FitButtons: React.FC = () => {
   const { handleFitMannequin, handleFitModel, activeFit } = useFitProduct();
 
-  const { mannequin, modelVideo } = useSelector(selectProductMannequinAndModel);
+  const { mannequin, modelVideo } = useAppSelector(
+    selectProductMannequinAndModel
+  );
 
   const onModel = () => handleFitModel({ src: modelVideo });
 

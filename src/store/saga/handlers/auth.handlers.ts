@@ -1,12 +1,13 @@
 import { call, put } from "redux-saga/effects";
 import { errorController } from "store/saga/handlers/helpers";
 
-import { authAPI } from "store/saga/api";
+import * as authAPI from "store/saga/api/auth.api";
 import { authActions } from "store/reducers/auth.reducer";
 import { userActions } from "store/reducers/user/user.reducer";
 
 import { AxiosResponse } from "axios";
 import { PayloadAction } from "@reduxjs/toolkit";
+
 import { LoginFormT } from "utils/zod/loginValidation";
 import { RegisterFormT } from "utils/zod/registerValidation";
 import { ForgotPasswordFormT } from "utils/zod/forgotPasswordValidation";

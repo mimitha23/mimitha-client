@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "store/hooks";
 
 import { navActions } from "store/reducers/nav.reducer";
 import { useWindowDimension } from "hooks/domBase/index";
@@ -11,7 +11,7 @@ export default function useNavigationDropdown({
 }: {
   activeBurgerNav: boolean;
 }) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const { width } = useWindowDimension();
   const [activeDropDown, setActiveDropDown] = useState("");

@@ -1,6 +1,6 @@
-import { useDispatch } from "react-redux";
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "store/hooks";
+import { useTranslation } from "react-i18next";
 
 import { DYNAMIC_PATHS } from "config/paths";
 import { useCurrencyContext } from "providers/globals/CurrencyProvider";
@@ -19,7 +19,7 @@ interface CartItemT {
 }
 
 const CartItem: React.FC<CartItemT> = ({ product }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
   const { currencySymbol, convertPrice } = useCurrencyContext();

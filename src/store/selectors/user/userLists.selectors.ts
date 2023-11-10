@@ -1,38 +1,66 @@
 import { RootStateT } from "store/store";
 import { createSelector } from "@reduxjs/toolkit";
 
+// MEMORISED SELECTORS
+const selectedUserListStatus = ({ userLists }: RootStateT) => ({
+  status: userLists.status.status,
+  loading: userLists.status.loading,
+  error: userLists.status.error,
+  message: userLists.status.message,
+});
+
 const selectedUserListsTitlesAndIds = ({ userLists }: RootStateT) =>
   userLists.allLists.map((list) => ({
     _id: list._id,
     title: list.title,
   }));
 
-const selectedUserListStatus = ({ userLists }: RootStateT) => ({
-  loading: userLists.status.loading,
-  error: userLists.status.error,
-  message: userLists.status.message,
+const selectedUserListDetails = ({ userLists }: RootStateT) => ({
+  _id: userLists.list._id,
+  title: userLists.list.title,
 });
 
-export const selectAllUserLists = ({ userLists }: RootStateT) =>
-  userLists.allLists;
+// ACTIVE LIST
+const selectUserListStatus = createSelector(
+  selectedUserListStatus,
+  (status) => status
+);
 
-export const selectProductToAddToListId = ({ userLists }: RootStateT) =>
-  userLists.productToAddToListId;
+const selectUserList = ({ userLists }: RootStateT) => userLists.list;
 
-export const selectCreatingListTitle = ({ userLists }: RootStateT) =>
-  userLists.creatingListTitle;
+const selectUserListDetails = createSelector(
+  selectedUserListDetails,
+  (details) => details
+);
 
-export const selectIsCreatingList = ({ userLists }: RootStateT) =>
-  userLists.isCreatingList;
+// ALL LISTS
+const selectAllUserLists = ({ userLists }: RootStateT) => userLists.allLists;
 
-export const selectUserListsTitlesAndIds = createSelector(
+const selectUserListsTitlesAndIds = createSelector(
   selectedUserListsTitlesAndIds,
   (list) => list
 );
 
-export const selectUserList = ({ userLists }: RootStateT) => userLists.list;
+// LIST CREATION
+const selectProductToAddToListId = ({ userLists }: RootStateT) =>
+  userLists.productToAddToListId;
 
-export const selectUserListStatus = createSelector(
-  selectedUserListStatus,
-  (status) => status
-);
+const selectCreatingListTitle = ({ userLists }: RootStateT) =>
+  userLists.creatingListTitle;
+
+const selectIsCreatingList = ({ userLists }: RootStateT) =>
+  userLists.isCreatingList;
+
+export {
+  // ACTIVE LIST
+  selectUserListStatus,
+  selectUserList,
+  selectUserListDetails,
+  // ALL LISTS
+  selectAllUserLists,
+  selectUserListsTitlesAndIds,
+  // LIST CREATION
+  selectProductToAddToListId,
+  selectCreatingListTitle,
+  selectIsCreatingList,
+};

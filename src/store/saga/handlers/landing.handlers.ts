@@ -1,6 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { errorController } from "./helpers";
-import { landingAPI } from "../api";
+
+import * as landingAPI from "store/saga/api/landing.api";
 import { landingActions } from "store/reducers/landing.reducer";
 
 import { AxiosResponse } from "axios";

@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "store/hooks";
 
 import { useFavoritesQuery } from "hooks/api/user";
 import { useUserListEvents } from "hooks/events";
@@ -19,8 +19,8 @@ const SaveToListButtons: React.FC<SaveToListButtonsT> = ({
   productId,
   showAddToList,
 }) => {
-  const allUerLists = useSelector(selectAllUserLists);
-  const allUserFavorites = useSelector(selectAllUserFavoritesIds);
+  const allUerLists = useAppSelector(selectAllUserLists);
+  const allUserFavorites = useAppSelector(selectAllUserFavoritesIds);
 
   const isSavedToList = allUerLists.some((list) =>
     list.products.includes(productId)
