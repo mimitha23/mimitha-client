@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { controlStatus as status } from "./helpers";
+import { setStatus, controlStatus as status } from "./helpers";
 
 import { NavStateT } from "interface/store/nav.reducer.types";
 import { NavDropdownT, GetNavArgsT } from "interface/DB/nav.types";
+import { SetStatusArgsT } from "interface/store/store.common";
 
 const initialState: NavStateT = {
   status: status.default(),
@@ -30,19 +31,16 @@ const navSlice = createSlice({
 
     setNav(state, { payload }: PayloadAction<NavDropdownT>) {
       state.navDropdown = payload;
-    },
-
-    // REQUEST STATUS SETTERS
-    setSuccess(state) {
       state.status = status.default();
     },
 
-    setError(state, { payload }) {
-      state.status = status.error(payload.message);
+    // REQUEST STATUS SETTERS
+    setNavStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
+      state.status = setStatus(payload);
     },
 
     // RESET
-    resetNavDropdown(state) {
+    cleanUpNavDropdown(state) {
       state.navDropdown = initialState.navDropdown;
     },
   },

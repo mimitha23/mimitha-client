@@ -9,7 +9,7 @@ export default function useLandingQuery() {
 
   const getLanding = () => dispatch(landingActions.getLanding());
 
-  const resetLanding = () => dispatch(landingActions.resetLanding());
+  const resetLanding = () => dispatch(landingActions.cleanUpLanding());
 
   return { status, getLanding, resetLanding };
 }

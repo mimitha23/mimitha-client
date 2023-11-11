@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { controlStatus as status } from "./helpers";
+import { setStatus, controlStatus as status } from "./helpers";
 
 import { LandingStateT } from "interface/store/landing.reducer.types";
 import { ProductShortInfoT } from "interface/DB/product.types";
+import { SetStatusArgsT } from "interface/store/store.common";
 
 const initialState: LandingStateT = {
   status: status.default(),
@@ -23,19 +24,16 @@ const landingSlice = createSlice({
       { payload }: PayloadAction<{ popularProducts: Array<ProductShortInfoT> }>
     ) => {
       state.popularProducts = payload.popularProducts;
-    },
-
-    // REQUEST STATUS SETTERS
-    setSuccess(state) {
       state.status = status.default();
     },
 
-    setError(state, { payload }: PayloadAction<{ message: string }>) {
-      state.status = status.error(payload.message);
+    // REQUEST STATUS SETTERS
+    setLandingStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
+      state.status = setStatus(payload);
     },
 
     // RESET
-    resetLanding(state) {
+    cleanUpLanding(state) {
       state.popularProducts = [];
     },
   },

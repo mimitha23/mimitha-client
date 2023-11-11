@@ -9,13 +9,13 @@ import {
 import { LoadingStatusT } from "./store.common";
 import { LocationStateT } from "interface/common.types";
 
-export interface FilterStateT {
+type FilterStateT = {
   status: LoadingStatusT;
 
   filter: FilterT;
-}
+};
 
-export interface FilterT {
+type FilterT = {
   sort: Array<
     FilterSortT & {
       _id: string;
@@ -39,18 +39,18 @@ export interface FilterT {
   >;
 
   styles: Array<FilterStyleT>;
-}
+};
 
-export interface FilterItemT {
+type FilterItemT = {
   _id: string;
   ka: string;
   en: string;
   query: string;
-}
+};
 
-export type ActiveFilterDropdownT = keyof typeof ACTIVE_DROPDOWN;
+type ActiveFilterDropdownT = keyof typeof ACTIVE_DROPDOWN;
 
-export enum ACTIVE_DROPDOWN {
+enum ACTIVE_DROPDOWN {
   PRODUCT_TYPE = "PRODUCT_TYPE",
   SORT = "SORT",
   SEASON = "SEASON",
@@ -59,7 +59,16 @@ export enum ACTIVE_DROPDOWN {
   GENDER = "GENDER",
 }
 
-export interface SetProductFilterArgsT
+interface SetProductFilterArgsT
   extends Omit<LocationStateT, "search" | "title" | "sale"> {
   isPublic?: "1" | "-1";
 }
+
+export type {
+  FilterStateT,
+  SetProductFilterArgsT,
+  ActiveFilterDropdownT,
+  FilterItemT,
+};
+
+export { ACTIVE_DROPDOWN };

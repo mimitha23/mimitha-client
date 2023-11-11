@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { controlStatus as status } from "store/reducers/helpers";
+import { setStatus, controlStatus as status } from "store/reducers/helpers";
 
 import {
   AddToFavoritesArgsT,
@@ -8,6 +8,7 @@ import {
   GetAllFavoritesResponseT,
 } from "interface/DB/userFavorites.types";
 import { UserFavoritesStateT } from "interface/store/userFavorites.reducer.types";
+import { SetStatusArgsT } from "interface/store/store.common";
 
 const initialState: UserFavoritesStateT = {
   status: status.default(),
@@ -81,15 +82,12 @@ const userFavoritesSlice = createSlice({
       { payload }: PayloadAction<GetAllFavoritesResponseT>
     ) {
       state.favorites = payload;
-    },
-
-    // REQUEST STATUS SETTERS
-    setSuccess(state) {
       state.status = status.default();
     },
 
-    setError(state, { payload }) {
-      state.status = status.error(payload.message);
+    // REQUEST STATUS SETTERS
+    setFavoritesStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
+      state.status = setStatus(payload);
     },
 
     // cleaners

@@ -48,12 +48,12 @@ export function* getAllFavorites() {
     );
 
     yield put(userFavoritesActions.setAllFavorites(data));
-    yield put(userFavoritesActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "getAllFavoritesHandler",
-      errorSetter: userFavoritesActions.setError,
+      errorSetter: userFavoritesActions.setFavoritesStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

@@ -6,15 +6,7 @@ import { GlobalStyles } from "styles/GlobalStyles";
 import { DarkTheme, LightTheme, BaseTheme } from "styles/Theme";
 import { MIMITHA_THEME_KEY } from "config/consts";
 
-interface ThemeContextT {
-  mode: ModeT;
-  setTheme: (mode: ModeT) => void;
-  changeNavHeight: (partial: boolean) => void;
-}
-
-interface ThemeProviderT {
-  children: React.ReactNode;
-}
+import { ThemeContextT, ThemeProviderT } from "./types/themeProvider.types";
 
 const ThemeContext = createContext<ThemeContextT>({
   mode: "light",

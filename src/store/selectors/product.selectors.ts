@@ -1,6 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootStateT } from "store/store";
 
+// MEMORISED SELECTORS
 const selectedProductsStatus = ({ products }: RootStateT) => ({
   status: products.allProductsStatus.status,
   loading: products.allProductsStatus.loading,
@@ -15,18 +16,25 @@ const selectedProductsSearchStatus = ({ products }: RootStateT) => ({
   message: products.searchProductsStatus.message,
 });
 
-export const selectAllProducts = ({ products }: RootStateT) =>
-  products.allProducts;
+// SELECTORS
+const selectAllProducts = ({ products }: RootStateT) => products.allProducts;
 
-export const selectProductsSearchResult = ({ products }: RootStateT) =>
+const selectProductsSearchResult = ({ products }: RootStateT) =>
   products.searchResults;
 
-export const selectProductsStatus = createSelector(
+const selectProductsStatus = createSelector(
   selectedProductsStatus,
   (memorized) => memorized
 );
 
-export const selectProductsSearchStatus = createSelector(
+const selectProductsSearchStatus = createSelector(
   selectedProductsSearchStatus,
   (memorized) => memorized
 );
+
+export {
+  selectProductsStatus,
+  selectAllProducts,
+  selectProductsSearchStatus,
+  selectProductsSearchResult,
+};

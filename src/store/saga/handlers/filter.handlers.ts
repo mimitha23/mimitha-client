@@ -21,12 +21,12 @@ export function* getProductsFilter({
     );
 
     yield put(filterActions.setProductsFilter(data));
-    yield put(filterActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "getProductsFilterHandler",
-      errorSetter: filterActions.setError,
+      errorSetter: filterActions.setFilterStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

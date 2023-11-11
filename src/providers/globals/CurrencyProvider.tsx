@@ -9,16 +9,10 @@ import {
 import { useTranslationContext } from "./I18nextProvider";
 import { EXCHANGE_RATE_API_END_POINT, EXCHANGE_RATE_API_KEY } from "config/env";
 
-interface CurrencyProviderContextT {
-  convertPrice: (price: number) => string;
-  changeCurrency: (currency: MimithaCurrencyT) => void;
-  currency: MimithaCurrencyT;
-  currencySymbol: MimithaCurrencySymbolT;
-}
-
-interface CurrencyProviderT {
-  children: React.ReactNode;
-}
+import {
+  CurrencyProviderT,
+  CurrencyProviderContextT,
+} from "./types/currencyProvider.types";
 
 const currencyContext = createContext<CurrencyProviderContextT>({
   convertPrice: () => "",

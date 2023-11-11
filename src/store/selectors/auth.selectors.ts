@@ -1,6 +1,7 @@
 import { RootStateT } from "store/store";
 import { createSelector } from "@reduxjs/toolkit";
 
+// MEMORISED SELECTORS
 const selectedAuthStatus = ({ auth }: RootStateT) => ({
   status: auth.status.status,
   loading: auth.status.loading,
@@ -8,12 +9,12 @@ const selectedAuthStatus = ({ auth }: RootStateT) => ({
   message: auth.status.message,
 });
 
-export const selectIsOpenPopup = ({ auth }: RootStateT) => auth.openPopup;
+// SELECTORS
+const selectIsOpenPopup = ({ auth }: RootStateT) => auth.openPopup;
 
-export const selectAuthOnGoingProcess = ({ auth }: RootStateT) =>
+const selectAuthOnGoingProcess = ({ auth }: RootStateT) =>
   auth.authOnGoingProcess;
 
-export const selectAuthStatus = createSelector(
-  selectedAuthStatus,
-  (status) => status
-);
+const selectAuthStatus = createSelector(selectedAuthStatus, (status) => status);
+
+export { selectIsOpenPopup, selectAuthOnGoingProcess, selectAuthStatus };

@@ -11,6 +11,6 @@ export type ActiveProductStateT = {
   activeSize: ProductSizeT;
   availableColors: Array<ProductColorT & { productId: string }>;
   relatedProducts: Array<ProductShortInfoT>;
-  status: LoadingStatusT;
+  activeProductStatus: LoadingStatusT;
   relatedProductsStatus: LoadingStatusT;
 };

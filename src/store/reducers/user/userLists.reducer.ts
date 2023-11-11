@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { controlStatus as status } from "store/reducers/helpers";
+import { setStatus, controlStatus as status } from "store/reducers/helpers";
 
 import { PATHS } from "config/paths";
 import { RouterHistory } from "config/router";
@@ -13,6 +13,7 @@ import {
   GetAllFromListArgsT,
 } from "interface/DB/userLists.types";
 import { UserListsStateT } from "interface/store/userLists.reducer.types";
+import { SetStatusArgsT } from "interface/store/store.common";
 
 const initialState: UserListsStateT = {
   status: status.default(),
@@ -65,6 +66,7 @@ const userListsSlice = createSlice({
 
     setNewList(state, { payload }: PayloadAction<UserListShortT>) {
       state.allLists.push(payload);
+      state.status = status.default();
     },
 
     deleteList: {
@@ -84,6 +86,7 @@ const userListsSlice = createSlice({
       state.list = initialState.list;
       state.allLists = state.allLists.filter((list) => list._id !== listId);
       RouterHistory.navigate(PATHS.home_page);
+      state.status = status.default();
     },
 
     addToList: {
@@ -143,6 +146,7 @@ const userListsSlice = createSlice({
 
     setAllFromList(state, { payload }: PayloadAction<UserListT>) {
       state.list = payload;
+      state.status = status.default();
     },
 
     getAllList() {},
@@ -152,12 +156,8 @@ const userListsSlice = createSlice({
     },
 
     // REQUEST STATUS SETTERS
-    setSuccess(state) {
-      state.status = status.default();
-    },
-
-    setError(state, { payload }: PayloadAction<{ message: string }>) {
-      state.status = status.error(payload.message);
+    setListStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
+      state.status = setStatus(payload);
     },
 
     // Cleaners

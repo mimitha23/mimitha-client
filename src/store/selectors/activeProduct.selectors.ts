@@ -1,13 +1,16 @@
 import { RootStateT } from "store/store";
 import { createSelector } from "@reduxjs/toolkit";
 
+// MEMORISED SELECTORS
 const selectedActiveProductStatus = ({ activeProduct }: RootStateT) => ({
-  loading: activeProduct.status.loading,
-  error: activeProduct.status.error,
-  message: activeProduct.status.message,
+  status: activeProduct.activeProductStatus.status,
+  loading: activeProduct.activeProductStatus.loading,
+  error: activeProduct.activeProductStatus.error,
+  message: activeProduct.activeProductStatus.message,
 });
 
 const selectedRelatedProductsStatus = ({ activeProduct }: RootStateT) => ({
+  status: activeProduct.relatedProductsStatus.status,
   loading: activeProduct.relatedProductsStatus.loading,
   error: activeProduct.relatedProductsStatus.error,
   message: activeProduct.relatedProductsStatus.message,
@@ -43,60 +46,73 @@ const selectedProductMannequinAndModel = ({ activeProduct }: RootStateT) => ({
 });
 
 // EXPORTS
-export const selectActiveProductAssets = ({ activeProduct }: RootStateT) => ({
+const selectActiveProductStatus = createSelector(
+  selectedActiveProductStatus,
+  (memorised) => memorised
+);
+
+const selectActiveProduct = createSelector(
+  selectedActiveProduct,
+  (memorised) => memorised
+);
+
+const selectActiveProductAssets = ({ activeProduct }: RootStateT) => ({
   assets: activeProduct.product.assets,
   alt: activeProduct.product.title,
 });
 
-export const selectActiveProductHeader = ({ activeProduct }: RootStateT) => ({
+const selectActiveProductHeader = ({ activeProduct }: RootStateT) => ({
   price: activeProduct.product.price,
   title: activeProduct.product.title,
   isEditable: activeProduct.product.isEditable,
 });
 
-export const selectActiveProductDescription = ({
-  activeProduct,
-}: RootStateT) => ({
+const selectActiveProductDescription = ({ activeProduct }: RootStateT) => ({
   styles: activeProduct.product.styles,
   seasons: activeProduct.product.seasons,
   textures: activeProduct.product.textures,
   soldOut: activeProduct.product.soldOut,
 });
 
-export const selectActiveProductStyler = ({ activeProduct }: RootStateT) => ({
+const selectActiveProductStyler = ({ activeProduct }: RootStateT) => ({
   availableColors: activeProduct.availableColors,
   size: activeProduct.product.size,
   activeSize: activeProduct.activeSize,
   color: activeProduct.product.color,
 });
 
-export const selectActiveProduct = createSelector(
-  selectedActiveProduct,
-  (memorised) => memorised
+const selectProductMannequinAndModel = createSelector(
+  selectedProductMannequinAndModel,
+  (memorized) => memorized
 );
 
-export const selectActiveProductStatus = createSelector(
-  selectedActiveProductStatus,
-  (memorised) => memorised
-);
-
-export const selectRelatedProductsStatus = createSelector(
+// RELATES PRODUCTS
+const selectRelatedProductsStatus = createSelector(
   selectedRelatedProductsStatus,
   (memorised) => memorised
 );
 
-export const selectRelatedProducts = ({ activeProduct }: RootStateT) =>
+const selectRelatedProducts = ({ activeProduct }: RootStateT) =>
   activeProduct.relatedProducts;
 
-export const selectActiveProductInfoForShoppingCart = createSelector(
+const selectActiveProductInfoForShoppingCart = createSelector(
   selectedActiveProductInfoForShoppingCart,
   (info) => info
 );
 
-export const selectProductRegistrationId = ({ activeProduct }: RootStateT) =>
+const selectProductRegistrationId = ({ activeProduct }: RootStateT) =>
   activeProduct.product.productId;
 
-export const selectProductMannequinAndModel = createSelector(
-  selectedProductMannequinAndModel,
-  (memorized) => memorized
-);
+export {
+  selectActiveProductStatus,
+  selectActiveProduct,
+  selectActiveProductAssets,
+  selectActiveProductHeader,
+  selectActiveProductDescription,
+  selectActiveProductStyler,
+  selectRelatedProductsStatus,
+  selectRelatedProducts,
+  selectActiveProductInfoForShoppingCart,
+  selectProductRegistrationId,
+  selectProductMannequinAndModel,
+};

@@ -1,5 +1,5 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
-import { controlStatus as status } from "./helpers";
+import { controlStatus as status, setStatus } from "./helpers";
 
 import {
   EditorModeT,
@@ -12,6 +12,7 @@ import {
   GetProductToEditArgsT,
   GetProductToEditResponseT,
 } from "interface/DB/editor.types";
+import { SetStatusArgsT } from "interface/store/store.common";
 
 const initialState: EditorStateT = {
   status: status.default(),
@@ -117,15 +118,13 @@ const editorSlice = createSlice({
       state.activeConfig =
         payload.docs.find((product) => product._id === state.activeConfigId) ||
         initialState.activeConfig;
+
+      state.status = status.default();
     },
 
     // REQUEST STATUS SETTERS
-    setError(state, { payload }: PayloadAction<{ message: string }>) {
-      state.status = status.error(payload.message);
-    },
-
-    setSuccess(state) {
-      state.status = status.default();
+    setEditorStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
+      state.status = setStatus(payload);
     },
 
     // RESET

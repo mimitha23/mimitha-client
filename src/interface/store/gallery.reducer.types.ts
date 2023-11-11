@@ -1,11 +1,13 @@
-export interface GalleryStateT {
+type GalleryStateT = {
   gallery: Array<GalleryItemT>;
   activeImageIndex: number;
   activeImage: GalleryItemT | null;
   galleryModalIsActive: boolean;
-}
+};
 
-export interface GalleryItemT {
+type GalleryItemT = {
   img: string;
   productId: string;
-}
+};
+
+export type { GalleryStateT, GalleryItemT };

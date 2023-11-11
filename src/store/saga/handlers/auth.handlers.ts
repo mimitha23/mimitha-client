@@ -33,7 +33,8 @@ export function* registration({ payload }: PayloadAction<RegisterFormT>) {
     yield errorController({
       error,
       location: "registrationHandler",
-      errorSetter: authActions.setError,
+      errorSetter: authActions.setAuthStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -56,7 +57,8 @@ export function* login({ payload }: PayloadAction<LoginFormT>) {
     yield errorController({
       error,
       location: "loginHandler",
-      errorSetter: authActions.setError,
+      errorSetter: authActions.setAuthStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -79,7 +81,8 @@ export function* googleLogin({ payload }: PayloadAction<GoogleLoginArgsT>) {
     yield errorController({
       error,
       location: "googleLoginHandler",
-      errorSetter: authActions.setError,
+      errorSetter: authActions.setAuthStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -90,12 +93,12 @@ export function* logout() {
 
     yield put(userActions.cleanUpUser());
     yield put(authActions.setLogout());
-    yield put(authActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "logoutHandler",
-      errorSetter: authActions.setError,
+      errorSetter: authActions.setAuthStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -107,12 +110,12 @@ export function* forgotPassword({
     yield call(authAPI.forgotPasswordQuery, payload);
 
     yield put(authActions.setForgotPassword());
-    yield put(authActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "forgotPasswordHandler",
-      errorSetter: authActions.setError,
+      errorSetter: authActions.setAuthStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -122,12 +125,12 @@ export function* confirmEmail({ payload }: PayloadAction<ConfirmEmailFormT>) {
     yield call(authAPI.confirmEmailQuery, payload);
 
     yield put(authActions.setConfirmEmail());
-    yield put(authActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "confirmEmailHandler",
-      errorSetter: authActions.setError,
+      errorSetter: authActions.setAuthStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -139,12 +142,12 @@ export function* updatePassword({
     yield call(authAPI.updatePasswordQuery, payload);
 
     yield put(authActions.setUpdatePassword());
-    yield put(authActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "updatePasswordHandler",
-      errorSetter: authActions.setError,
+      errorSetter: authActions.setAuthStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

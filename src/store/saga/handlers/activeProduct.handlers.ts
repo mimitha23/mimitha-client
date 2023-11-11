@@ -23,12 +23,12 @@ export function* getActiveProduct({
     );
 
     yield put(activeProductActions.setActiveProduct(data));
-    yield put(activeProductActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "getActiveProductHandler",
-      errorSetter: activeProductActions.setError,
+      errorSetter: activeProductActions.setActiveProductStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -43,12 +43,12 @@ export function* getRelatedProducts({
     );
 
     yield put(activeProductActions.setRelatedProducts(data));
-    yield put(activeProductActions.setRelatedProductsSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "getRelatedProductsHandler",
-      errorSetter: activeProductActions.setRelatedProductsError,
+      errorSetter: activeProductActions.setRelatedProductsStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

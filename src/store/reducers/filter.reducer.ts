@@ -1,5 +1,5 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
-import { controlStatus as status } from "store/reducers/helpers";
+import { controlStatus as status, setStatus } from "store/reducers/helpers";
 
 import {
   FilterStateT,
@@ -10,6 +10,8 @@ import {
   ProductsFilterResponseT,
   GetProductFilterArgsT,
 } from "interface/DB/productsFilter.types";
+
+import { SetStatusArgsT } from "interface/store/store.common";
 
 const initialState: FilterStateT = {
   status: status.default(),
@@ -61,15 +63,13 @@ const filterSlice = createSlice({
           query: texture.en,
         })),
       };
-    },
 
-    // REQUEST STATUS SETTERS
-    setSuccess(state) {
       state.status = status.default();
     },
 
-    setError(state, { payload }: PayloadAction<{ message: string }>) {
-      state.status = status.error(payload.message);
+    // REQUEST STATUS SETTERS
+    setFilterStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
+      state.status = setStatus(payload);
     },
 
     // RESET

@@ -22,8 +22,8 @@ export default function useActiveProductQuery() {
     );
 
     return () => {
-      dispatch(activeProductActions.resetActiveProduct());
-      dispatch(activeProductActions.resetRelatedProducts());
+      dispatch(activeProductActions.cleanUpActiveProduct());
+      dispatch(activeProductActions.cleanUpRelatedProducts());
     };
   }, [productId]);
 

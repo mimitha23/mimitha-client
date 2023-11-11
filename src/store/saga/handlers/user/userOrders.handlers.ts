@@ -13,12 +13,12 @@ export function* getOrderHistory() {
     );
 
     yield put(userOrdersActions.setOrderHistory(data));
-    yield put(userOrdersActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "getOrderHistoryHandler",
-      errorSetter: userOrdersActions.setError,
+      errorSetter: userOrdersActions.setOrdersStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

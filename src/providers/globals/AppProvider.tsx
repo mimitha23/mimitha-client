@@ -7,11 +7,7 @@ import { useFavoritesQuery, useUserListQuery } from "hooks/api/user";
 import { useIsAuthenticated, useRestrictUnauthorized } from "hooks/auth";
 import { useUserFavoritesEvents, useUserListEvents } from "hooks/events";
 
-interface AppContextT {}
-
-interface AppProviderT {
-  children: React.ReactNode;
-}
+import { AppContextT, AppProviderT } from "./types/appProvider.types";
 
 const AppContext = createContext<AppContextT>({});
 

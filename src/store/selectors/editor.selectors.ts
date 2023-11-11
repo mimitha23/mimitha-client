@@ -3,6 +3,7 @@ import { createSelector } from "@reduxjs/toolkit";
 
 // MEMORISED SELECTORS
 const selectedEditorStatus = ({ editor }: RootStateT) => ({
+  status: editor.status.status,
   loading: editor.status.loading,
   error: editor.status.error,
   message: editor.status.message,

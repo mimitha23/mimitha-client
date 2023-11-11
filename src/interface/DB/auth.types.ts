@@ -1,16 +1,18 @@
 import { UserT } from "./user.types";
 
-export interface GoogleLoginArgsT {
+type GoogleLoginArgsT = {
   email: string;
   username: string;
   profilePicture: string;
-}
+};
 
-export interface AuthResponseT {
+type AuthResponseT = {
   accessToken: string;
   user: UserT;
-}
+};
 
-export interface SetAuthenticatedUserT {
+type SetAuthenticatedUserT = {
   accessToken: string;
-}
+};
+
+export type { GoogleLoginArgsT, AuthResponseT, SetAuthenticatedUserT };

@@ -1,6 +1,6 @@
 import { LocationStateT } from "interface/common.types";
 
-export type ProductInfoT = {
+type ProductInfoT = {
   _id: string;
   title: ProductTitleT;
   color: ProductColorT;
@@ -24,7 +24,7 @@ export type ProductInfoT = {
   warnings: Array<ProductWarningT>;
 };
 
-export type ProductShortInfoT = {
+type ProductShortInfoT = {
   _id: string;
   color: ProductColorT;
   price: number;
@@ -36,12 +36,12 @@ export type ProductShortInfoT = {
 };
 
 // PARTIALS
-interface NestedFieldsCommonT {
+type NestedFieldsCommonT = {
   _id: string;
   ka: string;
   en: string;
   query: string;
-}
+};
 
 type GenderT = NestedFieldsCommonT;
 
@@ -49,11 +49,11 @@ type ProductStyleT = NestedFieldsCommonT;
 
 type ProductSeasonT = NestedFieldsCommonT;
 
-export type ProductCategoryT = NestedFieldsCommonT;
+type ProductCategoryT = NestedFieldsCommonT;
 
-export type ProductTypeT = NestedFieldsCommonT;
+type ProductTypeT = NestedFieldsCommonT;
 
-export type ProductTitleT = { ka: string; en: string };
+type ProductTitleT = { ka: string; en: string };
 
 type ProductWarningT = Omit<NestedFieldsCommonT, "query">;
 
@@ -61,17 +61,17 @@ type ProductTextureT = Omit<NestedFieldsCommonT, "query"> & {
   percentage: number;
 };
 
-export type ProductColorT = Omit<NestedFieldsCommonT, "query"> & {
+type ProductColorT = Omit<NestedFieldsCommonT, "query"> & {
   hex: string;
 };
 
-export type ProductSizeT = {
+type ProductSizeT = {
   _id: string;
   size: string;
   amount: number;
 };
 
-export type ProductShortInfoRootProductT = {
+type ProductShortInfoRootProductT = {
   _id: string;
   isEditable: boolean;
   productType: ProductTypeT;
@@ -79,24 +79,24 @@ export type ProductShortInfoRootProductT = {
 };
 
 // API
-export type SearchProductsArgsT = {
+type SearchProductsArgsT = {
   search: string;
   locale: string;
 };
 
-export type GetAllProductsArgsT = LocationStateT & {
+type GetAllProductsArgsT = LocationStateT & {
   filter?: string;
 };
 
-export type GetActiveProductArgsT = {
+type GetActiveProductArgsT = {
   productId: string;
 };
 
-export type GetRelatedProductsArgsT = {
+type GetRelatedProductsArgsT = {
   productId: string;
 };
 
-export type GetActiveProductResponseT = Omit<
+type GetActiveProductResponseT = Omit<
   ProductInfoT,
   | "productId"
   | "productType"
@@ -121,4 +121,19 @@ export type GetActiveProductResponseT = Omit<
       color: ProductColorT;
     }>;
   };
+};
+
+export type {
+  ProductInfoT,
+  ProductShortInfoT,
+  // PARTIALS
+  ProductTitleT,
+  ProductColorT,
+  ProductSizeT,
+  // AI
+  SearchProductsArgsT,
+  GetActiveProductArgsT,
+  GetAllProductsArgsT,
+  GetRelatedProductsArgsT,
+  GetActiveProductResponseT,
 };

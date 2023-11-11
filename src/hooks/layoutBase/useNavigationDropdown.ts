@@ -25,7 +25,7 @@ export default function useNavigationDropdown({
   function clearDropDownState() {
     timeoutId && clearTimeout(timeoutId);
     activeDropDown && setActiveDropDown("");
-    dispatch(navActions.resetNavDropdown());
+    dispatch(navActions.cleanUpNavDropdown());
     lastMainNavRouteSnapshot = undefined;
   }
 

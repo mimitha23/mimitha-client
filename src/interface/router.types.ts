@@ -1,8 +1,10 @@
 import React from "react";
 
-export interface RouterT {
+type RouterT = {
   path: string;
   name: string;
   element: React.ReactNode;
   children: Array<RouterT>;
-}
+};
+
+export type { RouterT };

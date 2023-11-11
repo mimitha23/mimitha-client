@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { controlStatus as status } from "./helpers";
+import { controlStatus as status, setStatus } from "./helpers";
 
 import {
   GoogleLoginArgsT,
   SetAuthenticatedUserT,
 } from "interface/DB/auth.types";
+import { SetStatusArgsT } from "interface/store/store.common";
 import { LoginFormT } from "utils/zod/loginValidation";
 import { RegisterFormT } from "utils/zod/registerValidation";
 import { ForgotPasswordFormT } from "utils/zod/forgotPasswordValidation";
@@ -108,6 +109,7 @@ const authSlice = createSlice({
 
     setForgotPassword(state) {
       state.authOnGoingProcess = AUTH_PROCESSES.CONFIRM_EMAIl;
+      state.status = status.default();
     },
 
     confirmEmail: {
@@ -126,6 +128,7 @@ const authSlice = createSlice({
 
     setConfirmEmail(state) {
       state.authOnGoingProcess = AUTH_PROCESSES.UPDATE_PASSWORD;
+      state.status = status.default();
     },
 
     updatePassword: {
@@ -145,15 +148,12 @@ const authSlice = createSlice({
 
     setUpdatePassword(state) {
       state.authOnGoingProcess = AUTH_PROCESSES.AUTHORIZATION;
-    },
-
-    // REQUEST STATUS SETTERS
-    setSuccess(state) {
       state.status = status.default();
     },
 
-    setError(state, { payload }) {
-      state.status = status.error(payload.message);
+    // REQUEST STATUS SETTERS
+    setAuthStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
+      state.status = setStatus(payload);
     },
 
     // RESET

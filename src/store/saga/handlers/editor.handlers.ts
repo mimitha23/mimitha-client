@@ -21,12 +21,12 @@ export function* getProductToEdit({
     );
 
     yield put(editorActions.setProductToEdit(data));
-    yield put(editorActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "getProductToEditHandler",
-      errorSetter: editorActions.setError,
+      errorSetter: editorActions.setEditorStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

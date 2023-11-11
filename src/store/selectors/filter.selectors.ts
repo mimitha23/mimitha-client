@@ -1,6 +1,7 @@
 import { RootStateT } from "store/store";
 import { createSelector } from "@reduxjs/toolkit";
 
+// MEMORISED SELECTORS
 const selectedFilters = ({ filter }: RootStateT) => ({
   productTypes: filter.filter.productTypes,
   seasons: filter.filter.seasons,
@@ -10,6 +11,7 @@ const selectedFilters = ({ filter }: RootStateT) => ({
   gender: filter.filter.gender,
 });
 
+// SELECTORS
 const selectFilters = createSelector(selectedFilters, (filter) => filter);
 
 export { selectFilters };

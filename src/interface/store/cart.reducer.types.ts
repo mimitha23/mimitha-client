@@ -4,11 +4,11 @@ import {
   ProductTitleT,
 } from "interface/DB/product.types";
 
-export interface ProductCartStateT {
+type ProductCartStateT = {
   cart: Array<CartProductT>;
-}
+};
 
-export interface CartProductT {
+type CartProductT = {
   _id: string;
   cartId?: string;
   color: ProductColorT;
@@ -17,14 +17,21 @@ export interface CartProductT {
   title: ProductTitleT;
   thumbnails: Array<string>;
   quantity: number;
-}
+};
 
-export interface RemoveFromCartT {
+type RemoveFromCartT = {
   cartId: string;
-}
+};
 
-export interface SetProductQuantityToCartArgsT {
+type SetProductQuantityToCartArgsT = {
   cardId: string;
   sizeId: string;
   value: number;
-}
+};
+
+export type {
+  ProductCartStateT,
+  CartProductT,
+  RemoveFromCartT,
+  SetProductQuantityToCartArgsT,
+};

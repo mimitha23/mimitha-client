@@ -15,12 +15,12 @@ export function* changeProfileImage({ payload }: PayloadAction<any>) {
     );
 
     yield put(userActions.setProfilePicture(data));
-    yield put(userProfileImageActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "changeProfileImageHandler",
-      errorSetter: userProfileImageActions.setError,
+      errorSetter: userProfileImageActions.setProfileImageStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

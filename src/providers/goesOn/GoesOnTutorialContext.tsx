@@ -1,29 +1,11 @@
 import { createContext, useContext, useReducer } from "react";
 
-interface GoesOnTutorialContextT {
-  state: GoesOnTutorialStateT;
-  nextStep: (currentStep: GoesOnTutorialStepT) => void;
-  previousStep: (currentStep: GoesOnTutorialStepT) => void;
-}
-
-export type GoesOnTutorialStepT = keyof typeof initialState;
-
-interface GoesOnTutorialStateT {
-  explainLock: boolean;
-  explainEdit: boolean;
-  explainGenerate: boolean;
-  explainBuyNow: boolean;
-  explainAddToCart: boolean;
-}
-
-interface GoesOnTutorialProviderT {
-  children: React.ReactNode;
-}
-
-enum GoesOnTutorialActionT {
-  NEXT_STEP = "NEXT_STEP",
-  PREVIOUS_STEP = "PREVIOUS_STEP",
-}
+import {
+  GoesOnTutorialContextT,
+  GoesOnTutorialProviderT,
+  GoesOnTutorialStateT,
+  GOES_ON_TUTORIAL_ACTIONS,
+} from "./goesOnTutorialProvider.types";
 
 const GoesOnTutorialContext = createContext<GoesOnTutorialContextT>({
   state: {
@@ -51,10 +33,13 @@ const GoesOnTutorialProvider: React.FC<GoesOnTutorialProviderT> = ({
   const [state, dispatch] = useReducer(goesOnTutorialReducer, initialState);
 
   const nextStep = (currentStep: string) =>
-    dispatch({ type: GoesOnTutorialActionT.NEXT_STEP, value: currentStep });
+    dispatch({ type: GOES_ON_TUTORIAL_ACTIONS.NEXT_STEP, value: currentStep });
 
   const previousStep = (currentStep: string) =>
-    dispatch({ type: GoesOnTutorialActionT.PREVIOUS_STEP, value: currentStep });
+    dispatch({
+      type: GOES_ON_TUTORIAL_ACTIONS.PREVIOUS_STEP,
+      value: currentStep,
+    });
 
   return (
     <GoesOnTutorialContext.Provider value={{ state, nextStep, previousStep }}>
@@ -69,7 +54,7 @@ export const useGoesOnTutorialContext = () => useContext(GoesOnTutorialContext);
 
 function goesOnTutorialReducer(
   state: GoesOnTutorialStateT,
-  action: { type: GoesOnTutorialActionT; value: string }
+  action: { type: GOES_ON_TUTORIAL_ACTIONS; value: string }
 ) {
   switch (action.type) {
     case "PREVIOUS_STEP": {

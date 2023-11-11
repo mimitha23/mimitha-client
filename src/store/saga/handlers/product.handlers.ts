@@ -19,7 +19,6 @@ export function* getProducts({ payload }: PayloadAction<any>) {
     );
 
     yield put(productsActions.setProducts(data));
-    yield put(productsActions.setAllProductsStatus({ stage: "default" }));
   } catch (error: any) {
     yield errorController({
       error,
@@ -40,7 +39,6 @@ export function* searchProducts({
     );
 
     yield put(productsActions.setSearchResults(data));
-    yield put(productsActions.setSearchStatus({ stage: "default" }));
   } catch (error: any) {
     yield errorController({
       error,

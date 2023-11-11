@@ -1,30 +1,39 @@
 import { ProductShortInfoT } from "./product.types";
 
-export interface UserListT {
+type UserListT = {
   _id: string;
   title: string;
   user: string;
   products: Array<ProductShortInfoT>;
-}
+};
 
-export interface UserListShortT extends Omit<UserListT, "products"> {
+type UserListShortT = Omit<UserListT, "products"> & {
   products: Array<string>;
-}
+};
 
-export interface CreateListArgsT {
+type CreateListArgsT = {
   title: string;
   productId: string;
-}
+};
 
-export interface DeleteListArgsT {
+type DeleteListArgsT = {
   listId: string;
-}
+};
 
-export interface AddToListArgsT {
+type AddToListArgsT = {
   listId: string;
   productId: string;
-}
+};
 
-export interface GetAllFromListArgsT {
+type GetAllFromListArgsT = {
   listId: string;
-}
+};
+
+export type {
+  UserListT,
+  UserListShortT,
+  CreateListArgsT,
+  DeleteListArgsT,
+  AddToListArgsT,
+  GetAllFromListArgsT,
+};

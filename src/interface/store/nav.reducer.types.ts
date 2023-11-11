@@ -1,7 +1,9 @@
 import { NavDropdownT } from "interface/DB/nav.types";
 import { LoadingStatusT } from "interface/store/store.common";
 
-export interface NavStateT {
+type NavStateT = {
   status: LoadingStatusT;
   navDropdown: NavDropdownT;
-}
+};
+
+export type { NavStateT };

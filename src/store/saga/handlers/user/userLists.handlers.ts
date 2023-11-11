@@ -38,13 +38,12 @@ export function* createList({ payload }: PayloadAction<CreateListArgsT>) {
     );
 
     yield put(userListsActions.setCancelListCreation());
-
-    yield put(userListsActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "createListHandler",
-      errorSetter: userListsActions.setError,
+      errorSetter: userListsActions.setListStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -54,12 +53,12 @@ export function* deleteList({ payload }: PayloadAction<DeleteListArgsT>) {
     yield call(userListAPI.deleteListQuery, payload);
 
     yield put(userListsActions.setDeletedList(payload));
-    yield put(userListsActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "deleteListHandler",
-      errorSetter: userListsActions.setError,
+      errorSetter: userListsActions.setListStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -73,7 +72,8 @@ export function* addToList({ payload }: PayloadAction<AddToListArgsT>) {
     yield errorController({
       error,
       location: "addToListHandler",
-      // errorSetter: userListsActions.setError,
+      errorSetter: userListsActions.setListStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -87,7 +87,8 @@ export function* removeFromList({ payload }: PayloadAction<AddToListArgsT>) {
     yield errorController({
       error,
       location: "removeFromListHandler",
-      // errorSetter: userListsActions.setError,
+      errorSetter: userListsActions.setListStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -103,7 +104,8 @@ export function* getAllList() {
     yield errorController({
       error,
       location: "getAllListHandler",
-      // errorSetter: userListsActions.setError,
+      errorSetter: userListsActions.setListStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }
@@ -118,12 +120,12 @@ export function* getAllFromList({
     );
 
     yield put(userListsActions.setAllFromList(data));
-    yield put(userListsActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "getAllFromListHandler",
-      errorSetter: userListsActions.setError,
+      errorSetter: userListsActions.setListStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

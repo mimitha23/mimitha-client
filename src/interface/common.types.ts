@@ -4,7 +4,7 @@ import {
   MIMITHA_CURRENCIES_SYMBOLS,
 } from "config/consts";
 
-export interface LocationStateT {
+type LocationStateT = {
   category: string;
   search: string;
   productType: {
@@ -17,9 +17,9 @@ export interface LocationStateT {
     en: string;
   };
   sale: string;
-}
+};
 
-export interface LocationStateOptionalT {
+type LocationStateOptionalT = {
   category?: string;
   search?: string;
   productType?: {
@@ -32,18 +32,26 @@ export interface LocationStateOptionalT {
     en: string;
   };
   sale?: string;
-}
+};
 
-export type MimithaLocaleT = (typeof MIMITHA_LOCALES)[number];
+type MimithaLocaleT = (typeof MIMITHA_LOCALES)[number];
 
-export type MimithaCurrencyT = (typeof MIMITHA_CURRENCIES)[number];
+type MimithaCurrencyT = (typeof MIMITHA_CURRENCIES)[number];
 
-export type MimithaCurrencySymbolT =
-  (typeof MIMITHA_CURRENCIES_SYMBOLS)[number];
+type MimithaCurrencySymbolT = (typeof MIMITHA_CURRENCIES_SYMBOLS)[number];
 
-export interface DecodedUserT {
+type DecodedUserT = {
   iat: number;
   exp: number;
   email: string;
   _is: string;
-}
+};
+
+export type {
+  LocationStateT,
+  LocationStateOptionalT,
+  MimithaLocaleT,
+  MimithaCurrencyT,
+  MimithaCurrencySymbolT,
+  DecodedUserT,
+};

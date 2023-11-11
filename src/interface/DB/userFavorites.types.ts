@@ -1,17 +1,25 @@
 import { ProductShortInfoT } from "interface/DB/product.types";
 
-export interface AddToFavoritesArgsT {
+type AddToFavoritesArgsT = {
   productId: string;
-}
+};
 
-export interface RemoveFromFavoritesArgsT {
+type RemoveFromFavoritesArgsT = {
   productId: string;
-}
+};
 
-export interface GetAllFavoritesIdsArgsT {
+type GetAllFavoritesIdsArgsT = {
   query: string;
-}
+};
 
-export type GetAllFavoritesIdsResponseT = Array<{ _id: string }>;
+type GetAllFavoritesIdsResponseT = Array<{ _id: string }>;
 
-export type GetAllFavoritesResponseT = Array<ProductShortInfoT>;
+type GetAllFavoritesResponseT = Array<ProductShortInfoT>;
+
+export type {
+  AddToFavoritesArgsT,
+  GetAllFavoritesIdsArgsT,
+  RemoveFromFavoritesArgsT,
+  GetAllFavoritesResponseT,
+  GetAllFavoritesIdsResponseT,
+};

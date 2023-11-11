@@ -17,12 +17,12 @@ export function* getNav({ payload }: PayloadAction<GetNavArgsT>) {
     );
 
     yield put(navActions.setNav(data));
-    yield put(navActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "getNavHandler",
-      errorSetter: navActions.setError,
+      errorSetter: navActions.setNavStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

@@ -44,4 +44,5 @@ export type {
   EditorVariantsT,
   ChangeEditorConfigArgsT,
 };
+
 export { EDITOR_CHANGE_BY_MODE };

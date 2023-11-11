@@ -1,29 +1,31 @@
-export interface NavDropdownT {
+type NavDropdownT = {
   _id: string;
   category: string;
   blocks: Array<NavDropdownBlockT>;
-}
+};
 
 // PARTIALS
-export interface NavDropdownBlockT {
+type NavDropdownBlockT = {
   _id: string;
   title: NavDropdownBlockTitleT;
   routes: Array<NavRouteT>;
-}
+};
 
-export interface NavDropdownBlockTitleT {
+type NavDropdownBlockTitleT = {
   ka: string;
   en: string;
-}
+};
 
-export interface NavRouteT {
+type NavRouteT = {
   _id: string;
   ka: string;
   en: string;
   query: string;
-}
+};
 
 // API
-export interface GetNavArgsT {
+type GetNavArgsT = {
   category: string;
-}
+};
+
+export type { NavDropdownT, GetNavArgsT };

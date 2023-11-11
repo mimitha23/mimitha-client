@@ -4,7 +4,7 @@ import { useGoesOnTutorialContext } from "providers/goesOn/GoesOnTutorialContext
 import { MuteIcon, UnmuteIcon } from "components/Layouts/Icons";
 import * as Styled from "./styles/Explain.styled";
 
-import { GoesOnTutorialStepT } from "providers/goesOn/GoesOnTutorialContext";
+import { GoesOnTutorialStepT } from "providers/goesOn/goesOnTutorialProvider.types";
 
 interface ExplainT {
   description: string;

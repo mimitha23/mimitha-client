@@ -1,5 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { controlStatus as status } from "store/reducers/helpers";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { setStatus, controlStatus as status } from "store/reducers/helpers";
+
+import { SetStatusArgsT } from "interface/store/store.common";
 
 const initialState = {
   status: {
@@ -21,17 +23,13 @@ const userProfileImageSlice = createSlice({
       },
 
       reducer(state) {
-        state.profilePictureStatus = status.loading();
+        state.status = status.loading();
       },
     },
 
     // REQUEST STATUS SETTERS
-    setSuccess(state) {
-      state.status = status.success();
-    },
-
-    setError(state, { payload }) {
-      state.status = status.error(payload.message);
+    setProfileImageStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
+      state.status = setStatus(payload);
     },
   },
 });

@@ -1,6 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootStateT } from "store/store";
 
+// MEMORISED SELECTORS
 const selectedNavStatus = ({ nav }: RootStateT) => ({
   status: nav.status.status,
   loading: nav.status.loading,
@@ -8,9 +9,9 @@ const selectedNavStatus = ({ nav }: RootStateT) => ({
   message: nav.status.message,
 });
 
-export const selectNavDropdown = ({ nav }: RootStateT) => nav.navDropdown;
+// SELECTORS
+const selectNavDropdown = ({ nav }: RootStateT) => nav.navDropdown;
 
-export const selectNavStatus = createSelector(
-  selectedNavStatus,
-  (status) => status
-);
+const selectNavStatus = createSelector(selectedNavStatus, (status) => status);
+
+export { selectNavDropdown, selectNavStatus };

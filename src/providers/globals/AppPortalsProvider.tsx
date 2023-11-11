@@ -7,11 +7,10 @@ import { selectProductToAddToListId } from "store/selectors/user/userLists.selec
 import AuthPopUp from "components/Auth/AuthPopUp";
 import { AddToListPopup } from "components/Layouts";
 
-type AppPortalsContextT = {};
-
-type AppPortalsProviderT = {
-  children: React.ReactNode;
-};
+import {
+  AppPortalsProviderT,
+  AppPortalsContextT,
+} from "./types/appPortalsProvider.types";
 
 const AppPortalsContext = createContext<AppPortalsContextT>({});
 

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { controlStatus as status } from "./helpers";
+import { controlStatus as status, setStatus } from "./helpers";
 
 import {
   ProductShortInfoT,
@@ -41,15 +41,11 @@ const productsSlice = createSlice({
       { payload }: PayloadAction<Array<ProductShortInfoT>>
     ) => {
       state.allProducts = payload;
+      state.allProductsStatus = status.default();
     },
 
     setAllProductsStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
-      state.allProductsStatus =
-        payload.stage === "success"
-          ? status.success(payload.status || "SUCCESS")
-          : payload.stage === "error"
-          ? status.error(payload.message || "")
-          : status[payload.stage]();
+      state.allProductsStatus = setStatus(payload);
     },
 
     cleanUpAllProducts(state) {
@@ -72,15 +68,11 @@ const productsSlice = createSlice({
       { payload }: PayloadAction<Array<ProductShortInfoT>>
     ) => {
       state.searchResults = payload;
+      state.searchProductsStatus = status.default();
     },
 
     setSearchStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
-      state.searchProductsStatus =
-        payload.stage === "success"
-          ? status.success(payload.status || "SUCCESS")
-          : payload.stage === "error"
-          ? status.error(payload.message || "")
-          : status[payload.stage]();
+      state.searchProductsStatus = setStatus(payload);
     },
 
     cleanUpSearchResult(state) {

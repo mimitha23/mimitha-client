@@ -5,14 +5,10 @@ import { MIMITHA_LOCALES_KEY } from "config/consts";
 
 import { MimithaLocaleT } from "interface/common.types";
 
-interface I18nextProviderContextT {
-  currentLocale: MimithaLocaleT;
-  changeLocale: (locale: MimithaLocaleT) => void;
-}
-
-interface I18nextProviderT {
-  children: React.ReactNode;
-}
+import {
+  I18nextProviderT,
+  I18nextProviderContextT,
+} from "./types/i18nextProvider.types";
 
 const i18nextContext = createContext<I18nextProviderContextT>({
   changeLocale: () => {},

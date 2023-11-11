@@ -15,12 +15,12 @@ export function* getLanding() {
       yield call(landingAPI.getLanding);
 
     yield put(landingActions.setLanding(data));
-    yield put(landingActions.setSuccess());
   } catch (error: any) {
     yield errorController({
       error,
       location: "getLandingHandler",
-      errorSetter: landingActions.setError,
+      errorSetter: landingActions.setLandingStatus,
+      errorSetterArgs: { stage: "error" },
     });
   }
 }

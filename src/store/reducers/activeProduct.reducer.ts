@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { controlStatus as status } from "./helpers";
+import { setStatus, controlStatus as status } from "./helpers";
 
 import {
   ProductColorT,
@@ -8,10 +8,11 @@ import {
   GetRelatedProductsArgsT,
   GetActiveProductResponseT,
 } from "interface/DB/product.types";
+import { SetStatusArgsT } from "interface/store/store.common";
 import { ActiveProductStateT } from "interface/store/activeProduct.reducer.types";
 
 const initialState: ActiveProductStateT = {
-  status: status.default(),
+  activeProductStatus: status.default(),
 
   relatedProductsStatus: status.default(),
 
@@ -61,13 +62,15 @@ const activeProductsSlice = createSlice({
     },
 
     // API
+
+    // 1.0
     getActiveProduct: {
       prepare(payload: GetActiveProductArgsT) {
         return { payload };
       },
 
       reducer(state) {
-        state.status = status.loading();
+        state.activeProductStatus = status.loading();
       },
     },
 
@@ -108,8 +111,11 @@ const activeProductsSlice = createSlice({
       );
 
       state.activeSize = payload.size[0];
+
+      state.activeProductStatus = status.default();
     },
 
+    // 2.0
     getRelatedProducts: {
       prepare(payload: GetRelatedProductsArgsT) {
         return { payload };
@@ -125,36 +131,29 @@ const activeProductsSlice = createSlice({
       { payload }: PayloadAction<Array<ProductShortInfoT>>
     ) => {
       state.relatedProducts = payload;
-    },
-
-    // REQUEST STATUS SETTERS
-    setSuccess(state) {
-      state.status = status.default();
-    },
-
-    setError(state, { payload }: PayloadAction<{ message: string }>) {
-      state.status = status.error(payload.message);
-    },
-
-    setRelatedProductsSuccess(state) {
       state.relatedProductsStatus = status.default();
     },
 
-    setRelatedProductsError(
+    // REQUEST STATUS SETTERS
+    setActiveProductStatus(state, { payload }: PayloadAction<SetStatusArgsT>) {
+      state.activeProductStatus = setStatus(payload);
+    },
+
+    setRelatedProductsStatus(
       state,
-      { payload }: PayloadAction<{ message: string }>
+      { payload }: PayloadAction<SetStatusArgsT>
     ) {
-      state.relatedProductsStatus = status.error(payload.message);
+      state.relatedProductsStatus = setStatus(payload);
     },
 
     // RESET
-    resetActiveProduct(state) {
+    cleanUpActiveProduct(state) {
       state.activeSize = initialState.activeSize;
       state.product = initialState.product;
       state.availableColors = initialState.availableColors;
     },
 
-    resetRelatedProducts(state) {
+    cleanUpRelatedProducts(state) {
       state.relatedProducts = [];
     },
   },
